@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="World.cpp">
+      <Filter>src\Simulation\World</Filter>
+    </ClCompile>
+    <ClCompile Include="UserInterface.cpp">
+      <Filter>src\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="Position.cpp">
+      <Filter>src\Simulation\Fundamentals</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>src\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>src\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="Display.cpp">
+      <Filter>src\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="Events.cpp">
+      <Filter>src\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions.cpp">
+      <Filter>src\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="ChunkSystem.cpp">
+      <Filter>src\Simulation\World\ChunkSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="LushLands.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="World.h">
+      <Filter>src\Simulation\World</Filter>
+    </ClInclude>
+    <ClInclude Include="UserInterface.h">
+      <Filter>src\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="Position.h">
+      <Filter>src\Simulation\Fundamentals</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>src\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>src\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="Events.h">
+      <Filter>src\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="Display.h">
+      <Filter>src\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="Constants.h">
+      <Filter>src\Defaults</Filter>
+    </ClInclude>
+    <ClInclude Include="IControlNode.h">
+      <Filter>src\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions.h">
+      <Filter>src\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="ChunkSystem.h">
+      <Filter>src\Simulation\World\ChunkSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="LushLands.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{6c5626ad-7a06-437c-80e6-f4edc691e7d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\UserInterface">
+      <UniqueIdentifier>{b8d2bfba-d456-4e0e-a9a8-d5bb75c5a0e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Simulation">
+      <UniqueIdentifier>{25ce27c8-47e3-4934-81ff-7f449ce94ee2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Defaults">
+      <UniqueIdentifier>{1a94fccb-72fd-48aa-9f1b-293a1100b422}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Interfaces">
+      <UniqueIdentifier>{d71f6567-2650-4169-9610-68b4c9a317ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Simulation\World">
+      <UniqueIdentifier>{7a0343a9-eb76-4c80-825b-66050111b714}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Simulation\World\ChunkSystem">
+      <UniqueIdentifier>{8e84cd75-537c-406a-9246-8a761b049640}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Simulation\Fundamentals">
+      <UniqueIdentifier>{7a4596db-1a9d-4832-a249-a221d6913b55}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
