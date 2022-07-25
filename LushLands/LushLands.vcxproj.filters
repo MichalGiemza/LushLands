@@ -28,10 +28,10 @@
     <ClCompile Include="Actions.cpp">
       <Filter>src\UserInterface</Filter>
     </ClCompile>
+    <ClCompile Include="LushLands.cpp" />
     <ClCompile Include="ChunkSystem.cpp">
       <Filter>src\Simulation\World\ChunkSystem</Filter>
     </ClCompile>
-    <ClCompile Include="LushLands.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
