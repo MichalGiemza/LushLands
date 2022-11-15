@@ -5,6 +5,7 @@
     
 class UserInterface {
 public:
+    static bool initialized;
     static bool running;
 
     static void abortStart(char const *format, ...);

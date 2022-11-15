@@ -1,5 +1,6 @@
 #include "UserInterface.h"
 
+bool UserInterface::initialized;
 bool UserInterface::running;
 
 void UserInterface::abortStart(char const *format, ...) {

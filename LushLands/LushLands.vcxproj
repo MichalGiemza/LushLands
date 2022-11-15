@@ -154,30 +154,45 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ActionMap.cpp" />
     <ClCompile Include="Actions.cpp" />
+    <ClCompile Include="Chunk.cpp" />
     <ClCompile Include="ChunkSystem.cpp" />
+    <ClCompile Include="Connectors.cpp" />
+    <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="ControlManager.cpp" />
     <ClCompile Include="Display.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Events.cpp" />
-    <ClCompile Include="Input.cpp" />
+    <ClCompile Include="FlatlandWorldPlanner.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="LushLands.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="UserInterface.cpp" />
     <ClCompile Include="World.cpp" />
+    <ClCompile Include="BaseWorldPlanner.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActionMap.h" />
     <ClInclude Include="Actions.h" />
+    <ClInclude Include="Chunk.h" />
     <ClInclude Include="ChunkSystem.h" />
+    <ClInclude Include="Connectors.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="Controller.h" />
+    <ClInclude Include="ControlManager.h" />
+    <ClInclude Include="DataTypes.h" />
     <ClInclude Include="Display.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="Events.h" />
+    <ClInclude Include="FlatlandWorldPlanner.h" />
     <ClInclude Include="IControlNode.h" />
-    <ClInclude Include="Input.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="LushLands.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="UserInterface.h" />
     <ClInclude Include="World.h" />
+    <ClInclude Include="BaseWorldPlanner.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

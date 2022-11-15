@@ -5,7 +5,7 @@
 #include "UserInterface.h"
 #include "Display.h"
 #include "Logger.h"
-#include "Input.h"
+#include "Controller.h"
 
 
 void init();

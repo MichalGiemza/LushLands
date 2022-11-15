@@ -24,8 +24,12 @@ void Logger::logKey(char const *how, int keycode, int unichar, int modifiers) {
 
     al_utf8_encode(multibyte, unichar <= 32 ? ' ' : unichar);
     key_name = al_keycode_to_name(keycode);
-    logPrintf("%-8s  code=%03d, char='%s' (%4d), modifiers=%08x, [%s]\n",
+    logPrintf("Key: %-8s  code=%03d, char='%s' (%4d), modifiers=%08x, [%s]\n",
         how, keycode, multibyte, unichar, modifiers, key_name);
+}
+
+void Logger::logAction(actioncode acode) {
+    logPrintf("Action: %s\n", acode.c_str());
 }
 
 void Logger::closeLog(bool wait_for_user) {

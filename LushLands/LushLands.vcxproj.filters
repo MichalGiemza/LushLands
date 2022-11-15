@@ -16,21 +16,42 @@
     <ClCompile Include="Logger.cpp">
       <Filter>src\UserInterface</Filter>
     </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>src\UserInterface</Filter>
-    </ClCompile>
     <ClCompile Include="Display.cpp">
-      <Filter>src\UserInterface</Filter>
-    </ClCompile>
-    <ClCompile Include="Events.cpp">
-      <Filter>src\UserInterface</Filter>
-    </ClCompile>
-    <ClCompile Include="Actions.cpp">
       <Filter>src\UserInterface</Filter>
     </ClCompile>
     <ClCompile Include="LushLands.cpp" />
     <ClCompile Include="ChunkSystem.cpp">
       <Filter>src\Simulation\World\ChunkSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseWorldPlanner.cpp">
+      <Filter>src\Simulation\World\WorldPlanners</Filter>
+    </ClCompile>
+    <ClCompile Include="FlatlandWorldPlanner.cpp">
+      <Filter>src\Simulation\World\WorldPlanners</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>src\Simulation\Fundamentals</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunk.cpp">
+      <Filter>src\Simulation\World\ChunkSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ControlManager.cpp">
+      <Filter>src\Simulation\World\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Connectors.cpp">
+      <Filter>src\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionMap.cpp">
+      <Filter>src\UserInterface\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller.cpp">
+      <Filter>src\UserInterface\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Events.cpp">
+      <Filter>src\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions.cpp">
+      <Filter>src\UserInterface\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -46,28 +67,52 @@
     <ClInclude Include="Logger.h">
       <Filter>src\UserInterface</Filter>
     </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>src\UserInterface</Filter>
-    </ClInclude>
-    <ClInclude Include="Events.h">
-      <Filter>src\UserInterface</Filter>
-    </ClInclude>
     <ClInclude Include="Display.h">
       <Filter>src\UserInterface</Filter>
     </ClInclude>
-    <ClInclude Include="Constants.h">
-      <Filter>src\Defaults</Filter>
-    </ClInclude>
     <ClInclude Include="IControlNode.h">
       <Filter>src\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="Actions.h">
-      <Filter>src\UserInterface</Filter>
     </ClInclude>
     <ClInclude Include="ChunkSystem.h">
       <Filter>src\Simulation\World\ChunkSystem</Filter>
     </ClInclude>
     <ClInclude Include="LushLands.h" />
+    <ClInclude Include="BaseWorldPlanner.h">
+      <Filter>src\Simulation\World\WorldPlanners</Filter>
+    </ClInclude>
+    <ClInclude Include="FlatlandWorldPlanner.h">
+      <Filter>src\Simulation\World\WorldPlanners</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>src\Simulation\Fundamentals</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunk.h">
+      <Filter>src\Simulation\World\ChunkSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ControlManager.h">
+      <Filter>src\Simulation\World\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionMap.h">
+      <Filter>src\UserInterface\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller.h">
+      <Filter>src\UserInterface\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Events.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions.h">
+      <Filter>src\UserInterface\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTypes.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Constants.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Connectors.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -78,9 +123,6 @@
     </Filter>
     <Filter Include="src\Simulation">
       <UniqueIdentifier>{25ce27c8-47e3-4934-81ff-7f449ce94ee2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Defaults">
-      <UniqueIdentifier>{1a94fccb-72fd-48aa-9f1b-293a1100b422}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Interfaces">
       <UniqueIdentifier>{d71f6567-2650-4169-9610-68b4c9a317ce}</UniqueIdentifier>
@@ -93,6 +135,18 @@
     </Filter>
     <Filter Include="src\Simulation\Fundamentals">
       <UniqueIdentifier>{7a4596db-1a9d-4832-a249-a221d6913b55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Simulation\World\WorldPlanners">
+      <UniqueIdentifier>{56756d01-6f74-4ae7-93e6-286584bc9f92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Simulation\World\Managers">
+      <UniqueIdentifier>{a22cecab-8a5c-4316-b241-c15850566dcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\UserInterface\Input">
+      <UniqueIdentifier>{e56eb384-f385-4064-abba-63daf5d8d0a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Core">
+      <UniqueIdentifier>{507e623a-c6d4-46ab-9f50-d87ee3342a7b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

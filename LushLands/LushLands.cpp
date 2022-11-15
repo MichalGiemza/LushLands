@@ -1,4 +1,5 @@
 ﻿#include "LushLands.h"
+#include "ActionMap.h"
 
 void init() {
     if (!al_init()) {
@@ -7,16 +8,15 @@ void init() {
     Events::init();
     Display::init();
     Logger::init();
-    Input::init();
-    UI::running = true;
+    ActionMap::init();
+    Controller::init();
+
+    UI::initialized = true;
 }
 
 void main_loop() {
+    UI::running = true;
     Events::mainLoop();
-}
-
-void log_key(int key) {
-    Logger::logKey("Key", key, 0, 0);
 }
 
 int main(int argc, char **argv) {
@@ -24,8 +24,6 @@ int main(int argc, char **argv) {
     (void)argv;
 
     init();
-
-    Input::assignActionToKeyDown(23, log_key);
 
     //Logger::logPrintf("FPS: % f", Display::getCurrentFPS());
 

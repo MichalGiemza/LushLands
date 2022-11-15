@@ -27,6 +27,18 @@ int Position::getRawZ() {
     return _z / representationComaValue;
 }
 
+int Position::x() {
+    return getRawX();
+}
+
+int Position::y() {
+    return getRawY();
+}
+
+int Position::z() {
+    return getRawZ();
+}
+
 void Position::setRawX(int x) {
     _x = x * representationComaValue;
 }
@@ -45,6 +57,10 @@ int Position::getChunkX() {
 
 int Position::getChunkZ() {
     return int(_z) / chunkSize / representationComaValue;
+}
+
+ChunkPosition Position::getChunkPosition() {
+    return ChunkPosition(getChunkX(), getChunkZ());
 }
 
 int Position::getInsideChunkRawX() {
