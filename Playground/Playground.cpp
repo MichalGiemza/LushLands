@@ -1,39 +1,24 @@
-#include <stdio.h>
-#include <functional>
-#include <vector>
+#include <windows.h>
+#include <iostream>
+#include <exception>
 
+bool initialized = false;
 
-typedef int keycode;
-typedef std::function<void()> eventfn;
-
-
-struct KeySubscribtion {
-    keycode code;
-    eventfn func;
-};
-
-void t_f() {
-    printf("test");
+void main_loop() {
+    if (!initialized)
+        throw std::exception("Cannot run main loop without initialization.");
+    ;
 }
 
 
-class Events {
-    static std::vector<KeySubscribtion> subscribersKeyDown;
-    static std::vector<KeySubscribtion> subscribersKeyUp;
-public:
-    static void f() {
-        Events::subscribersKeyDown.push_back(KeySubscribtion(12, t_f));
+int main(int argc, char **argv) {
+    (void)argc;
+    (void)argv;
 
-        for (auto ev = subscribersKeyDown.begin(); ev != subscribersKeyDown.end(); ++ev) {
-            printf("Num: %d", (*ev).code);
-            (*ev).func();
-        }
+    try {
+        //init();
+        main_loop();
+    } catch (std::exception &e) {
+        std::cout << "Unhandled exception: " << e.what() << std::endl;
     }
-};
-
-std::vector<KeySubscribtion> Events::subscribersKeyDown = std::vector<KeySubscribtion>();
-std::vector<KeySubscribtion> Events::subscribersKeyUp = std::vector<KeySubscribtion>();
-
-int main() {
-    Events::f();
 }

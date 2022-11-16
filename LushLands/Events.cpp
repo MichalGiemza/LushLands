@@ -17,8 +17,8 @@ void Events::init() {
     }
 }
 
-void Events::mainLoop() {
-    while (UI::running) {
+void Events::mainLoop(bool *isRunning) {
+    while (*isRunning) {
         al_wait_for_event(eventQueue, &currentEvent);
 
         switch (currentEvent.type) {
@@ -42,7 +42,7 @@ void Events::mainLoop() {
         }
         case ALLEGRO_EVENT_DISPLAY_CLOSE: {
             // TODO
-            UI::stopRunning();
+            *isRunning = false;
             break;
         }
         case ALLEGRO_EVENT_DISPLAY_SWITCH_OUT: {

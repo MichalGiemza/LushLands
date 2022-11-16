@@ -4,7 +4,6 @@
 #include "ChunkSystem.h"
 #include "BaseWorldPlanner.h"
 #include "Entity.h"
-#include "ControlManager.h"
 
 using namespace std;
 
@@ -21,9 +20,8 @@ class World {
     int seed;
     BaseWorldPlanner worldPlanner;
     ChunkSystem chunkSystem;
-    ControlManager controlManager;  // FIXME: Sterowanie za pomoc¹ inputu, czy to bêdzie tutaj?
 public:
-    World(string worldType, int seed, ControlManager controlManager);
+    World(string worldType, int seed);
     int getSeed();
     vector<Entity> getByPosition(Position position);
     void addPlayer(Entity player, Position position);

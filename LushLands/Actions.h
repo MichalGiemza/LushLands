@@ -1,5 +1,4 @@
 #pragma once
-#include "Connectors.h"
 #include "DataTypes.h"
 
 const actioncode GO_NORTH = "go_north";

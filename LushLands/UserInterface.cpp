@@ -1,7 +1,5 @@
 #include "UserInterface.h"
 
-bool UserInterface::initialized;
-bool UserInterface::running;
 
 void UserInterface::abortStart(char const *format, ...) {
     va_list args;
@@ -11,6 +9,7 @@ void UserInterface::abortStart(char const *format, ...) {
     exit(1);
 }
 
-void UserInterface::stopRunning() {
-    running = false;
+void UserInterface::init() {
+    Display::init();
+    Controller::init();
 }

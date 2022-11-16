@@ -9,13 +9,12 @@ class ControlManager {
     * Pozwala na kontrolowanie elementów symulacji za pomoc¹ danych wejœciowych.
     * Klasa pozwala na kontrolê obiektów œwiata poprzez wejœcia z UI (podane przez Connectory).
     */
-    Entity* controlledEntity; // IControlNode
-    Controller* controller;
+    static Entity *controlledEntity; // IControlNode
+    static Controller *controller;
 public:
-    ControlManager();
-    void setController(Controller controller);
+    void setController(Controller *controller);
     void clearController();
-    void setControlledEntity(Entity entity);
+    void setControlledEntity(Entity *entity);
     void clearControlledEntity();
 };
 

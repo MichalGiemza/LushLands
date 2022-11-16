@@ -30,7 +30,7 @@ class Events {
     static std::vector<TimerSubscription> subscribersTimer;
 public:
     static void init();
-    static void mainLoop();
+    static void mainLoop(bool *isRunning);
     static void registerEventSource(ALLEGRO_EVENT_SOURCE *event_source);
 
     static void subscribeKeyDown(keycode kc, eventfn fun);

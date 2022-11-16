@@ -1,13 +1,16 @@
 #pragma once
 #include <windows.h>
 #include <iostream>
+#include <exception>
 #include <allegro5/system.h>
 #include "UserInterface.h"
-#include "Display.h"
 #include "Logger.h"
-#include "Controller.h"
+#include "ActionMap.h"
+#include "SimulationEventHandler.h"
+#include "DataMappers.h"
 
+extern bool initialized;
+extern bool running;
 
 void init();
-
 void main_loop();
