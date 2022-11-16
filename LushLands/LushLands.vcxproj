@@ -168,6 +168,7 @@
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="LushLands.cpp" />
     <ClCompile Include="Position.cpp" />
+    <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="SimulationEventHandler.cpp" />
     <ClCompile Include="UserInterface.cpp" />
     <ClCompile Include="World.cpp" />
@@ -185,11 +186,13 @@
     <ClInclude Include="DataTypes.h" />
     <ClInclude Include="Display.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="ConstantSets.h" />
     <ClInclude Include="Events.h" />
     <ClInclude Include="FlatlandWorldPlanner.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="LushLands.h" />
     <ClInclude Include="Position.h" />
+    <ClInclude Include="Simulation.h" />
     <ClInclude Include="SimulationEventHandler.h" />
     <ClInclude Include="UserInterface.h" />
     <ClInclude Include="World.h" />

@@ -29,7 +29,7 @@ void Logger::logKey(char const *how, int keycode, int unichar, int modifiers) {
 }
 
 void Logger::logAction(actioncode acode) {
-    logPrintf("Action: %s\n", acode.c_str());
+    logPrintf("Action: %s\n", acode);
 }
 
 void Logger::closeLog(bool wait_for_user) {

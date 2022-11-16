@@ -1,11 +1,7 @@
 #pragma once
 #include "Position.h"
+#include "DataTypes.h"
 
-struct FieldPlan {
-    string ground;
-    string structure;
-    string animal;
-};
 
 class BaseWorldPlanner {
     /** 
@@ -14,6 +10,6 @@ class BaseWorldPlanner {
     * Planowanie œwiata musi odbywaæ siê w sposób deterministyczny. 
     */
 public:
-    virtual FieldPlan getFieldPlan(Position position);
-    virtual int getSeaLevel();
+    virtual FieldPlan getFieldPlan(Position position) = 0;
+    virtual int getSeaLevel() = 0;
 };

@@ -1,14 +1,14 @@
 #include "FlatlandWorldPlanner.h"
 
-inline FlatlandWorldPlanner::FlatlandWorldPlanner(int seed) {
+FlatlandWorldPlanner::FlatlandWorldPlanner(int seed) {
     this->seed = seed;
 }
 
-inline int FlatlandWorldPlanner::getSeaLevel() {
+int FlatlandWorldPlanner::getSeaLevel() {
     return seaLevel;
 }
 
-inline FieldPlan FlatlandWorldPlanner::getFieldPlan(Position position) {
+FieldPlan FlatlandWorldPlanner::getFieldPlan(Position position) {
     FieldPlan fp;
     // Over ground
     if (position.y() > seaLevel) {

@@ -56,6 +56,9 @@
     <ClCompile Include="DataMappers.cpp">
       <Filter>src\DataMappers</Filter>
     </ClCompile>
+    <ClCompile Include="Simulation.cpp">
+      <Filter>src\Simulation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -115,6 +118,12 @@
     </ClInclude>
     <ClInclude Include="DataMappers.h">
       <Filter>src\DataMappers</Filter>
+    </ClInclude>
+    <ClInclude Include="Simulation.h">
+      <Filter>src\Simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstantSets.h">
+      <Filter>src\Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

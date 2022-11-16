@@ -4,6 +4,7 @@
 #include "ChunkSystem.h"
 #include "BaseWorldPlanner.h"
 #include "Entity.h"
+#include "DataTypes.h"
 
 using namespace std;
 
@@ -17,12 +18,15 @@ class World {
     * Uwagi:
     *  - Nie mo¿na tu dodawaæ systemu eventów, stworzy to oddzieln¹ pulê eventów (niezale¿n¹ od chunkowej).
     */
-    int seed;
-    BaseWorldPlanner worldPlanner;
-    ChunkSystem chunkSystem;
+    int seed_;
+    BaseWorldPlanner *worldPlanner;
+    ChunkSystem *chunkSystem;
+    worldtype worldType;
 public:
-    World(string worldType, int seed);
+    World(worldtype worldType, seed seed_);
     int getSeed();
     vector<Entity> getByPosition(Position position);
-    void addPlayer(Entity player, Position position);
+    void placePlayer(Entity player, Position position);
+    int getSeaLevel();
+
 };

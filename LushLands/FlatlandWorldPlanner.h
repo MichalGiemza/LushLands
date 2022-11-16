@@ -1,12 +1,14 @@
 #pragma once
 #include <string>
 #include "BaseWorldPlanner.h"
+#include "DataTypes.h"
+#include "ConstantSets.h"
 
 using namespace std;
 
 class FlatlandWorldPlanner : public BaseWorldPlanner {
     int seed;
-    string worldType = "flatland";
+    worldtype worldType = FLATLAND;
     const int seaLevel = 32;
 public:
     FlatlandWorldPlanner(int seed);
