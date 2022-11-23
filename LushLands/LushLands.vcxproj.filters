@@ -23,14 +23,11 @@
     <ClCompile Include="FlatlandWorldPlanner.cpp">
       <Filter>src\Simulation\World\WorldPlanners</Filter>
     </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>src\Simulation\Fundamentals</Filter>
-    </ClCompile>
     <ClCompile Include="Chunk.cpp">
       <Filter>src\Simulation\World\ChunkSystem</Filter>
     </ClCompile>
     <ClCompile Include="ControlManager.cpp">
-      <Filter>src\Simulation\World\Managers</Filter>
+      <Filter>src\Simulation\Managers</Filter>
     </ClCompile>
     <ClCompile Include="Logger.cpp">
       <Filter>src\Logger</Filter>
@@ -59,6 +56,30 @@
     <ClCompile Include="Simulation.cpp">
       <Filter>src\Simulation</Filter>
     </ClCompile>
+    <ClCompile Include="ChunkLoadManager.cpp">
+      <Filter>src\Simulation\World\ChunkSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground.cpp">
+      <Filter>src\Simulation\World\ChunkSystem\Entities\Concrete</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>src\Simulation\World\ChunkSystem\Entities\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Body.cpp">
+      <Filter>src\Simulation\World\ChunkSystem\Entities\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Representation.cpp">
+      <Filter>src\Simulation\World\ChunkSystem\Entities\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Size.cpp">
+      <Filter>src\Simulation\Fundamentals</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityFactory.cpp">
+      <Filter>src\Simulation\World\ChunkSystem\Entities\EntityFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.cpp">
+      <Filter>src\Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -80,14 +101,11 @@
     <ClInclude Include="FlatlandWorldPlanner.h">
       <Filter>src\Simulation\World\WorldPlanners</Filter>
     </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>src\Simulation\Fundamentals</Filter>
-    </ClInclude>
     <ClInclude Include="Chunk.h">
       <Filter>src\Simulation\World\ChunkSystem</Filter>
     </ClInclude>
     <ClInclude Include="ControlManager.h">
-      <Filter>src\Simulation\World\Managers</Filter>
+      <Filter>src\Simulation\Managers</Filter>
     </ClInclude>
     <ClInclude Include="DataTypes.h">
       <Filter>src\Core</Filter>
@@ -125,6 +143,33 @@
     <ClInclude Include="ConstantSets.h">
       <Filter>src\Core</Filter>
     </ClInclude>
+    <ClInclude Include="ChunkLoadManager.h">
+      <Filter>src\Simulation\World\ChunkSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground.h">
+      <Filter>src\Simulation\World\ChunkSystem\Entities\Concrete</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>src\Simulation\World\ChunkSystem\Entities\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Body.h">
+      <Filter>src\Simulation\World\ChunkSystem\Entities\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Representation.h">
+      <Filter>src\Simulation\World\ChunkSystem\Entities\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Size.h">
+      <Filter>src\Simulation\Fundamentals</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityFactory.h">
+      <Filter>src\Simulation\World\ChunkSystem\Entities\EntityFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="PositionStructures.h">
+      <Filter>src\Simulation\Fundamentals</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -142,14 +187,8 @@
     <Filter Include="src\Simulation\World\ChunkSystem">
       <UniqueIdentifier>{8e84cd75-537c-406a-9246-8a761b049640}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Simulation\Fundamentals">
-      <UniqueIdentifier>{7a4596db-1a9d-4832-a249-a221d6913b55}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Simulation\World\WorldPlanners">
       <UniqueIdentifier>{56756d01-6f74-4ae7-93e6-286584bc9f92}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Simulation\World\Managers">
-      <UniqueIdentifier>{a22cecab-8a5c-4316-b241-c15850566dcc}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Core">
       <UniqueIdentifier>{507e623a-c6d4-46ab-9f50-d87ee3342a7b}</UniqueIdentifier>
@@ -165,6 +204,27 @@
     </Filter>
     <Filter Include="src\DataMappers">
       <UniqueIdentifier>{f2da08fd-02bf-4d18-910a-36b241235b13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Simulation\Managers">
+      <UniqueIdentifier>{a22cecab-8a5c-4316-b241-c15850566dcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Simulation\World\ChunkSystem\Entities">
+      <UniqueIdentifier>{97844601-3bcd-4941-b8ae-04b726634e19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Simulation\Fundamentals">
+      <UniqueIdentifier>{7a4596db-1a9d-4832-a249-a221d6913b55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Simulation\World\ChunkSystem\Entities\Base">
+      <UniqueIdentifier>{4a538312-e3a6-4a81-ad7f-169647ff38dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Simulation\World\ChunkSystem\Entities\Modules">
+      <UniqueIdentifier>{7d7c5b0d-24e3-46cc-bcb0-b51e68c66b0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Simulation\World\ChunkSystem\Entities\Concrete">
+      <UniqueIdentifier>{c04fcc1d-6828-4a6e-8bc2-7ad9b1907cdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Simulation\World\ChunkSystem\Entities\EntityFactory">
+      <UniqueIdentifier>{087ade55-06bc-46fe-b215-3d9877431bdf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,14 +1,15 @@
 #include "Entity.h"
 
-inline Entity::Entity(string typeName, string description) {
-    this->typeName = typeName;
+Entity::Entity(entitytype entityType, std::string description) {
+    this->entityType = entityType;
     this->description = description;
+    Logger::log("Entity Chunk [%s]", entityType);
 }
 
-inline string Entity::getTypeName() {
-    return typeName;
+entitytype Entity::getType() {
+    return entityType;
 }
 
-inline string Entity::getDescription() {
+std::string Entity::getDescription() {
     return description;
 }

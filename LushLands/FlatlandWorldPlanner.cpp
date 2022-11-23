@@ -50,7 +50,7 @@ FieldPlan FlatlandWorldPlanner::getFieldPlan(Position position) {
             return fp;
         }
     } else {
-        fp.ground = "sand";
+        fp.ground = "dirt";
         fp.structure = "";
         fp.animal = "";
         return fp;

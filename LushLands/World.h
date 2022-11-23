@@ -3,10 +3,9 @@
 #include "Position.h"
 #include "ChunkSystem.h"
 #include "BaseWorldPlanner.h"
-#include "Entity.h"
 #include "DataTypes.h"
-
-using namespace std;
+#include "ConstantSets.h"
+#include "FlatlandWorldPlanner.h"
 
 class World {
     /** 
@@ -25,8 +24,8 @@ class World {
 public:
     World(worldtype worldType, seed seed_);
     int getSeed();
-    vector<Entity> getByPosition(Position position);
-    void placePlayer(Entity player, Position position);
+    vector<Entity *> getByPosition(Position position);
+    void placePlayer(Entity *player, Position position);
     int getSeaLevel();
-
+    ChunkLoadManager *getChunkLoadManager();
 };

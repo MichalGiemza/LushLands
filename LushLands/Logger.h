@@ -16,6 +16,7 @@ public:
     static void logAction(actioncode acode);
     static void openLogMonospace(void);
     static void logPrintf(char const *format, ...);
+    static void log(char const *format, ...);
     static void closeLog(bool wait_for_user);
 
     static void init();

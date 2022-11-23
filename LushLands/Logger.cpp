@@ -18,6 +18,15 @@ void Logger::logPrintf(char const *format, ...) {
     al_append_native_text_log(textlog, "%s", str);
 }
 
+void Logger::log(char const *format, ...) {
+    char str[1024];
+    va_list args;
+    va_start(args, format);
+    vsnprintf(str, sizeof str, format, args);
+    va_end(args);
+    al_append_native_text_log(textlog, "%s\n", str);
+}
+
 void Logger::logKey(char const *how, int keycode, int unichar, int modifiers) {
     char multibyte[5] = { 0, 0, 0, 0, 0 };
     const char *key_name;

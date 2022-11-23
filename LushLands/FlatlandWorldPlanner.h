@@ -13,6 +13,5 @@ class FlatlandWorldPlanner : public BaseWorldPlanner {
 public:
     FlatlandWorldPlanner(int seed);
     int getSeaLevel();
-
     FieldPlan getFieldPlan(Position position);
 };

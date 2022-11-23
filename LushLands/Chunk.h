@@ -2,10 +2,9 @@
 #include <map>
 #include "Position.h"
 #include "Entity.h"
-#include "BaseWorldPlanner.h"
+#include "DataTypes.h"
+#include "Logger.h"
 
-
-using namespace std;
 
 class Chunk {
     /**
@@ -16,8 +15,8 @@ class Chunk {
     */
 private: 
     ChunkPosition chunkPosition;
-    map<TilePosition, Entity> groundTiles;
-    map<TilePosition, Entity> structures;
+    std::unordered_map<TilePosition, Entity *> groundTiles;
+    std::unordered_map<TilePosition, Entity *> structures;
 
     //EventManagementSystem eventManagementSystem;
     //LooseEntityManager looseEntityManager;
@@ -27,8 +26,8 @@ private:
     //TileMovementManager tileMovementManager;
 
 public:
-    Entity getGround(TilePosition tilePosition);
-    Entity getStructure(TilePosition tilePosition);
-    void generateChunk(BaseWorldPlanner worldPlanner);
+    Chunk(ChunkPosition &chunkPosition, ChunkPlan chunkPlan);
+    Entity *getGround(TilePosition tilePosition);
+    Entity *getStructure(TilePosition tilePosition);
 };
 

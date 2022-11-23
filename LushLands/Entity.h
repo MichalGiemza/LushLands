@@ -3,17 +3,19 @@
 #include <string>
 #include <vector>
 #include <unordered_set>
+#include "DataTypes.h"
+#include "Logger.h"
 
-using namespace std;
 
 class Entity {
     /**
     * Definicja najbardziej podstawowego elementu œwiata.
     */
-    string typeName;
-    string description;
+    entitytype entityType;
+    std::string description;
 public:
-    Entity(string typeName, string description);
-    string getTypeName();
-    string getDescription();
+    Entity(entitytype entityType, std::string description);
+    entitytype getType();
+    std::string getDescription();
+    virtual Entity *clone() = 0;
 };
