@@ -28,7 +28,7 @@ int Position::getX() const {
 }
 
 int Position::getY() const {
-    return _x / representationComaValue;
+    return _y / representationComaValue;
 }
 
 int Position::getZ() const {
@@ -40,7 +40,7 @@ int Position::getAccurateX() const {
 }
 
 int Position::getAccurateY() const {
-    return _x;
+    return _y;
 }
 
 int Position::getAccurateZ() const {
@@ -74,15 +74,23 @@ void Position::setZ(int z) {
 }
 
 int Position::getChunkX() {
-    return int(_x) / chunkSize / representationComaValue;
+    return _x / chunkSize / representationComaValue;
 }
 
 int Position::getChunkZ() {
-    return int(_z) / chunkSize / representationComaValue;
+    return _z / chunkSize / representationComaValue;
 }
 
 ChunkPosition Position::getChunkPosition() {
     return ChunkPosition(getChunkX(), getChunkZ());
+}
+
+TilePosition Position::getTilePosition() {
+    TilePosition tp = TilePosition();
+    tp.x = getX();
+    tp.y = getY();
+    tp.z = getZ();
+    return tp;
 }
 
 int Position::getInsideChunkRawX() {

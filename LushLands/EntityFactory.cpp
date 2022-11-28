@@ -2,7 +2,7 @@
 
 std::unordered_map<entitytype, Entity *> EntityFactory::prefabs = std::unordered_map<entitytype, Entity *>();
 
-void EntityFactory::setupPrefabs() {
+void EntityFactory::setupPrefabs() {  // TODO: Czy wszystkie te pola s¹ w kó³ko kopiowane przy kolejnych konstruktorach?
     prefabs[SOIL] = new Ground(SOIL, SOIL_DESCRIPTION, Position(), Size(1, 1, 1), SOIL_TEXTURE, SOIL_COLOR);
     prefabs[GRASS] = new Ground(GRASS, GRASS_DESCRIPTION, Position(), Size(1, 1, 1), GRASS_TEXTURE, GRASS_COLOR);
     prefabs[WATER] = new Ground(WATER, WATER_DESCRIPTION, Position(), Size(1, 1, 1), WATER_TEXTURE, WATER_COLOR);
@@ -19,5 +19,7 @@ void EntityFactory::init() {
 }
 
 Entity *EntityFactory::buildEntity(entitytype entityType) {
+    if (entityType == AIR)
+        return 0;
     return prefabs[entityType]->clone();
 }

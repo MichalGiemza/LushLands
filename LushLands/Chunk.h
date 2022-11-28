@@ -4,6 +4,8 @@
 #include "Entity.h"
 #include "DataTypes.h"
 #include "Logger.h"
+#include "Ground.h"
+#include "EntityFactory.h"
 
 
 class Chunk {
@@ -24,10 +26,10 @@ private:
     //CollisionManager collisionManager;
     //PositionManager positionManager;
     //TileMovementManager tileMovementManager;
-
+    void generateTiles(ChunkPlan &chunkPlan);
 public:
-    Chunk(ChunkPosition &chunkPosition, ChunkPlan chunkPlan);
-    Entity *getGround(TilePosition tilePosition);
-    Entity *getStructure(TilePosition tilePosition);
+    Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan);
+    Entity *getGround(TilePosition &tilePosition);
+    Entity *getStructure(TilePosition &tilePosition);
 };
 

@@ -1,6 +1,7 @@
 #pragma once
 #include "Position.h"
 #include "Size.h"
+#include "Logger.h"
 
 class Body {
     /** 
@@ -14,5 +15,6 @@ public:
     Position getTopLeft();
     Position getBottomRight();
     Size getSize();
+    void setPosition(Position position);
 };
 

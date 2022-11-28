@@ -26,6 +26,7 @@ public:
     int getChunkX();
     int getChunkZ();
     ChunkPosition getChunkPosition();
+    TilePosition getTilePosition();
     int getInsideChunkRawX();
     int getInsideChunkRawZ();
     std::string getTextX();

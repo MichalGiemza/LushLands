@@ -4,6 +4,8 @@ Ground::Ground(entitytype entityType, std::string description, Position position
     Entity(entityType, description),
     Body(position, size),
     Representation(textureName, color) {
+
+    Logger::log("Created Ground entity [%s;%i,%i]", entityType, position.x(), position.z());
 }
 
 Entity *Ground::clone() {

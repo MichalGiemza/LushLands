@@ -9,50 +9,50 @@ int FlatlandWorldPlanner::getSeaLevel() {
 }
 
 FieldPlan FlatlandWorldPlanner::getFieldPlan(Position position) {
-    FieldPlan fp;
+    FieldPlan fp = FieldPlan();
     // Over ground
     if (position.y() > seaLevel) {
-        fp.ground = "";
-        fp.structure = "";
-        fp.animal = "";
+        fp.ground = AIR;
+        fp.structure = 0;
+        fp.animal = 0;
         return fp;
     }
     // Underground
     if (position.y() < seaLevel) {
-        fp.ground = "stone";
-        fp.structure = "";
-        fp.animal = "";
+        fp.ground = ROCK;
+        fp.structure = 0;
+        fp.animal = 0;
         return fp;
     }
     // Exposed ground level
     if ((position.x() + position.z()) % 2 == 0) {
         if (position.x() % 4 == 0 and position.z() % 4 == 0) {
-            fp.ground = "grass";
-            fp.structure = "tree";
-            fp.animal = "";
+            fp.ground = GRASS;
+            fp.structure = 0; //TREE
+            fp.animal = 0;
             return fp;
         }
         if (position.x() % 6 == 2 and position.z() % 6 == 2) {
-            fp.ground = "grass";
-            fp.structure = "";
-            fp.animal = "rabbit";
+            fp.ground = GRASS;
+            fp.structure = 0;
+            fp.animal = 0; //rabbit
             return fp;
         }
         if (position.x() % 6 == 4 and position.z() % 6 == 4) {
-            fp.ground = "grass";
-            fp.structure = "brick_wall";
-            fp.animal = "";
+            fp.ground = GRASS;
+            fp.structure = 0; // "brick_wall"
+            fp.animal = 0;
             return fp;
         } else {
-            fp.ground = "grass";
-            fp.structure = "";
-            fp.animal = "";
+            fp.ground = GRASS;
+            fp.structure = 0;
+            fp.animal = 0;
             return fp;
         }
     } else {
-        fp.ground = "dirt";
-        fp.structure = "";
-        fp.animal = "";
+        fp.ground = SOIL;
+        fp.structure = 0;
+        fp.animal = 0;
         return fp;
     }
 }

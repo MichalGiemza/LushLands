@@ -27,8 +27,8 @@ void ChunkLoadManager::updateLoadedChunkList() {
 }
 
 Chunk *ChunkLoadManager::generateChunk(ChunkPosition &chunkPosition) {
-    ChunkPlan cp = worldPlanner->getChunkPlan(chunkPosition);
-    return new Chunk(chunkPosition, cp);
+    ChunkPlan *cp = worldPlanner->getChunkPlan(chunkPosition);
+    return new Chunk(chunkPosition, *cp);
 }
 
 Chunk *ChunkLoadManager::getChunk(ChunkPosition chunkPosition) {

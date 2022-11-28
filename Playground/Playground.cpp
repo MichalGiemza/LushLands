@@ -24,37 +24,33 @@
 //    virtual baseClass myFunction() override {};
 //};
 
-typedef const char *entitytype;
-
-struct ChunkPosition {
-    int x;
-    int z;
-    bool operator==(const ChunkPosition &other) const {
-        return x == other.x && z == other.z;
-    }
-};
-
-template<> struct std::hash<ChunkPosition> {
-    std::size_t operator()(const ChunkPosition &p) const {
-        return
-            hash<int>()(p.x) ^
-            hash<int>()(p.z);
-    }
-};
-
-std::unordered_map<entitytype, char *> groundTiles = std::unordered_map<entitytype, char *>();
-
-int main(int argc, char **argv) {
-    (void)argc;
-    (void)argv;
-
-    //ChunkPosition c = { 12, 43 };
-    entitytype c = "cac";
-
-    groundTiles[c] = (char *)"ccc";
-
-    std::cout << groundTiles[c];
-}
+//typedef const char *entitytype;
+//struct ChunkPosition {
+//    int x;
+//    int z;
+//    bool operator==(const ChunkPosition &other) const {
+//        return x == other.x && z == other.z;
+//    }
+//};
+//template<> struct std::hash<ChunkPosition> {
+//    std::size_t operator()(const ChunkPosition &p) const {
+//        return
+//            hash<int>()(p.x) ^
+//            hash<int>()(p.z);
+//    }
+//};
+//std::unordered_map<entitytype, char *> groundTiles = std::unordered_map<entitytype, char *>();
+//int main(int argc, char **argv) {
+//    (void)argc;
+//    (void)argv;
+//
+//    //ChunkPosition c = { 12, 43 };
+//    entitytype c = "cac";
+//
+//    groundTiles[c] = (char *)"ccc";
+//
+//    std::cout << groundTiles[c];
+//}
 
 //#include <windows.h>
 //#include <iostream>
@@ -91,3 +87,10 @@ int main(int argc, char **argv) {
     //    }
     //}
 //}
+
+
+int main(int argc, char **argv) {
+    (void)argc;
+    (void)argv;
+
+}

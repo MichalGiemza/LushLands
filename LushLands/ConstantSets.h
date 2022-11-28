@@ -12,6 +12,7 @@ const actioncode GO_EAST = "go_east";
 const actioncode USE = "use";
 
 // Entity types (ground)
+const entitytype AIR = "air";
 const entitytype SOIL = "soil";
 const entitytype GRASS = "grass";
 const entitytype WATER = "water";

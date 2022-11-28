@@ -22,7 +22,7 @@ struct FieldPlan {
 };
 
 struct ChunkPlan {
-    FieldPlan fieldPlans[chunkSize][chunkSize];
+    FieldPlan fieldPlans[chunkSize][chunkSize][worldHeight]; // [X][Z][Y]
 };
 
 class not_implemented_error : public std::logic_error {

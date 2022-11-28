@@ -1,6 +1,7 @@
 #pragma once
 #include "World.h"
 #include "ConstantSets.h"
+#include "EntityFactory.h"
 
 class Simulation {
     static World *world;

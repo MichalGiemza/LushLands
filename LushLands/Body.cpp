@@ -25,3 +25,7 @@ Position Body::getBottomRight() {
 Size Body::getSize() {
     return Size(size);
 }
+
+void Body::setPosition(Position position) {
+    this->position = position;
+}
