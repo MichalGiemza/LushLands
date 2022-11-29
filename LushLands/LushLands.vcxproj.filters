@@ -80,6 +80,9 @@
     <ClCompile Include="Color.cpp">
       <Filter>src\Core</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>src\UserInterface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -169,6 +172,9 @@
     </ClInclude>
     <ClInclude Include="PositionStructures.h">
       <Filter>src\Simulation\Fundamentals</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>src\UserInterface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

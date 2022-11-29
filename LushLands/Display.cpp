@@ -1,8 +1,10 @@
 #include "Display.h"
 
 ALLEGRO_DISPLAY *Display::display;
-double Display::old_time;
+double Display::oldTimeFPS;
 double Display::currentFPS;
+double Display::oldTimeTPS;
+double Display::currentTPS;
 
 ALLEGRO_DISPLAY *Display::getDisplay() {
     return display;
@@ -14,8 +16,12 @@ void Display::init() {
         UserInterface::abortStart("al_create_display failed\n");
     }
     Events::registerEventSource(al_get_display_event_source(Display::getDisplay()));
-    old_time = al_get_time();
+    oldTimeFPS = al_get_time();
+    oldTimeTPS = al_get_time();
     currentFPS = 0.0;
+    currentTPS = 0.0;
+    Events::subscribeTimerFPS(1, updateTrackingFPS);
+    Events::subscribeTimerTPS(1, updateTrackingTPS);
 }
 
 void Display::clearDisplay() {
@@ -23,12 +29,23 @@ void Display::clearDisplay() {
 }
 
 void Display::updateTrackingFPS() {
-    double new_time = al_get_time();
-    double delta = new_time - old_time;
-    currentFPS = 1 / (delta * 1000);
-    old_time = new_time;
+    double newTime = al_get_time();
+    currentFPS = 1 / (newTime - oldTimeFPS);
+    oldTimeFPS = newTime;
+    //Logger::log("FPS: [%f]", currentFPS);
+}
+
+void Display::updateTrackingTPS() {
+    double newTime = al_get_time();
+    currentFPS = 1 / (newTime - oldTimeTPS);
+    oldTimeTPS = newTime;
+    //Logger::log("TPS: [%f]", currentFPS);
 }
 
 double Display::getCurrentFPS() {
     return currentFPS;
+}
+
+double Display::getCurrentTPS() {
+    return currentTPS;
 }

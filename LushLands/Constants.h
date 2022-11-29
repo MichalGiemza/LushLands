@@ -1,5 +1,9 @@
 #pragma once
 
+// Simulation
+const int TicksPerSecond = 24;
+const int FramesPerSecond = 60;
+
 // World
 const int worldHeight = 64; // Y coordinates up to this value
 
