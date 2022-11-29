@@ -34,3 +34,7 @@ Chunk *ChunkLoadManager::generateChunk(ChunkPosition &chunkPosition) {
 Chunk *ChunkLoadManager::getChunk(ChunkPosition chunkPosition) {
     return chunks[chunkPosition];
 }
+
+int ChunkLoadManager::getChunksLoadedCount() {
+    return chunks.size();
+}

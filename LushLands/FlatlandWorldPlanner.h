@@ -4,8 +4,6 @@
 #include "DataTypes.h"
 #include "ConstantSets.h"
 
-using namespace std;
-
 class FlatlandWorldPlanner : public BaseWorldPlanner {
     int seed;
     worldtype worldType = FLATLAND;

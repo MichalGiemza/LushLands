@@ -24,7 +24,7 @@ class World {
 public:
     World(worldtype worldType, seed seed_);
     int getSeed();
-    vector<Entity *> getByPosition(Position position);
+    std::vector<Entity *> getByPosition(Position position);
     void placePlayer(Entity *player, Position position);
     int getSeaLevel();
     ChunkLoadManager *getChunkLoadManager();
