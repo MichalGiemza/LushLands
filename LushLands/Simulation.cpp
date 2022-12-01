@@ -10,7 +10,9 @@ void Simulation::init() {
     Simulation::loadPosition = new Position(0, Simulation::world->getSeaLevel(), 0);
     Simulation::keepPositionLoaded(*Simulation::loadPosition);
 
-    Logger::log("Simulation started [%i] chunks loaded now.", world->getChunkLoadManager()->getChunksLoadedCount());
+    Logger::log("Simulation started; Chunks loaded: [%i]; Entities loaded: [%i].",
+                world->getChunkLoadManager()->getChunksLoadedCount(),
+                world->getChunkLoadManager()->getEntitiesCreatedCount());
 }
 
 void Simulation::keepPositionLoaded(Position position) {

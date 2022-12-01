@@ -31,5 +31,6 @@ public:
     Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan);
     Entity *getGround(TilePosition &tilePosition);
     Entity *getStructure(TilePosition &tilePosition);
+    int entitiesLoadedCount();
 };
 

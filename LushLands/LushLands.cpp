@@ -1,5 +1,4 @@
 ﻿#include "LushLands.h"
-#include "Simulation.h"
 
 bool initialized = false;
 bool running = false;
@@ -11,6 +10,7 @@ void init() {
     Events::init();
     DataMappers::init();
     UI::init();
+    GraphicsManager::init();
     Logger::init();
     Simulation::init();
     initialized = true;

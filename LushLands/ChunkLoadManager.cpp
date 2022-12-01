@@ -38,3 +38,10 @@ Chunk *ChunkLoadManager::getChunk(ChunkPosition chunkPosition) {
 int ChunkLoadManager::getChunksLoadedCount() {
     return chunks.size();
 }
+
+int ChunkLoadManager::getEntitiesCreatedCount() {
+    int sum = 0;
+    for (auto &chunkPair : chunks)
+        sum += chunkPair.second->entitiesLoadedCount();
+    return sum;
+}

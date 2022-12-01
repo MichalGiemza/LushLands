@@ -88,9 +88,32 @@
     //}
 //}
 
+#include <filesystem>
+#include <iostream>
+#include <math.h>
 
-int main(int argc, char **argv) {
-    (void)argc;
-    (void)argv;
+char * t1 = (char *)"..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\RPG Nature Tileset.png";
+char * t2 = (char *)"..\\Assets\\textures\\32x32 and 64x64 Pixel Art Textures by 711studios\\32x32 Tiles\\Dehydrated_Earth.png";
+
+template<> struct std::hash<char *> {
+    std::size_t operator()(const char *p) const {
+        std::size_t sum = 0;
+        for (int i = 0; p[i] != 0; i++) {
+            sum = 33 * sum + p[i];
+        }
+        return sum;
+    }
+};
+
+int main() {
+    std::hash<char *> str_hash = std::hash<char *>();
+    std::cout << "Vals: " << str_hash(t1) << "\n" << str_hash(t2) << "\n" << str_hash(t1) << "\n" << str_hash(t2) << "\n";
 
 }
+
+//
+//int main(int argc, char **argv) {
+//    (void)argc;
+//    (void)argv;
+//    std::cout << "..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\RPG Nature Tileset.png" << std::endl;
+//}

@@ -8,6 +8,8 @@
 #include "ActionMap.h"
 #include "SimulationEventHandler.h"
 #include "DataMappers.h"
+#include "Simulation.h"
+#include "GraphicsManager.h"
 
 extern bool initialized;
 extern bool running;

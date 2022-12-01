@@ -36,3 +36,7 @@ Entity *Chunk::getStructure(TilePosition &tilePosition) {
     return structures[tilePosition];
 }
 
+int Chunk::entitiesLoadedCount() {
+    return groundTiles.size() + structures.size();
+}
+
