@@ -16,5 +16,6 @@ public:
     Position getBottomRight();
     Size getSize();
     void setPosition(Position position);
+    Position getPosition();
 };
 

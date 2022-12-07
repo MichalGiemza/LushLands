@@ -29,11 +29,8 @@
     <ClCompile Include="Logger.cpp">
       <Filter>src\Logger</Filter>
     </ClCompile>
-    <ClCompile Include="Events.cpp">
+    <ClCompile Include="InputEvents.cpp">
       <Filter>src\Events</Filter>
-    </ClCompile>
-    <ClCompile Include="UserInterface.cpp">
-      <Filter>src\UserInterface</Filter>
     </ClCompile>
     <ClCompile Include="ActionMap.cpp">
       <Filter>src\Simulation\EventHandler</Filter>
@@ -43,9 +40,6 @@
     </ClCompile>
     <ClCompile Include="SimulationEventHandler.cpp">
       <Filter>src\Simulation\EventHandler</Filter>
-    </ClCompile>
-    <ClCompile Include="DataMappers.cpp">
-      <Filter>src\DataMappers</Filter>
     </ClCompile>
     <ClCompile Include="Simulation.cpp">
       <Filter>src\Simulation</Filter>
@@ -92,6 +86,12 @@
     <ClCompile Include="GraphicsManager.cpp">
       <Filter>src\UserInterface\GraphicsManager</Filter>
     </ClCompile>
+    <ClCompile Include="ChunkRepresentation.cpp">
+      <Filter>src\UserInterface\GraphicsManager\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="ChunkRepresentationManager.cpp">
+      <Filter>src\UserInterface\GraphicsManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -125,11 +125,8 @@
     <ClInclude Include="Logger.h">
       <Filter>src\Logger</Filter>
     </ClInclude>
-    <ClInclude Include="Events.h">
+    <ClInclude Include="InputEvents.h">
       <Filter>src\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="UserInterface.h">
-      <Filter>src\UserInterface</Filter>
     </ClInclude>
     <ClInclude Include="ActionMap.h">
       <Filter>src\Simulation\EventHandler</Filter>
@@ -139,9 +136,6 @@
     </ClInclude>
     <ClInclude Include="SimulationEventHandler.h">
       <Filter>src\Simulation\EventHandler</Filter>
-    </ClInclude>
-    <ClInclude Include="DataMappers.h">
-      <Filter>src\DataMappers</Filter>
     </ClInclude>
     <ClInclude Include="Simulation.h">
       <Filter>src\Simulation</Filter>
@@ -194,6 +188,12 @@
     <ClInclude Include="GraphicsManager.h">
       <Filter>src\UserInterface\GraphicsManager</Filter>
     </ClInclude>
+    <ClInclude Include="ChunkRepresentation.h">
+      <Filter>src\UserInterface\GraphicsManager\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ChunkRepresentationManager.h">
+      <Filter>src\UserInterface\GraphicsManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -225,9 +225,6 @@
     </Filter>
     <Filter Include="src\Simulation\EventHandler">
       <UniqueIdentifier>{9e489b4a-1f8c-44b6-8761-d3094d067b76}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\DataMappers">
-      <UniqueIdentifier>{f2da08fd-02bf-4d18-910a-36b241235b13}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Simulation\Managers">
       <UniqueIdentifier>{a22cecab-8a5c-4316-b241-c15850566dcc}</UniqueIdentifier>

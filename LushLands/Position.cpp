@@ -11,10 +11,10 @@ Position::Position(int x, int y, int z) {
     setZ(z);
 }
 
-Position::Position(ChunkPosition cp) {
-    setX(cp.x * chunkSize * representationComaValue);
+Position::Position(ChunkPosition &cp) {
+    setX(cp.x * chunkSizeByTiles * representationComaValue);
     setY(0);
-    setZ(cp.z * chunkSize * representationComaValue);
+    setZ(cp.z * chunkSizeByTiles * representationComaValue);
 }
 
 Position::Position() {
@@ -74,11 +74,19 @@ void Position::setZ(int z) {
 }
 
 int Position::getChunkX() {
-    return _x / chunkSize / representationComaValue;
+    return _x / chunkSizeByTiles / representationComaValue;
 }
 
 int Position::getChunkZ() {
-    return _z / chunkSize / representationComaValue;
+    return _z / chunkSizeByTiles / representationComaValue;
+}
+
+pxint Position::getCameraX() {
+    return (pxint)(x() * tileSizePx);
+}
+
+pxint Position::getCameraZ() {
+    return (pxint)(z() * tileSizePx);
 }
 
 ChunkPosition Position::getChunkPosition() {
@@ -94,11 +102,11 @@ TilePosition Position::getTilePosition() {
 }
 
 int Position::getInsideChunkRawX() {
-    return fmod(_x, chunkSize * representationComaValue);
+    return fmod(_x, chunkSizeByTiles * representationComaValue);
 }
 
 int Position::getInsideChunkRawZ() {
-    return fmod(_z, chunkSize * representationComaValue);
+    return fmod(_z, chunkSizeByTiles * representationComaValue);
 }
 
 std::string Position::getTextX() {
@@ -140,4 +148,12 @@ bool Position::operator==(const Position &other) const {
     return _x == other._x 
         && _y == other._y
         && _z == other._z;
+}
+
+Position Position::operator-(const Position &other) const {
+    return Position(_x - other._x, _y - other._y, _z - other._z);
+}
+
+Position Position::operator+(const Position &other) const {
+    return Position(_x + other._x, _y + other._y, _z + other._z);
 }

@@ -7,6 +7,7 @@
 #include <stdarg.h>
 #include <string>
 #include "DataTypes.h"
+#include "ConstantSets.h"
 
 class Logger {
     static ALLEGRO_FONT *font;
@@ -18,6 +19,7 @@ public:
     static void logPrintf(char const *format, ...);
     static void log(char const *format, ...);
     static void closeLog(bool wait_for_user);
+    static void logAbort(char const *format, ...);
 
     static void init();
     static void destruct();

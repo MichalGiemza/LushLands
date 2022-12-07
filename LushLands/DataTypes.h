@@ -8,14 +8,15 @@ namespace fs = std::filesystem;
 typedef int tickperiod;
 typedef int keycode;
 typedef const char *actioncode;
-typedef std::function<void()> eventfn;
+typedef std::function<void(void *obj)> eventfn;
 typedef const char *worldtype;
 typedef const char *entitytype;
 typedef int seed;
 typedef const char *texturename;
 typedef const char *scenename;
 typedef const char *rawpath;
-
+typedef int pxint;
+typedef const char *exceptionmessage;
 
 struct FieldPlan {
     entitytype ground;
@@ -23,8 +24,8 @@ struct FieldPlan {
     entitytype animal;
 };
 
-struct ChunkPlan {
-    FieldPlan fieldPlans[chunkSize][chunkSize][worldHeight]; // [X][Z][Y]
+struct ChunkPlan { // TODO: Zrobiæ z tego generator, takie jedno coœ mo¿e zajmowaæ chyba ok. 1.5MB miejsca.
+    FieldPlan fieldPlans[chunkSizeByTiles][chunkSizeByTiles][worldHeight]; // [X][Z][Y]
 };
 
 class not_implemented_error : public std::logic_error {
@@ -42,11 +43,11 @@ struct TextureLocalization {
 
 template<> struct std::hash<char *> {
     std::size_t operator()(const char *p) const {
-        std::size_t sum = 0;
+        std::size_t hash_ = 0;
         for (int i = 0; p[i] != 0; i++) {
-            sum = 33 * sum + p[i];
+            hash_ = 33 * hash_ + p[i];
         }
-        return sum;
+        return hash_;
     }
 };
 
@@ -58,4 +59,3 @@ template<> struct std::hash<TextureLocalization> {
             hash<char *>()(p.path);
     }
 };
-

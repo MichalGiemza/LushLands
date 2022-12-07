@@ -2,6 +2,7 @@
 #include <string>
 #include "Constants.h"
 #include "PositionStructures.h"
+#include "DataTypes.h"
 
 
 class Position {
@@ -9,7 +10,7 @@ private:
     int _x, _y, _z;
 public:
     Position(int x, int y, int z);
-    Position(ChunkPosition cp);
+    Position(ChunkPosition &cp);
     Position();
     int getX() const;
     int getY() const;
@@ -25,6 +26,8 @@ public:
     void setZ(int z);
     int getChunkX();
     int getChunkZ();
+    pxint getCameraX();
+    pxint getCameraZ();
     ChunkPosition getChunkPosition();
     TilePosition getTilePosition();
     int getInsideChunkRawX();
@@ -35,4 +38,6 @@ public:
     std::string getText();
     NeighbouringChunkPositions getNeighbouringChunkPositions();
     bool operator==(const Position &other) const;
+    Position operator-(const Position &other) const;
+    Position operator+(const Position &other) const;
 };

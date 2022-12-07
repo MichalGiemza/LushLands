@@ -1,6 +1,6 @@
 #include "EntityFactory.h"
 
-std::unordered_map<entitytype, Entity *> EntityFactory::prefabs = std::unordered_map<entitytype, Entity *>();
+
 
 void EntityFactory::setupPrefabs() {  // TODO: Czy wszystkie te pola s¹ w kó³ko kopiowane przy kolejnych konstruktorach?
     prefabs[SOIL] = new Ground(SOIL, SOIL_DESCRIPTION, Position(), Size(1, 1, 1), SOIL_TEXTURE, SOIL_COLOR);
@@ -14,7 +14,8 @@ void EntityFactory::setupPrefabs() {  // TODO: Czy wszystkie te pola s¹ w kó³ko 
     prefabs[SNOW] = new Ground(SNOW, SNOW_DESCRIPTION, Position(), Size(1, 1, 1), SNOW_TEXTURE, SNOW_COLOR);
 }
 
-void EntityFactory::init() {
+EntityFactory::EntityFactory() {
+    prefabs = std::unordered_map<entitytype, Entity *>();
     setupPrefabs();
 }
 

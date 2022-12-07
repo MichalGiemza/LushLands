@@ -1,6 +1,7 @@
 #include "ChunkLoadManager.h"
 
-ChunkLoadManager::ChunkLoadManager(std::unordered_map<ChunkPosition, Chunk *> chunks, BaseWorldPlanner *worldPlanner) {
+ChunkLoadManager::ChunkLoadManager(std::unordered_map<ChunkPosition, Chunk *> chunks, BaseWorldPlanner *worldPlanner, EntityFactory *entityFactory) {
+    this->entityFactory = entityFactory;
     this->chunks = chunks;
     this->worldPlanner = worldPlanner;
     followedLoadingPositions = std::vector<Position>();
@@ -28,7 +29,7 @@ void ChunkLoadManager::updateLoadedChunkList() {
 
 Chunk *ChunkLoadManager::generateChunk(ChunkPosition &chunkPosition) {
     ChunkPlan *cp = worldPlanner->getChunkPlan(chunkPosition);
-    return new Chunk(chunkPosition, *cp);
+    return new Chunk(chunkPosition, *cp, entityFactory);
 }
 
 Chunk *ChunkLoadManager::getChunk(ChunkPosition chunkPosition) {

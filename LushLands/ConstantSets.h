@@ -87,3 +87,12 @@ const TextureLocalization SNOW_TEXTURE_LOCALIZATION = TextureLocalization(0, 64,
 
 // Texture names (structures)
 // Texture names (animals)
+
+// Exception messages
+const exceptionmessage could_not_init_allegro = "Could not initialize Allegro.\n";
+const exceptionmessage cannot_run_uninitialized = "Cannot run main loop without initialization.\n";
+const exceptionmessage could_not_init_allegro_font = "Could not initialize Allegro Font Addon.\n";
+const exceptionmessage could_not_init_allegro_ttf = "Could not initialize Allegro TTF Addon.\n";
+const exceptionmessage could_not_create_event_queue = "Could not create event queue.\n";
+const exceptionmessage could_not_install_keyboard = "Could not install keyboard.\n";
+const exceptionmessage could_not_create_display = "Could not create display.\n";

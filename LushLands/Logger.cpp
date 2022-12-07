@@ -54,16 +54,23 @@ void Logger::closeLog(bool wait_for_user) {
     textlog = NULL;
 }
 
+void Logger::logAbort(char const *format, ...) {
+    va_list args;
+    va_start(args, format);
+    vfprintf(stderr, format, args);
+    va_end(args);
+}
+
 void Logger::init() {
     textlog = NULL;
     openLogMonospace();
 
-    al_init_font_addon();
-    al_init_ttf_addon();
+    if (!al_init_font_addon())
+        throw std::logic_error(could_not_init_allegro_font);
+    if (!al_init_ttf_addon())
+        throw std::logic_error(could_not_init_allegro_ttf);
 
     font = al_load_ttf_font("fonts/James Stroker.ttf", 64, 0);
-    al_clear_to_color(al_map_rgb_f(0, 0, 0)); // Display
-    al_flip_display(); // Display TODO
 }
 
 void Logger::destruct() {

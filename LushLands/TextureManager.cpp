@@ -5,7 +5,7 @@ std::unordered_map<TextureLocalization, ALLEGRO_BITMAP *> TextureManager::rawBit
 
 ALLEGRO_BITMAP *TextureManager::loadTexture(const TextureLocalization &tl) {
     auto rawBitmap = getRawBitmap(tl);
-    return al_create_sub_bitmap(rawBitmap, tl.x, tl.y, tileSize, tileSize);
+    return al_create_sub_bitmap(rawBitmap, tl.x, tl.y, tileSizePx, tileSizePx);
 }
 
 ALLEGRO_BITMAP *TextureManager::getRawBitmap(const TextureLocalization &tl) {

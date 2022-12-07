@@ -12,11 +12,11 @@ public:
     // TODO: Wejdzie jeszcze kontekst (controller -> context -> action)
     static eventfn mapActionCodeToFunction(actioncode ac);
 
-    static void goNorth(); 
-    static void goSouth(); 
-    static void goWest(); 
-    static void goEast();
-    static void use();
+    static void goNorth(void *obj);
+    static void goSouth(void *obj);
+    static void goWest(void *obj);
+    static void goEast(void *obj);
+    static void use(void *obj);
 
 };
 

@@ -15,10 +15,10 @@ class ChunkSystem {
     */
     std::unordered_map<ChunkPosition, Chunk *> chunks;
     BaseWorldPlanner *worldPlanner;
-    //EntityFactory entityFactory;
+    EntityFactory *entityFactory;
     ChunkLoadManager *chunkLoadManager;
 public:
-    ChunkSystem(BaseWorldPlanner *worldPlanner);
+    ChunkSystem(BaseWorldPlanner *worldPlanner, EntityFactory *entityFactory);
     Chunk *getChunk(ChunkPosition chunkPosition);
     ChunkLoadManager *getChunkLoadManager();
      

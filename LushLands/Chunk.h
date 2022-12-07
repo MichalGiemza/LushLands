@@ -19,7 +19,7 @@ private:
     ChunkPosition chunkPosition;
     std::unordered_map<TilePosition, Entity *> groundTiles;
     std::unordered_map<TilePosition, Entity *> structures;
-
+    EntityFactory *entityFactory;
     //EventManagementSystem eventManagementSystem;
     //LooseEntityManager looseEntityManager;
     //RandomWalkManager randomWalkManager;
@@ -28,9 +28,12 @@ private:
     //TileMovementManager tileMovementManager;
     void generateTiles(ChunkPlan &chunkPlan);
 public:
-    Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan);
+    Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory);
     Entity *getGround(TilePosition &tilePosition);
     Entity *getStructure(TilePosition &tilePosition);
+    std::unordered_map<TilePosition, Entity *> *getGround();
+    std::unordered_map<TilePosition, Entity *> *getStructures();
+    ChunkPosition *getChunkPosition();
     int entitiesLoadedCount();
 };
 

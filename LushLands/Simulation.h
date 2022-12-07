@@ -2,12 +2,16 @@
 #include "World.h"
 #include "ConstantSets.h"
 #include "EntityFactory.h"
+#include "InputEvents.h"
 
 class Simulation {
-    static World *world;
-    static Position *loadPosition; // TODO: Move to camera
+    World *world;
+    Position *loadPosition; // TODO: Move to camera (?) Maybe leave as free-camera?
+    EntityFactory *entityFactory;
 public:
-    static void init();
-    static void keepPositionLoaded(Position position);
+    Simulation(InputEvents *inputEvents);
+    World *getWorld();
+    void keepPositionLoaded(Position position);
+    Position *getWorldLoadingPosition();
 };
 

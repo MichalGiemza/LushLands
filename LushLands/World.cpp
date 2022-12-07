@@ -1,16 +1,17 @@
 #include "World.h"
 
-World::World(worldtype worldType, seed seed_) {
+World::World(worldtype worldType, seed seed_, EntityFactory *entityFactory) {
     this->seed_ = seed_;
     this->worldType = worldType;
+    this->entityFactory = entityFactory;
 
-    if (worldType == FLATLAND) { // TODO
+    if (worldType == FLATLAND) { // TODO: Coœ lepszego ni¿ ify? Mo¿e jakaœ mapa w czymœ zewnêtrznym
         this->worldPlanner = new FlatlandWorldPlanner(seed_);
     } else {
         throw not_implemented_error();
     }
     
-    this->chunkSystem = new ChunkSystem(worldPlanner);
+    this->chunkSystem = new ChunkSystem(worldPlanner, entityFactory);
 
     Logger::log("Created World [%s]", worldType);
 }

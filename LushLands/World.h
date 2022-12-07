@@ -21,8 +21,9 @@ class World {
     BaseWorldPlanner *worldPlanner;
     ChunkSystem *chunkSystem;
     worldtype worldType;
+    EntityFactory *entityFactory;
 public:
-    World(worldtype worldType, seed seed_);
+    World(worldtype worldType, seed seed_, EntityFactory *entityFactory);
     int getSeed();
     std::vector<Entity *> getByPosition(Position position);
     void placePlayer(Entity *player, Position position);

@@ -1,12 +1,15 @@
 #include "GraphicsManager.h"
 
-Scene *GraphicsManager::gameplayScene = 0;
-Scene *GraphicsManager::mainmenuScene = 0;
+GraphicsManager::GraphicsManager(InputEvents *inputEvents, Simulation *simulation) {
+    this->simulation = simulation;
+    display = new Display(inputEvents);
+    textureManager = new TextureManager();
+    // Scenes
+    gameplayScene = new Scene(GAMEPLAY_SCENE, simulation->getWorld(), display, simulation->getWorldLoadingPosition());
+    mainmenuScene = new Scene(MAINMENU_SCENE, simulation->getWorld(), display, simulation->getWorldLoadingPosition());
+    currentScene = gameplayScene; // TODO: PóŸniej ma byæ tu main menu
+}
 
-
-void GraphicsManager::init() {
-    TextureManager::init();
-    gameplayScene = new Scene(GAMEPLAY_SCENE);
-    mainmenuScene = new Scene(MAINMENU_SCENE);
-
+Scene *GraphicsManager::getCurrentGameplayScene() {
+    return gameplayScene;
 }

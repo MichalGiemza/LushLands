@@ -1,19 +1,28 @@
 #pragma once
 #include "Constants.h"
 #include "Position.h"
+#include "Size.h"
 
 class Camera {
-    const int minZoom = 100;
+    // Zoom at 100 means 1px at screen is 1px in texture
+    // Zoom at 400 means 4px at screen is 1px in texture
+    const int minZoom = 50;
     const int maxZoom = 400;
-    int zoom = 200;
+    int zoom = 100;
     int scrollSpeed = 100;
     Position *followedPosition = 0;
+
+    int left();
+    int right();
+    int top();
+    int bottom();
 public:
-    static void init();
-    static void update();
-    static int getZoom();
-    static void setZoom(int zoom);
-    static Position getFollowedPosition();
-    static void setFollowedPosition(Position *position);
+    Camera(Position *followedPosition);
+    void update(); // TODO: Czy potrzebujê tego?
+    int getZoom();
+    void setZoom(int zoom);
+    Position *getFollowedPosition();
+    void setFollowedPosition(Position *position);
+    bool isAreaVisible(Position *position, Size *size);
 };
 

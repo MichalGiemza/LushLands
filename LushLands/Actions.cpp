@@ -16,27 +16,27 @@ eventfn Actions::mapActionCodeToFunction(actioncode ac) {
     return 0;
 }
 
-void Actions::goNorth() {
+void Actions::goNorth(void *obj) {
     // TODO - po³¹czyæ z Control Node
     Logger::logAction(GO_NORTH);
 }
 
-void Actions::goSouth() {
+void Actions::goSouth(void *obj) {
     // TODO - po³¹czyæ z Control Node
     Logger::logAction(GO_SOUTH);
 }
 
-void Actions::goWest() {
+void Actions::goWest(void *obj) {
     // TODO - po³¹czyæ z Control Node
     Logger::logAction(GO_WEST);
 }
 
-void Actions::goEast() {
+void Actions::goEast(void *obj) {
     // TODO - po³¹czyæ z Control Node
     Logger::logAction(GO_EAST);
 }
 
-void Actions::use() {
+void Actions::use(void *obj) {
     // TODO - po³¹czyæ z Control Node
     Logger::logAction(USE);
 }

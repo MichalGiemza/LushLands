@@ -1,6 +1,6 @@
 #include "Representation.h"
 
-Representation::Representation(texturename textureName, Color color) : textureName(textureName), color(color) {
+Representation::Representation(texturename textureName, Color color, Body *body) : textureName(textureName), color(color), body(body) {
     texture = TextureManager::getTexture(textureName);
 }
 
@@ -10,4 +10,12 @@ Color Representation::getColor() {
 
 texturename Representation::getTextureName() {
     return textureName;
+}
+
+ALLEGRO_BITMAP *Representation::getTexture() {
+    return texture;
+}
+
+Body *Representation::getBody() {
+    return body;
 }

@@ -29,3 +29,7 @@ Size Body::getSize() {
 void Body::setPosition(Position position) {
     this->position = position;
 }
+
+Position Body::getPosition() {
+    return position;
+}

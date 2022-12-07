@@ -3,7 +3,7 @@
 Ground::Ground(entitytype entityType, std::string description, Position position, Size size, texturename textureName, Color color) :
     Entity(entityType, description),
     Body(position, size),
-    Representation(textureName, color) {
+    Representation(textureName, color, this) {
 
     Logger::log("Created Ground entity [%s;%i,%i]", entityType, position.x(), position.z());
 }

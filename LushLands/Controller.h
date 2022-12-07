@@ -1,11 +1,13 @@
 #pragma once
 #include "Actions.h"
+#include "InputEvents.h"
+#include "ActionMap.h"
 
 class Controller {
-
+    InputEvents *inputEvents;
 public:
-    static void init();
+    Controller(InputEvents *inputEvents);
 private:
-    static void hookKeysToActions();
+    void hookKeysToActions();
 };
 
