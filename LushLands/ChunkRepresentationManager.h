@@ -13,10 +13,11 @@ class ChunkRepresentationManager {
     std::unordered_map<ChunkPosition, ChunkRepresentation *> chunkRepresentations;
     World *world;
     Display *display;
+    Camera *camera;
+    TextureManager *textureManager;
 private:
-    void updateVisibleChunkRepresentations(Camera &camera);
+    void updateVisibleChunkRepresentations();
 public:
-    ChunkRepresentationManager(World *world, Display *display);
-    void draw(Camera &camera);
+    ChunkRepresentationManager(World *world, Display *display, Camera *camera, TextureManager *textureManager);
+    void draw();
 };
-

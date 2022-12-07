@@ -11,7 +11,11 @@ Display::Display(InputEvents *inputEvents) {
     if (!display)
         throw std::logic_error(could_not_create_display);
 
-    inputEvents->registerEventSource(al_get_display_event_source(Display::getDisplay()));
+    registerFPSAndTPSMeters(inputEvents);
+}
+
+void Display::registerFPSAndTPSMeters(InputEvents *inputEvents) {
+    inputEvents->registerEventSource(al_get_display_event_source(getDisplay()));
     oldTimeFPS = al_get_time();
     oldTimeTPS = al_get_time();
     currentFPS = 0.0;

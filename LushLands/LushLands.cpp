@@ -34,15 +34,15 @@ int main(int argc, char **argv) {
     (void)argc;
     (void)argv;
 
-    try {
+    //try {
         init();
-    } catch (std::exception &e) {
-        std::cout << "Exception: " << e.what() << std::endl;
-    }
-    try {
+    //} catch (std::exception &e) {
+    //    std::cout << "Exception: " << e.what() << std::endl;
+    //}
+    //try {
         main_loop();
-    } catch (std::exception &e) {
-        std::cout << "Exception: " << e.what() << std::endl;
-    }
+    //} catch (std::exception &e) {
+    //    std::cout << "Exception: " << e.what() << std::endl;
+    //}
     return 0;
 }

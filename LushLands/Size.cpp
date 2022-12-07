@@ -7,15 +7,15 @@ Size::Size(int width, int height, int length) {
 }
 
 int Size::getWidth() {
-    return width;
+    return width / representationComaValue;
 }
 
 int Size::getHeight() {
-    return height;
+    return height / representationComaValue;
 }
 
 int Size::getLength() {
-    return length;
+    return length / representationComaValue;
 }
 
 int Size::getAccurateWidth() {
@@ -31,15 +31,15 @@ int Size::getAccurateLength() {
 }
 
 int Size::w() {
-    return width;
+    return width / representationComaValue;
 }
 
 int Size::h() {
-    return height;
+    return height / representationComaValue;
 }
 
 int Size::l() {
-    return length;
+    return length / representationComaValue;
 }
 
 void Size::setWidth(int width) {

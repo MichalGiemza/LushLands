@@ -10,14 +10,13 @@ class TextureManager {
     /**
     * Odpowiada za wczytywanie i zapewnianie tekstur.
     */
-    static std::unordered_map<texturename, ALLEGRO_BITMAP *> textures;
-    static std::unordered_map<TextureLocalization, ALLEGRO_BITMAP *> rawBitmaps;
-
-    static ALLEGRO_BITMAP *loadTexture(const TextureLocalization &tl);
-    static ALLEGRO_BITMAP *getRawBitmap(const TextureLocalization &tl);
+    std::unordered_map<texturename, ALLEGRO_BITMAP *> textures;
+    std::unordered_map<TextureLocalization, ALLEGRO_BITMAP *> rawBitmaps;
+    ALLEGRO_BITMAP *loadTexture(const TextureLocalization &tl);
+    ALLEGRO_BITMAP *getRawBitmap(const TextureLocalization &tl);
+    void loadAllTextures();
 public:
-    static void init();
-    static void loadAllTextures();
-    static ALLEGRO_BITMAP *getTexture(texturename textureName);
+    TextureManager();
+    ALLEGRO_BITMAP *getEntityTexture(entitytype entityType);
 };
 

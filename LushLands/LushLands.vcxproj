@@ -176,7 +176,6 @@
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="LushLands.cpp" />
     <ClCompile Include="Position.cpp" />
-    <ClCompile Include="Representation.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="SimulationEventHandler.cpp" />
@@ -212,7 +211,6 @@
     <ClInclude Include="LushLands.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="PositionStructures.h" />
-    <ClInclude Include="Representation.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Simulation.h" />
     <ClInclude Include="SimulationEventHandler.h" />

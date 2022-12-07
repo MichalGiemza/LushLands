@@ -151,9 +151,9 @@ bool Position::operator==(const Position &other) const {
 }
 
 Position Position::operator-(const Position &other) const {
-    return Position(_x - other._x, _y - other._y, _z - other._z);
+    return Position(_x - other._x, std::max(_y - other._y, 0), _z - other._z);
 }
 
 Position Position::operator+(const Position &other) const {
-    return Position(_x + other._x, _y + other._y, _z + other._z);
+    return Position(_x + other._x, std::min(_y + other._y, worldHeight - 1), _z + other._z);
 }

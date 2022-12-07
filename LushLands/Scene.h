@@ -1,7 +1,6 @@
 #pragma once
 #include <unordered_set>
 #include "DataTypes.h"
-#include "Representation.h"
 #include "Camera.h"
 #include "ChunkRepresentationManager.h"
 #include "ChunkRepresentation.h"
@@ -16,10 +15,13 @@ class Scene {
     ChunkRepresentationManager chunkRepresentationManager;
     World *world;
     Display *display;
+    InputEvents *inputEvents;
+    TextureManager *textureManager;
 
     void drawChunkGround(ChunkRepresentation &chunkRepresentation, int level);
+    friend void draw(void *scene);
 public:
-    Scene(scenename sceneName, World *world, Display *display, Position *followedPosition);
-    void draw();
+    Scene(scenename sceneName, World *world, Display *display, Position *followedPosition, InputEvents *inputEvents, TextureManager *textureManager);
 };
 
+void draw(void *scene);

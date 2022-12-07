@@ -56,9 +56,6 @@
     <ClCompile Include="Body.cpp">
       <Filter>src\Simulation\World\ChunkSystem\Entities\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="Representation.cpp">
-      <Filter>src\Simulation\World\ChunkSystem\Entities\Modules</Filter>
-    </ClCompile>
     <ClCompile Include="Size.cpp">
       <Filter>src\Simulation\Fundamentals</Filter>
     </ClCompile>
@@ -153,9 +150,6 @@
       <Filter>src\Simulation\World\ChunkSystem\Entities\Base</Filter>
     </ClInclude>
     <ClInclude Include="Body.h">
-      <Filter>src\Simulation\World\ChunkSystem\Entities\Modules</Filter>
-    </ClInclude>
-    <ClInclude Include="Representation.h">
       <Filter>src\Simulation\World\ChunkSystem\Entities\Modules</Filter>
     </ClInclude>
     <ClInclude Include="Size.h">

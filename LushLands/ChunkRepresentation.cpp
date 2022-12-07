@@ -28,13 +28,14 @@ void ChunkRepresentation::drawLevelTilesToBitmap(int level) {
                 Ground *g = (Ground *)groundTiles[tp];
                 int x = (tp.x % chunkSizeByTiles) * tileSizePx;
                 int z = (tp.z % chunkSizeByTiles) * tileSizePx;
-                al_draw_bitmap(g->getTexture(), x, z, 0);
+                al_draw_bitmap(textureManager->getEntityTexture(g->getType()), x, z, 0);
             }
         }
     }
 }
 
-ChunkRepresentation::ChunkRepresentation(Display *display, ChunkPosition &chunkPosition, std::unordered_map<TilePosition, Entity *> &groundTiles, std::unordered_map<TilePosition, Entity *> &structures) {
+ChunkRepresentation::ChunkRepresentation(Display *display, ChunkPosition &chunkPosition, std::unordered_map<TilePosition, Entity *> &groundTiles, std::unordered_map<TilePosition, Entity *> &structures, TextureManager *textureManager) {
+    this->textureManager = textureManager;
     this->display = display;
     this->groundTiles = groundTiles;
     this->structures = structures;
@@ -43,6 +44,7 @@ ChunkRepresentation::ChunkRepresentation(Display *display, ChunkPosition &chunkP
 }
 
 ALLEGRO_BITMAP *ChunkRepresentation::getBitmap(int level) {
+    auto backbuffer = al_get_backbuffer(display->getDisplay());
     size_t newHash = hashChunkGroundLevel(level);
     if (newHash != cachedLevelHash) {
         auto chunkBmp = al_create_bitmap(tileSizePx * chunkSizeByTiles, tileSizePx * chunkSizeByTiles);
@@ -50,8 +52,8 @@ ALLEGRO_BITMAP *ChunkRepresentation::getBitmap(int level) {
         drawLevelTilesToBitmap(level);
         cachedLevelBitmap = chunkBmp;
         cachedLevelHash = newHash;
-        al_set_target_bitmap(al_get_backbuffer(display->getDisplay()));
     }
+    al_set_target_bitmap(backbuffer);
     return cachedLevelBitmap;
 }
 

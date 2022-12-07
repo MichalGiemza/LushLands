@@ -1,9 +1,8 @@
 #pragma once
 #include "Entity.h"
-#include "Representation.h"
 #include "Body.h"
 
-class Ground : public Entity, public Body, public Representation {
+class Ground : public Entity, public Body {
     /**
     * Ground
     */

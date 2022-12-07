@@ -14,13 +14,14 @@ class Display {
     double oldTimeTPS;
     double currentFPS;
     double currentTPS;
-
+private:
+    void registerFPSAndTPSMeters(InputEvents *inputEvents);
+    friend void updateTrackingFPS(void *display);
+    friend void updateTrackingTPS(void *display);
 public:
     ALLEGRO_DISPLAY *getDisplay();
     Display(InputEvents *inputEvents);
     void clearDisplay();
-    friend void updateTrackingFPS(void *display);
-    friend void updateTrackingTPS(void *display);
     double getCurrentFPS();
     double getCurrentTPS();
 };

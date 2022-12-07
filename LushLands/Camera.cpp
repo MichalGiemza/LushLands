@@ -16,6 +16,9 @@ int Camera::bottom() {
     return (followedPosition->getCameraZ() + displayHeight / 2) * 100 / zoom;
 }
 
+int Camera::level() {
+    return followedPosition->y();
+}
 Camera::Camera(Position *followedPosition) {
     this->followedPosition = followedPosition;
     // TODO: Add to update
@@ -27,6 +30,6 @@ Position *Camera::getFollowedPosition() {
 
 bool Camera::isAreaVisible(Position *position, Size *size) {
     /** Calculated in standard position metric, not pixels. */
-    return position->x() + size->w() <= right() && position->x() >= left()
+    return position->x() + size->w() <= right() && position->x() >= left() 
         && position->z() + size->l() <= bottom() && position->z() >= top();
 }

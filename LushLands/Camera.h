@@ -16,6 +16,7 @@ class Camera {
     int right();
     int top();
     int bottom();
+    int level();
 public:
     Camera(Position *followedPosition);
     void update(); // TODO: Czy potrzebujê tego?

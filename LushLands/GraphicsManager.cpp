@@ -5,8 +5,8 @@ GraphicsManager::GraphicsManager(InputEvents *inputEvents, Simulation *simulatio
     display = new Display(inputEvents);
     textureManager = new TextureManager();
     // Scenes
-    gameplayScene = new Scene(GAMEPLAY_SCENE, simulation->getWorld(), display, simulation->getWorldLoadingPosition());
-    mainmenuScene = new Scene(MAINMENU_SCENE, simulation->getWorld(), display, simulation->getWorldLoadingPosition());
+    gameplayScene = new Scene(GAMEPLAY_SCENE, simulation->getWorld(), display, simulation->getWorldLoadingPosition(), inputEvents, textureManager);
+    mainmenuScene = new Scene(MAINMENU_SCENE, simulation->getWorld(), display, simulation->getWorldLoadingPosition(), inputEvents, textureManager);
     currentScene = gameplayScene; // TODO: PóŸniej ma byæ tu main menu
 }
 
