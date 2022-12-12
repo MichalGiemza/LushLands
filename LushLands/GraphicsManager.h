@@ -16,7 +16,7 @@ class GraphicsManager {
     Scene *gameplayScene;
     Scene *mainmenuScene;
 public:
-    GraphicsManager(InputEvents *inputEvents, Simulation *simulation);
+    GraphicsManager(Controller_ *controller, Simulation *simulation);
     Scene *getCurrentGameplayScene();
 };
 

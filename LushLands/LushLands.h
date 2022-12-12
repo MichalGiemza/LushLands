@@ -6,15 +6,15 @@
 #include "Controller.h"
 #include "Logger.h"
 #include "ActionMap.h"
-#include "SimulationEventHandler.h"
 #include "ActionMap.h"
 #include "Simulation.h"
 #include "GraphicsManager.h"
+#include "Controller_.h"
 
 extern bool initialized;
 extern bool running;
-extern InputEvents *inputEvents;
-extern Controller *controller;
+
+extern Controller_ *controller;
 extern GraphicsManager *graphicsManager;
 extern Simulation *simulation;
 

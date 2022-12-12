@@ -1,7 +1,7 @@
 #include "Scene.h"
 
-Scene::Scene(scenename sceneName, World *world, Display *display, Position *followedPosition, InputEvents *inputEvents, TextureManager *textureManager) 
-    : camera(followedPosition), chunkRepresentationManager(world, display, &camera, textureManager) {
+Scene::Scene(scenename sceneName, World *world, Display *display, Position *followedPosition, InputEvents *inputEvents, TextureManager *textureManager, Focus *focus) 
+    : camera(followedPosition, focus, inputEvents), chunkRepresentationManager(world, display, &camera, textureManager) {
     this->textureManager = textureManager;
     this->world = world;
     this->display = display;
@@ -15,8 +15,9 @@ void Scene::drawChunkGround(ChunkRepresentation &chunkRepresentation, int level)
     al_draw_bitmap(chunkRepresentation.getBitmap(level), pos.x(), pos.y(), 0);
 }
 
-void draw(void *scene) {
+void draw(ALLEGRO_EVENT *ae, void *scene) {
     Scene *s = (Scene *)scene;
+    al_clear_to_color(al_map_rgb_f(0, 0, 0));
     s->chunkRepresentationManager.draw();
     al_flip_display();
 }

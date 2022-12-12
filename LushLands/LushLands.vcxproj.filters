@@ -10,7 +10,6 @@
     <ClCompile Include="Position.cpp">
       <Filter>src\Simulation\Fundamentals</Filter>
     </ClCompile>
-    <ClCompile Include="LushLands.cpp" />
     <ClCompile Include="ChunkSystem.cpp">
       <Filter>src\Simulation\World\ChunkSystem</Filter>
     </ClCompile>
@@ -31,15 +30,6 @@
     </ClCompile>
     <ClCompile Include="InputEvents.cpp">
       <Filter>src\Events</Filter>
-    </ClCompile>
-    <ClCompile Include="ActionMap.cpp">
-      <Filter>src\Simulation\EventHandler</Filter>
-    </ClCompile>
-    <ClCompile Include="Actions.cpp">
-      <Filter>src\Simulation\EventHandler</Filter>
-    </ClCompile>
-    <ClCompile Include="SimulationEventHandler.cpp">
-      <Filter>src\Simulation\EventHandler</Filter>
     </ClCompile>
     <ClCompile Include="Simulation.cpp">
       <Filter>src\Simulation</Filter>
@@ -66,28 +56,47 @@
       <Filter>src\Core</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
-      <Filter>src\UserInterface\GraphicsManager\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Controller.cpp">
-      <Filter>src\UserInterface\Input</Filter>
+      <Filter>src\GraphicsManager\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>src\UserInterface\GraphicsManager</Filter>
+      <Filter>src\GraphicsManager</Filter>
     </ClCompile>
     <ClCompile Include="Display.cpp">
-      <Filter>src\UserInterface\GraphicsManager</Filter>
+      <Filter>src\GraphicsManager</Filter>
     </ClCompile>
     <ClCompile Include="TextureManager.cpp">
-      <Filter>src\UserInterface\GraphicsManager</Filter>
+      <Filter>src\GraphicsManager</Filter>
     </ClCompile>
     <ClCompile Include="GraphicsManager.cpp">
-      <Filter>src\UserInterface\GraphicsManager</Filter>
+      <Filter>src\GraphicsManager</Filter>
     </ClCompile>
     <ClCompile Include="ChunkRepresentation.cpp">
-      <Filter>src\UserInterface\GraphicsManager\Scene</Filter>
+      <Filter>src\GraphicsManager\Scene</Filter>
     </ClCompile>
     <ClCompile Include="ChunkRepresentationManager.cpp">
-      <Filter>src\UserInterface\GraphicsManager</Filter>
+      <Filter>src\GraphicsManager</Filter>
+    </ClCompile>
+    <ClCompile Include="EventHandler.cpp">
+      <Filter>src\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldEvents.cpp">
+      <Filter>src\Simulation\World</Filter>
+    </ClCompile>
+    <ClCompile Include="LushLands.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Focus.cpp">
+      <Filter>src\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="GameElement.cpp">
+      <Filter>src\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller_.cpp" />
+    <ClCompile Include="ActionMap.cpp">
+      <Filter>src\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller.cpp">
+      <Filter>src\Controller</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -100,7 +109,6 @@
     <ClInclude Include="ChunkSystem.h">
       <Filter>src\Simulation\World\ChunkSystem</Filter>
     </ClInclude>
-    <ClInclude Include="LushLands.h" />
     <ClInclude Include="BaseWorldPlanner.h">
       <Filter>src\Simulation\World\WorldPlanners</Filter>
     </ClInclude>
@@ -124,15 +132,6 @@
     </ClInclude>
     <ClInclude Include="InputEvents.h">
       <Filter>src\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="ActionMap.h">
-      <Filter>src\Simulation\EventHandler</Filter>
-    </ClInclude>
-    <ClInclude Include="Actions.h">
-      <Filter>src\Simulation\EventHandler</Filter>
-    </ClInclude>
-    <ClInclude Include="SimulationEventHandler.h">
-      <Filter>src\Simulation\EventHandler</Filter>
     </ClInclude>
     <ClInclude Include="Simulation.h">
       <Filter>src\Simulation</Filter>
@@ -165,36 +164,53 @@
       <Filter>src\Simulation\Fundamentals</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
-      <Filter>src\UserInterface\GraphicsManager\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Controller.h">
-      <Filter>src\UserInterface\Input</Filter>
+      <Filter>src\GraphicsManager\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Display.h">
-      <Filter>src\UserInterface\GraphicsManager</Filter>
+      <Filter>src\GraphicsManager</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>src\UserInterface\GraphicsManager</Filter>
+      <Filter>src\GraphicsManager</Filter>
     </ClInclude>
     <ClInclude Include="TextureManager.h">
-      <Filter>src\UserInterface\GraphicsManager</Filter>
+      <Filter>src\GraphicsManager</Filter>
     </ClInclude>
     <ClInclude Include="GraphicsManager.h">
-      <Filter>src\UserInterface\GraphicsManager</Filter>
+      <Filter>src\GraphicsManager</Filter>
     </ClInclude>
     <ClInclude Include="ChunkRepresentation.h">
-      <Filter>src\UserInterface\GraphicsManager\Scene</Filter>
+      <Filter>src\GraphicsManager\Scene</Filter>
     </ClInclude>
     <ClInclude Include="ChunkRepresentationManager.h">
-      <Filter>src\UserInterface\GraphicsManager</Filter>
+      <Filter>src\GraphicsManager</Filter>
+    </ClInclude>
+    <ClInclude Include="EventHandler.h">
+      <Filter>src\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldEvents.h">
+      <Filter>src\Simulation\World</Filter>
+    </ClInclude>
+    <ClInclude Include="LushLands.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Focus.h">
+      <Filter>src\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="GameElement.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller_.h" />
+    <ClInclude Include="IWorldEvents.h" />
+    <ClInclude Include="ActionMap.h">
+      <Filter>src\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller.h">
+      <Filter>src\Controller</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
       <UniqueIdentifier>{6c5626ad-7a06-437c-80e6-f4edc691e7d7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\UserInterface">
-      <UniqueIdentifier>{b8d2bfba-d456-4e0e-a9a8-d5bb75c5a0e8}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Simulation">
       <UniqueIdentifier>{25ce27c8-47e3-4934-81ff-7f449ce94ee2}</UniqueIdentifier>
@@ -217,9 +233,6 @@
     <Filter Include="src\Events">
       <UniqueIdentifier>{14efbf44-c5e7-4ff7-9fca-d80190b9bc12}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Simulation\EventHandler">
-      <UniqueIdentifier>{9e489b4a-1f8c-44b6-8761-d3094d067b76}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Simulation\Managers">
       <UniqueIdentifier>{a22cecab-8a5c-4316-b241-c15850566dcc}</UniqueIdentifier>
     </Filter>
@@ -241,13 +254,13 @@
     <Filter Include="src\Simulation\World\ChunkSystem\Entities\EntityFactory">
       <UniqueIdentifier>{087ade55-06bc-46fe-b215-3d9877431bdf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\UserInterface\Input">
-      <UniqueIdentifier>{0fffc247-5cc4-4a44-9f26-1cdb42f074dc}</UniqueIdentifier>
+    <Filter Include="src\Controller">
+      <UniqueIdentifier>{cd480540-6ac4-46a2-9e20-e050582a6263}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\UserInterface\GraphicsManager">
+    <Filter Include="src\GraphicsManager">
       <UniqueIdentifier>{c0f3f092-898a-4e8b-8b10-092756b4ae28}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\UserInterface\GraphicsManager\Scene">
+    <Filter Include="src\GraphicsManager\Scene">
       <UniqueIdentifier>{26e002c8-5261-4957-8966-ffe5f19495c3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>

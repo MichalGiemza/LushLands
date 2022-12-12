@@ -7,23 +7,9 @@
 #include "ConstantSets.h"
 
 
-struct KeySubscribtion {
-    keycode code;
-    eventfn func;
-    void *caller;
-};
-
-struct TimerSubscription {
-    tickperiod period;
-    int64_t lastTickExecutedOn;
-    eventfn func;
-    void *caller;
-};
-
-
 class InputEvents {
+    ALLEGRO_EVENT_SOURCE *userEventSource;
     ALLEGRO_EVENT_QUEUE *eventQueue;
-    ALLEGRO_EVENT currentEvent;
     ALLEGRO_TIMER *timerTPS;
     ALLEGRO_TIMER *timerFPS;
     // Subscribing to events
@@ -34,17 +20,21 @@ class InputEvents {
     std::vector<eventfn> subscribersDisplaySwitchedOut;
     std::vector<TimerSubscription> subscribersTimerTPS;
     std::vector<TimerSubscription> subscribersTimerFPS;
+    std::vector<SystemEventSubscription> subscribersSystemEvents;
 public:
     InputEvents();
     void mainLoop(bool *isRunning);
     void registerEventSource(ALLEGRO_EVENT_SOURCE *event_source);
 
-    void subscribeKeyDown(keycode kc, eventfn fun, void *caller);
-    void subscribeKeyUp(keycode kc, eventfn fun);
-    void subscribeKeyBeingPressed(keycode kc, eventfn fun);
-    void subscribeDisplayClosed(eventfn fun);
-    void subscribeDisplaySwitchedOut(eventfn fun);
+    void subscribeKeyDown(eventfn fun, void *caller);
+    void subscribeKeyUp(eventfn fun, void *caller);
+    void subscribeKeyBeingPressed(eventfn fun, void *caller);
+    void subscribeDisplayClosed(eventfn fun, void *caller);
+    void subscribeDisplaySwitchedOut(eventfn fun, void *caller);
     void subscribeTimerTPS(tickperiod tp, eventfn fun, void *caller);
     void subscribeTimerFPS(tickperiod tp, eventfn fun, void *caller);
+    void subscribeSystemEvent(systemevent se, eventfn fun, void *caller);
+
+    void emitSystemEvent(systemevent eventType, void *data);
 };
 

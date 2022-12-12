@@ -2,13 +2,14 @@
 #include <functional>
 #include <filesystem>
 #include "Constants.h"
+#include <allegro5/events.h>
 
 namespace fs = std::filesystem;
 
 typedef int tickperiod;
 typedef int keycode;
 typedef const char *actioncode;
-typedef std::function<void(void *obj)> eventfn;
+typedef std::function<void(ALLEGRO_EVENT *allegroEvent, void *caller)> eventfn;
 typedef const char *worldtype;
 typedef const char *entitytype;
 typedef int seed;
@@ -17,6 +18,11 @@ typedef const char *scenename;
 typedef const char *rawpath;
 typedef int pxint;
 typedef const char *exceptionmessage;
+typedef const int worldevent;
+typedef const int systemevent;
+typedef unsigned short priority;
+typedef const char *objecttype;
+typedef const char *objectgroup;
 
 struct FieldPlan {
     entitytype ground;
@@ -58,4 +64,22 @@ template<> struct std::hash<TextureLocalization> {
             hash<int>()(p.y) ^
             hash<char *>()(p.path);
     }
+};
+
+struct KeySubscribtion {
+    eventfn func;
+    void *caller;
+};
+
+struct TimerSubscription {
+    tickperiod period;
+    int64_t lastTickExecutedOn;
+    eventfn func;
+    void *caller;
+};
+
+struct SystemEventSubscription {
+    systemevent systemEvent;
+    eventfn func;
+    void *caller;
 };

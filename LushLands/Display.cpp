@@ -28,16 +28,16 @@ void Display::clearDisplay() {
     al_clear_to_color(al_map_rgb(255, 255, 255));
 }
 
-void updateTrackingFPS(void *display) {
-    Display *d = (Display *)display;
+void updateTrackingFPS(ALLEGRO_EVENT *allegroEvent, void *caller) {
+    Display *d = (Display *)caller;
     double newTime = al_get_time();
     d->currentFPS = 1 / (newTime - d->oldTimeFPS);
     d->oldTimeFPS = newTime;
     //Logger::log("FPS: [%f]", currentFPS);
 }
 
-void updateTrackingTPS(void *display) {
-    Display *d = (Display *)display;
+void updateTrackingTPS(ALLEGRO_EVENT *allegroEvent, void *caller) {
+    Display *d = (Display *)caller;
     double newTime = al_get_time();
     d->currentFPS = 1 / (newTime - d->oldTimeTPS);
     d->oldTimeTPS = newTime;

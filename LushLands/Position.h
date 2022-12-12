@@ -24,6 +24,9 @@ public:
     void setX(int x);
     void setY(int y);
     void setZ(int z);
+    void setAccurateX(int x);
+    void setAccurateY(int y);
+    void setAccurateZ(int z);
     int getChunkX();
     int getChunkZ();
     pxint getCameraX();

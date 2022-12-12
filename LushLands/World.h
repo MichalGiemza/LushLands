@@ -6,6 +6,7 @@
 #include "DataTypes.h"
 #include "ConstantSets.h"
 #include "FlatlandWorldPlanner.h"
+#include "WorldEvents.h"
 
 class World {
     /** 
@@ -22,8 +23,9 @@ class World {
     ChunkSystem *chunkSystem;
     worldtype worldType;
     EntityFactory *entityFactory;
+    WorldEvents *worldEvents;
 public:
-    World(worldtype worldType, seed seed_, EntityFactory *entityFactory);
+    World(worldtype worldType, seed seed_, EntityFactory *entityFactory, EventHandler *eventHandler);
     int getSeed();
     std::vector<Entity *> getByPosition(Position position);
     void placePlayer(Entity *player, Position position);

@@ -1,5 +1,22 @@
 #pragma once
 #include "Color.h"
+#include <allegro5/events.h>
+
+namespace focus {
+    // Object Groups
+    const objectgroup STATIC_UI = "static_ui";
+    const objectgroup WORLD_UI = "world_ui";
+    const objectgroup SIMULATION = "simulation";
+
+    // Object Types
+    const objecttype GROUND = "ground";
+    const objecttype STRUCTURE = "structure";
+    const objecttype ITEM_IN_INVENTORY = "item_in_inventory";
+    const objecttype ITEM_PUT_ON_GROUND = "item_put_on_ground";
+    const objecttype UI_WINDOW = "ui_window";
+    const objecttype CAMERA = "camera";
+}
+namespace f = focus;
 
 // Scene types
 const scenename GAMEPLAY_SCENE = "gameplay";
@@ -7,13 +24,6 @@ const scenename MAINMENU_SCENE = "main_menu";
 
 // World types
 const worldtype FLATLAND = "flatland";
-
-// Action codes
-const actioncode GO_NORTH = "go_north";
-const actioncode GO_SOUTH = "go_south";
-const actioncode GO_WEST = "go_west";
-const actioncode GO_EAST = "go_east";
-const actioncode USE = "use";
 
 // Entity types (ground)
 const entitytype AIR = "air";
@@ -96,3 +106,18 @@ const exceptionmessage could_not_init_allegro_ttf = "Could not initialize Allegr
 const exceptionmessage could_not_create_event_queue = "Could not create event queue.\n";
 const exceptionmessage could_not_install_keyboard = "Could not install keyboard.\n";
 const exceptionmessage could_not_create_display = "Could not create display.\n";
+const exceptionmessage system_event_in_world_event_queue = "Unexpected system event found in world event queue.\n";
+
+// World event types
+const worldevent player_attempt_go_north = ALLEGRO_GET_EVENT_TYPE('P', 'A', 'G', 0);
+const worldevent player_attempt_go_south = player_attempt_go_north + 1;
+const worldevent player_attempt_go_east =  player_attempt_go_north + 2;
+const worldevent player_attempt_go_west =  player_attempt_go_north + 3;
+const worldevent player_attempt_use = ALLEGRO_GET_EVENT_TYPE('P', 'A', 'U', 0);
+
+// System Event Types
+const systemevent letter_typed = ALLEGRO_GET_EVENT_TYPE('U', 'L', 'T', 0);
+const systemevent camera_move_north = ALLEGRO_GET_EVENT_TYPE('U', 'A', 'G', 0);
+const systemevent camera_move_south = camera_move_north + 1;
+const systemevent camera_move_east =  camera_move_north + 2;
+const systemevent camera_move_west =  camera_move_north + 3;

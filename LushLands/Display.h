@@ -16,8 +16,8 @@ class Display {
     double currentTPS;
 private:
     void registerFPSAndTPSMeters(InputEvents *inputEvents);
-    friend void updateTrackingFPS(void *display);
-    friend void updateTrackingTPS(void *display);
+    friend void updateTrackingFPS(ALLEGRO_EVENT *allegroEvent, void *caller);
+    friend void updateTrackingTPS(ALLEGRO_EVENT *allegroEvent, void *caller);
 public:
     ALLEGRO_DISPLAY *getDisplay();
     Display(InputEvents *inputEvents);
@@ -26,5 +26,5 @@ public:
     double getCurrentTPS();
 };
 
-void updateTrackingFPS(void *display);
-void updateTrackingTPS(void *display);
+void updateTrackingFPS(ALLEGRO_EVENT *allegroEvent, void *caller);
+void updateTrackingTPS(ALLEGRO_EVENT *allegroEvent, void *caller);

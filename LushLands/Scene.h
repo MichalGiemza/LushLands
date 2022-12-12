@@ -19,9 +19,9 @@ class Scene {
     TextureManager *textureManager;
 
     void drawChunkGround(ChunkRepresentation &chunkRepresentation, int level);
-    friend void draw(void *scene);
+    friend void draw(ALLEGRO_EVENT *ae, void *scene);
 public:
-    Scene(scenename sceneName, World *world, Display *display, Position *followedPosition, InputEvents *inputEvents, TextureManager *textureManager);
+    Scene(scenename sceneName, World *world, Display *display, Position *followedPosition, InputEvents *inputEvents, TextureManager *textureManager, Focus *focus);
 };
 
-void draw(void *scene);
+void draw(ALLEGRO_EVENT *ae, void *scene);

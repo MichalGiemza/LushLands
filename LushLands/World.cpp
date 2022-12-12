@@ -1,6 +1,6 @@
 #include "World.h"
 
-World::World(worldtype worldType, seed seed_, EntityFactory *entityFactory) {
+World::World(worldtype worldType, seed seed_, EntityFactory *entityFactory, EventHandler *eventHandler) {
     this->seed_ = seed_;
     this->worldType = worldType;
     this->entityFactory = entityFactory;
@@ -12,6 +12,7 @@ World::World(worldtype worldType, seed seed_, EntityFactory *entityFactory) {
     }
     
     this->chunkSystem = new ChunkSystem(worldPlanner, entityFactory);
+    this->worldEvents = new WorldEvents(eventHandler);
 
     Logger::log("Created World [%s]", worldType);
 }

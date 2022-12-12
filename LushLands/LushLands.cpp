@@ -2,24 +2,19 @@
 
 bool initialized = false;
 bool running = false;
-InputEvents *inputEvents;
-Controller *controller;
+
 GraphicsManager *graphicsManager;
 Simulation *simulation;
-
+Controller_ *controller;
 
 void init() {
     // Controller
-    if (!al_init())
-        throw std::logic_error(could_not_init_allegro);
-    ActionMap::init(); // TODO: Przenieść? 
-    Logger::init();
-    inputEvents = new InputEvents();
-    controller = new Controller(inputEvents);
+    controller = new Controller_();
     // Model
-    simulation = new Simulation(inputEvents);
+    simulation = new Simulation(controller);
     // View
-    graphicsManager = new GraphicsManager(inputEvents, simulation);
+    graphicsManager = new GraphicsManager(controller, simulation);
+    // Done
     initialized = true;
 }
 
@@ -27,7 +22,7 @@ void main_loop() {
     if (!initialized)
         throw std::logic_error(cannot_run_uninitialized);
     running = true;
-    inputEvents->mainLoop(&running);
+    controller->getInputEvents()->mainLoop(&running);
 }
 
 int main(int argc, char **argv) {

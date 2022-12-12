@@ -155,7 +155,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ActionMap.cpp" />
-    <ClCompile Include="Actions.cpp" />
     <ClCompile Include="Body.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Chunk.cpp" />
@@ -165,10 +164,14 @@
     <ClCompile Include="ChunkSystem.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="Controller_.cpp" />
     <ClCompile Include="ControlManager.cpp" />
     <ClCompile Include="Display.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntityFactory.cpp" />
+    <ClCompile Include="EventHandler.cpp" />
+    <ClCompile Include="Focus.cpp" />
+    <ClCompile Include="GameElement.cpp" />
     <ClCompile Include="InputEvents.cpp" />
     <ClCompile Include="FlatlandWorldPlanner.cpp" />
     <ClCompile Include="GraphicsManager.cpp" />
@@ -178,15 +181,14 @@
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Simulation.cpp" />
-    <ClCompile Include="SimulationEventHandler.cpp" />
     <ClCompile Include="Size.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="BaseWorldPlanner.cpp" />
+    <ClCompile Include="WorldEvents.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionMap.h" />
-    <ClInclude Include="Actions.h" />
     <ClInclude Include="Body.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Chunk.h" />
@@ -197,12 +199,17 @@
     <ClInclude Include="Color.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Controller.h" />
+    <ClInclude Include="Controller_.h" />
     <ClInclude Include="ControlManager.h" />
     <ClInclude Include="DataTypes.h" />
     <ClInclude Include="Display.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="ConstantSets.h" />
     <ClInclude Include="EntityFactory.h" />
+    <ClInclude Include="EventHandler.h" />
+    <ClInclude Include="Focus.h" />
+    <ClInclude Include="GameElement.h" />
+    <ClInclude Include="IWorldEvents.h" />
     <ClInclude Include="InputEvents.h" />
     <ClInclude Include="FlatlandWorldPlanner.h" />
     <ClInclude Include="GraphicsManager.h" />
@@ -213,11 +220,11 @@
     <ClInclude Include="PositionStructures.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Simulation.h" />
-    <ClInclude Include="SimulationEventHandler.h" />
     <ClInclude Include="Size.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="BaseWorldPlanner.h" />
+    <ClInclude Include="WorldEvents.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

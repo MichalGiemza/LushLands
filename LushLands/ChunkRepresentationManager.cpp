@@ -1,8 +1,8 @@
 #include "ChunkRepresentationManager.h"
 
 void ChunkRepresentationManager::updateVisibleChunkRepresentations() {
-    int level = camera->getFollowedPosition()->y();
-    auto cPositions = camera->getFollowedPosition()->getNeighbouringChunkPositions();
+    int level = camera->getPosition()->y();
+    auto cPositions = camera->getPosition()->getNeighbouringChunkPositions();
 
     for (auto i = 0; i < cPositions.n; i++) {
         auto cPos = cPositions.chunkPositions[i];
@@ -22,8 +22,8 @@ ChunkRepresentationManager::ChunkRepresentationManager(World *world, Display *di
 }
 
 void ChunkRepresentationManager::draw() {
-    int level = camera->getFollowedPosition()->y();
-    auto cPositions = camera->getFollowedPosition()->getNeighbouringChunkPositions();
+    int level = camera->getPosition()->y();
+    auto cPositions = camera->getPosition()->getNeighbouringChunkPositions();
     Size chunkSize = Size(chunkSizeByTiles, 0, chunkSizeByTiles);
 
     updateVisibleChunkRepresentations();
@@ -32,7 +32,7 @@ void ChunkRepresentationManager::draw() {
         auto cRep = chunkRepresentations[cPos];
         if (camera->isAreaVisible(cRep->getPosition(), &chunkSize)) {
             auto chunkBitmap = cRep->getBitmap(level);
-            Position chunkDrawPos = (*cRep->getPosition()) - *(camera->getFollowedPosition());
+            Position chunkDrawPos = (*cRep->getPosition()) - (*camera->getPosition());
             // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
             al_draw_bitmap(chunkBitmap, chunkDrawPos.getCameraX(), chunkDrawPos.getCameraZ(), 0);
         }

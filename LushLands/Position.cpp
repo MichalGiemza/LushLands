@@ -64,7 +64,7 @@ void Position::setX(int x) {
 }
 
 void Position::setY(int y) {
-    if (y >= worldHeight or y < 0)
+    if (y >= worldHeight || y < 0)
         throw std::logic_error("Incorrect height of a position.");
     _y = y * representationComaValue;
 }
@@ -72,6 +72,21 @@ void Position::setY(int y) {
 void Position::setZ(int z) {
     _z = z * representationComaValue;
 }
+
+void Position::setAccurateX(int x) {
+    _x = x;
+}
+
+void Position::setAccurateY(int y) {
+    if (y * representationComaValue >= worldHeight || y * representationComaValue < 0)
+        throw std::logic_error("Incorrect height of a position.");
+    _y = y;
+}
+
+void Position::setAccurateZ(int z) {
+    _z = z;
+}
+
 
 int Position::getChunkX() {
     return _x / chunkSizeByTiles / representationComaValue;
@@ -82,11 +97,11 @@ int Position::getChunkZ() {
 }
 
 pxint Position::getCameraX() {
-    return (pxint)(x() * tileSizePx);
+    return (pxint)(x());// *tileSizePx);
 }
 
 pxint Position::getCameraZ() {
-    return (pxint)(z() * tileSizePx);
+    return (pxint)(z());// *tileSizePx);
 }
 
 ChunkPosition Position::getChunkPosition() {
