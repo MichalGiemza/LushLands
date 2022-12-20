@@ -2,7 +2,7 @@
 
 ALLEGRO_BITMAP *TextureManager::loadTexture(const TextureLocalization &tl) {
     auto rawBitmap = getRawBitmap(tl);
-    return al_create_sub_bitmap(rawBitmap, tl.x, tl.y, tileSizePx, tileSizePx);
+    return al_create_sub_bitmap(rawBitmap, tl.x, tl.y, tl.w, tl.h);
 }
 
 ALLEGRO_BITMAP *TextureManager::getRawBitmap(const TextureLocalization &tl) {
@@ -29,6 +29,13 @@ void TextureManager::loadAllTextures() {
     textures[FARMLAND] = loadTexture(FARMLAND_TEXTURE_LOCALIZATION);
     textures[GRAVEL] = loadTexture(GRAVEL_TEXTURE_LOCALIZATION);
     textures[SNOW] = loadTexture(SNOW_TEXTURE_LOCALIZATION);
+
+    textures[TREE] = loadTexture(TREE_TEXTURE_LOCALIZATION);
+    textures[BUSH] = loadTexture(BUSH_TEXTURE_LOCALIZATION);
+    textures[TALL_GRASS] = loadTexture(TALL_GRASS_TEXTURE_LOCALIZATION);
+    textures[FLOWER_YELLOW] = loadTexture(FLOWER_YELLOW_TEXTURE_LOCALIZATION);
+    textures[STONE] = loadTexture(STONE_TEXTURE_LOCALIZATION);
+    textures[LOG] = loadTexture(LOG_TEXTURE_LOCALIZATION);
 }
 
 ALLEGRO_BITMAP *TextureManager::getEntityTexture(entitytype entityType) {

@@ -1,7 +1,7 @@
 #include "ChunkRepresentation.h"
 
 size_t ChunkRepresentation::hashChunkGroundLevel(int level) {
-    TilePosition referencePosition = position->getTilePosition();
+    TilePosition referencePosition = position.getTilePosition();
     referencePosition.y = level;
     TilePosition tp = TilePosition(referencePosition);
     size_t hash_ = 0;
@@ -17,7 +17,7 @@ size_t ChunkRepresentation::hashChunkGroundLevel(int level) {
 }
 
 void ChunkRepresentation::drawLevelTilesToBitmap(int level) {
-    TilePosition referencePosition = position->getTilePosition();
+    TilePosition referencePosition = position.getTilePosition();
     referencePosition.y = level;
     TilePosition tp = TilePosition(referencePosition);
     for (int i = 0; i < chunkSizeByTiles; i++) {
@@ -34,13 +34,15 @@ void ChunkRepresentation::drawLevelTilesToBitmap(int level) {
     }
 }
 
-ChunkRepresentation::ChunkRepresentation(Display *display, ChunkPosition &chunkPosition, std::unordered_map<TilePosition, Entity *> &groundTiles, std::unordered_map<TilePosition, Entity *> &structures, TextureManager *textureManager) {
+ChunkRepresentation::ChunkRepresentation(Display *display, ChunkPosition chunkPosition, std::unordered_map<TilePosition, Entity *> &groundTiles, std::unordered_map<TilePosition, Entity *> &structures, TextureManager *textureManager) {
     this->textureManager = textureManager;
     this->display = display;
     this->groundTiles = groundTiles;
     this->structures = structures;
-    this->chunkPosition = &chunkPosition;
-    this->position = new Position(chunkPosition);
+    this->chunkPosition = chunkPosition;
+    this->position = Position(chunkPosition);
+    this->area = new Rectangle_(0, 0, chunkSizeByTiles, chunkSizeByTiles);
+    this->area->setPosition(&this->position);
 }
 
 ALLEGRO_BITMAP *ChunkRepresentation::getBitmap(int level) {
@@ -57,10 +59,18 @@ ALLEGRO_BITMAP *ChunkRepresentation::getBitmap(int level) {
     return cachedLevelBitmap;
 }
 
-ChunkPosition *ChunkRepresentation::getChunkPosition() const {
-    return chunkPosition;
+std::unordered_map<TilePosition, Entity *> *ChunkRepresentation::getStructures() {
+    return &structures;
 }
 
-Position *ChunkRepresentation::getPosition() const {
-    return position;
+ChunkPosition *ChunkRepresentation::getChunkPosition() {
+    return &chunkPosition;
+}
+
+Position *ChunkRepresentation::getPosition() {
+    return &position;
+}
+
+Rectangle_ *ChunkRepresentation::getArea() {
+    return area;
 }

@@ -1,11 +1,11 @@
 #pragma once
+#include "Rectangle_.h"
 #include "Constants.h"
-#include "Position.h"
-#include "Size.h"
 #include "GameElement.h"
 #include "Focus.h"
 #include "ConstantSets.h"
 #include "InputEvents.h"
+
 
 class Camera : GameElement {
     // Zoom at 100 means 1px at screen is 1px in texture
@@ -13,24 +13,22 @@ class Camera : GameElement {
     const int minZoom = 50;
     const int maxZoom = 400;
     int zoom = 100;
-    int scrollSpeed = 10;
-    Position *followedPosition = 0;
-    Position *independentPosition = 0;
-
-    int left();
-    int right();
-    int top();
-    int bottom();
+    int scrollSpeed = 30;
+    Rectangle_ *followedFrame = 0;
+    Rectangle_ *independentFrame = 0;
+private:
     int level();
 public:
     Camera(Position *startingPosition, Focus *focus, InputEvents *inputEvents);
-    void update(); // TODO: Czy potrzebujê tego?
     int getZoom();
     void setZoom(int zoom);
+    Rectangle_ *getFrame();
     Position *getPosition();
     void setFollowedPosition(Position *position);
-    bool isAreaVisible(Position *position, Size *size);
+    bool isAreaVisible(Rectangle_ *area);
     friend void handleMovement(ALLEGRO_EVENT *ae, void *obj);
+    pxint shiftToScreenPosX(int accurateWorldX);
+    pxint shiftToScreenPosZ(int accurateWorldZ);
 };
 
 void handleMovement(ALLEGRO_EVENT *ae, void *obj);

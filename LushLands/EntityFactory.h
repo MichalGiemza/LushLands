@@ -3,6 +3,7 @@
 #include "DataTypes.h"
 #include "ConstantSets.h"
 #include "Ground.h"
+#include "Structure.h"
 
 class EntityFactory {
     /**

@@ -10,6 +10,8 @@ Display::Display(InputEvents *inputEvents) {
     al_flip_display(); 
     if (!display)
         throw std::logic_error(could_not_create_display);
+    if (!al_init_primitives_addon())
+        throw std::logic_error(could_not_init_primitives);
 
     registerFPSAndTPSMeters(inputEvents);
 }

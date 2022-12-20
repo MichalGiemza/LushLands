@@ -1,20 +1,40 @@
-#include <math.h>
-#include <string>
 #include "Position.h"
-#include "Constants.h"
-#include <stdexcept>
 
 
-Position::Position(int x, int y, int z) {
-    setX(x);
-    setY(y);
-    setZ(z);
+Position::Position(int x, int y, int z, bool accurate) {
+    if (accurate) {
+        setAccurateX(x);
+        setAccurateY(y);
+        setAccurateZ(z);
+    } else {
+        setX(x);
+        setY(y);
+        setZ(z);
+    }
 }
 
 Position::Position(ChunkPosition &cp) {
-    setX(cp.x * chunkSizeByTiles * representationComaValue);
+    setX(cp.x * chunkSizeByTiles);
     setY(0);
-    setZ(cp.z * chunkSizeByTiles * representationComaValue);
+    setZ(cp.z * chunkSizeByTiles);
+}
+
+Position::Position(const ChunkPosition &cp) {
+    setX(cp.x * chunkSizeByTiles);
+    setY(0);
+    setZ(cp.z * chunkSizeByTiles);
+}
+
+Position::Position(TilePosition &tp) {
+    setX(tp.x);
+    setY(tp.y);
+    setZ(tp.z);
+}
+
+Position::Position(const TilePosition &tp) {
+    setX(tp.x);
+    setY(tp.y);
+    setZ(tp.z);
 }
 
 Position::Position() {
@@ -88,27 +108,19 @@ void Position::setAccurateZ(int z) {
 }
 
 
-int Position::getChunkX() {
+int Position::getChunkX() const {
     return _x / chunkSizeByTiles / representationComaValue;
 }
 
-int Position::getChunkZ() {
+int Position::getChunkZ() const {
     return _z / chunkSizeByTiles / representationComaValue;
 }
 
-pxint Position::getCameraX() {
-    return (pxint)(x());// *tileSizePx);
-}
-
-pxint Position::getCameraZ() {
-    return (pxint)(z());// *tileSizePx);
-}
-
-ChunkPosition Position::getChunkPosition() {
+ChunkPosition Position::getChunkPosition() const {
     return ChunkPosition(getChunkX(), getChunkZ());
 }
 
-TilePosition Position::getTilePosition() {
+TilePosition Position::getTilePosition() const {
     TilePosition tp = TilePosition();
     tp.x = getX();
     tp.y = getY();
@@ -116,31 +128,31 @@ TilePosition Position::getTilePosition() {
     return tp;
 }
 
-int Position::getInsideChunkRawX() {
+int Position::getInsideChunkRawX() const {
     return fmod(_x, chunkSizeByTiles * representationComaValue);
 }
 
-int Position::getInsideChunkRawZ() {
+int Position::getInsideChunkRawZ() const {
     return fmod(_z, chunkSizeByTiles * representationComaValue);
 }
 
-std::string Position::getTextX() {
+std::string Position::getTextX() const {
     return std::to_string(_x / representationComaValue);
 }
 
-std::string Position::getTextY() {
+std::string Position::getTextY() const {
     return std::to_string(_y / representationComaValue);
 }
 
-std::string Position::getTextZ() {
+std::string Position::getTextZ() const {
     return std::to_string(_z / representationComaValue);
 }
 
-std::string Position::getText() {
+std::string Position::getText() const {
     return "(X=" + getTextX() + ",Y=" + getTextY() + ",Z=" + getTextZ() + ")";
 }
 
-NeighbouringChunkPositions Position::getNeighbouringChunkPositions() {
+NeighbouringChunkPositions Position::getNeighbouringChunkPositions() const {
     const int chunksInLine = (chunkRenderDistance - 1) * 2 + 1;
     const int displacement = chunksInLine / 2;
     const int chunkAmount = chunksInLine * chunksInLine;
@@ -166,9 +178,15 @@ bool Position::operator==(const Position &other) const {
 }
 
 Position Position::operator-(const Position &other) const {
-    return Position(_x - other._x, std::max(_y - other._y, 0), _z - other._z);
+    return Position(
+        (_x - other._x) / representationComaValue, 
+        std::max((_y - other._y) / representationComaValue, 0),
+        (_z - other._z) / representationComaValue);
 }
 
 Position Position::operator+(const Position &other) const {
-    return Position(_x + other._x, std::min(_y + other._y, worldHeight - 1), _z + other._z);
+    return Position(
+        (_x + other._x) / representationComaValue,
+        std::min((_y + other._y) / representationComaValue, worldHeight - 1),
+        (_z + other._z) / representationComaValue);
 }

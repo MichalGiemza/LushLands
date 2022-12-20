@@ -1,8 +1,8 @@
 #pragma once
 #include <functional>
 #include <filesystem>
-#include "Constants.h"
 #include <allegro5/events.h>
+#include "Constants.h"
 
 namespace fs = std::filesystem;
 
@@ -42,6 +42,7 @@ public:
 struct TextureLocalization {
     int x, y; // [x,y] position on bitmap, 32x32 tile size defined in constants as tileSize
     const char *path;
+    int w = tileSizePx, h = tileSizePx;
     bool operator==(const TextureLocalization &other) const {
         return x == other.x && y == other.y && strcmp(path, other.path) == 0;
     }

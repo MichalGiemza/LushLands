@@ -155,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ActionMap.cpp" />
+    <ClCompile Include="Appearance.cpp" />
     <ClCompile Include="Body.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Chunk.cpp" />
@@ -179,9 +180,11 @@
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="LushLands.cpp" />
     <ClCompile Include="Position.cpp" />
+    <ClCompile Include="Rectangle_.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="Size.cpp" />
+    <ClCompile Include="Structure.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="BaseWorldPlanner.cpp" />
@@ -189,6 +192,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionMap.h" />
+    <ClInclude Include="Appearance.h" />
     <ClInclude Include="Body.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Chunk.h" />
@@ -218,9 +222,11 @@
     <ClInclude Include="LushLands.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="PositionStructures.h" />
+    <ClInclude Include="Rectangle_.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Simulation.h" />
     <ClInclude Include="Size.h" />
+    <ClInclude Include="Structure.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="BaseWorldPlanner.h" />

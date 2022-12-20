@@ -11,8 +11,8 @@ public:
     uint8_t g();
     uint8_t b();
     uint8_t a();
-    uint8_t *getRGBA();
-    uint8_t *getRGB();
-    ALLEGRO_COLOR getAllegroColor();
+    uint8_t *getRGBA() const;
+    uint8_t *getRGB() const;
+    ALLEGRO_COLOR getAllegroColor() const;
 };
 

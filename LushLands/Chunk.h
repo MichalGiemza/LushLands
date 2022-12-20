@@ -27,6 +27,7 @@ private:
     //PositionManager positionManager;
     //TileMovementManager tileMovementManager;
     void generateTiles(ChunkPlan &chunkPlan);
+    void generateStructures(ChunkPlan &chunkPlan);
 public:
     Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory);
     Entity *getGround(TilePosition &tilePosition);

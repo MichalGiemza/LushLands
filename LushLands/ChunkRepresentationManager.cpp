@@ -30,13 +30,86 @@ void ChunkRepresentationManager::draw() {
     for (auto i = 0; i < cPositions.n; i++) {
         auto cPos = cPositions.chunkPositions[i];
         auto cRep = chunkRepresentations[cPos];
-        if (camera->isAreaVisible(cRep->getPosition(), &chunkSize)) {
-            auto chunkBitmap = cRep->getBitmap(level);
-            Position chunkDrawPos = (*cRep->getPosition()) - (*camera->getPosition());
-            // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
-            al_draw_bitmap(chunkBitmap, chunkDrawPos.getCameraX(), chunkDrawPos.getCameraZ(), 0);
+        if (camera->isAreaVisible(cRep->getArea())) {
+            drawGround(cRep, level);
+            drawStructures(cRep, level);
+            if (DEBUG) {
+                drawStructureOutlines(cRep, level);
+                drawChunkBorders(cRep);
+            }
         }
     }
 }
 
+void ChunkRepresentationManager::drawGround(ChunkRepresentation *cRep, int level) {
+    auto groundBitmap = cRep->getBitmap(level);
+    // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
+    pxint x = camera->shiftToScreenPosX(cRep->getPosition()->getAccurateX());
+    pxint z = camera->shiftToScreenPosZ(cRep->getPosition()->getAccurateZ());
+    al_draw_bitmap(groundBitmap, x, z, 0);
+}
 
+void ChunkRepresentationManager::drawStructures(ChunkRepresentation *cRep, int level) {
+    auto structures = cRep->getStructures();
+    for (auto sPair = structures->begin(); sPair != structures->end(); ++sPair) {
+        if (sPair->first.y != level)
+            continue;
+        auto str = (Structure *)sPair->second;
+        // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
+        auto sBitmap = textureManager->getEntityTexture(sPair->second->getType());
+        pxint x = shiftTexturePositionX(
+            camera->shiftToScreenPosX(str->getPosition().getAccurateX()),
+            al_get_bitmap_width(sBitmap));
+        pxint z = shiftTexturePositionZ(
+            camera->shiftToScreenPosZ(str->getPosition().getAccurateZ()),
+            al_get_bitmap_height(sBitmap));
+        al_draw_bitmap(sBitmap, x, z, 0);
+    }
+}
+
+void ChunkRepresentationManager::drawChunkBorders(ChunkRepresentation *cRep) {
+    // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
+    pxint x1 = camera->shiftToScreenPosX(cRep->getPosition()->getAccurateX());
+    pxint z1 = camera->shiftToScreenPosZ(cRep->getPosition()->getAccurateZ());
+    pxint x2 = camera->shiftToScreenPosX(cRep->getPosition()->getAccurateX()) + chunkSizeByTiles * chunkSizeByTiles;
+    pxint z2 = camera->shiftToScreenPosZ(cRep->getPosition()->getAccurateZ()) + chunkSizeByTiles * chunkSizeByTiles;
+    al_draw_rectangle(x1, z1, x2, z2, DEBUG_CHUNK_BORDER_COLOR.getAllegroColor(), 1.0f);
+}
+
+void ChunkRepresentationManager::drawStructureOutlines(ChunkRepresentation *cRep, int level) {
+    auto structures = cRep->getStructures();
+    for (auto sPair = structures->begin(); sPair != structures->end(); ++sPair) {
+        if (sPair->first.y != level)
+            continue;
+        auto str = (Structure *)sPair->second;
+        // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
+        auto sBitmap = textureManager->getEntityTexture(sPair->second->getType());
+        pxint x1 = shiftTexturePositionX(
+            camera->shiftToScreenPosX(str->getPosition().getAccurateX()), 
+            str->getSize().getCameraW());
+        pxint z1 = shiftTexturePositionZ(
+            camera->shiftToScreenPosZ(str->getPosition().getAccurateZ()), 
+            str->getSize().getCameraL());
+        pxint x2 = shiftTexturePositionX(
+            camera->shiftToScreenPosX(str->getPosition().getAccurateX()) + str->getSize().getCameraW(),
+            str->getSize().getCameraW());
+        pxint z2 = shiftTexturePositionZ(
+            camera->shiftToScreenPosZ(str->getPosition().getAccurateZ()) + str->getSize().getCameraL(),
+            str->getSize().getCameraL());
+        al_draw_rectangle(x1, z1, x2, z2, str->getColor()->getAllegroColor(), 1.0f);
+    }
+}
+
+pxint ChunkRepresentationManager::shiftTexturePositionX(pxint screenPositionX, pxint bitmapWidth) {
+    if (bitmapWidth >= 32)
+        return tileSizePx - bitmapWidth + screenPositionX;
+    else
+        return tileSizePx / 2 - bitmapWidth / 2 + screenPositionX;
+}
+
+pxint ChunkRepresentationManager::shiftTexturePositionZ(pxint screenPositionZ, pxint bitmapHeight) {
+    if (bitmapHeight >= 32)
+        return tileSizePx - bitmapHeight + screenPositionZ;
+    else
+        return tileSizePx / 2 - bitmapHeight / 2 + screenPositionZ;
+}

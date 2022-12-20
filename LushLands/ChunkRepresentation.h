@@ -1,16 +1,18 @@
 #pragma once
+#include "Rectangle_.h"
 #include "Entity.h"
 #include "Display.h"
 #include "Ground.h"
-#include "Position.h"
 #include "TextureManager.h"
+
 
 class ChunkRepresentation {
     /**
     * Registeres and provides means for drawing a chunk.
     */
-    ChunkPosition *chunkPosition;
-    Position *position;
+    ChunkPosition chunkPosition;
+    Position position;
+    Rectangle_ *area;
     std::unordered_map<TilePosition, Entity *> groundTiles;
     std::unordered_map<TilePosition, Entity *> structures;
     size_t cachedLevelHash = 0;
@@ -21,9 +23,11 @@ class ChunkRepresentation {
     size_t hashChunkGroundLevel(int level);
     void drawLevelTilesToBitmap(int level);
 public:
-    ChunkRepresentation(Display *display, ChunkPosition &chunkPosition, std::unordered_map<TilePosition, Entity *> &groundTiles, std::unordered_map<TilePosition, Entity *> &structures, TextureManager *textureManager);
+    ChunkRepresentation(Display *display, ChunkPosition chunkPosition, std::unordered_map<TilePosition, Entity *> &groundTiles, std::unordered_map<TilePosition, Entity *> &structures, TextureManager *textureManager);
     ALLEGRO_BITMAP *getBitmap(int level);
-    ChunkPosition *getChunkPosition() const;
-    Position *getPosition() const;
+    std::unordered_map<TilePosition, Entity *> *getStructures();
+    ChunkPosition *getChunkPosition();
+    Position *getPosition();
+    Rectangle_ *getArea();
 };
 

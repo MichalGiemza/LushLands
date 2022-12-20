@@ -25,10 +25,16 @@ FieldPlan FlatlandWorldPlanner::getFieldPlan(Position position) {
         return fp;
     }
     // Exposed ground level
+    if (position.x() == 0 or position.z() == 0) {
+        fp.ground = FARMLAND;
+        fp.structure = FLOWER_YELLOW;
+        fp.animal = 0;
+        return fp;
+    }
     if ((position.x() + position.z()) % 2 == 0) {
         if (position.x() % 4 == 0 and position.z() % 4 == 0) {
             fp.ground = GRASS;
-            fp.structure = 0; //TREE
+            fp.structure = TREE;
             fp.animal = 0;
             return fp;
         }
@@ -40,7 +46,7 @@ FieldPlan FlatlandWorldPlanner::getFieldPlan(Position position) {
         }
         if (position.x() % 6 == 4 and position.z() % 6 == 4) {
             fp.ground = GRASS;
-            fp.structure = 0; // "brick_wall"
+            fp.structure = TALL_GRASS;
             fp.animal = 0;
             return fp;
         } else {

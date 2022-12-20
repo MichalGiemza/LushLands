@@ -10,14 +10,14 @@ uint8_t Color::b() { return blue; }
 
 uint8_t Color::a() { return alpha; }
 
-uint8_t *Color::getRGBA() {
+uint8_t *Color::getRGBA() const {
     return new uint8_t[red, green, blue, alpha];
 }
 
-uint8_t *Color::getRGB() {
+uint8_t *Color::getRGB() const {
     return new uint8_t[red, green, blue];
 }
 
-ALLEGRO_COLOR Color::getAllegroColor() {
-    return ALLEGRO_COLOR(red, green, blue, alpha);
+ALLEGRO_COLOR Color::getAllegroColor() const {
+    return al_map_rgba(red, green, blue, alpha);
 }
