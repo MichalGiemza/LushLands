@@ -8,6 +8,10 @@ void ChunkRepresentationManager::updateVisibleChunkRepresentations() {
         auto cPos = cPositions.chunkPositions[i];
         if (!chunkRepresentations[cPos]) {
             auto chunk = world->getChunkLoadManager()->getChunk(cPos);
+            if (!chunk) { // TODO: Dodaæ ³adowanie chunków
+                Logger::log("Chunk [%i, %i] was not loaded yet!", cPos.x, cPos.z);
+                continue;
+            }
             chunkRepresentations[cPos] = new ChunkRepresentation(display, cPos, *chunk->getGround(), *chunk->getStructures(), textureManager);
         }
     }
@@ -30,6 +34,8 @@ void ChunkRepresentationManager::draw() {
     for (auto i = 0; i < cPositions.n; i++) {
         auto cPos = cPositions.chunkPositions[i];
         auto cRep = chunkRepresentations[cPos];
+        if (!cRep) // TODO: Obs³uga braku reprezentacji chunku
+            continue;
         if (camera->isAreaVisible(cRep->getArea())) {
             drawGround(cRep, level);
             drawStructures(cRep, level);

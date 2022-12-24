@@ -26,9 +26,7 @@ void ChunkRepresentation::drawLevelTilesToBitmap(int level) {
             tp.z = referencePosition.z + j;
             if (groundTiles.find(tp) != groundTiles.end()) {
                 Ground *g = (Ground *)groundTiles[tp];
-                int x = (tp.x % chunkSizeByTiles) * tileSizePx;
-                int z = (tp.z % chunkSizeByTiles) * tileSizePx;
-                al_draw_bitmap(textureManager->getEntityTexture(g->getType()), x, z, 0);
+                al_draw_bitmap(textureManager->getEntityTexture(g->getType()), i * tileSizePx, j * tileSizePx, 0);
             }
         }
     }
