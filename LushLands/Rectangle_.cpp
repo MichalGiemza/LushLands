@@ -57,8 +57,8 @@ bool Rectangle_::isOverlapping(const Rectangle_ *other) const {
 	// Determine left-right and top-bottom pairs
 	const Rectangle_ *lRect = p->getAccurateX() < other->p->getAccurateX() ? this : other;
 	const Rectangle_ *rRect = p->getAccurateX() >= other->p->getAccurateX() ? this : other;
-	const Rectangle_ *bRect = p->getAccurateZ() < other->p->getAccurateZ() ? this : other;
-	const Rectangle_ *tRect = p->getAccurateZ() >= other->p->getAccurateZ() ? this : other;
+	const Rectangle_ *bRect = p->getAccurateZ() >= other->p->getAccurateZ() ? this : other;
+	const Rectangle_ *tRect = p->getAccurateZ() < other->p->getAccurateZ() ? this : other;
 
 	bool x_overlapping = lRect->accurateRight() > rRect->accurateLeft();
 	bool y_overlapping = bRect->accurateTop() > tRect->accurateBottom();
