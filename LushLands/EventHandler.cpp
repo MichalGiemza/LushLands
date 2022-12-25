@@ -6,8 +6,8 @@ EventHandler::EventHandler(InputEvents *inputEvents, Focus *focus, ActionMap *ac
     this->actionMap = actionMap;
     this->worldEvents = 0;
 
-    inputEvents->subscribeKeyDown(handleKeyboardKey, this);
-    inputEvents->subscribeKeyDown(handleKeyboardLetter, this);
+    inputEvents->subscribeKeyBeingPressed(handleKeyboardKey, this);
+    inputEvents->subscribeKeyTyped(handleKeyboardLetter, this);
 }
 
 void EventHandler::registerWorldEvents(IWorldEvents *worldEvents) {

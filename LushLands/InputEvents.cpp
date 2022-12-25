@@ -1,6 +1,31 @@
 #include "InputEvents.h"
 
 
+void InputEvents::handleBeingPressedEvents() {
+    ALLEGRO_EVENT *ev = new ALLEGRO_EVENT;
+    for (auto &ks : keyStates) {
+        if (ks.second == true) {
+            for (auto keySub = subscribersKeyBeingPressed.begin(); keySub != subscribersKeyBeingPressed.end(); ++keySub) {
+                ev->keyboard.keycode = ks.first;
+                keySub->func(ev, keySub->caller);
+            }
+        }
+    }
+}
+
+void InputEvents::stopAllBeingPressedEvents() {
+    for (auto ks = keyStates.begin(); ks != keyStates.end(); ++ks)
+        ks->second = false;        
+}
+
+void InputEvents::beginPressingKey(keycode kc) {
+    keyStates[kc] = true;
+}
+
+void InputEvents::finishPressingKey(keycode kc) {
+    keyStates[kc] = false;
+}
+
 InputEvents::InputEvents() {
     // Queue
     eventQueue = al_create_event_queue();
@@ -14,10 +39,12 @@ InputEvents::InputEvents() {
     subscribersKeyDown = std::vector<KeySubscribtion>();
     subscribersKeyUp = std::vector<KeySubscribtion>();
     subscribersKeyBeingPressed = std::vector<KeySubscribtion>();
+    subscribersKeyTyped = std::vector<KeySubscribtion>();
     subscribersDisplayClosed = std::vector<eventfn>();
     subscribersDisplaySwitchedOut = std::vector<eventfn>();
     subscribersTimerTPS = std::vector<TimerSubscription>(); // TODO: Dodaæ dojœcie do event handlera œwiata i chunków (Zostawiæ tu sprawdzania TPS)
     subscribersTimerFPS = std::vector<TimerSubscription>();
+    keyStates = std::unordered_map<keycode, bool>();
     // Timers
     timerTPS = al_create_timer(1.0 / TicksPerSecond);
     timerFPS = al_create_timer(1.0 / FramesPerSecond);
@@ -39,32 +66,39 @@ void InputEvents::mainLoop(bool *isRunning) { // TODO: Odwróciæ zale¿noœæ i prze
 
         case ALLEGRO_EVENT_KEY_DOWN: {
             //Input::passKeyDown(currentEvent->keyboard.keycode);
+            beginPressingKey(currentEvent->keyboard.keycode);
             for (auto keySub = subscribersKeyDown.begin(); keySub != subscribersKeyDown.end(); ++keySub)
                 keySub->func(currentEvent, keySub->caller);
             break;
         }
         case ALLEGRO_EVENT_KEY_UP: {
             //Input::passKeyUp(currentEvent->keyboard.keycode);
-            // TODO
+            finishPressingKey(currentEvent->keyboard.keycode);
+            for (auto keySub = subscribersKeyUp.begin(); keySub != subscribersKeyUp.end(); ++keySub)
+                keySub->func(currentEvent, keySub->caller);
             break;
         }
         case ALLEGRO_EVENT_KEY_CHAR: {
             //Input::passChar(currentEvent->keyboard.keycode);
-            // TODO
+            for (auto keySub = subscribersKeyTyped.begin(); keySub != subscribersKeyTyped.end(); ++keySub)
+                keySub->func(currentEvent, keySub->caller);
             break;
         }
         case ALLEGRO_EVENT_DISPLAY_CLOSE: {
             // TODO
             *isRunning = false;
+            stopAllBeingPressedEvents();
             break;
         }
         case ALLEGRO_EVENT_DISPLAY_SWITCH_OUT: {
             // TODO
             al_clear_keyboard_state(currentEvent->display.source);
+            stopAllBeingPressedEvents();
             break;
         }
         case ALLEGRO_EVENT_TIMER: {
             // Ticks (every TPS)
+            handleBeingPressedEvents();
             ticks = al_get_timer_count(timerTPS);
             for (auto timerSub = subscribersTimerTPS.begin(); timerSub != subscribersTimerTPS.end(); ++timerSub) {
                 if (ticks - timerSub->lastTickExecutedOn >= timerSub->period) {
@@ -101,6 +135,16 @@ void InputEvents::registerEventSource(ALLEGRO_EVENT_SOURCE *event_source) {
 void InputEvents::subscribeKeyDown(eventfn fun, void *caller) {
     auto p = KeySubscribtion(fun, caller);
     subscribersKeyDown.push_back(p);
+}
+
+void InputEvents::subscribeKeyBeingPressed(eventfn fun, void *caller) {
+    auto p = KeySubscribtion(fun, caller);
+    subscribersKeyBeingPressed.push_back(p);
+}
+
+void InputEvents::subscribeKeyTyped(eventfn fun, void *caller) {
+    auto p = KeySubscribtion(fun, caller);
+    subscribersKeyTyped.push_back(p);
 }
 
 void InputEvents::subscribeTimerTPS(tickperiod tp, eventfn fun, void *caller) {

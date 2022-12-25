@@ -16,11 +16,18 @@ class InputEvents {
     std::vector<KeySubscribtion> subscribersKeyDown;
     std::vector<KeySubscribtion> subscribersKeyUp;
     std::vector<KeySubscribtion> subscribersKeyBeingPressed;
+    std::vector<KeySubscribtion> subscribersKeyTyped;
     std::vector<eventfn> subscribersDisplayClosed;
     std::vector<eventfn> subscribersDisplaySwitchedOut;
     std::vector<TimerSubscription> subscribersTimerTPS;
     std::vector<TimerSubscription> subscribersTimerFPS;
     std::vector<SystemEventSubscription> subscribersSystemEvents;
+    std::unordered_map<keycode, bool> keyStates;
+private:
+    void handleBeingPressedEvents();
+    void stopAllBeingPressedEvents();
+    void beginPressingKey(keycode kc);
+    void finishPressingKey(keycode kc);
 public:
     InputEvents();
     void mainLoop(bool *isRunning);
@@ -29,6 +36,7 @@ public:
     void subscribeKeyDown(eventfn fun, void *caller);
     void subscribeKeyUp(eventfn fun, void *caller);
     void subscribeKeyBeingPressed(eventfn fun, void *caller);
+    void subscribeKeyTyped(eventfn fun, void *caller);
     void subscribeDisplayClosed(eventfn fun, void *caller);
     void subscribeDisplaySwitchedOut(eventfn fun, void *caller);
     void subscribeTimerTPS(tickperiod tp, eventfn fun, void *caller);
