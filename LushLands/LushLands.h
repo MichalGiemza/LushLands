@@ -9,12 +9,12 @@
 #include "ActionMap.h"
 #include "Simulation.h"
 #include "GraphicsManager.h"
-#include "Controller_.h"
+#include "Controller.h"
 
 extern bool initialized;
 extern bool running;
 
-extern Controller_ *controller;
+extern Controller *controller;
 extern GraphicsManager *graphicsManager;
 extern Simulation *simulation;
 

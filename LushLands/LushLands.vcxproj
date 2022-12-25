@@ -164,8 +164,8 @@
     <ClCompile Include="ChunkRepresentationManager.cpp" />
     <ClCompile Include="ChunkSystem.cpp" />
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Controller.cpp" />
-    <ClCompile Include="Controller_.cpp" />
     <ClCompile Include="ControlManager.cpp" />
     <ClCompile Include="Display.cpp" />
     <ClCompile Include="Entity.cpp" />
@@ -202,8 +202,8 @@
     <ClInclude Include="ChunkSystem.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Controller.h" />
-    <ClInclude Include="Controller_.h" />
     <ClInclude Include="ControlManager.h" />
     <ClInclude Include="DataTypes.h" />
     <ClInclude Include="Display.h" />

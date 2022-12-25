@@ -85,13 +85,13 @@
     <ClCompile Include="ActionMap.cpp">
       <Filter>src\Controller\Events</Filter>
     </ClCompile>
-    <ClCompile Include="Controller.cpp">
+    <ClCompile Include="Keyboard.cpp">
       <Filter>src\Controller</Filter>
     </ClCompile>
     <ClCompile Include="Structure.cpp">
       <Filter>src\Simulation\World\Entities\Concrete</Filter>
     </ClCompile>
-    <ClCompile Include="Controller_.cpp">
+    <ClCompile Include="Controller.cpp">
       <Filter>src\Controller</Filter>
     </ClCompile>
     <ClCompile Include="Color.cpp">
@@ -202,13 +202,13 @@
     <ClInclude Include="ActionMap.h">
       <Filter>src\Controller\Events</Filter>
     </ClInclude>
-    <ClInclude Include="Controller.h">
+    <ClInclude Include="Keyboard.h">
       <Filter>src\Controller</Filter>
     </ClInclude>
     <ClInclude Include="Structure.h">
       <Filter>src\Simulation\World\Entities\Concrete</Filter>
     </ClInclude>
-    <ClInclude Include="Controller_.h">
+    <ClInclude Include="Controller.h">
       <Filter>src\Controller</Filter>
     </ClInclude>
     <ClInclude Include="Color.h">

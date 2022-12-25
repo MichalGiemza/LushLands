@@ -1,9 +1,9 @@
 #include "ControlManager.h"
 
 Entity *ControlManager::controlledEntity = 0;
-InputController *ControlManager::controller = 0;
+Keyboard *ControlManager::controller = 0;
 
-void ControlManager::setController(InputController *controller) {
+void ControlManager::setController(Keyboard *controller) {
     ControlManager::controller = controller;
 }
 

@@ -1,6 +1,6 @@
 #include "Simulation.h"
 
-Simulation::Simulation(Controller_ *controller) {
+Simulation::Simulation(Controller *controller) {
     entityFactory = new EntityFactory();
     world = new World(FLATLAND, 42, entityFactory, controller->getEventHandler());
     loadPosition = new Position(0, world->getSeaLevel(), 0);

@@ -1,11 +1,24 @@
 #pragma once
 #include "InputEvents.h"
-#include "ActionMap.h"
-#include "Logger.h"
+#include "Keyboard.h"
+#include "EventHandler.h"
+#include "Focus.h"
 
-class InputController {
+class Controller {
+    /**
+    * Handles user interactions.
+    */
     InputEvents *inputEvents;
+    Keyboard *inputController;
+    EventHandler *eventHandler;
+    Focus *focus;
+    ActionMap *actionMap;
 public:
-    InputController(InputEvents *inputEvents);
+    Controller();
+    InputEvents *getInputEvents();
+    Keyboard *getInputController();
+    EventHandler *getEventHandler();
+    Focus *getFocus();
+    ActionMap *getActionMap();
 };
 

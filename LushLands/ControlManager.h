@@ -10,9 +10,9 @@ class ControlManager {
     * Klasa pozwala na kontrolê obiektów œwiata poprzez wejœcia z UI (podane przez Connectory).
     */
     static Entity *controlledEntity; // IControlNode
-    static InputController *controller;
+    static Keyboard *controller;
 public:
-    void setController(InputController *controller);
+    void setController(Keyboard *controller);
     void clearController();
     void setControlledEntity(Entity *entity);
     void clearControlledEntity();

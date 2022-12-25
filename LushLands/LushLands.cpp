@@ -5,11 +5,11 @@ bool running = false;
 
 GraphicsManager *graphicsManager;
 Simulation *simulation;
-Controller_ *controller;
+Controller *controller;
 
 void init() {
     // Controller
-    controller = new Controller_();
+    controller = new Controller();
     // Model
     simulation = new Simulation(controller);
     // View
