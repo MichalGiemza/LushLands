@@ -86,7 +86,8 @@ void InputEvents::mainLoop(bool *isRunning) { // TODO: Odwróciæ zale¿noœæ i prze
         // System event
         if (ALLEGRO_EVENT_TYPE_IS_USER(currentEvent->type)) {
             for (auto seSub = subscribersSystemEvents.begin(); seSub != subscribersSystemEvents.end(); ++seSub)
-                seSub->func(currentEvent, seSub->caller);
+                if (currentEvent->type == seSub->systemEvent)
+                    seSub->func(currentEvent, seSub->caller);
         }
     }
     // End loop

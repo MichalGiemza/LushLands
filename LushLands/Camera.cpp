@@ -12,6 +12,9 @@ Camera::Camera(Position *startingPosition, Focus *focus, InputEvents *inputEvent
     this->independentFrame->setPosition(startingPosition);
     focus->setFocusedObject(this);
     inputEvents->subscribeSystemEvent(camera_move_north, handleMovement, this);
+    inputEvents->subscribeSystemEvent(camera_move_south, handleMovement, this);
+    inputEvents->subscribeSystemEvent(camera_move_east, handleMovement, this);
+    inputEvents->subscribeSystemEvent(camera_move_west, handleMovement, this);
 }
 
 Rectangle_ *Camera::getFrame() {
