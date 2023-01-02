@@ -14,7 +14,7 @@ World::World(worldtype worldType, seed seed_, EntityFactory *entityFactory, Even
     this->chunkSystem = new ChunkSystem(worldPlanner, entityFactory);
     this->worldEvents = new WorldEvents(eventHandler);
 
-    Logger::log("Created World [%s]", worldType);
+    Logger::log(ll::DEBUG_WORLD, "Created World [%s]", worldType);
 }
 
 int World::getSeed() {

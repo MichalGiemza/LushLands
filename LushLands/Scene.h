@@ -4,6 +4,7 @@
 #include "Camera.h"
 #include "ChunkRepresentationManager.h"
 #include "ChunkRepresentation.h"
+#include "Console.h"
 
 
 class Scene {
@@ -17,11 +18,12 @@ class Scene {
     Display *display;
     InputEvents *inputEvents;
     TextureManager *textureManager;
+    Console *console;
 
     void drawChunkGround(ChunkRepresentation &chunkRepresentation, int level);
     friend void draw(ALLEGRO_EVENT *ae, void *scene);
 public:
-    Scene(scenename sceneName, World *world, Display *display, Position *followedPosition, InputEvents *inputEvents, TextureManager *textureManager, Focus *focus);
+    Scene(scenename sceneName, World *world, Display *display, Position *followedPosition, InputEvents *inputEvents, TextureManager *textureManager, Focus *focus, Console *console);
 };
 
 void draw(ALLEGRO_EVENT *ae, void *scene);

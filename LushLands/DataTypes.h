@@ -23,6 +23,7 @@ typedef const int systemevent;
 typedef unsigned short priority;
 typedef const char *objecttype;
 typedef const char *objectgroup;
+typedef unsigned char loglevel;
 
 struct FieldPlan {
     entitytype ground;
@@ -82,5 +83,11 @@ struct TimerSubscription {
 struct SystemEventSubscription {
     systemevent systemEvent;
     eventfn func;
+    void *caller;
+};
+
+struct LoggerSubscription {
+    loglevel logLevel;
+    std::function<void(void *caller, char *str)> func;
     void *caller;
 };

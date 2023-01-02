@@ -9,7 +9,7 @@ void ChunkRepresentationManager::updateVisibleChunkRepresentations() {
         if (!chunkRepresentations[cPos]) {
             auto chunk = world->getChunkLoadManager()->getChunk(cPos);
             if (!chunk) { // TODO: Dodaæ ³adowanie chunków
-                Logger::log("Chunk [%i, %i] was not loaded yet!", cPos.x, cPos.z);
+                Logger::log(ll::DEBUG_CHUNK, "Chunk [%i, %i] was not loaded yet!", cPos.x, cPos.z);
                 continue;
             }
             chunkRepresentations[cPos] = new ChunkRepresentation(display, cPos, *chunk->getGround(), *chunk->getStructures(), textureManager);

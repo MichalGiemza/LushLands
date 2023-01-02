@@ -53,7 +53,7 @@ Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *e
     structures = std::unordered_map<TilePosition, Entity *>();
     generateTiles(chunkPlan);
     generateStructures(chunkPlan);
-    Logger::log("Created Chunk [%i, %i]", chunkPosition.x, chunkPosition.z);
+    Logger::log(ll::DEBUG_CHUNK, "Created Chunk [%i, %i]", chunkPosition.x, chunkPosition.z);
 }
 
 Entity *Chunk::getGround(TilePosition &tilePosition) {

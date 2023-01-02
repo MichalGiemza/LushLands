@@ -5,7 +5,7 @@ Ground::Ground(entitytype entityType, std::string description, Position position
     Body(position, size),
     Appearance(color) {
 
-    Logger::log("Created Ground entity [%s;%i,%i]", entityType, position.x(), position.z());
+    Logger::log(ll::DEBUG_ENTITY, "Created Ground entity [%s;%i,%i]", entityType, position.x(), position.z());
 }
 
 Entity *Ground::clone() {
