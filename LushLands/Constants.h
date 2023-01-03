@@ -17,3 +17,4 @@ const int tileSizePx = 32;
 const int displayWidth = 640;
 const int displayHeight = 480;
 const bool DEBUG = true;
+const short CHAT_LENGTH = 16;

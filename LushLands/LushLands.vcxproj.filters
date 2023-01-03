@@ -109,6 +109,18 @@
     <ClCompile Include="Rectangle_.cpp">
       <Filter>src\Core</Filter>
     </ClCompile>
+    <ClCompile Include="UIElement.cpp">
+      <Filter>src\GraphicsManager\UI\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldUIElement.cpp">
+      <Filter>src\GraphicsManager\UI\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticUIElement.cpp">
+      <Filter>src\GraphicsManager\UI\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Console.cpp">
+      <Filter>src\GraphicsManager\UI\Concrete</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -229,6 +241,18 @@
     <ClInclude Include="Rectangle_.h">
       <Filter>src\Core</Filter>
     </ClInclude>
+    <ClInclude Include="UIElement.h">
+      <Filter>src\GraphicsManager\UI\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldUIElement.h">
+      <Filter>src\GraphicsManager\UI\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticUIElement.h">
+      <Filter>src\GraphicsManager\UI\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Console.h">
+      <Filter>src\GraphicsManager\UI\Concrete</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -281,6 +305,15 @@
     </Filter>
     <Filter Include="src\Controller\Events">
       <UniqueIdentifier>{14efbf44-c5e7-4ff7-9fca-d80190b9bc12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GraphicsManager\UI">
+      <UniqueIdentifier>{46dc56e0-5fc5-4cbc-a1b1-82263e257ab7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GraphicsManager\UI\Base">
+      <UniqueIdentifier>{f24bfa5f-57f0-40bf-90b0-03692636f432}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GraphicsManager\UI\Concrete">
+      <UniqueIdentifier>{89e0646a-f87a-4915-8276-4e5c180eb7d3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

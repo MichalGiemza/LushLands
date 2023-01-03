@@ -8,15 +8,39 @@ namespace focus {
     const objectgroup WORLD_UI = "world_ui";
     const objectgroup SIMULATION = "simulation";
 
-    // Object Types
+    // Object Types (world)
     const objecttype GROUND = "ground";
     const objecttype STRUCTURE = "structure";
     const objecttype ITEM_IN_INVENTORY = "item_in_inventory";
     const objecttype ITEM_PUT_ON_GROUND = "item_put_on_ground";
-    const objecttype UI_WINDOW = "ui_window";
+    // Object Types (ui)
     const objecttype CAMERA = "camera";
+    const objecttype CONSOLE = "console";
+    const objecttype UI_WINDOW = "ui_window";
 }
 namespace f = focus;
+
+namespace focus_priority {
+    // Focus priority
+    const priority DEFAULT = USHRT_MAX;
+    const priority UI = 1024;
+    const priority CONSOLE = 1;
+}
+namespace fp = focus_priority;
+
+namespace logging_level {
+    // Logging levels (debug)
+    const loglevel DEBUG_ALL = 0;
+    const loglevel DEBUG_ENTITY = 20;
+    const loglevel DEBUG_CHUNK = 30;
+    const loglevel DEBUG_WORLD = 30;
+    const loglevel DEBUG_SIMULATION = 40;
+    const loglevel DEBUG_SYSTEM = 50;
+    // Logging levels (user messages)
+    const loglevel USER_COMMAND = 254;
+    const loglevel USER_MESSAGE = 255;
+}
+namespace ll = logging_level;
 
 // Scene types
 const scenename GAMEPLAY_SCENE = "gameplay";
@@ -112,10 +136,17 @@ const exceptionmessage could_not_install_keyboard = "Could not install keyboard.
 const exceptionmessage could_not_create_display = "Could not create display.\n";
 const exceptionmessage system_event_in_world_event_queue = "Unexpected system event found in world event queue.\n";
 const exceptionmessage could_not_init_primitives = "Could not initialize Allegro primitives addon.\n";
+const exceptionmessage ui_element_priority = "User Interface Element priority needs to be set above fp::UI value.\n";
 
 // Debug colors
 const Color COLOR_RED = Color(255, 0, 20, 255);
 const Color DEBUG_CHUNK_BORDER_COLOR = COLOR_RED;
+// System colors
+const Color TRANSPARENT_COLOR = Color(0, 0, 0, 0);
+const Color CHAT_GRAY_COLOR = Color(220, 220, 220, 255);
+// Fonts 
+const rawpath jamesStrokerFont = "fonts/James Stroker.ttf";
+const rawpath openSansSBFont = "fonts/OpenSans-Semibold.ttf";
 
 // World event types
 const worldevent player_attempt_go_north = ALLEGRO_GET_EVENT_TYPE('P', 'A', 'G', 0);

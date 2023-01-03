@@ -1,6 +1,7 @@
 #pragma once
 #include <climits>
 #include "DataTypes.h"
+#include "ConstantSets.h"
 
 class GameElement {
     /**
@@ -10,7 +11,7 @@ class GameElement {
     */
     objecttype objectType = 0;
     objectgroup objectGroup = 0;
-    priority clickPriority = USHRT_MAX;
+    priority clickPriority = fp::DEFAULT;
 public:
     GameElement(objecttype objectType, priority clickPriority, objectgroup objectGroup);
     objecttype getObjType();

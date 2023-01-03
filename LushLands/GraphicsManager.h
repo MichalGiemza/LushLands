@@ -3,6 +3,7 @@
 #include "Display.h"
 #include "TextureManager.h"
 #include "Simulation.h"
+#include "Console.h"
 
 class GraphicsManager {
     /**
@@ -11,6 +12,7 @@ class GraphicsManager {
     Simulation *simulation;
     Display *display;
     TextureManager *textureManager;
+    Console *console;
 
     Scene *currentScene;
     Scene *gameplayScene;

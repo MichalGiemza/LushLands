@@ -6,7 +6,7 @@ Simulation::Simulation(Controller *controller) {
     loadPosition = new Position(0, world->getSeaLevel(), 0);
     keepPositionLoaded(*loadPosition);
 
-    Logger::log("Simulation started; Chunks loaded: [%i]; Entities loaded: [%i].",
+    Logger::log(ll::DEBUG_SIMULATION, "Simulation started; Chunks loaded: [%i]; Entities loaded: [%i].",
                 world->getChunkLoadManager()->getChunksLoadedCount(),
                 world->getChunkLoadManager()->getEntitiesCreatedCount());
 }
