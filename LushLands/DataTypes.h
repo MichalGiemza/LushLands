@@ -24,6 +24,7 @@ typedef unsigned short priority;
 typedef const char *objecttype;
 typedef const char *objectgroup;
 typedef unsigned char loglevel;
+typedef std::shared_ptr<char[]> consoleline;
 
 struct FieldPlan {
     entitytype ground;
@@ -88,6 +89,6 @@ struct SystemEventSubscription {
 
 struct LoggerSubscription {
     loglevel logLevel;
-    std::function<void(void *caller, char *str)> func;
+    std::function<void(void *caller, consoleline str)> func;
     void *caller;
 };

@@ -4,6 +4,7 @@ ALLEGRO_FONT *Logger::font;
 ALLEGRO_TEXTLOG *Logger::textlog;
 std::vector<LoggerSubscription> Logger::logSubscribers;
 loglevel Logger::logLevel;
+const int Logger::textLogLength;
 
 void Logger::openLogMonospace(void) {
     if (al_init_native_dialog_addon()) {
@@ -21,22 +22,22 @@ void Logger::logPrintf(loglevel logLevel, char const *format, ...) {
 }
 
 void Logger::log(loglevel logLevel, char const *format, ...) {
-    char str[1024];
+    consoleline str(new char[textLogLength]);
     va_list args;
     va_start(args, format);
-    vsnprintf(str, sizeof str, format, args);
+    vsnprintf(str.get(), textLogLength, format, args);
     va_end(args);
 
+    if (logLevel >= Logger::logLevel)
+        al_append_native_text_log(textlog, "%s\n", str.get());
     for (auto &s : Logger::logSubscribers) {
         if (s.logLevel >= Logger::logLevel) {
             s.func(s.caller, str);
         }
     }
-    if (logLevel >= Logger::logLevel)
-        al_append_native_text_log(textlog, "%s\n", str);
 }
 
-void Logger::subscribe(loglevel logLevel, std::function<void(void *caller, char *str)> func, void *caller) {
+void Logger::subscribe(loglevel logLevel, std::function<void(void *caller, consoleline str)> func, void *caller) {
     LoggerSubscription ls = {
         logLevel,
         func,

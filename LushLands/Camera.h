@@ -5,6 +5,7 @@
 #include "Focus.h"
 #include "ConstantSets.h"
 #include "InputEvents.h"
+#include "Logger.h"
 
 
 class Camera : GameElement {

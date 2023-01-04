@@ -13,7 +13,7 @@ Console::Console(Display *display, TextureManager *textureManager) : StaticUIEle
     this->display = display;
     if (DEBUG)
         logLevel = ll::DEBUG_ALL;
-    currentChat = std::stack<char *>();
+    currentChat = std::vector<consoleline>();
     Logger::subscribe(logLevel, handleLogMessage, this);
     font = al_load_ttf_font(openSansSBFont, 10, 0);
     bitmapCache = al_create_bitmap(determineChatW(), determineChatH());
@@ -25,8 +25,8 @@ void Console::draw() {
         al_set_target_bitmap(bitmapCache);
         al_clear_to_color(TRANSPARENT_COLOR.getAllegroColor());
         for (int i = 0; i < currentChat.size(); i++) {
-            char *line = currentChat._Get_container()[i];
-            al_draw_text(font, CHAT_GRAY_COLOR.getAllegroColor(), 10, 10 + 15 * i, 0, line);
+            auto line = currentChat[i].get();
+            al_draw_text(font, CHAT_GRAY_COLOR.getAllegroColor(), 10, 10 + 12 * i, 0, line);
         }
         al_set_target_bitmap(backbuffer);
         bitmapToRedraw = false;
@@ -34,11 +34,12 @@ void Console::draw() {
     al_draw_bitmap(bitmapCache, 0, 0, 0);
 }
 
-void handleLogMessage(void *caller, char *str) {
+void handleLogMessage(void *caller, consoleline str) {
     auto c = (Console *)caller;
-    c->currentChat.push(str);
-    if (c->currentChat.size() > c->chatLength)
-        c->currentChat.pop();
+    c->currentChat.insert(c->currentChat.begin(), str);
+    if (c->currentChat.size() > c->chatLength) {
+        c->currentChat.pop_back();
+    }
     c->bitmapToRedraw = true;
 }
 
