@@ -124,3 +124,27 @@
 int main() {
     std::cout << -1231 % 32 << std::endl;
 }
+
+
+
+
+#include "Playground.h"
+#include <iostream>
+
+class Mobility { 
+public:
+    int walkingSpeed;
+};
+
+class DynamicCollider : public virtual Mobility {};
+class RandomWalk : public virtual Mobility {};
+
+class Animal : public DynamicCollider, public RandomWalk {
+
+};
+
+int main() {
+    auto animal = Animal();
+    animal.walkingSpeed = 1;
+    std::cout << animal.walkingSpeed << std::endl;
+}

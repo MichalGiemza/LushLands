@@ -190,3 +190,9 @@ Position Position::operator+(const Position &other) const {
         std::min((_y + other._y) / representationComaValue, worldHeight - 1),
         (_z + other._z) / representationComaValue);
 }
+
+void Position::operator=(const Position &other) {
+    setAccurateX(other._x);
+    setAccurateY(other._y);
+    setAccurateZ(other._z);
+}

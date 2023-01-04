@@ -46,4 +46,5 @@ public:
     bool operator==(const Position &other) const;
     Position operator-(const Position &other) const;
     Position operator+(const Position &other) const;
+    void operator=(const Position &other);
 };

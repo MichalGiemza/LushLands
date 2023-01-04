@@ -32,5 +32,6 @@ public:
     void setLength(float length);
     pxint getCameraW();
     pxint getCameraL();
+    bool operator==(const Size &other) const;
 };
 

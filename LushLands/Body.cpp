@@ -1,25 +1,29 @@
 #include "Body.h"
 
-Body::Body(Position position, Size size) : position(position), size(size) {}
-
-Position Body::getCenter() {
-    return Position(
-        position.x() + size.w() / 2, 
-        position.y() + size.h() / 2, 
-        position.z() + size.l() / 2
-    );
+void Body::refreshCenter() {
+    center->setAccurateX(position.getAccurateX() + size.getAccurateWidth() / 2);
+    center->setAccurateY(position.getAccurateY() + size.getAccurateHeight() / 2);
+    center->setAccurateZ(position.getAccurateZ() + size.getAccurateLength() / 2);
 }
 
-Position Body::getTopLeft() {
-    return Position(position);
+Body::Body(Position position, Size size) : position(position), size(size) {
+    center = new Position();
+    refreshCenter();
+    rectangle = new Rectangle_(0, 0, 0, 0);
+    rectangle->setPosition(&position);
+    rectangle->setSize(&size);
 }
 
-Position Body::getBottomRight() {
-    return Position(
-        position.x() + size.w(),
-        position.y() + size.h(),
-        position.z() + size.l()
-    );
+Position *Body::getCenter() {
+    return center;
+}
+
+Position *Body::getTopLeft() {
+    return &position;
+}
+
+Rectangle_ *Body::getRectangle() {
+    return rectangle;
 }
 
 Size Body::getSize() {
@@ -28,8 +32,23 @@ Size Body::getSize() {
 
 void Body::setPosition(Position position) {
     this->position = position;
+    refreshCenter();
 }
 
-Position Body::getPosition() {
-    return position;
+Position *Body::getPosition() {
+    return &position;
+}
+
+int Body::accurateDistanceFromCenter2D(Position &otherPosition) const {
+    int x = position.getAccurateX() + size.getAccurateWidth() / 2 - otherPosition.getAccurateX();
+    int z = position.getAccurateZ() + size.getAccurateLength() / 2 - otherPosition.getAccurateZ();
+    return (int)sqrt(x * x + z * z);
+}
+
+int Body::accurateDistanceTo2D(Body &other) const {
+    return rectangle->accurateDistanceTo2D(other.rectangle);
+}
+
+bool Body::operator==(const Body &other) const {
+    return position == other.position && size == other.size;
 }

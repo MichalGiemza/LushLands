@@ -2,20 +2,29 @@
 #include "Position.h"
 #include "Size.h"
 #include "Logger.h"
+#include "Rectangle_.h"
+#include <math.h>
 
 class Body {
     /** 
-    * Represents body (still not collideable) of world entities. 
+    * Entity module representing body of entity. 
     */
+protected:
     Position position;
     Size size;
+    Position *center = 0;
+    Rectangle_ *rectangle;
+    void refreshCenter();
 public:
     Body(Position position, Size size);
-    Position getCenter();
-    Position getTopLeft();
-    Position getBottomRight();
+    Position *getCenter();
+    Position *getTopLeft();
+    Rectangle_ *getRectangle();
     Size getSize();
     void setPosition(Position position);
-    Position getPosition();
+    Position *getPosition();
+    int accurateDistanceFromCenter2D(Position &position) const;
+    int accurateDistanceTo2D(Body &other) const;
+    bool operator==(const Body &other) const;
 };
 

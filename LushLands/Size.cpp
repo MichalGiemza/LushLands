@@ -109,3 +109,7 @@ pxint Size::getCameraW() {
 pxint Size::getCameraL() {
     return (pxint)(l() * tileSizePx);
 }
+
+bool Size::operator==(const Size &other) const {
+    return width == other.width && height == other.height && length == other.length;
+}

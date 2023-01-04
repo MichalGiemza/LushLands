@@ -2,8 +2,9 @@
 #include "Entity.h"
 #include "Body.h"
 #include "Appearance.h"
+#include "Collider.h"
 
-class Structure : public Entity, public Body, public Appearance {
+class Structure : public Entity, public Collider, public Appearance {
     /**
     * Structure
     */

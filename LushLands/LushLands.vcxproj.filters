@@ -85,9 +85,6 @@
     <ClCompile Include="ActionMap.cpp">
       <Filter>src\Controller\Events</Filter>
     </ClCompile>
-    <ClCompile Include="Keyboard.cpp">
-      <Filter>src\Controller</Filter>
-    </ClCompile>
     <ClCompile Include="Structure.cpp">
       <Filter>src\Simulation\World\Entities\Concrete</Filter>
     </ClCompile>
@@ -109,6 +106,18 @@
     <ClCompile Include="Rectangle_.cpp">
       <Filter>src\Core</Filter>
     </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>src\Simulation\World\Entities\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicCollider.cpp">
+      <Filter>src\Simulation\World\Entities\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Mobility.cpp">
+      <Filter>src\Simulation\World\Entities\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomWalk.cpp">
+      <Filter>src\Simulation\World\Entities\Modules</Filter>
+    </ClCompile>
     <ClCompile Include="UIElement.cpp">
       <Filter>src\GraphicsManager\UI\Base</Filter>
     </ClCompile>
@@ -117,6 +126,9 @@
     </ClCompile>
     <ClCompile Include="StaticUIElement.cpp">
       <Filter>src\GraphicsManager\UI\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Keyboard.cpp">
+      <Filter>src\Controller</Filter>
     </ClCompile>
     <ClCompile Include="Console.cpp">
       <Filter>src\GraphicsManager\UI\Concrete</Filter>
@@ -240,6 +252,18 @@
     </ClInclude>
     <ClInclude Include="Rectangle_.h">
       <Filter>src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>src\Simulation\World\Entities\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicCollider.h">
+      <Filter>src\Simulation\World\Entities\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Mobility.h">
+      <Filter>src\Simulation\World\Entities\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomWalk.h">
+      <Filter>src\Simulation\World\Entities\Modules</Filter>
     </ClInclude>
     <ClInclude Include="UIElement.h">
       <Filter>src\GraphicsManager\UI\Base</Filter>

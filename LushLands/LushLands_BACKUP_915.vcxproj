@@ -163,11 +163,12 @@
     <ClCompile Include="ChunkRepresentation.cpp" />
     <ClCompile Include="ChunkRepresentationManager.cpp" />
     <ClCompile Include="ChunkSystem.cpp" />
-    <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Color.cpp" />
-    <ClCompile Include="DynamicCollider.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="Keyboard.cpp" />
+=======
     <ClCompile Include="Console.cpp" />
+>>>>>>> c07be0e2f00ea2bb259431a8eaf6d387dc6ae4ec
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="ControlManager.cpp" />
     <ClCompile Include="Display.cpp" />
@@ -180,12 +181,9 @@
     <ClCompile Include="FlatlandWorldPlanner.cpp" />
     <ClCompile Include="GraphicsManager.cpp" />
     <ClCompile Include="Ground.cpp" />
-    <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="LushLands.cpp" />
-    <ClCompile Include="Mobility.cpp" />
     <ClCompile Include="Position.cpp" />
-    <ClCompile Include="RandomWalk.cpp" />
     <ClCompile Include="Rectangle_.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Simulation.cpp" />
@@ -209,11 +207,9 @@
     <ClInclude Include="ChunkRepresentation.h" />
     <ClInclude Include="ChunkRepresentationManager.h" />
     <ClInclude Include="ChunkSystem.h" />
-    <ClInclude Include="Collider.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="Constants.h" />
-    <ClInclude Include="DynamicCollider.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="ControlManager.h" />
@@ -232,10 +228,8 @@
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="LushLands.h" />
-    <ClInclude Include="Mobility.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="PositionStructures.h" />
-    <ClInclude Include="RandomWalk.h" />
     <ClInclude Include="Rectangle_.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Simulation.h" />

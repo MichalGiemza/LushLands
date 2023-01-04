@@ -65,3 +65,16 @@ bool Rectangle_::isOverlapping(const Rectangle_ *other) const {
 
 	return x_overlapping and y_overlapping;
 }
+
+int Rectangle_::accurateDistanceTo2D(const Rectangle_ *other) const {
+	// Determine left-right and top-bottom pairs
+	const Rectangle_ *lRect = p->getAccurateX() < other->p->getAccurateX() ? this : other;
+	const Rectangle_ *rRect = p->getAccurateX() >= other->p->getAccurateX() ? this : other;
+	const Rectangle_ *bRect = p->getAccurateZ() >= other->p->getAccurateZ() ? this : other;
+	const Rectangle_ *tRect = p->getAccurateZ() < other->p->getAccurateZ() ? this : other;
+
+	int x_diff = std::max(rRect->accurateLeft() - lRect->accurateRight(), 0);
+	int y_diff = std::max(tRect->accurateBottom() - bRect->accurateTop(), 0);
+
+	return sqrt(x_diff * x_diff + y_diff * y_diff);
+}

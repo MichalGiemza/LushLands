@@ -163,12 +163,9 @@
     <ClCompile Include="ChunkRepresentation.cpp" />
     <ClCompile Include="ChunkRepresentationManager.cpp" />
     <ClCompile Include="ChunkSystem.cpp" />
-    <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Color.cpp" />
-    <ClCompile Include="DynamicCollider.cpp" />
-    <ClCompile Include="Keyboard.cpp" />
-    <ClCompile Include="Console.cpp" />
     <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="Controller_.cpp" />
     <ClCompile Include="ControlManager.cpp" />
     <ClCompile Include="Display.cpp" />
     <ClCompile Include="Entity.cpp" />
@@ -180,24 +177,18 @@
     <ClCompile Include="FlatlandWorldPlanner.cpp" />
     <ClCompile Include="GraphicsManager.cpp" />
     <ClCompile Include="Ground.cpp" />
-    <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="LushLands.cpp" />
-    <ClCompile Include="Mobility.cpp" />
     <ClCompile Include="Position.cpp" />
-    <ClCompile Include="RandomWalk.cpp" />
     <ClCompile Include="Rectangle_.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="Size.cpp" />
-    <ClCompile Include="StaticUIElement.cpp" />
     <ClCompile Include="Structure.cpp" />
     <ClCompile Include="TextureManager.cpp" />
-    <ClCompile Include="UIElement.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="BaseWorldPlanner.cpp" />
     <ClCompile Include="WorldEvents.cpp" />
-    <ClCompile Include="WorldUIElement.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionMap.h" />
@@ -209,13 +200,10 @@
     <ClInclude Include="ChunkRepresentation.h" />
     <ClInclude Include="ChunkRepresentationManager.h" />
     <ClInclude Include="ChunkSystem.h" />
-    <ClInclude Include="Collider.h" />
     <ClInclude Include="Color.h" />
-    <ClInclude Include="Console.h" />
     <ClInclude Include="Constants.h" />
-    <ClInclude Include="DynamicCollider.h" />
-    <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Controller.h" />
+    <ClInclude Include="Controller_.h" />
     <ClInclude Include="ControlManager.h" />
     <ClInclude Include="DataTypes.h" />
     <ClInclude Include="Display.h" />
@@ -232,22 +220,17 @@
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="LushLands.h" />
-    <ClInclude Include="Mobility.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="PositionStructures.h" />
-    <ClInclude Include="RandomWalk.h" />
     <ClInclude Include="Rectangle_.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Simulation.h" />
     <ClInclude Include="Size.h" />
-    <ClInclude Include="StaticUIElement.h" />
     <ClInclude Include="Structure.h" />
     <ClInclude Include="TextureManager.h" />
-    <ClInclude Include="UIElement.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="BaseWorldPlanner.h" />
     <ClInclude Include="WorldEvents.h" />
-    <ClInclude Include="WorldUIElement.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
