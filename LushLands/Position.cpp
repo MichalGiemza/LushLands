@@ -98,7 +98,7 @@ void Position::setAccurateX(int x) {
 }
 
 void Position::setAccurateY(int y) {
-    if (y * representationComaValue >= worldHeight || y * representationComaValue < 0)
+    if (y >= worldHeight * representationComaValue || y * representationComaValue < 0)
         throw std::logic_error("Incorrect height of a position.");
     _y = y;
 }

@@ -27,7 +27,7 @@ EntityFactory::EntityFactory() {
 }
 
 Entity *EntityFactory::buildEntity(entitytype entityType) {
-    if (entityType == AIR)
+    if (entityType == AIR or entityType == 0)
         return 0;
     return prefabs[entityType]->clone();
 }

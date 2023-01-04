@@ -64,10 +64,10 @@ void ChunkRepresentationManager::drawStructures(ChunkRepresentation *cRep, int l
         // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
         auto sBitmap = textureManager->getEntityTexture(sPair->second->getType());
         pxint x = shiftTexturePositionX(
-            camera->shiftToScreenPosX(str->getPosition().getAccurateX()),
+            camera->shiftToScreenPosX(str->getPosition()->getAccurateX()),
             al_get_bitmap_width(sBitmap));
         pxint z = shiftTexturePositionZ(
-            camera->shiftToScreenPosZ(str->getPosition().getAccurateZ()),
+            camera->shiftToScreenPosZ(str->getPosition()->getAccurateZ()),
             al_get_bitmap_height(sBitmap));
         al_draw_bitmap(sBitmap, x, z, 0);
     }
@@ -91,16 +91,16 @@ void ChunkRepresentationManager::drawStructureOutlines(ChunkRepresentation *cRep
         // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
         auto sBitmap = textureManager->getEntityTexture(sPair->second->getType());
         pxint x1 = shiftTexturePositionX(
-            camera->shiftToScreenPosX(str->getPosition().getAccurateX()), 
+            camera->shiftToScreenPosX(str->getPosition()->getAccurateX()), 
             str->getSize().getCameraW());
         pxint z1 = shiftTexturePositionZ(
-            camera->shiftToScreenPosZ(str->getPosition().getAccurateZ()), 
+            camera->shiftToScreenPosZ(str->getPosition()->getAccurateZ()), 
             str->getSize().getCameraL());
         pxint x2 = shiftTexturePositionX(
-            camera->shiftToScreenPosX(str->getPosition().getAccurateX()) + str->getSize().getCameraW(),
+            camera->shiftToScreenPosX(str->getPosition()->getAccurateX()) + str->getSize().getCameraW(),
             str->getSize().getCameraW());
         pxint z2 = shiftTexturePositionZ(
-            camera->shiftToScreenPosZ(str->getPosition().getAccurateZ()) + str->getSize().getCameraL(),
+            camera->shiftToScreenPosZ(str->getPosition()->getAccurateZ()) + str->getSize().getCameraL(),
             str->getSize().getCameraL());
         al_draw_rectangle(x1, z1, x2, z2, str->getColor()->getAllegroColor(), 1.0f);
     }

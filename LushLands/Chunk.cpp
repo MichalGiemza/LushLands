@@ -46,6 +46,7 @@ Structure *Chunk::addStructure(entitytype entityType, Position &position) {
         return 0;
     structure->setPosition(position);
     colliders.insert((Collider *)structure);
+    return structure;
 }
 
 Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory) {
