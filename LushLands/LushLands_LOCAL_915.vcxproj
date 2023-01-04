@@ -164,7 +164,7 @@
     <ClCompile Include="ChunkRepresentationManager.cpp" />
     <ClCompile Include="ChunkSystem.cpp" />
     <ClCompile Include="Color.cpp" />
-    <ClCompile Include="Console.cpp" />
+    <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="ControlManager.cpp" />
     <ClCompile Include="Display.cpp" />
@@ -177,7 +177,6 @@
     <ClCompile Include="FlatlandWorldPlanner.cpp" />
     <ClCompile Include="GraphicsManager.cpp" />
     <ClCompile Include="Ground.cpp" />
-    <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="LushLands.cpp" />
     <ClCompile Include="Position.cpp" />
@@ -185,14 +184,11 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="Size.cpp" />
-    <ClCompile Include="StaticUIElement.cpp" />
     <ClCompile Include="Structure.cpp" />
     <ClCompile Include="TextureManager.cpp" />
-    <ClCompile Include="UIElement.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="BaseWorldPlanner.cpp" />
     <ClCompile Include="WorldEvents.cpp" />
-    <ClCompile Include="WorldUIElement.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionMap.h" />
@@ -205,7 +201,6 @@
     <ClInclude Include="ChunkRepresentationManager.h" />
     <ClInclude Include="ChunkSystem.h" />
     <ClInclude Include="Color.h" />
-    <ClInclude Include="Console.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Controller.h" />
@@ -231,14 +226,11 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Simulation.h" />
     <ClInclude Include="Size.h" />
-    <ClInclude Include="StaticUIElement.h" />
     <ClInclude Include="Structure.h" />
     <ClInclude Include="TextureManager.h" />
-    <ClInclude Include="UIElement.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="BaseWorldPlanner.h" />
     <ClInclude Include="WorldEvents.h" />
-    <ClInclude Include="WorldUIElement.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

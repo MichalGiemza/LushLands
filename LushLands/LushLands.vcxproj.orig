@@ -164,7 +164,11 @@
     <ClCompile Include="ChunkRepresentationManager.cpp" />
     <ClCompile Include="ChunkSystem.cpp" />
     <ClCompile Include="Color.cpp" />
+<<<<<<< HEAD
+    <ClCompile Include="Keyboard.cpp" />
+=======
     <ClCompile Include="Console.cpp" />
+>>>>>>> c07be0e2f00ea2bb259431a8eaf6d387dc6ae4ec
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="ControlManager.cpp" />
     <ClCompile Include="Display.cpp" />
@@ -177,7 +181,6 @@
     <ClCompile Include="FlatlandWorldPlanner.cpp" />
     <ClCompile Include="GraphicsManager.cpp" />
     <ClCompile Include="Ground.cpp" />
-    <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="LushLands.cpp" />
     <ClCompile Include="Position.cpp" />

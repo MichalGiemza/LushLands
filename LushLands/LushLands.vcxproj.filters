@@ -85,9 +85,6 @@
     <ClCompile Include="ActionMap.cpp">
       <Filter>src\Controller\Events</Filter>
     </ClCompile>
-    <ClCompile Include="Keyboard.cpp">
-      <Filter>src\Controller</Filter>
-    </ClCompile>
     <ClCompile Include="Structure.cpp">
       <Filter>src\Simulation\World\Entities\Concrete</Filter>
     </ClCompile>
@@ -117,6 +114,9 @@
     </ClCompile>
     <ClCompile Include="StaticUIElement.cpp">
       <Filter>src\GraphicsManager\UI\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Keyboard.cpp">
+      <Filter>src\Controller</Filter>
     </ClCompile>
     <ClCompile Include="Console.cpp">
       <Filter>src\GraphicsManager\UI\Concrete</Filter>
