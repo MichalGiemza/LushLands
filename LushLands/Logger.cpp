@@ -22,14 +22,14 @@ void Logger::logPrintf(loglevel logLevel, char const *format, ...) {
 }
 
 void Logger::log(loglevel logLevel, char const *format, ...) {
-    consoleline str(new char[textLogLength]);
+    auto *str = new char[textLogLength];
     va_list args;
     va_start(args, format);
-    vsnprintf(str.get(), textLogLength, format, args);
+    vsnprintf(str, textLogLength, format, args);
     va_end(args);
 
     if (logLevel >= Logger::logLevel)
-        al_append_native_text_log(textlog, "%s\n", str.get());
+        al_append_native_text_log(textlog, "%s\n", str);
     for (auto &s : Logger::logSubscribers) {
         if (s.logLevel >= Logger::logLevel) {
             s.func(s.caller, str);
@@ -37,7 +37,7 @@ void Logger::log(loglevel logLevel, char const *format, ...) {
     }
 }
 
-void Logger::subscribe(loglevel logLevel, std::function<void(void *caller, consoleline str)> func, void *caller) {
+void Logger::subscribe(loglevel logLevel, std::function<void(void *caller, char *str)> func, void *caller) {
     LoggerSubscription ls = {
         logLevel,
         func,

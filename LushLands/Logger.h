@@ -20,7 +20,7 @@ class Logger {
     static loglevel logLevel;
     static const int textLogLength = 1024;
 public:
-    static void subscribe(loglevel logLevel, std::function<void(void *caller, consoleline str)> func, void *caller);
+    static void subscribe(loglevel logLevel, std::function<void(void *caller, char *str)> func, void *caller);
     static void logKey(loglevel logLevel, char const *how, int keycode, int unichar=0, int modifiers=0);
     static void logAction(loglevel logLevel, actioncode acode);
     static void openLogMonospace(void);

@@ -1,6 +1,7 @@
 #pragma once
 #include <functional>
 #include <filesystem>
+#include <allegro5/color.h>
 #include <allegro5/events.h>
 #include "Constants.h"
 
@@ -24,7 +25,12 @@ typedef unsigned short priority;
 typedef const char *objecttype;
 typedef const char *objectgroup;
 typedef unsigned char loglevel;
-typedef std::shared_ptr<char[]> consoleline;
+
+
+struct ConsoleLine {
+    std::shared_ptr<char[]> text;
+    ALLEGRO_COLOR color;
+};
 
 struct FieldPlan {
     entitytype ground;
@@ -89,6 +95,6 @@ struct SystemEventSubscription {
 
 struct LoggerSubscription {
     loglevel logLevel;
-    std::function<void(void *caller, consoleline str)> func;
+    std::function<void(void *caller, char *)> func;
     void *caller;
 };
