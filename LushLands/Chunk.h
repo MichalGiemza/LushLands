@@ -7,6 +7,7 @@
 #include "Ground.h"
 #include "EntityFactory.h"
 #include "Collider.h"
+#include "CollisionManager.h"
 
 
 class Chunk {
@@ -21,11 +22,10 @@ private:
     std::unordered_map<TilePosition, Entity *> groundTiles;
     std::unordered_map<TilePosition, Entity *> structures;
     EntityFactory *entityFactory;
-    std::unordered_set<Collider *> colliders;
     //EventManagementSystem eventManagementSystem;
     //LooseEntityManager looseEntityManager;
     //RandomWalkManager randomWalkManager;
-    //CollisionManager collisionManager;
+    CollisionManager collisionManager;
     //PositionManager positionManager;
     //TileMovementManager tileMovementManager;
     void generateTiles(ChunkPlan &chunkPlan);
@@ -35,7 +35,7 @@ public:
     Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory);
     Entity *getGround(TilePosition &tilePosition);
     Entity *getStructure(TilePosition &tilePosition);
-    std::unordered_set<Collider *> *getColliders();
+    CollisionManager *getCollisionManager();
     std::unordered_map<TilePosition, Entity *> *getGround();
     std::unordered_map<TilePosition, Entity *> *getStructures();
     ChunkPosition *getChunkPosition();

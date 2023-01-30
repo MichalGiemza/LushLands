@@ -8,6 +8,7 @@
 #include "ChunkRepresentation.h"
 #include "ConstantSets.h"
 #include "World.h"
+#include "Colors.h"
 
 class ChunkRepresentationManager {
     /**

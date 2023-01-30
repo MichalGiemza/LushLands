@@ -3,6 +3,7 @@
 // Simulation
 const int TicksPerSecond = 24;
 const int FramesPerSecond = 60;
+const int maxMilisecondsPerTick = 1000;
 
 // World
 const int worldHeight = 64;
@@ -18,3 +19,4 @@ const int displayWidth = 640;
 const int displayHeight = 480;
 const bool DEBUG = true;
 const short CHAT_LENGTH = 16;
+const float PI = 3.14159265;

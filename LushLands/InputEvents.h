@@ -5,6 +5,7 @@
 #include <vector>
 #include "DataTypes.h"
 #include "ConstantSets.h"
+#include "EventTypes.h"
 
 
 class InputEvents {

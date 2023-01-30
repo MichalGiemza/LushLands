@@ -3,6 +3,7 @@
 #include "BaseWorldPlanner.h"
 #include "DataTypes.h"
 #include "ConstantSets.h"
+#include "EntityConstants.h"
 
 class FlatlandWorldPlanner : public BaseWorldPlanner {
     int seed;

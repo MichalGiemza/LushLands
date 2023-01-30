@@ -4,6 +4,7 @@
 #include <functional>
 #include "DataTypes.h"
 #include "ConstantSets.h"
+#include "Events.h"
 
 
 class ActionMap {
@@ -11,11 +12,11 @@ class ActionMap {
     * Provides keycodes for mapping actioncodes.
     */
 private:
-    std::unordered_map<keycode, worldevent> worldActionMap;
+    std::unordered_map<keycode, simulationevent> worldActionMap;
     std::unordered_map<keycode, systemevent> systemActionMap;
 public:
     ActionMap();
-    worldevent mapToWorldAction(keycode kc);
+    simulationevent mapToWorldAction(keycode kc);
     systemevent mapToSystemAction(keycode kc);
 };
 

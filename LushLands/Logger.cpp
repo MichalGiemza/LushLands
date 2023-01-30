@@ -56,7 +56,7 @@ void Logger::logKey(loglevel logLevel, char const *how, int keycode, int unichar
         how, keycode, multibyte, unichar, modifiers, key_name);
 }
 
-void Logger::logAction(loglevel logLevel, actioncode acode) {
+void Logger::logAction(loglevel logLevel, actiontype acode) {
     logPrintf(logLevel, "Action: %s\n", acode);
 }
 

@@ -3,8 +3,12 @@
 Collider::Collider(Position &position, Size &size) : Body(position, size) {}
 
 bool Collider::isCloseBy(Collider *other) {
-    return accurateDistanceFromCenter2D(other->position) < size.getAccurateWidth() + size.getAccurateLength()
-        || accurateDistanceFromCenter2D(other->position) < other->size.getAccurateWidth() + other->size.getAccurateLength();
+    return isCloseBy(other->rectangle);
+}
+
+bool Collider::isCloseBy(Rectangle_ *other) {
+    return rectangle->accurateDistanceFromCenter2D(*other->getPosition()) < size.getAccurateWidth() + size.getAccurateLength()
+        || rectangle->accurateDistanceFromCenter2D(*other->getPosition()) < other->getSize()->getAccurateWidth() + other->getSize()->getAccurateLength();
 }
 
 bool Collider::overlapes(Collider *other) {

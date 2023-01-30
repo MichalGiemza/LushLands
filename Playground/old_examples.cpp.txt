@@ -159,3 +159,17 @@ int main() {
     for (auto i = us.begin(); i != us.end(); ++i++) {
         printf("%i, ", *i);
     }
+
+
+
+
+    std::ostringstream os;
+    os << 12 << "." << 02 << "." << 1992;
+    auto str = os.str();
+    std::cout << str << std::endl;
+
+
+
+    
+    auto x = typeid(long double);
+    cout << typeid(long double).name() << endl;

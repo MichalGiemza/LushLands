@@ -78,3 +78,9 @@ int Rectangle_::accurateDistanceTo2D(const Rectangle_ *other) const {
 
 	return sqrt(x_diff * x_diff + y_diff * y_diff);
 }
+
+int Rectangle_::accurateDistanceFromCenter2D(Position &otherPosition) const {
+	int x = p->getAccurateX() + s->getAccurateWidth() / 2 - otherPosition.getAccurateX();
+	int z = p->getAccurateZ() + s->getAccurateLength() / 2 - otherPosition.getAccurateZ();
+	return (int)sqrt(x * x + z * z);
+}

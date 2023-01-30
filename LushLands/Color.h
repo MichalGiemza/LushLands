@@ -2,7 +2,6 @@
 #include <cstdint>
 #include <allegro5/color.h>
 
-
 class Color {
     const uint8_t red, green, blue, alpha;
 public:

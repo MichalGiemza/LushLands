@@ -27,5 +27,6 @@ public:
 	Size *getSize();
 	bool isOverlapping(const Rectangle_ *other) const;
 	int accurateDistanceTo2D(const Rectangle_ *other) const;
+	int accurateDistanceFromCenter2D(Position &otherPosition) const;
 };
 

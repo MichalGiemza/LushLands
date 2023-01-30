@@ -1,7 +1,6 @@
 #include "EntityFactory.h"
 
 
-
 void EntityFactory::setupPrefabs() {  // TODO: Czy wszystkie te pola s¹ w kó³ko kopiowane przy kolejnych konstruktorach?
     prefabs[SOIL] = new Ground(SOIL, SOIL_DESCRIPTION, Position(), Size(1, 1, 1), &SOIL_COLOR);
     prefabs[GRASS] = new Ground(GRASS, GRASS_DESCRIPTION, Position(), Size(1, 1, 1), &GRASS_COLOR);

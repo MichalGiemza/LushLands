@@ -70,9 +70,6 @@
     <ClCompile Include="EventHandler.cpp">
       <Filter>src\Controller\Events</Filter>
     </ClCompile>
-    <ClCompile Include="WorldEvents.cpp">
-      <Filter>src\Simulation\World</Filter>
-    </ClCompile>
     <ClCompile Include="LushLands.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -133,6 +130,25 @@
     <ClCompile Include="Console.cpp">
       <Filter>src\GraphicsManager\UI\Concrete</Filter>
     </ClCompile>
+    <ClCompile Include="Animal.cpp">
+      <Filter>src\Simulation\World\Entities\Concrete</Filter>
+    </ClCompile>
+    <ClCompile Include="Random_.cpp">
+      <Filter>src\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="EventTypes.h">
+      <Filter>src\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>src\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldEvents.cpp">
+      <Filter>src\Simulation\World\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="ChunkEvents.cpp">
+      <Filter>src\Simulation\World\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -210,9 +226,6 @@
     <ClInclude Include="EventHandler.h">
       <Filter>src\Controller\Events</Filter>
     </ClInclude>
-    <ClInclude Include="WorldEvents.h">
-      <Filter>src\Simulation\World</Filter>
-    </ClInclude>
     <ClInclude Include="LushLands.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -222,7 +235,7 @@
     <ClInclude Include="GameElement.h">
       <Filter>src\Core</Filter>
     </ClInclude>
-    <ClInclude Include="IWorldEvents.h" />
+    <ClInclude Include="ISimulationEvents.h" />
     <ClInclude Include="ActionMap.h">
       <Filter>src\Controller\Events</Filter>
     </ClInclude>
@@ -276,6 +289,34 @@
     </ClInclude>
     <ClInclude Include="Console.h">
       <Filter>src\GraphicsManager\UI\Concrete</Filter>
+    </ClInclude>
+    <ClInclude Include="Animal.h">
+      <Filter>src\Simulation\World\Entities\Concrete</Filter>
+    </ClInclude>
+    <ClInclude Include="Random_.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Colors.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityConstants.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldEvents.h">
+      <Filter>src\Simulation\World\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="ChunkEvents.h">
+      <Filter>src\Simulation\World\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Events.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h" />
+    <ClInclude Include="TimeConstants.h">
+      <Filter>src\Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -338,6 +379,9 @@
     </Filter>
     <Filter Include="src\GraphicsManager\UI\Concrete">
       <UniqueIdentifier>{89e0646a-f87a-4915-8276-4e5c180eb7d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Simulation\World\Events">
+      <UniqueIdentifier>{14eea98d-a9f1-45f1-bb1a-a0c83beb6e09}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

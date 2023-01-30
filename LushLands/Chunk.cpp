@@ -45,7 +45,7 @@ Structure *Chunk::addStructure(entitytype entityType, Position &position) {
     if (structure == 0)
         return 0;
     structure->setPosition(position);
-    colliders.insert((Collider *)structure);
+    collisionManager.addCollider((Collider *)structure);
     return structure;
 }
 
@@ -56,8 +56,8 @@ Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *e
     structures = std::unordered_map<TilePosition, Entity *>();
     generateTiles(chunkPlan);
     generateStructures(chunkPlan);
+    collisionManager = CollisionManager();
     
-    colliders = std::unordered_set<Collider *>();
     Logger::log(ll::DEBUG_CHUNK, "Created Chunk [%i, %i]", chunkPosition.x, chunkPosition.z);
 }
 
@@ -69,8 +69,8 @@ Entity *Chunk::getStructure(TilePosition &tilePosition) {
     return structures[tilePosition];
 }
 
-std::unordered_set<Collider *> *Chunk::getColliders() {
-    return &colliders;
+CollisionManager *Chunk::getCollisionManager() {
+    return &collisionManager;
 }
 
 std::unordered_map<TilePosition, Entity *> *Chunk::getGround() {

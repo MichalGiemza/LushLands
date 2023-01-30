@@ -1,7 +1,7 @@
 #include "WorldEvents.h"
 
 WorldEvents::WorldEvents(EventHandler *eventHandler) {
-    subscribers = std::unordered_map<int, std::vector<WorldEventSubscription>>();
+    subscribers = std::unordered_map<int, std::vector<SimulationEventSubscription>>();
     eventHandler->registerWorldEvents(this);
     // Queue
     eventQueue = al_create_event_queue();
@@ -11,12 +11,12 @@ WorldEvents::WorldEvents(EventHandler *eventHandler) {
     al_register_event_source(eventQueue, worldEventSource);
 }
 
-void WorldEvents::update() {
+void WorldEvents::update(miliseconds dt) {
     // Prepare loop
     ALLEGRO_EVENT *currentEvent = new ALLEGRO_EVENT();
     // Start loop
     while (al_get_next_event(eventQueue, currentEvent)) {
-        if (ALLEGRO_EVENT_TYPE_IS_USER(currentEvent->type) == false)
+        if (not ALLEGRO_EVENT_TYPE_IS_USER(currentEvent->type))
             throw new std::logic_error(system_event_in_world_event_queue);
 
         switch (currentEvent->type) {
@@ -37,12 +37,12 @@ void WorldEvents::update() {
     }
 }
 
-void WorldEvents::subscribeWorldEvent(worldevent eventType, eventfn fun, void *source, void *target) {
-    auto p = WorldEventSubscription { eventType, fun, source, target };
+void WorldEvents::subscribeEvent(simulationevent eventType, eventfn fun, void *source, void *target) {
+    auto p = SimulationEventSubscription { eventType, fun, source, target };
     subscribers[eventType].push_back(p);
 }
 
-void WorldEvents::emitWorldEvent(worldevent eventType, void *data) {
+void WorldEvents::emitEvent(simulationevent eventType, void *data) {
     //ALLEGRO_EVENT ae {};
     //ae.user.type = eventType;
     //ae.user.data1 = (intptr_t)data;

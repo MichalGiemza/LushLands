@@ -4,6 +4,7 @@
 #include "ConstantSets.h"
 #include "Ground.h"
 #include "Structure.h"
+#include "EntityConstants.h"
 
 class EntityFactory {
     /**

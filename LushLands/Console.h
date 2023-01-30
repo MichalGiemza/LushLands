@@ -3,8 +3,15 @@
 #include "Logger.h"
 #include "Display.h"
 #include "TextureManager.h"
+#include "ConstantSets.h"
+#include "Colors.h"
 #include <vector>
 #include <string>
+
+struct ConsoleLine {
+    std::shared_ptr<char[]> text;
+    ALLEGRO_COLOR color;
+};
 
 class Console : StaticUIElement {
     /**

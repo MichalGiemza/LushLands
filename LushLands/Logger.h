@@ -8,6 +8,7 @@
 #include <string>
 #include "DataTypes.h"
 #include "ConstantSets.h"
+#include "EventTypes.h"
 
 class Logger {
     /**
@@ -22,7 +23,7 @@ class Logger {
 public:
     static void subscribe(loglevel logLevel, std::function<void(void *caller, char *str)> func, void *caller);
     static void logKey(loglevel logLevel, char const *how, int keycode, int unichar=0, int modifiers=0);
-    static void logAction(loglevel logLevel, actioncode acode);
+    static void logAction(loglevel logLevel, actiontype acode);
     static void openLogMonospace(void);
     static void logPrintf(loglevel logLevel, char const *format, ...);
     static void log(loglevel logLevel, char const *format, ...);

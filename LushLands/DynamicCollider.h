@@ -1,13 +1,15 @@
 #pragma once
 #include "Collider.h"
 #include "Mobility.h"
+#include "Body.h"
 #include <unordered_set>
 
-class DynamicCollider : public virtual Collider, public virtual Mobility {
+class DynamicCollider : public virtual Collider, public virtual Mobility, public virtual Body {
     /**
     * Entity module responsible for collision control.
     */
 public:
-    int checkWalkableDistance(int accurateDistance, std::unordered_set<Collider *> colliders);
+    DynamicCollider(Position &position, Size &size, int movementSpeed_);
+    void updateNewPositionWithColliders(Position &newPosition, std::unordered_set<Collider *> &colliders);
 };
 

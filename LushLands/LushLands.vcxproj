@@ -89,6 +89,7 @@
     <Allegro_AddonMemfile>true</Allegro_AddonMemfile>
     <Allegro_AddonColor>true</Allegro_AddonColor>
     <Allegro_AddonVideo>true</Allegro_AddonVideo>
+    <EnableManagedIncrementalBuild>true</EnableManagedIncrementalBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -155,17 +156,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ActionMap.cpp" />
+    <ClCompile Include="Animal.cpp" />
     <ClCompile Include="Appearance.cpp" />
     <ClCompile Include="Body.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Chunk.cpp" />
+    <ClCompile Include="ChunkEvents.cpp" />
     <ClCompile Include="ChunkLoadManager.cpp" />
     <ClCompile Include="ChunkRepresentation.cpp" />
     <ClCompile Include="ChunkRepresentationManager.cpp" />
     <ClCompile Include="ChunkSystem.cpp" />
     <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="DynamicCollider.cpp" />
+    <ClCompile Include="EventTypes.h" />
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="Controller.cpp" />
@@ -185,6 +190,7 @@
     <ClCompile Include="Mobility.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="RandomWalk.cpp" />
+    <ClCompile Include="Random_.cpp" />
     <ClCompile Include="Rectangle_.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Simulation.cpp" />
@@ -192,6 +198,7 @@
     <ClCompile Include="StaticUIElement.cpp" />
     <ClCompile Include="Structure.cpp" />
     <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="Time.cpp" />
     <ClCompile Include="UIElement.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="BaseWorldPlanner.cpp" />
@@ -200,19 +207,25 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionMap.h" />
+    <ClInclude Include="Animal.h" />
     <ClInclude Include="Appearance.h" />
     <ClInclude Include="Body.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Chunk.h" />
+    <ClInclude Include="ChunkEvents.h" />
     <ClInclude Include="ChunkLoadManager.h" />
     <ClInclude Include="ChunkRepresentation.h" />
     <ClInclude Include="ChunkRepresentationManager.h" />
     <ClInclude Include="ChunkSystem.h" />
     <ClInclude Include="Collider.h" />
+    <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="Colors.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="DynamicCollider.h" />
+    <ClInclude Include="EntityConstants.h" />
+    <ClInclude Include="Events.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="ControlManager.h" />
@@ -224,7 +237,7 @@
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="Focus.h" />
     <ClInclude Include="GameElement.h" />
-    <ClInclude Include="IWorldEvents.h" />
+    <ClInclude Include="ISimulationEvents.h" />
     <ClInclude Include="InputEvents.h" />
     <ClInclude Include="FlatlandWorldPlanner.h" />
     <ClInclude Include="GraphicsManager.h" />
@@ -235,6 +248,7 @@
     <ClInclude Include="Position.h" />
     <ClInclude Include="PositionStructures.h" />
     <ClInclude Include="RandomWalk.h" />
+    <ClInclude Include="Random_.h" />
     <ClInclude Include="Rectangle_.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Simulation.h" />
@@ -242,6 +256,8 @@
     <ClInclude Include="StaticUIElement.h" />
     <ClInclude Include="Structure.h" />
     <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="Time.h" />
+    <ClInclude Include="TimeConstants.h" />
     <ClInclude Include="UIElement.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="BaseWorldPlanner.h" />

@@ -8,11 +8,13 @@ World::World(worldtype worldType, seed seed_, EntityFactory *entityFactory, Even
     if (worldType == FLATLAND) { // TODO: Coœ lepszego ni¿ ify? Mo¿e jakaœ mapa w czymœ zewnêtrznym
         this->worldPlanner = new FlatlandWorldPlanner(seed_);
     } else {
-        throw not_implemented_error();
+        throw new std::logic_error(not_implemented);
     }
     
+    this->time = new Time();
     this->chunkSystem = new ChunkSystem(worldPlanner, entityFactory);
     this->worldEvents = new WorldEvents(eventHandler);
+    eventHandler->registerWorldTime(time);
 
     Logger::log(ll::DEBUG_WORLD, "Created World [%s]", worldType);
 }

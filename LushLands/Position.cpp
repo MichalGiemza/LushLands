@@ -152,12 +152,12 @@ std::string Position::getText() const {
     return "(X=" + getTextX() + ",Y=" + getTextY() + ",Z=" + getTextZ() + ")";
 }
 
-NeighbouringChunkPositions Position::getNeighbouringChunkPositions() const {
+ChunkPositionsSet Position::getNeighbouringChunkPositions() const {
     const int chunksInLine = (chunkRenderDistance - 1) * 2 + 1;
     const int displacement = chunksInLine / 2;
     const int chunkAmount = chunksInLine * chunksInLine;
 
-    NeighbouringChunkPositions ncp = {
+    ChunkPositionsSet ncp = {
         new ChunkPosition[chunkAmount],
         chunkAmount
     };

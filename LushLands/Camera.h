@@ -6,6 +6,7 @@
 #include "ConstantSets.h"
 #include "InputEvents.h"
 #include "Logger.h"
+#include "Events.h"
 
 
 class Camera : GameElement {
@@ -30,6 +31,7 @@ public:
     friend void handleMovement(ALLEGRO_EVENT *ae, void *obj);
     pxint shiftToScreenPosX(int accurateWorldX);
     pxint shiftToScreenPosZ(int accurateWorldZ);
+    Position mouseToWorldPosition(int x, int y);
 };
 
 void handleMovement(ALLEGRO_EVENT *ae, void *obj);

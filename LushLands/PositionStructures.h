@@ -17,7 +17,7 @@ struct TilePosition {
     }
 };
 
-struct NeighbouringChunkPositions {
+struct ChunkPositionsSet {
     ChunkPosition *chunkPositions;
     int n;
 };

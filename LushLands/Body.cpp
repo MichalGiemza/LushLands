@@ -39,12 +39,6 @@ Position *Body::getPosition() {
     return &position;
 }
 
-int Body::accurateDistanceFromCenter2D(Position &otherPosition) const {
-    int x = position.getAccurateX() + size.getAccurateWidth() / 2 - otherPosition.getAccurateX();
-    int z = position.getAccurateZ() + size.getAccurateLength() / 2 - otherPosition.getAccurateZ();
-    return (int)sqrt(x * x + z * z);
-}
-
 int Body::accurateDistanceTo2D(Body &other) const {
     return rectangle->accurateDistanceTo2D(other.rectangle);
 }

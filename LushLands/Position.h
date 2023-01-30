@@ -42,7 +42,7 @@ public:
     std::string getTextY() const;
     std::string getTextZ() const;
     std::string getText() const;
-    NeighbouringChunkPositions getNeighbouringChunkPositions() const;
+    ChunkPositionsSet getNeighbouringChunkPositions() const;
     bool operator==(const Position &other) const;
     Position operator-(const Position &other) const;
     Position operator+(const Position &other) const;

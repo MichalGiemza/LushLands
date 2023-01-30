@@ -16,7 +16,7 @@ ActionMap::ActionMap() {
     };
 }
 
-worldevent ActionMap::mapToWorldAction(keycode kc) {
+simulationevent ActionMap::mapToWorldAction(keycode kc) {
     if (worldActionMap.find(kc) == worldActionMap.end())
         return -1;
     return worldActionMap[kc];

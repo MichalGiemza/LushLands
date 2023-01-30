@@ -7,6 +7,7 @@
 #include "ConstantSets.h"
 #include "FlatlandWorldPlanner.h"
 #include "WorldEvents.h"
+#include "Logger.h"
 
 class World {
     /** 
@@ -24,10 +25,11 @@ class World {
     worldtype worldType;
     EntityFactory *entityFactory;
     WorldEvents *worldEvents;
+    Time *time;
 public:
     World(worldtype worldType, seed seed_, EntityFactory *entityFactory, EventHandler *eventHandler);
     int getSeed();
-    std::vector<Entity *> getByPosition(Position position);
+    std::vector<Entity *> getByPosition(Position position); // TODO: Dla klikania myszk¹
     void placePlayer(Entity *player, Position position);
     int getSeaLevel();
     ChunkLoadManager *getChunkLoadManager();

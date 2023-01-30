@@ -13,6 +13,6 @@ int Mobility::getMovementSpeed() {
     return movementSpeed;
 }
 
-int Mobility::getDirection() {
+radian Mobility::getDirection() {
     return direction;
 }
