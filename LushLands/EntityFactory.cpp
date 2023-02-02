@@ -18,6 +18,8 @@ void EntityFactory::setupPrefabs() {  // TODO: Czy wszystkie te pola s¹ w kó³ko 
     prefabs[TALL_GRASS] = new Structure(TALL_GRASS, TALL_GRASS_DESCRIPTION, Position(), Size(1, .6, 1), &TALL_GRASS_COLOR);
     prefabs[STONE] = new Structure(STONE, STONE_DESCRIPTION, Position(), Size(.5f, .5f, .5f), &STONE_COLOR);
     prefabs[LOG] = new Structure(LOG, LOG_DESCRIPTION, Position(), Size(1, .6, .6), &LOG_COLOR);
+
+    prefabs[CHICKEN] = new Structure(CHICKEN, CHICKEN_DESCRIPTION, Position(), Size(.5f, .5f, .5f), &CHICKEN_COLOR);
 }
 
 EntityFactory::EntityFactory() {

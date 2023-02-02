@@ -22,6 +22,7 @@ const entitytype FLOWER_YELLOW = "yellow_flower";
 const entitytype STONE = "stone";
 const entitytype LOG = "log";
 // Entity types (animals)
+const entitytype CHICKEN = "chicken";
 
 // Colors (ground)
 const Color SOIL_COLOR = Color(100, 60, 20, 255);
@@ -41,6 +42,7 @@ const Color FLOWER_YELLOW_COLOR = TALL_GRASS_COLOR;
 const Color STONE_COLOR = Color(90, 100, 110, 255);
 const Color LOG_COLOR = Color(90, 80, 50, 255);
 // Colors (animals)
+const Color CHICKEN_COLOR = Color(250, 240, 230, 255);
 
 // Descriptions (ground)
 const std::string SOIL_DESCRIPTION = "Fertile soil.";
@@ -60,6 +62,7 @@ const std::string FLOWER_YELLOW_DESCRIPTION = "Yellow flower.";
 const std::string STONE_DESCRIPTION = "Just a stone, sized like any other stone.";
 const std::string LOG_DESCRIPTION = "Fallen tree, doesn't give too much shade anymore.";
 // Descriptions (animals)
+const std::string CHICKEN_DESCRIPTION = "A chicken! There should be eggs somewhere around.";
 
 // Texture paths (ground)
 const TextureLocalization SOIL_TEXTURE_LOCALIZATION = TextureLocalization(64, 64, "..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\RPG Nature Tileset.png");
@@ -79,3 +82,4 @@ const TextureLocalization FLOWER_YELLOW_TEXTURE_LOCALIZATION = TextureLocalizati
 const TextureLocalization STONE_TEXTURE_LOCALIZATION = TextureLocalization(64, 32, "..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\RPG Nature Tileset.png");
 const TextureLocalization LOG_TEXTURE_LOCALIZATION = TextureLocalization(128, 0, "..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\RPG Nature Tileset.png");
 // Texture names (animals)
+const TextureLocalization CHICKEN_TEXTURE_LOCALIZATION = TextureLocalization(0, 130, "..\\Assets\\textures\\Cozy Farm Asset Pack by shubibubi\\free.png", 16, 16);

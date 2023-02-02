@@ -41,7 +41,7 @@ FieldPlan FlatlandWorldPlanner::getFieldPlan(Position position) {
         if (position.x() % 6 == 2 and position.z() % 6 == 2) {
             fp.ground = GRASS;
             fp.structure = 0;
-            fp.animal = 0; //rabbit
+            fp.animal = CHICKEN;
             return fp;
         }
         if (position.x() % 6 == 4 and position.z() % 6 == 4) {
