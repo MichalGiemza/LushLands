@@ -32,11 +32,16 @@ void ChunkRepresentation::drawLevelTilesToBitmap(int level) {
     }
 }
 
-ChunkRepresentation::ChunkRepresentation(Display *display, ChunkPosition chunkPosition, std::unordered_map<TilePosition, Entity *> &groundTiles, std::unordered_map<TilePosition, Entity *> &structures, TextureManager *textureManager) {
+ChunkRepresentation::ChunkRepresentation(Display *display, ChunkPosition chunkPosition, 
+    std::unordered_map<TilePosition, Entity *> &groundTiles, 
+    std::unordered_map<TilePosition, Entity *> &structures, 
+    std::unordered_map<TilePosition, Entity *> &animals,
+    TextureManager *textureManager) {
     this->textureManager = textureManager;
     this->display = display;
     this->groundTiles = groundTiles;
     this->structures = structures;
+    this->animals = animals;
     this->chunkPosition = chunkPosition;
     this->position = Position(chunkPosition);
     this->area = new Rectangle_(0, 0, chunkSizeByTiles, chunkSizeByTiles);
@@ -59,6 +64,10 @@ ALLEGRO_BITMAP *ChunkRepresentation::getBitmap(int level) {
 
 std::unordered_map<TilePosition, Entity *> *ChunkRepresentation::getStructures() {
     return &structures;
+}
+
+std::unordered_map<TilePosition, Entity *> *ChunkRepresentation::getAnimals() {
+    return &animals;
 }
 
 ChunkPosition *ChunkRepresentation::getChunkPosition() {

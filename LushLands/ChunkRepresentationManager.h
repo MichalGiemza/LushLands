@@ -23,6 +23,7 @@ private:
     void updateVisibleChunkRepresentations();
     void drawGround(ChunkRepresentation *cRep, int level);
     void drawStructures(ChunkRepresentation *cRep, int level);
+    void drawAnimals(ChunkRepresentation *cRep, int level);
     void drawChunkBorders(ChunkRepresentation *cRep);
     void drawStructureOutlines(ChunkRepresentation *cRep, int level);
     pxint shiftTexturePositionX(pxint screenPositionX, pxint bitmapWidth);
