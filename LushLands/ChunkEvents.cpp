@@ -1,8 +1,9 @@
 #include "ChunkEvents.h"
 
-ChunkEvents::ChunkEvents(EventHandler *eventHandler, Chunk *chunk) {
-    this->chunk = chunk;
-    eventHandler->registerChunkEvents(*chunk->getChunkPosition(), this);
+ChunkEvents::ChunkEvents(EventHandler *eventHandler, ChunkPosition *chunkPosition, CollisionManager *collisionManager) :
+    chunkEventHandler(collisionManager) {
+    eventHandler->registerChunkEvents(*chunkPosition, this);
+    toUpdate = std::set<TimerSubscription *>();
     // Queue
     eventQueue = al_create_event_queue();
     if (!eventQueue)
@@ -24,15 +25,8 @@ void ChunkEvents::update(miliseconds dt) {
 
         switch (currentEvent->type) {
         case mob_attempt_go:
-        {
-            auto dynCollider = (DynamicCollider *)currentEvent->user.data1;
-            auto newPos = (Position *)currentEvent->user.data1;
-            auto collidersONP = chunk->getCollisionManager()->getCollidersObstructuringNewPosition(dynCollider, newPos);
-            if (not collidersONP->empty())
-                dynCollider->updateNewPositionWithColliders(*newPos, *collidersONP);
-            dynCollider->setPosition(*newPos);
+            chunkEventHandler.handleMobMovementAttempt(currentEvent);
             break;
-        }
         default:
             break;
         }
@@ -46,4 +40,12 @@ void ChunkEvents::subscribeEvent(simulationevent eventType, eventfn fun, void *s
 
 void ChunkEvents::emitEvent(simulationevent eventType, void *data) {
     al_emit_user_event(chunkEventSource, (ALLEGRO_EVENT *)data, NULL);
+}
+
+void ChunkEvents::subscribeUpdate(TimerSubscription *ts) {
+    toUpdate.insert(ts);
+}
+
+void ChunkEvents::unsubscribeUpdate(TimerSubscription *ts) {
+    toUpdate.erase(ts);
 }

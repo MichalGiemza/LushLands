@@ -12,7 +12,7 @@ World::World(worldtype worldType, seed seed_, EntityFactory *entityFactory, Even
     }
     
     this->time = new Time();
-    this->chunkSystem = new ChunkSystem(worldPlanner, entityFactory);
+    this->chunkSystem = new ChunkSystem(worldPlanner, entityFactory, eventHandler);
     this->worldEvents = new WorldEvents(eventHandler);
     eventHandler->registerWorldTime(time);
 

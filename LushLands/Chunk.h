@@ -9,6 +9,7 @@
 #include "Collider.h"
 #include "CollisionManager.h"
 #include "Animal.h"
+#include "ChunkEvents.h"
 
 
 class Chunk {
@@ -24,19 +25,15 @@ private:
     std::unordered_map<TilePosition, Entity *> structures;
     std::unordered_map<TilePosition, Entity *> animals;
     EntityFactory *entityFactory;
-    //EventManagementSystem eventManagementSystem;
-    //LooseEntityManager looseEntityManager;
-    //RandomWalkManager randomWalkManager;
     CollisionManager collisionManager;
-    //PositionManager positionManager;
-    //TileMovementManager tileMovementManager;
+    ChunkEvents chunkEvents;
     void generateTiles(ChunkPlan &chunkPlan);
     void generateStructures(ChunkPlan &chunkPlan);
     void generateAnimal(ChunkPlan &chunkPlan);
     Animal *addAnimal(entitytype entityType, Position &position);
     Structure *addStructure(entitytype entityType, Position &position);
 public:
-    Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory);
+    Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory, EventHandler *eventHandler);
     Entity *getGround(TilePosition &tilePosition);
     Entity *getStructure(TilePosition &tilePosition);
     Entity *getAnimal(TilePosition &tilePosition);
@@ -46,5 +43,7 @@ public:
     std::unordered_map<TilePosition, Entity *> *getAnimals();
     ChunkPosition *getChunkPosition();
     int entitiesLoadedCount();
+    friend void updateEntities(ALLEGRO_EVENT *allegroEvent, void *caller);
 };
 
+void updateEntities(ALLEGRO_EVENT *allegroEvent, void *caller);

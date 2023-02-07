@@ -161,6 +161,8 @@
     <ClCompile Include="Body.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Chunk.cpp" />
+    <ClCompile Include="ChunkEventHandler.cpp" />
+    <ClCompile Include="EntityUpdater.cpp" />
     <ClCompile Include="ChunkEvents.cpp" />
     <ClCompile Include="ChunkLoadManager.cpp" />
     <ClCompile Include="ChunkRepresentation.cpp" />
@@ -212,6 +214,8 @@
     <ClInclude Include="Body.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Chunk.h" />
+    <ClInclude Include="ChunkEventHandler.h" />
+    <ClInclude Include="EntityUpdater.h" />
     <ClInclude Include="ChunkEvents.h" />
     <ClInclude Include="ChunkLoadManager.h" />
     <ClInclude Include="ChunkRepresentation.h" />

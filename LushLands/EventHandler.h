@@ -10,6 +10,7 @@
 #include "Events.h"
 #include "PositionStructures.h"
 #include "Time.h"
+#include "ChunkLoadManager.h"
 
 
 class EventHandler {
@@ -23,19 +24,21 @@ class EventHandler {
     Focus *focus;
     ActionMap *actionMap;
     miliseconds lastTimeUpdated;
+    ChunkLoadManager *chunkLoadManager;
 private:
     Time *worldTime;
     ISimulationEvents *worldEvents;
     std::unordered_map<ChunkPosition, ISimulationEvents *> chunkEvents;
 public:
-    EventHandler(InputEvents *inputEvents, Focus *focus, ActionMap *actionMap);
+    EventHandler(InputEvents *inputEvents, Focus *focus, ActionMap *actionMap, ChunkLoadManager *chunkLoadManager);
     void registerWorldTime(Time *worldTime);
     void registerWorldEvents(ISimulationEvents *worldEvents);
     void registerChunkEvents(ChunkPosition &cPos, ISimulationEvents *chunkEvents);
-    void updateSimulation(ChunkPositionsSet activeChunks);
+    friend void updateSimulation(ALLEGRO_EVENT *ae, void *obj);
     friend void handleKeyboardKey(ALLEGRO_EVENT *ae, void *obj);
     friend void handleKeyboardLetter(ALLEGRO_EVENT *ae, void *obj);
 };
 
+void updateSimulation(ALLEGRO_EVENT *ae, void *obj);
 void handleKeyboardKey(ALLEGRO_EVENT *ae, void *obj);
 void handleKeyboardLetter(ALLEGRO_EVENT *ae, void *obj);

@@ -1,9 +1,9 @@
 #include "ChunkSystem.h"
 
-ChunkSystem::ChunkSystem(BaseWorldPlanner *worldPlanner, EntityFactory *entityFactory) {
+ChunkSystem::ChunkSystem(BaseWorldPlanner *worldPlanner, EntityFactory *entityFactory, EventHandler *eventHandler) {
     this->entityFactory = entityFactory;
     this->worldPlanner = worldPlanner;
-    chunkLoadManager = new ChunkLoadManager(chunks, worldPlanner, entityFactory);
+    chunkLoadManager = new ChunkLoadManager(chunks, worldPlanner, entityFactory, eventHandler);
 }
 
 Chunk *ChunkSystem::getChunk(ChunkPosition chunkPosition) {

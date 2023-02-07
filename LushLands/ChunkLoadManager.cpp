@@ -1,9 +1,10 @@
 #include "ChunkLoadManager.h"
 
-ChunkLoadManager::ChunkLoadManager(std::unordered_map<ChunkPosition, Chunk *> chunks, BaseWorldPlanner *worldPlanner, EntityFactory *entityFactory) {
+ChunkLoadManager::ChunkLoadManager(std::unordered_map<ChunkPosition, Chunk *> chunks, BaseWorldPlanner *worldPlanner, EntityFactory *entityFactory, EventHandler *eventHandler) {
     this->entityFactory = entityFactory;
     this->chunks = chunks;
     this->worldPlanner = worldPlanner;
+    this->eventHandler = eventHandler;
     followedLoadingPositions = std::vector<Position>();
 }
 
@@ -29,7 +30,7 @@ void ChunkLoadManager::updateLoadedChunkList() {
 
 Chunk *ChunkLoadManager::generateChunk(ChunkPosition &chunkPosition) {
     ChunkPlan *cp = worldPlanner->getChunkPlan(chunkPosition);
-    return new Chunk(chunkPosition, *cp, entityFactory);
+    return new Chunk(chunkPosition, *cp, entityFactory, eventHandler);
 }
 
 Chunk *ChunkLoadManager::getChunk(ChunkPosition chunkPosition) {
@@ -45,4 +46,18 @@ int ChunkLoadManager::getEntitiesCreatedCount() {
     for (auto &chunkPair : chunks)
         sum += chunkPair.second->entitiesLoadedCount();
     return sum;
+}
+
+ChunkPositionsSet *ChunkLoadManager::getLoadedChunkList() {
+    // TODO: Is this piece of code destined to be a cancer, or is there a way?
+    int n = getChunksLoadedCount();
+    ChunkPositionsSet *cps = new ChunkPositionsSet {
+        new ChunkPosition[n], n
+    };
+    int i = 0;
+    for (auto &p : chunks) {
+        cps->chunkPositions[i] = p.first;
+        i += 1;
+    }
+    return cps;
 }

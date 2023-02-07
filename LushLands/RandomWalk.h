@@ -4,8 +4,10 @@
 #include "Random_.h"
 #include <random>
 #include "Time.h"
+#include "EntityUpdater.h"
 
-class RandomWalk : public virtual DynamicCollider, public virtual Mobility {
+
+class RandomWalk : public virtual DynamicCollider, public virtual Mobility, public virtual EntityUpdater {
     /**
     * Entity module responsible for automatic wandering.
     */

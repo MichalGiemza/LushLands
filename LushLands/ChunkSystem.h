@@ -18,7 +18,7 @@ class ChunkSystem {
     EntityFactory *entityFactory;
     ChunkLoadManager *chunkLoadManager;
 public:
-    ChunkSystem(BaseWorldPlanner *worldPlanner, EntityFactory *entityFactory);
+    ChunkSystem(BaseWorldPlanner *worldPlanner, EntityFactory *entityFactory, EventHandler *eventHandler);
     Chunk *getChunk(ChunkPosition chunkPosition);
     ChunkLoadManager *getChunkLoadManager();
      

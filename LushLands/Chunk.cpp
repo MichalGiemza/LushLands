@@ -77,17 +77,22 @@ Animal *Chunk::addAnimal(entitytype entityType, Position &position) {
     return animal;
 }
 
-Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory) {
+Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory, EventHandler *eventHandler) :
+    collisionManager(),
+    chunkEvents(eventHandler, &chunkPosition, &collisionManager) {
     this->entityFactory = entityFactory;
     this->chunkPosition = chunkPosition;
+    // Entities
     groundTiles = std::unordered_map<TilePosition, Entity *>();
     structures = std::unordered_map<TilePosition, Entity *>();
     animals = std::unordered_map<TilePosition, Entity *>();
     generateTiles(chunkPlan);
     generateStructures(chunkPlan);
     generateAnimal(chunkPlan);
-    collisionManager = CollisionManager();
-    
+    // Events
+    TimerSubscription *ts = new TimerSubscription {0, 0, updateEntities, this};
+    chunkEvents.subscribeUpdate(ts);
+
     Logger::log(ll::DEBUG_CHUNK, "Created Chunk [%i, %i]", chunkPosition.x, chunkPosition.z);
 }
 
@@ -125,5 +130,15 @@ ChunkPosition *Chunk::getChunkPosition() {
 
 int Chunk::entitiesLoadedCount() {
     return groundTiles.size() + structures.size();
+}
+
+void updateEntities(ALLEGRO_EVENT *allegroEvent, void *caller) {
+    Chunk *c = (Chunk *)caller;
+    for (auto &p : c->groundTiles)
+        p.second->updateEntity(allegroEvent);
+    for (auto &p : c->structures)
+        p.second->updateEntity(allegroEvent);
+    for (auto &p : c->animals)
+        p.second->updateEntity(allegroEvent);
 }
 

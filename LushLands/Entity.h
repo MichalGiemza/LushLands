@@ -5,9 +5,10 @@
 #include <unordered_set>
 #include "DataTypes.h"
 #include "Logger.h"
+#include "EntityUpdater.h"
 
 
-class Entity {
+class Entity : public EntityUpdater {
     /**
     * Definicja najbardziej podstawowego elementu œwiata.
     */

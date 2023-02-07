@@ -10,10 +10,11 @@ void RandomWalk::setNewAction(miliseconds currentTime) {
 RandomWalk::RandomWalk(Position &position, Size &size, int movementSpeed_, miliseconds walkInterval, Time *worldTime) :
     DynamicCollider(position, size, movementSpeed_), 
     Collider(position, size),
-    Mobility(movementSpeed_, position, size), Body(position, size)
-{
+    Mobility(movementSpeed_, position, size), Body(position, size) {
     this->walkInterval = walkInterval;
     this->worldTime = worldTime;
+    TimerSubscription *ts = new TimerSubscription { 0, 0, updateRandomWalk, this };
+    addToUpdate(ts);
 }
 
 void updateRandomWalk(ALLEGRO_EVENT *allegroEvent, void *caller) {
@@ -28,6 +29,6 @@ void updateRandomWalk(ALLEGRO_EVENT *allegroEvent, void *caller) {
         newPos.setAccurateX(newPos.getAccurateX() - std::sin(c->direction) * c->movementSpeed / representationComaValue);
         newPos.setAccurateZ(newPos.getAccurateZ() + std::cos(c->direction) * c->movementSpeed / representationComaValue);
         // TODO: - sin + cos -> czy napewno tak jest dobrze?
-
+        // TODO: Czy to ju¿? Czy coœ z tym zrobiæ?
     }
 }
