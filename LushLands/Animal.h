@@ -4,9 +4,9 @@
 #include "Appearance.h"
 
 class Animal : 
-    public Entity, 
-    public RandomWalk, 
-    public Appearance {
+    public virtual Entity, 
+    public virtual RandomWalk, 
+    public virtual Appearance {
     /**
     * Representation of animal.
     *

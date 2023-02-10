@@ -12,7 +12,7 @@ void ChunkRepresentationManager::updateVisibleChunkRepresentations() {
                 Logger::log(ll::DEBUG_CHUNK, "Chunk [%i, %i] was not loaded yet!", cPos.x, cPos.z);
                 continue;
             }
-            chunkRepresentations[cPos] = new ChunkRepresentation(display, cPos, *chunk->getGround(), *chunk->getStructures(), *chunk->getAnimals(), textureManager);
+            chunkRepresentations[cPos] = new ChunkRepresentation(display, cPos, *chunk->getGround(), *chunk->getStructures(), textureManager);
         }
     }
 }
@@ -38,7 +38,6 @@ void ChunkRepresentationManager::draw() {
             continue;
         if (camera->isAreaVisible(cRep->getArea())) {
             drawGround(cRep, level);
-            drawAnimals(cRep, level);
             drawStructures(cRep, level);
             if (DEBUG) {
                 drawStructureOutlines(cRep, level);
@@ -69,24 +68,6 @@ void ChunkRepresentationManager::drawStructures(ChunkRepresentation *cRep, int l
             al_get_bitmap_width(sBitmap));
         pxint z = shiftTexturePositionZ(
             camera->shiftToScreenPosZ(str->getPosition()->getAccurateZ()),
-            al_get_bitmap_height(sBitmap));
-        al_draw_bitmap(sBitmap, x, z, 0);
-    }
-}
-
-void ChunkRepresentationManager::drawAnimals(ChunkRepresentation *cRep, int level) {
-    auto animals = cRep->getAnimals();
-    for (auto sPair = animals->begin(); sPair != animals->end(); ++sPair) {
-        if (sPair->first.y != level)
-            continue;
-        auto an = (Animal *)sPair->second;
-        // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
-        auto sBitmap = textureManager->getEntityTexture(sPair->second->getType());
-        pxint x = shiftTexturePositionX(
-            camera->shiftToScreenPosX(an->getPosition()->getAccurateX()),
-            al_get_bitmap_width(sBitmap));
-        pxint z = shiftTexturePositionZ(
-            camera->shiftToScreenPosZ(an->getPosition()->getAccurateZ()),
             al_get_bitmap_height(sBitmap));
         al_draw_bitmap(sBitmap, x, z, 0);
     }

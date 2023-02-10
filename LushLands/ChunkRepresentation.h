@@ -15,7 +15,6 @@ class ChunkRepresentation {
     Rectangle_ *area;
     std::unordered_map<TilePosition, Entity *> groundTiles;
     std::unordered_map<TilePosition, Entity *> structures;
-    std::unordered_map<TilePosition, Entity *> animals;
     size_t cachedLevelHash = 0;
     ALLEGRO_BITMAP *cachedLevelBitmap = 0;
     Display *display;
@@ -24,10 +23,9 @@ class ChunkRepresentation {
     size_t hashChunkGroundLevel(int level);
     void drawLevelTilesToBitmap(int level);
 public:
-    ChunkRepresentation(Display *display, ChunkPosition chunkPosition, std::unordered_map<TilePosition, Entity *> &groundTiles, std::unordered_map<TilePosition, Entity *> &structures, std::unordered_map<TilePosition, Entity *> &animals, TextureManager *textureManager);
+    ChunkRepresentation(Display *display, ChunkPosition chunkPosition, std::unordered_map<TilePosition, Entity *> &groundTiles, std::unordered_map<TilePosition, Entity *> &structures, TextureManager *textureManager);
     ALLEGRO_BITMAP *getBitmap(int level);
     std::unordered_map<TilePosition, Entity *> *getStructures();
-    std::unordered_map<TilePosition, Entity *> *getAnimals();
     ChunkPosition *getChunkPosition();
     Position *getPosition();
     Rectangle_ *getArea();
