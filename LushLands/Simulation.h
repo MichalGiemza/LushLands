@@ -14,5 +14,7 @@ public:
     World *getWorld();
     void keepPositionLoaded(Position position);
     Position *getWorldLoadingPosition();
+    friend void updateSimulation(ALLEGRO_EVENT *ae, void *obj);
 };
 
+void updateSimulation(ALLEGRO_EVENT *ae, void *obj);

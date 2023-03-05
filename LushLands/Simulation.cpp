@@ -6,6 +6,8 @@ Simulation::Simulation(Controller *controller) {
     loadPosition = new Position(0, world->getSeaLevel(), 0);
     keepPositionLoaded(*loadPosition);
 
+    controller->getInputEvents()->subscribeTimerTPS(0, updateSimulation, this);
+
     Logger::log(ll::DEBUG_SIMULATION, "Simulation started; Chunks loaded: [%i]; Entities loaded: [%i].",
                 world->getChunkLoadManager()->getChunksLoadedCount(),
                 world->getChunkLoadManager()->getEntitiesCreatedCount());
@@ -21,4 +23,9 @@ void Simulation::keepPositionLoaded(Position position) {
 
 Position *Simulation::getWorldLoadingPosition() {
     return loadPosition;
+}
+
+void updateSimulation(ALLEGRO_EVENT *ae, void *obj) {
+    auto *s = (Simulation *)obj;
+    s->world->update();
 }

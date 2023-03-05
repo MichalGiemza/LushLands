@@ -20,7 +20,7 @@ class ChunkEvents : public ISimulationEvents {
     ChunkEventHandler chunkEventHandler;
     std::set<TimerSubscription *> toUpdate;
 public:
-    ChunkEvents(EventHandler *eventHandler, ChunkPosition *chunkPosition, CollisionManager *collisionManager);
+    ChunkEvents(ChunkPosition *chunkPosition, CollisionManager *collisionManager);
     virtual void update(miliseconds dt) override;
     virtual void subscribeEvent(simulationevent eventType, eventfn fun, void *source, void *target) override;
     virtual void emitEvent(simulationevent eventType, void *data) override;

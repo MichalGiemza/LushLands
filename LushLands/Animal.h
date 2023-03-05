@@ -4,7 +4,7 @@
 #include "Appearance.h"
 
 class Animal : 
-    public virtual Entity, 
+    public Entity, 
     public virtual RandomWalk, 
     public virtual Appearance {
     /**

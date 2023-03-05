@@ -1,44 +1,22 @@
 #include "EventHandler.h"
 
-EventHandler::EventHandler(InputEvents *inputEvents, Focus *focus, ActionMap *actionMap, ChunkLoadManager *chunkLoadManager) {
+EventHandler::EventHandler(InputEvents *inputEvents, Focus *focus, ActionMap *actionMap) {
     this->inputEvents = inputEvents;
     this->focus = focus;
     this->actionMap = actionMap;
     this->worldEvents = 0;
-    this->worldTime = 0;
-    this->lastTimeUpdated = 0;
-    this->chunkLoadManager = chunkLoadManager;
+    this->chunkEvents = 0;
 
     inputEvents->subscribeKeyBeingPressed(handleKeyboardKey, this);
     inputEvents->subscribeKeyTyped(handleKeyboardLetter, this);
-    inputEvents->subscribeTimerTPS(0, updateSimulation, this);
-}
-
-void EventHandler::registerWorldTime(Time *worldTime) {
-    this->worldTime = worldTime;
 }
 
 void EventHandler::registerWorldEvents(ISimulationEvents *worldEvents) {
     this->worldEvents = worldEvents;
 }
 
-void EventHandler::registerChunkEvents(ChunkPosition &cPos, ISimulationEvents *chunkEvents) {
-    this->chunkEvents[cPos] = chunkEvents;
-}
-
-void updateSimulation(ALLEGRO_EVENT *ae, void *obj) {
-    auto *c = (EventHandler *)obj;
-    ChunkPositionsSet *activeChunks = c->chunkLoadManager->getLoadedChunkList();
-    miliseconds timeNow = c->worldTime->getAsMiliseconds();
-    miliseconds dt = std::min((int)(timeNow - c->lastTimeUpdated), maxMilisecondsPerTick);
-    c->lastTimeUpdated = timeNow;
-    // Chunks
-    for (int i = 0; i < activeChunks->n; i++) {
-        ChunkPosition cPos = activeChunks->chunkPositions[i];
-        c->chunkEvents[cPos]->update(dt);
-    }
-    // World
-    c->worldEvents->update(dt);
+void EventHandler::registerChunkEvents(std::unordered_map<ChunkPosition, ISimulationEvents *> *chunkEvents) {
+    this->chunkEvents = chunkEvents;
 }
 
 void handleKeyboardKey(ALLEGRO_EVENT *ae, void *obj) {

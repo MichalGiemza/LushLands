@@ -77,9 +77,9 @@ Animal *Chunk::addAnimal(entitytype entityType, Position &position) {
     return animal;
 }
 
-Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory, EventHandler *eventHandler) :
+Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory) :
     collisionManager(),
-    chunkEvents(eventHandler, &chunkPosition, &collisionManager) {
+    chunkEvents(&chunkPosition, &collisionManager) {
     this->entityFactory = entityFactory;
     this->chunkPosition = chunkPosition;
     // Entities
@@ -99,6 +99,10 @@ Entity *Chunk::getGround(TilePosition &tilePosition) {
 
 Entity *Chunk::getStructure(TilePosition &tilePosition) {
     return structures[tilePosition];
+}
+
+ChunkEvents *Chunk::getChunkEvents() {
+    return &chunkEvents;
 }
 
 CollisionManager *Chunk::getCollisionManager() {

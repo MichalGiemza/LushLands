@@ -23,16 +23,20 @@ private:
     ChunkPosition chunkPosition;
     std::unordered_map<TilePosition, Entity *> groundTiles;
     std::unordered_map<TilePosition, Entity *> structures;
+    std::unordered_map<TilePosition, Entity *> animals;
     EntityFactory *entityFactory;
     CollisionManager collisionManager;
     ChunkEvents chunkEvents;
     void generateTiles(ChunkPlan &chunkPlan);
     void generateStructures(ChunkPlan &chunkPlan);
+    void generateAnimal(ChunkPlan &chunkPlan);
     Structure *addStructure(entitytype entityType, Position &position);
+    Animal *addAnimal(entitytype entityType, Position &position);
 public:
-    Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory, EventHandler *eventHandler);
+    Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory);
     Entity *getGround(TilePosition &tilePosition);
     Entity *getStructure(TilePosition &tilePosition);
+    ChunkEvents *getChunkEvents();
     CollisionManager *getCollisionManager();
     std::unordered_map<TilePosition, Entity *> *getGround();
     std::unordered_map<TilePosition, Entity *> *getStructures();

@@ -1,8 +1,7 @@
 #include "ChunkEvents.h"
 
-ChunkEvents::ChunkEvents(EventHandler *eventHandler, ChunkPosition *chunkPosition, CollisionManager *collisionManager) :
+ChunkEvents::ChunkEvents(ChunkPosition *chunkPosition, CollisionManager *collisionManager) :
     chunkEventHandler(collisionManager) {
-    eventHandler->registerChunkEvents(*chunkPosition, this);
     toUpdate = std::set<TimerSubscription *>();
     // Queue
     eventQueue = al_create_event_queue();
