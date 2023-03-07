@@ -2,9 +2,10 @@
 #include "Entity.h"
 #include "DataTypes.h"
 #include "ConstantSets.h"
+#include "EntityConstants.h"
 #include "Ground.h"
 #include "Structure.h"
-#include "EntityConstants.h"
+#include "Animal.h"
 
 class EntityFactory {
     /**

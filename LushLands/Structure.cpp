@@ -6,7 +6,8 @@ Structure::Structure(entitytype entityType, std::string description, Position po
     Appearance(color), 
     Body(position, size) {
 
-    Logger::log(ll::DEBUG_ENTITY, "Created Ground entity [%s;%i,%i]", entityType, position.x(), position.z());
+    updateType = random_tick;
+    Logger::log(ll::DEBUG_ENTITY, "Created Structure entity [%s;%i,%i]", entityType, position.x(), position.z());
 }
 
 Entity *Structure::clone() {

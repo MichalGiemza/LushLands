@@ -27,19 +27,25 @@ private:
     EntityFactory *entityFactory;
     CollisionManager collisionManager;
     ChunkEvents chunkEvents;
+    std::unordered_set<Entity *> random_tick_entities;
+    std::unordered_set<Entity *> to_update_entities;
+private:
     void generateTiles(ChunkPlan &chunkPlan);
     void generateStructures(ChunkPlan &chunkPlan);
     void generateAnimal(ChunkPlan &chunkPlan);
     Structure *addStructure(entitytype entityType, Position &position);
     Animal *addAnimal(entitytype entityType, Position &position);
+    void addToUpdateStructures(Entity *entity);
 public:
     Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory);
     Entity *getGround(TilePosition &tilePosition);
     Entity *getStructure(TilePosition &tilePosition);
+    Entity *getAnimal(TilePosition &tilePosition);
     ChunkEvents *getChunkEvents();
     CollisionManager *getCollisionManager();
     std::unordered_map<TilePosition, Entity *> *getGround();
     std::unordered_map<TilePosition, Entity *> *getStructures();
+    std::unordered_map<TilePosition, Entity *> *getAnimals();
     ChunkPosition *getChunkPosition();
     int entitiesLoadedCount();
 };

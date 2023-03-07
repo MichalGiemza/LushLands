@@ -12,7 +12,7 @@ void ChunkRepresentationManager::updateVisibleChunkRepresentations() {
                 Logger::log(ll::DEBUG_CHUNK, "Chunk [%i, %i] was not loaded yet!", cPos.x, cPos.z);
                 continue;
             }
-            chunkRepresentations[cPos] = new ChunkRepresentation(display, cPos, *chunk->getGround(), *chunk->getStructures(), textureManager);
+            chunkRepresentations[cPos] = new ChunkRepresentation(display, cPos, *chunk->getGround(), *chunk->getStructures(), *chunk->getAnimals(), textureManager);
         }
     }
 }
@@ -39,7 +39,9 @@ void ChunkRepresentationManager::draw() {
         if (camera->isAreaVisible(cRep->getArea())) {
             drawGround(cRep, level);
             drawStructures(cRep, level);
+            drawAnimals(cRep, level);
             if (DEBUG) {
+                drawAnimalOutlines(cRep, level);
                 drawStructureOutlines(cRep, level);
                 drawChunkBorders(cRep);
             }
@@ -68,6 +70,24 @@ void ChunkRepresentationManager::drawStructures(ChunkRepresentation *cRep, int l
             al_get_bitmap_width(sBitmap));
         pxint z = shiftTexturePositionZ(
             camera->shiftToScreenPosZ(str->getPosition()->getAccurateZ()),
+            al_get_bitmap_height(sBitmap));
+        al_draw_bitmap(sBitmap, x, z, 0);
+    }
+}
+
+void ChunkRepresentationManager::drawAnimals(ChunkRepresentation *cRep, int level) { // TODO: Uogólniæ to i struktury do draw independent structure i póŸniej jednoliniowe metody o tych nazwach dobieraj¹ce w³aœciwy zestaw do rysowania do uogólnionej metody
+    auto animals = cRep->getAnimals();
+    for (auto sPair = animals->begin(); sPair != animals->end(); ++sPair) {
+        if (sPair->first.y != level)
+            continue;
+        auto anm = (Animal *)sPair->second;
+        // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
+        auto sBitmap = textureManager->getEntityTexture(sPair->second->getType());
+        pxint x = shiftTexturePositionX(
+            camera->shiftToScreenPosX(anm->getPosition()->getAccurateX()),
+            al_get_bitmap_width(sBitmap));
+        pxint z = shiftTexturePositionZ(
+            camera->shiftToScreenPosZ(anm->getPosition()->getAccurateZ()),
             al_get_bitmap_height(sBitmap));
         al_draw_bitmap(sBitmap, x, z, 0);
     }
@@ -106,8 +126,32 @@ void ChunkRepresentationManager::drawStructureOutlines(ChunkRepresentation *cRep
     }
 }
 
+void ChunkRepresentationManager::drawAnimalOutlines(ChunkRepresentation *cRep, int level) { // TODO: To te¿ uogólniæ
+    auto animals = cRep->getAnimals();
+    for (auto sPair = animals->begin(); sPair != animals->end(); ++sPair) {
+        if (sPair->first.y != level)
+            continue;
+        auto anm = (Animal *)sPair->second;
+        // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
+        auto sBitmap = textureManager->getEntityTexture(sPair->second->getType());
+        pxint x1 = shiftTexturePositionX(
+            camera->shiftToScreenPosX(anm->getPosition()->getAccurateX()),
+            anm->getSize().getCameraW());
+        pxint z1 = shiftTexturePositionZ(
+            camera->shiftToScreenPosZ(anm->getPosition()->getAccurateZ()),
+            anm->getSize().getCameraL());
+        pxint x2 = shiftTexturePositionX(
+            camera->shiftToScreenPosX(anm->getPosition()->getAccurateX()) + anm->getSize().getCameraW(),
+            anm->getSize().getCameraW());
+        pxint z2 = shiftTexturePositionZ(
+            camera->shiftToScreenPosZ(anm->getPosition()->getAccurateZ()) + anm->getSize().getCameraL(),
+            anm->getSize().getCameraL());
+        al_draw_rectangle(x1, z1, x2, z2, anm->getColor()->getAllegroColor(), 1.0f);
+    }
+}
+
 pxint ChunkRepresentationManager::shiftTexturePositionX(pxint screenPositionX, pxint bitmapWidth) {
-    if (bitmapWidth >= 32)
+    if (bitmapWidth >= 32) // Fixme: Magic number, but which one?
         return tileSizePx - bitmapWidth + screenPositionX;
     else
         return tileSizePx / 2 - bitmapWidth / 2 + screenPositionX;

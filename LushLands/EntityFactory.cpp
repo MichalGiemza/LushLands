@@ -19,7 +19,7 @@ void EntityFactory::setupPrefabs() {  // TODO: Czy wszystkie te pola s¹ w kó³ko 
     prefabs[STONE] = new Structure(STONE, STONE_DESCRIPTION, Position(), Size(.5f, .5f, .5f), &STONE_COLOR);
     prefabs[LOG] = new Structure(LOG, LOG_DESCRIPTION, Position(), Size(1, .6, .6), &LOG_COLOR);
 
-    prefabs[CHICKEN] = new Structure(CHICKEN, CHICKEN_DESCRIPTION, Position(), Size(.5f, .5f, .5f), &CHICKEN_COLOR);
+    prefabs[CHICKEN] = new Animal(CHICKEN, CHICKEN_DESCRIPTION, Position(), Size(.5f, .5f, .5f), &CHICKEN_COLOR, (int)CHICKEN_MOVEMENT_SPEED, (miliseconds)CHICKEN_WALK_INTERVAL, (Time *)nullptr);
 }
 
 EntityFactory::EntityFactory() {

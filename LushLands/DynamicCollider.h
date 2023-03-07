@@ -4,7 +4,7 @@
 #include "Body.h"
 #include <unordered_set>
 
-class DynamicCollider : public virtual Collider, public virtual Mobility, public virtual Body {
+class DynamicCollider : public virtual Collider, public virtual Mobility {
     /**
     * Entity module responsible for collision control.
     */

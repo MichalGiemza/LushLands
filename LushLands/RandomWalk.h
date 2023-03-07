@@ -7,7 +7,7 @@
 #include "EntityUpdater.h"
 
 
-class RandomWalk : public virtual DynamicCollider, public virtual Mobility, public virtual EntityUpdater {
+class RandomWalk : public DynamicCollider, public virtual EntityUpdater {
     /**
     * Entity module responsible for automatic wandering.
     */

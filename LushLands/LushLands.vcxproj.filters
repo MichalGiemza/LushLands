@@ -330,6 +330,9 @@
       <Filter>src\Simulation\World\ChunkSystem</Filter>
     </ClInclude>
     <ClInclude Include="ChunkEventHandler.h" />
+    <ClInclude Include="EntityContainer.h">
+      <Filter>src\Simulation\World\Entities\Base</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">

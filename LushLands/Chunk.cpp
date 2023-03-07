@@ -14,6 +14,7 @@ void Chunk::generateTiles(ChunkPlan &chunkPlan) {
                 Ground *ground = (Ground *)entityFactory->buildEntity(plannedEntityType);
                 if (ground == 0)
                     continue;
+                addToUpdateStructures(ground);
                 ground->setPosition(pos);
                 groundTiles[pos.getTilePosition()] = ground;
             }
@@ -33,8 +34,10 @@ void Chunk::generateStructures(ChunkPlan &chunkPlan) {
                 pos.setY(referencePosition.y() + k);
                 auto plannedEntityType = chunkPlan.fieldPlans[i][j][k].structure;
                 auto structure = addStructure(plannedEntityType, pos);
-                if (structure)
-                    structures[pos.getTilePosition()] = structure;
+                if (structure == 0)
+                    continue;
+                addToUpdateStructures(structure);
+                structures[pos.getTilePosition()] = structure;
             }
         }
     }
@@ -61,8 +64,10 @@ void Chunk::generateAnimal(ChunkPlan &chunkPlan) {
                 pos.setY(referencePosition.y() + k);
                 auto plannedEntityType = chunkPlan.fieldPlans[i][j][k].animal;
                 auto animal = addAnimal(plannedEntityType, pos);
-                if (animal)
-                    animals[pos.getTilePosition()] = animal;
+                if (animal == 0)
+                    continue;
+                animals[pos.getTilePosition()] = animal;
+                addToUpdateStructures(animal);
             }
         }
     }
@@ -77,18 +82,22 @@ Animal *Chunk::addAnimal(entitytype entityType, Position &position) {
     return animal;
 }
 
+void Chunk::addToUpdateStructures(Entity *entity) {
+    if (entity->getUpdateType() == constant_update)
+        to_update_entities.insert(entity);
+    if (entity->getUpdateType() == random_tick)
+        random_tick_entities.insert(entity);
+}
+
 Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory) :
     collisionManager(),
     chunkEvents(&chunkPosition, &collisionManager) {
     this->entityFactory = entityFactory;
     this->chunkPosition = chunkPosition;
     // Entities
-    groundTiles = std::unordered_map<TilePosition, Entity *>();
-    structures = std::unordered_map<TilePosition, Entity *>();
     generateTiles(chunkPlan);
     generateStructures(chunkPlan);
     generateAnimal(chunkPlan);
-
 
     Logger::log(ll::DEBUG_CHUNK, "Created Chunk [%i, %i]", chunkPosition.x, chunkPosition.z);
 }
@@ -99,6 +108,10 @@ Entity *Chunk::getGround(TilePosition &tilePosition) {
 
 Entity *Chunk::getStructure(TilePosition &tilePosition) {
     return structures[tilePosition];
+}
+
+Entity *Chunk::getAnimal(TilePosition &tilePosition) {
+    return animals[tilePosition];
 }
 
 ChunkEvents *Chunk::getChunkEvents() {
@@ -115,6 +128,10 @@ std::unordered_map<TilePosition, Entity *> *Chunk::getGround() {
 
 std::unordered_map<TilePosition, Entity *> *Chunk::getStructures() {
     return &structures;
+}
+
+std::unordered_map<TilePosition, Entity *> *Chunk::getAnimals() {
+    return &animals;
 }
 
 ChunkPosition *Chunk::getChunkPosition() {

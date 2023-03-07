@@ -37,7 +37,7 @@ void TextureManager::loadAllTextures() {
     textures[STONE] = loadTexture(STONE_TEXTURE_LOCALIZATION);
     textures[LOG] = loadTexture(LOG_TEXTURE_LOCALIZATION);
 
-    textures[CHICKEN] = loadTexture(LOG_TEXTURE_LOCALIZATION);
+    textures[CHICKEN] = loadTexture(CHICKEN_TEXTURE_LOCALIZATION);
 }
 
 ALLEGRO_BITMAP *TextureManager::getEntityTexture(entitytype entityType) {

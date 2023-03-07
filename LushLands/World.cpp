@@ -40,7 +40,10 @@ void World::update() {
     // Chunks
     for (int i = 0; i < activeChunks->n; i++) {
         ChunkPosition cPos = activeChunks->chunkPositions[i];
-        ChunkEvents *ce = chunkSystem->getChunk(cPos)->getChunkEvents();
+        Chunk *c = chunkSystem->getChunk(cPos);
+        if (not c)
+            continue;
+        ChunkEvents *ce = c->getChunkEvents();
         ce->update(dt);
     }
     // World

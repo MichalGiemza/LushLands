@@ -74,3 +74,7 @@ const exceptionmessage could_not_create_random_from_type = "Could not create ran
 const rawpath jamesStrokerFont = "fonts/James Stroker.ttf";
 const rawpath openSansSBFont = "fonts/OpenSans-Semibold.ttf";
 
+// Entity Update Type
+const updatetype no_update = "no_update";
+const updatetype random_tick = "random_tick";
+const updatetype constant_update = "constant_update";

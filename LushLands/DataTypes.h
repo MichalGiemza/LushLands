@@ -5,6 +5,7 @@
 
 namespace fs = std::filesystem;
 
+typedef const int cstint;
 typedef int tickperiod;
 typedef int keycode;
 typedef const char *actiontype;
@@ -25,6 +26,7 @@ typedef unsigned char loglevel;
 typedef long long miliseconds;
 typedef float radian;
 typedef const char *season;
+typedef const char *updatetype;
 
 struct FieldPlan {
     entitytype ground;

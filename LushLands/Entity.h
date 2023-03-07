@@ -6,9 +6,10 @@
 #include "DataTypes.h"
 #include "Logger.h"
 #include "EntityUpdater.h"
+#include "EntityContainer.h"
 
 
-class Entity : public EntityUpdater {
+class Entity : public EntityContainer {
     /**
     * Definicja najbardziej podstawowego elementu œwiata.
     */

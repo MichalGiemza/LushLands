@@ -10,7 +10,8 @@ void RandomWalk::setNewAction(miliseconds currentTime) {
 RandomWalk::RandomWalk(Position &position, Size &size, int movementSpeed_, miliseconds walkInterval, Time *worldTime) :
     DynamicCollider(position, size, movementSpeed_), 
     Collider(position, size),
-    Mobility(movementSpeed_, position, size), Body(position, size) {
+    Mobility(movementSpeed_, position, size), 
+    Body(position, size) {
     this->walkInterval = walkInterval;
     this->worldTime = worldTime;
     TimerSubscription *ts = new TimerSubscription { 0, 0, updateRandomWalk, this };

@@ -83,3 +83,9 @@ const TextureLocalization STONE_TEXTURE_LOCALIZATION = TextureLocalization(64, 3
 const TextureLocalization LOG_TEXTURE_LOCALIZATION = TextureLocalization(128, 0, "..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\RPG Nature Tileset.png");
 // Texture names (animals)
 const TextureLocalization CHICKEN_TEXTURE_LOCALIZATION = TextureLocalization(0, 130, "..\\Assets\\textures\\Cozy Farm Asset Pack by shubibubi\\free.png", 16, 16);
+
+// Movement speeds (animals)
+const cstint CHICKEN_MOVEMENT_SPEED = 10;
+
+// Random Walk Intervals (animals)
+const miliseconds CHICKEN_WALK_INTERVAL = 5000;
