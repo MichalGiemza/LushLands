@@ -162,9 +162,7 @@ void InputEvents::subscribeSystemEvent(systemevent se, eventfn fun, void *caller
     subscribersSystemEvents.push_back(p);
 }
 
-void InputEvents::emitSystemEvent(systemevent eventType, void *data) {
-    ALLEGRO_EVENT ae {};
-    ae.user.type = eventType;
-    ae.user.data1 = (intptr_t)data;
-    al_emit_user_event(userEventSource, &ae, NULL);
+ALLEGRO_EVENT_SOURCE *InputEvents::getEventSource() {
+    return userEventSource;
 }
+

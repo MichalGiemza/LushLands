@@ -9,6 +9,7 @@ class Simulation {
     World *world;
     Position *loadPosition; // TODO: Move to camera (?) Maybe leave as free-camera?
     EntityFactory *entityFactory;
+    miliseconds lastUpdated = 0;
 public:
     Simulation(Controller *controller);
     World *getWorld();

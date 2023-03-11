@@ -6,14 +6,15 @@
 class Animal : 
     public Entity, 
     public RandomWalk, 
-    public Appearance {
+    public Appearance,
+    public virtual EntityUpdater {
     /**
     * Representation of animal.
     *
     */
     
 public:
-    Animal(entitytype entityType, std::string description, Position position, Size size, const Color *color, int movementSpeed_, miliseconds walkInterval, Time *worldTime);
+    Animal(entitytype entityType, std::string description, Position position, Size size, const Color *color, int movementSpeed_, miliseconds walkInterval);
     Entity *clone() override;
 };
 

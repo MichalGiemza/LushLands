@@ -1,7 +1,9 @@
 #include "ChunkEvents.h"
 
-ChunkEvents::ChunkEvents(ChunkPosition *chunkPosition, CollisionManager *collisionManager) :
-    chunkEventHandler(collisionManager) {
+ChunkEvents::ChunkEvents(ChunkPosition *chunkPosition, CollisionManager *collisionManager, std::unordered_set<Entity *> *randomTickEntities, std::unordered_set<EntityUpdater *> *toUpdateEntities) :
+    chunkEventHandler(collisionManager),
+    randomTickEntities(randomTickEntities),
+    toUpdateEntities(toUpdateEntities) {
     toUpdate = std::set<TimerSubscription *>();
     // Queue
     eventQueue = al_create_event_queue();
@@ -13,7 +15,7 @@ ChunkEvents::ChunkEvents(ChunkPosition *chunkPosition, CollisionManager *collisi
     al_register_event_source(eventQueue, chunkEventSource);
 }
 
-void ChunkEvents::update(miliseconds dt) {
+void ChunkEvents::update(miliseconds timeNow, miliseconds dt) {
     /** This method needs to be called from WorldEvents once every tick. */
     // Prepare loop
     ALLEGRO_EVENT *currentEvent = new ALLEGRO_EVENT();
@@ -30,6 +32,13 @@ void ChunkEvents::update(miliseconds dt) {
             break;
         }
     }
+    // Update Updateable entities
+    for (auto *en : *toUpdateEntities) {
+        auto *updateable = (EntityUpdater *)en;
+        updateable->updateEntity(timeNow, dt);
+    }
+    // TODO: Implement RandomTick
+    // ...
 }
 
 void ChunkEvents::subscribeEvent(simulationevent eventType, eventfn fun, void *source, void *target) {
@@ -37,14 +46,14 @@ void ChunkEvents::subscribeEvent(simulationevent eventType, eventfn fun, void *s
     subscribers[eventType].push_back(p);
 }
 
-void ChunkEvents::emitEvent(simulationevent eventType, void *data) {
-    al_emit_user_event(chunkEventSource, (ALLEGRO_EVENT *)data, NULL);
+ALLEGRO_EVENT_SOURCE *ChunkEvents::getEventSource() {
+    return chunkEventSource;
 }
 
-void ChunkEvents::subscribeUpdate(TimerSubscription *ts) {
+void ChunkEvents::subscribeUpdate(TimerSubscription *ts) { // Fixme: To remove?
     toUpdate.insert(ts);
 }
 
-void ChunkEvents::unsubscribeUpdate(TimerSubscription *ts) {
+void ChunkEvents::unsubscribeUpdate(TimerSubscription *ts) { // Fixme: To remove?
     toUpdate.erase(ts);
 }

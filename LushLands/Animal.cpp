@@ -1,8 +1,8 @@
 #include "Animal.h"
 
-Animal::Animal(entitytype entityType, std::string description, Position position, Size size, const Color *color, int movementSpeed_, miliseconds walkInterval, Time *worldTime) :
+Animal::Animal(entitytype entityType, std::string description, Position position, Size size, const Color *color, int movementSpeed_, miliseconds walkInterval) :
     Entity(entityType, description),
-    RandomWalk(position, size, movementSpeed_, walkInterval, worldTime),
+    RandomWalk(position, size, movementSpeed_, walkInterval),
     Appearance(color), 
     Body(position, size),
     Collider(position, size),

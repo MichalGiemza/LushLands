@@ -5,7 +5,7 @@
 
 
 // Chunk event types
-const simulationevent mob_attempt_go = CHAR_ID('M', 'A', 'G', 0); //data1: DynamicCollider, data2:(desired)Position;
+const simulationevent mob_attempt_go = CHAR_ID('M', 'A', 'G', 0); //data1: DynamicCollider(as this), data2:(desired)Position;
 
 
 // World event types

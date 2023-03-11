@@ -27,5 +27,10 @@ Position *Simulation::getWorldLoadingPosition() {
 
 void updateSimulation(ALLEGRO_EVENT *ae, void *obj) {
     auto *s = (Simulation *)obj;
-    s->world->update();
+    miliseconds timeNow = ae->timer.count; // TODO: PóŸniej trzeba to zmieniæ - œwiat z zapisów i jego wiek
+    miliseconds dt = timeNow - s->lastUpdated;
+
+    s->world->update(dt);
+
+    s->lastUpdated = timeNow;
 }

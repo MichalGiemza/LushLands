@@ -18,8 +18,8 @@ class WorldEvents : public ISimulationEvents {
     std::unordered_map<int, std::vector<SimulationEventSubscription>> subscribers;
 public:
     WorldEvents(EventHandler *eventHandler);
-    virtual void update(miliseconds dt) override;
+    virtual void update(miliseconds timeNow, miliseconds dt) override;
     virtual void subscribeEvent(simulationevent eventType, eventfn fun, void *source, void *target) override;
-    virtual void emitEvent(simulationevent eventType, void *data) override;
+    virtual ALLEGRO_EVENT_SOURCE *getEventSource() override;
 };
 

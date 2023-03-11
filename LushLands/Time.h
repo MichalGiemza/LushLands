@@ -48,6 +48,7 @@ public:
     friend bool operator> (const  Time &t1, const miliseconds t2);
     friend bool operator<= (const Time &t1, const miliseconds t2);
     friend bool operator>= (const Time &t1, const miliseconds t2);
+    friend Time operator+= (Time &t1, const miliseconds t2);
 };
 
 inline bool operator== (const Time &t1, const Time &t2) {return t1.value == t2.value;}
@@ -68,4 +69,4 @@ inline bool operator< (const  Time &t1, const miliseconds t2) {return t1.value <
 inline bool operator> (const  Time &t1, const miliseconds t2) {return t1.value >  t2;}
 inline bool operator<= (const Time &t1, const miliseconds t2) {return t1.value <= t2;}
 inline bool operator>= (const Time &t1, const miliseconds t2) {return t1.value >= t2;}
-
+inline Time operator+= (Time &t1, const miliseconds t2) { t1.value += t2; return t1; }

@@ -11,7 +11,7 @@ WorldEvents::WorldEvents(EventHandler *eventHandler) {
     al_register_event_source(eventQueue, worldEventSource);
 }
 
-void WorldEvents::update(miliseconds dt) {
+void WorldEvents::update(miliseconds timeNow, miliseconds dt) {
     // Prepare loop
     ALLEGRO_EVENT *currentEvent = new ALLEGRO_EVENT();
     // Start loop
@@ -42,9 +42,7 @@ void WorldEvents::subscribeEvent(simulationevent eventType, eventfn fun, void *s
     subscribers[eventType].push_back(p);
 }
 
-void WorldEvents::emitEvent(simulationevent eventType, void *data) {
-    //ALLEGRO_EVENT ae {};
-    //ae.user.type = eventType;
-    //ae.user.data1 = (intptr_t)data;
-    al_emit_user_event(worldEventSource, (ALLEGRO_EVENT *)data, NULL);
+ALLEGRO_EVENT_SOURCE *WorldEvents::getEventSource() {
+    return worldEventSource;
 }
+

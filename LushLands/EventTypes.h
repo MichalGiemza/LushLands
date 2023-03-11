@@ -4,7 +4,7 @@
 #include "DataTypes.h"
 
 typedef std::function<void(ALLEGRO_EVENT *allegroEvent, void *caller)> eventfn;
-
+typedef std::function<void(miliseconds timeNow, miliseconds dt, void *caller)> updatefn;
 
 struct KeySubscribtion {
     eventfn func;
@@ -15,6 +15,13 @@ struct TimerSubscription {
     tickperiod period;
     int64_t lastTickExecutedOn;
     eventfn func;
+    void *caller;
+};
+
+struct EntityUpdateSubscription {
+    tickperiod period;
+    int64_t lastTickExecutedOn;
+    updatefn update;
     void *caller;
 };
 

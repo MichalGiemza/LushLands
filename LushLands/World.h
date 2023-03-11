@@ -29,7 +29,7 @@ class World  {
     miliseconds lastTimeUpdated;
 public:
     World(worldtype worldType, seed seed_, EntityFactory *entityFactory, EventHandler *eventHandler);
-    void update();
+    void update(miliseconds dt);
     int getSeed();
     int getSeaLevel();
     Time *getWorldTime();

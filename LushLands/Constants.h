@@ -19,4 +19,4 @@ const int displayWidth = 640;
 const int displayHeight = 480;
 const bool DEBUG = true;
 const short CHAT_LENGTH = 16;
-const float PI = 3.14159265;
+const float PI = 3.14159265F;

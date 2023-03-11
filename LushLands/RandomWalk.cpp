@@ -7,29 +7,34 @@ void RandomWalk::setNewAction(miliseconds currentTime) {
     continueActionUntil = currentTime + (walkInterval * Random_::random(75, 125)) / 100;
 }
 
-RandomWalk::RandomWalk(Position &position, Size &size, int movementSpeed_, miliseconds walkInterval, Time *worldTime) :
+RandomWalk::RandomWalk(Position &position, Size &size, int movementSpeed_, miliseconds walkInterval) :
     DynamicCollider(position, size, movementSpeed_), 
     Collider(position, size),
     Mobility(movementSpeed_, position, size), 
     Body(position, size) {
     this->walkInterval = walkInterval;
-    this->worldTime = worldTime;
-    TimerSubscription *ts = new TimerSubscription { 0, 0, updateRandomWalk, this };
-    addToUpdate(ts);
+    EntityUpdateSubscription *es = new EntityUpdateSubscription { 0, 0, updateRandomWalk, this };
+    addToUpdate(es);
 }
 
-void updateRandomWalk(ALLEGRO_EVENT *allegroEvent, void *caller) {
+void updateRandomWalk(miliseconds timeNow, miliseconds dt, void *caller) {
     auto c = (RandomWalk *)caller;
-    miliseconds dt = allegroEvent->timer.count;
+    if (not c->parentEventSource)
+        return;
 
-    if (*(c->worldTime) >= c->continueActionUntil)
-        c->setNewAction(c->worldTime->getAsMiliseconds());
+    if (timeNow >= c->continueActionUntil)
+        c->setNewAction(timeNow);
 
     if (c->currentAction == ra::walking) {
-        Position newPos = Position(c->position);
-        newPos.setAccurateX(newPos.getAccurateX() - std::sin(c->direction) * c->movementSpeed / representationComaValue);
-        newPos.setAccurateZ(newPos.getAccurateZ() + std::cos(c->direction) * c->movementSpeed / representationComaValue);
+        Position *newPos = new Position(c->position);
+        newPos->setAccurateX(newPos->getAccurateX() - std::sin(c->direction) * c->movementSpeed / representationComaValue);
+        newPos->setAccurateZ(newPos->getAccurateZ() + std::cos(c->direction) * c->movementSpeed / representationComaValue);
         // TODO: - sin + cos -> czy napewno tak jest dobrze?
-        // TODO: Czy to ju¿? Czy coœ z tym zrobiæ?
+        ALLEGRO_EVENT *ae = (ALLEGRO_EVENT *)new ALLEGRO_EVENT {};
+        ae->user.type = mob_attempt_go;
+        ae->user.data1 = (intptr_t)c;
+        ae->user.data2 = (intptr_t)newPos;
+        al_emit_user_event(c->parentEventSource, ae, NULL);
     }
 }
+

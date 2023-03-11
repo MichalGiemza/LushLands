@@ -1,23 +1,30 @@
 #include "EntityUpdater.h"
 
 EntityUpdater::EntityUpdater() {
-    toUpdate = std::set<TimerSubscription *>();
+    toUpdate = std::set<EntityUpdateSubscription *>();
 }
 
-void EntityUpdater::addToUpdate(TimerSubscription *ts) {
-    toUpdate.insert(ts);
+void EntityUpdater::addToUpdate(EntityUpdateSubscription *es) {
+    toUpdate.insert(es);
 }
 
-void EntityUpdater::rmFromUpdate(TimerSubscription *ts) {
-    toUpdate.erase(ts);
+void EntityUpdater::rmFromUpdate(EntityUpdateSubscription *es) {
+    toUpdate.erase(es);
 }
 
-void EntityUpdater::updateEntity(ALLEGRO_EVENT *allegroEvent) {
-    int64_t ticks = allegroEvent->timer.count;
-    for (TimerSubscription *timerSub : toUpdate) {
-        if (ticks - timerSub->lastTickExecutedOn >= timerSub->period) {
-            timerSub->func(allegroEvent, timerSub->caller);
-            timerSub->lastTickExecutedOn = ticks;
+void EntityUpdater::updateEntity(miliseconds timeNow, miliseconds dt) {
+    for (auto *entityUpdateSub : toUpdate) {
+        if (timeNow - entityUpdateSub->lastTickExecutedOn >= entityUpdateSub->period) {
+            entityUpdateSub->update(timeNow, dt, entityUpdateSub->caller);
+            entityUpdateSub->lastTickExecutedOn = timeNow;
         }
     }
+}
+
+void EntityUpdater::registerParentEventSource(ALLEGRO_EVENT_SOURCE *aes) {
+    this->parentEventSource = aes;
+}
+
+void EntityUpdater::unregisterParentEventSource() {
+    this->parentEventSource = 0;
 }

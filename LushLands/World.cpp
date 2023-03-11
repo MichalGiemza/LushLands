@@ -31,11 +31,11 @@ ChunkLoadManager *World::getChunkLoadManager() {
     return chunkSystem->getChunkLoadManager();
 }
 
-void World::update() {
+void World::update(miliseconds dt) {
     // Game time elapsed
     ChunkPositionsSet *activeChunks = getChunkLoadManager()->getLoadedChunkList();
+    *time += dt;
     miliseconds timeNow = time->getAsMiliseconds();
-    miliseconds dt = std::min((int)(timeNow - lastTimeUpdated), maxMilisecondsPerTick);
     lastTimeUpdated = timeNow;
     // Chunks
     for (int i = 0; i < activeChunks->n; i++) {
@@ -44,10 +44,10 @@ void World::update() {
         if (not c)
             continue;
         ChunkEvents *ce = c->getChunkEvents();
-        ce->update(dt);
+        ce->update(timeNow, dt);
     }
     // World
-    worldEvents->update(dt);
+    worldEvents->update(timeNow, dt);
 }
 
 Time *World::getWorldTime() {

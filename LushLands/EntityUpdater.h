@@ -8,10 +8,14 @@ class EntityUpdater {
     * Entity module, provides means to update entity.
     * 
     */
-    std::set<TimerSubscription *> toUpdate;
+    std::set<EntityUpdateSubscription *> toUpdate;
+protected:
+    ALLEGRO_EVENT_SOURCE *parentEventSource = 0;
 public:
     EntityUpdater();
-    void updateEntity(ALLEGRO_EVENT *allegroEvent);
-    void addToUpdate(TimerSubscription *ts);
-    void rmFromUpdate(TimerSubscription *ts);
+    void updateEntity(miliseconds timeNow, miliseconds dt);
+    void addToUpdate(EntityUpdateSubscription *es);
+    void rmFromUpdate(EntityUpdateSubscription *es);
+    void registerParentEventSource(ALLEGRO_EVENT_SOURCE *aes);
+    void unregisterParentEventSource();
 };

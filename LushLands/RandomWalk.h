@@ -1,10 +1,11 @@
 #pragma once
+#include <random>
 #include "DynamicCollider.h"
 #include "Mobility.h"
 #include "Random_.h"
-#include <random>
 #include "Time.h"
 #include "EntityUpdater.h"
+#include "Events.h"
 
 
 class RandomWalk : public DynamicCollider, public virtual EntityUpdater {
@@ -16,14 +17,12 @@ private:
     actiontype currentAction = 0;
 protected:
     miliseconds walkInterval;
-    Time *worldTime;
 
     void setNewAction(miliseconds currentTime);
 public:
-    RandomWalk(Position &position, Size &size, int movementSpeed_, miliseconds walkInterval, Time *worldTime);
-    friend void updateRandomWalk(ALLEGRO_EVENT *allegroEvent, void *caller);
-
+    RandomWalk(Position &position, Size &size, int movementSpeed_, miliseconds walkInterval);
+    friend void updateRandomWalk(miliseconds timeNow, miliseconds dt, void *caller);
 };
 
-void updateRandomWalk(ALLEGRO_EVENT *allegroEvent, void *caller);
+void updateRandomWalk(miliseconds timeNow, miliseconds dt, void *caller);
 

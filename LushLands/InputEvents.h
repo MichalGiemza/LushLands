@@ -44,6 +44,6 @@ public:
     void subscribeTimerFPS(tickperiod tp, eventfn fun, void *caller);
     void subscribeSystemEvent(systemevent se, eventfn fun, void *caller);
 
-    void emitSystemEvent(systemevent eventType, void *data);
+    ALLEGRO_EVENT_SOURCE *getEventSource();
 };
 

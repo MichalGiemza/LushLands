@@ -14,7 +14,7 @@ void Chunk::generateTiles(ChunkPlan &chunkPlan) {
                 Ground *ground = (Ground *)entityFactory->buildEntity(plannedEntityType);
                 if (ground == 0)
                     continue;
-                addToUpdateStructures(ground);
+                randomTickEntities.insert((Entity *)ground); // Fixme: Bêdzie problem z castowaniem!
                 ground->setPosition(pos);
                 groundTiles[pos.getTilePosition()] = ground;
             }
@@ -36,7 +36,7 @@ void Chunk::generateStructures(ChunkPlan &chunkPlan) {
                 auto structure = addStructure(plannedEntityType, pos);
                 if (structure == 0)
                     continue;
-                addToUpdateStructures(structure);
+                randomTickEntities.insert((Entity *)structure); // Fixme: Bêdzie problem z castowaniem!
                 structures[pos.getTilePosition()] = structure;
             }
         }
@@ -63,11 +63,11 @@ void Chunk::generateAnimal(ChunkPlan &chunkPlan) {
                 pos.setZ(referencePosition.z() + j);
                 pos.setY(referencePosition.y() + k);
                 auto plannedEntityType = chunkPlan.fieldPlans[i][j][k].animal;
-                auto animal = addAnimal(plannedEntityType, pos);
+                Animal *animal = addAnimal(plannedEntityType, pos);
                 if (animal == 0)
                     continue;
                 animals[pos.getTilePosition()] = animal;
-                addToUpdateStructures(animal);
+                toUpdateEntities.insert((EntityUpdater *)animal);
             }
         }
     }
@@ -79,19 +79,13 @@ Animal *Chunk::addAnimal(entitytype entityType, Position &position) {
         return 0;
     animal->setPosition(position);
     collisionManager.addCollider((Collider *)animal);
+    animal->registerParentEventSource(chunkEvents.getEventSource());
     return animal;
-}
-
-void Chunk::addToUpdateStructures(Entity *entity) {
-    if (entity->getUpdateType() == constant_update)
-        to_update_entities.insert(entity);
-    if (entity->getUpdateType() == random_tick)
-        random_tick_entities.insert(entity);
 }
 
 Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory) :
     collisionManager(),
-    chunkEvents(&chunkPosition, &collisionManager) {
+    chunkEvents(&chunkPosition, &collisionManager, &randomTickEntities, &toUpdateEntities) {
     this->entityFactory = entityFactory;
     this->chunkPosition = chunkPosition;
     // Entities

@@ -3,7 +3,7 @@
 ChunkSystem::ChunkSystem(BaseWorldPlanner *worldPlanner, EntityFactory *entityFactory) {
     this->entityFactory = entityFactory;
     this->worldPlanner = worldPlanner;
-    chunkLoadManager = new ChunkLoadManager(chunks, worldPlanner, entityFactory);
+    chunkLoadManager = new ChunkLoadManager(&chunks, worldPlanner, entityFactory);
 }
 
 Chunk *ChunkSystem::getChunk(ChunkPosition chunkPosition) {

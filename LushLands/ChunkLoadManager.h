@@ -12,14 +12,13 @@ class ChunkLoadManager {
     * 
     */
     std::vector<Position> followedLoadingPositions;
-    std::unordered_map<ChunkPosition, Chunk *> chunks;
+    std::unordered_map<ChunkPosition, Chunk *> *chunks;
     BaseWorldPlanner *worldPlanner;
     EntityFactory *entityFactory;
-    EventHandler *eventHandler;
 private:
     void generateChunksByPosition(Position &pos);
 public:
-    ChunkLoadManager(std::unordered_map<ChunkPosition, Chunk *> chunks, BaseWorldPlanner *worldPlanner, EntityFactory *entityFactory);
+    ChunkLoadManager(std::unordered_map<ChunkPosition, Chunk *> *chunks, BaseWorldPlanner *worldPlanner, EntityFactory *entityFactory);
     void loadByPosition(Position &position);
     void updateLoadedChunkList();
     Chunk *generateChunk(ChunkPosition &chunkPosition);

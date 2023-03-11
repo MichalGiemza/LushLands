@@ -23,12 +23,14 @@ void handleKeyboardKey(ALLEGRO_EVENT *ae, void *obj) {
     EventHandler *eh = (EventHandler *)obj;
     auto fo = eh->focus->getFocusedObject();
     if (fo->getObjGroup() == f::SIMULATION && eh->worldEvents) {
-        simulationevent we = eh->actionMap->mapToWorldAction(ae->keyboard.keycode);
-        eh->worldEvents->emitEvent(we, 0);
+        ALLEGRO_EVENT newEvent {};
+        newEvent.user.type = eh->actionMap->mapToWorldAction(ae->keyboard.keycode);
+        al_emit_user_event(eh->worldEvents->getEventSource(), &newEvent, NULL);
     }
     if (fo->getObjType() == f::CAMERA) {
-        systemevent se = eh->actionMap->mapToSystemAction(ae->keyboard.keycode);
-        eh->inputEvents->emitSystemEvent(se, 0);
+        ALLEGRO_EVENT newEvent {};
+        newEvent.user.type = eh->actionMap->mapToSystemAction(ae->keyboard.keycode);
+        al_emit_user_event(eh->inputEvents->getEventSource(), &newEvent, NULL);
     }
 }
 
@@ -36,6 +38,8 @@ void handleKeyboardLetter(ALLEGRO_EVENT *ae, void *obj) {
     EventHandler *eh = (EventHandler *)obj;
     auto fo = eh->focus->getFocusedObject();
     if (fo->getObjGroup() == f::STATIC_UI || fo->getObjGroup() == f::WORLD_UI) {
-        eh->inputEvents->emitSystemEvent(letter_typed, ae);
+        ALLEGRO_EVENT newEvent {};
+        newEvent.user.type = letter_typed;
+        al_emit_user_event(eh->inputEvents->getEventSource(), &newEvent, NULL);
     }
 }

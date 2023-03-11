@@ -27,15 +27,14 @@ private:
     EntityFactory *entityFactory;
     CollisionManager collisionManager;
     ChunkEvents chunkEvents;
-    std::unordered_set<Entity *> random_tick_entities;
-    std::unordered_set<Entity *> to_update_entities;
+    std::unordered_set<Entity *> randomTickEntities; // Fixme: Bêdzie problem z castowaniem!
+    std::unordered_set<EntityUpdater *> toUpdateEntities;
 private:
     void generateTiles(ChunkPlan &chunkPlan);
     void generateStructures(ChunkPlan &chunkPlan);
     void generateAnimal(ChunkPlan &chunkPlan);
     Structure *addStructure(entitytype entityType, Position &position);
     Animal *addAnimal(entitytype entityType, Position &position);
-    void addToUpdateStructures(Entity *entity);
 public:
     Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory);
     Entity *getGround(TilePosition &tilePosition);
