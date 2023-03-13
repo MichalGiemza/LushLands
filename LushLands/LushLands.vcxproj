@@ -215,7 +215,6 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Chunk.h" />
     <ClInclude Include="ChunkEventHandler.h" />
-    <ClInclude Include="EntityContainer.h" />
     <ClInclude Include="EntityUpdater.h" />
     <ClInclude Include="ChunkEvents.h" />
     <ClInclude Include="ChunkLoadManager.h" />

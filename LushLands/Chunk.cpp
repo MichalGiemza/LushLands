@@ -11,11 +11,10 @@ void Chunk::generateTiles(ChunkPlan &chunkPlan) {
                 pos.setZ(referencePosition.z() + j);
                 pos.setY(referencePosition.y() + k);
                 auto plannedEntityType = chunkPlan.fieldPlans[i][j][k].ground;
-                Ground *ground = (Ground *)entityFactory->buildEntity(plannedEntityType);
+                Ground *ground = (Ground *)entityFactory->buildEntity(plannedEntityType, pos);
                 if (ground == 0)
                     continue;
-                randomTickEntities.insert((Entity *)ground); // Fixme: Bêdzie problem z castowaniem!
-                ground->setPosition(pos);
+                //randomTickEntities.insert((Entity *)ground); // Fixme: Przywróciæ metodê przydzielaj¹c¹!
                 groundTiles[pos.getTilePosition()] = ground;
             }
         }
@@ -36,7 +35,7 @@ void Chunk::generateStructures(ChunkPlan &chunkPlan) {
                 auto structure = addStructure(plannedEntityType, pos);
                 if (structure == 0)
                     continue;
-                randomTickEntities.insert((Entity *)structure); // Fixme: Bêdzie problem z castowaniem!
+                randomTickEntities.insert((Entity *)structure); // Fixme: Przywróciæ metodê przydzielaj¹c¹!
                 structures[pos.getTilePosition()] = structure;
             }
         }
@@ -44,11 +43,10 @@ void Chunk::generateStructures(ChunkPlan &chunkPlan) {
 }
 
 Structure *Chunk::addStructure(entitytype entityType, Position &position) {
-    Structure *structure = (Structure *)entityFactory->buildEntity(entityType);
+    Structure *structure = (Structure *)entityFactory->buildEntity(entityType, position);
     if (structure == 0)
         return 0;
-    structure->setPosition(position);
-    collisionManager.addCollider((Collider *)structure);
+    collisionManager.addCollider(structure->getCollider());
     return structure;
 }
 
@@ -67,19 +65,18 @@ void Chunk::generateAnimal(ChunkPlan &chunkPlan) {
                 if (animal == 0)
                     continue;
                 animals[pos.getTilePosition()] = animal;
-                toUpdateEntities.insert((EntityUpdater *)animal);
+                toUpdateEntities.insert(animal->getEntityUpdater()); // Fixme: Przywróciæ metodê przydzielaj¹c¹!
             }
         }
     }
 }
 
 Animal *Chunk::addAnimal(entitytype entityType, Position &position) {
-    Animal *animal = (Animal *)entityFactory->buildEntity(entityType);
+    Animal *animal = (Animal *)entityFactory->buildEntity(entityType, position);
     if (animal == 0)
         return 0;
-    animal->setPosition(position);
-    collisionManager.addCollider((Collider *)animal);
-    animal->registerParentEventSource(chunkEvents.getEventSource());
+    collisionManager.addCollider(animal->getCollider());
+    animal->getEntityUpdater()->registerParentEventSource(chunkEvents.getEventSource());
     return animal;
 }
 

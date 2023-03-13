@@ -28,3 +28,7 @@ void EntityUpdater::registerParentEventSource(ALLEGRO_EVENT_SOURCE *aes) {
 void EntityUpdater::unregisterParentEventSource() {
     this->parentEventSource = 0;
 }
+
+ALLEGRO_EVENT_SOURCE *EntityUpdater::getEventSource() {
+    return parentEventSource;
+}

@@ -8,21 +8,24 @@
 class Body {
     /** 
     * Entity module representing body of entity. 
+    * Main properties are:
+    *  - Position
+    *  - Size
     */
 protected:
     Position position;
     Size size;
-    Position *center = 0;
-    Rectangle_ *rectangle;
+    Position center;
+    Rectangle_ rectangle;
     void refreshCenter();
 public:
-    Body(Position position, Size size);
+    Body(Position &position, const Size &size);
     Position *getCenter();
     Position *getTopLeft();
     Rectangle_ *getRectangle();
-    Size getSize();
-    void setPosition(Position position);
+    Size *getSize();
     Position *getPosition();
+    void setPosition(Position &position);
     int accurateDistanceTo2D(Body &other) const;
     bool operator==(const Body &other) const;
 };

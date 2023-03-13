@@ -7,7 +7,7 @@ class Appearance {
     */
     const Color *color;
 public:
-    Appearance(const Color *color);
+    Appearance(const Color &color);
     const Color *getColor() const;
 };
 

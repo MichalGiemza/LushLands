@@ -12,11 +12,7 @@ class EntityFactory {
     * Klasa tworz¹ca wybrane elemenety œwiata - entity.
     * 
     */
-    std::unordered_map<entitytype, Entity *> prefabs;
-private:
-    void setupPrefabs();
 public:
-    EntityFactory();
-    Entity *buildEntity(entitytype entityType);
+    Entity *buildEntity(entitytype entityType, Position &position);
 };
 

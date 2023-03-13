@@ -1,34 +1,43 @@
 #include "EntityFactory.h"
 
 
-void EntityFactory::setupPrefabs() {  // TODO: Czy wszystkie te pola s¹ w kó³ko kopiowane przy kolejnych konstruktorach?
-    prefabs[SOIL] = new Ground(SOIL, SOIL_DESCRIPTION, Position(), Size(1, 1, 1), &SOIL_COLOR);
-    prefabs[GRASS] = new Ground(GRASS, GRASS_DESCRIPTION, Position(), Size(1, 1, 1), &GRASS_COLOR);
-    prefabs[WATER] = new Ground(WATER, WATER_DESCRIPTION, Position(), Size(1, 1, 1), &WATER_COLOR);
-    prefabs[SAND] = new Ground(SAND, SAND_DESCRIPTION, Position(), Size(1, 1, 1), &SAND_COLOR);
-    prefabs[ROCK] = new Ground(ROCK, ROCK_DESCRIPTION, Position(), Size(1, 1, 1), &ROCK_COLOR);
-    prefabs[COBBLE] = new Ground(COBBLE, COBBLE_DESCRIPTION, Position(), Size(1, 1, 1), &COBBLE_COLOR);
-    prefabs[FARMLAND] = new Ground(FARMLAND, FARMLAND_DESCRIPTION, Position(), Size(1, 1, 1), &FARMLAND_COLOR);
-    prefabs[GRAVEL] = new Ground(GRAVEL, GRAVEL_DESCRIPTION, Position(), Size(1, 1, 1), &GRAVEL_COLOR);
-    prefabs[SNOW] = new Ground(SNOW, SNOW_DESCRIPTION, Position(), Size(1, 1, 1), &SNOW_COLOR);
-
-    prefabs[TREE] = new Structure(TREE, TREE_DESCRIPTION, Position(), Size(1, 2, 1), &TREE_COLOR);
-    prefabs[BUSH] = new Structure(BUSH, BUSH_DESCRIPTION, Position(), Size(.8f, 0.8f, 0.8f), &BUSH_COLOR);
-    prefabs[FLOWER_YELLOW] = new Structure(FLOWER_YELLOW, FLOWER_YELLOW_DESCRIPTION, Position(), Size(.4f, .4f, .4f), &FLOWER_YELLOW_COLOR);
-    prefabs[TALL_GRASS] = new Structure(TALL_GRASS, TALL_GRASS_DESCRIPTION, Position(), Size(1, .6, 1), &TALL_GRASS_COLOR);
-    prefabs[STONE] = new Structure(STONE, STONE_DESCRIPTION, Position(), Size(.5f, .5f, .5f), &STONE_COLOR);
-    prefabs[LOG] = new Structure(LOG, LOG_DESCRIPTION, Position(), Size(1, .6, .6), &LOG_COLOR);
-
-    prefabs[CHICKEN] = new Animal(CHICKEN, CHICKEN_DESCRIPTION, Position(), Size(.5f, .5f, .5f), &CHICKEN_COLOR, (int)CHICKEN_MOVEMENT_SPEED, (miliseconds)CHICKEN_WALK_INTERVAL);
-}
-
-EntityFactory::EntityFactory() {
-    prefabs = std::unordered_map<entitytype, Entity *>();
-    setupPrefabs();
-}
-
-Entity *EntityFactory::buildEntity(entitytype entityType) {
+Entity *EntityFactory::buildEntity(entitytype entityType, Position &position) {
+    /*    Empty    */
     if (entityType == AIR or entityType == 0)
         return 0;
-    return prefabs[entityType]->clone();
+    /*    Ground    */
+    if (entityType == SOIL)
+        return new Ground(SOIL, SOIL_DESCRIPTION, position, GROUND_SIZE, SOIL_COLOR);
+    if (entityType == GRASS)
+        return new Ground(GRASS, GRASS_DESCRIPTION, position, GROUND_SIZE, GRASS_COLOR);
+    if (entityType == WATER)
+        return new Ground(WATER, WATER_DESCRIPTION, position, GROUND_SIZE, WATER_COLOR);
+    if (entityType == SAND)
+        return new Ground(SAND, SAND_DESCRIPTION, position, GROUND_SIZE, SAND_COLOR);
+    if (entityType == ROCK)
+        return new Ground(ROCK, ROCK_DESCRIPTION, position, GROUND_SIZE, ROCK_COLOR);
+    if (entityType == COBBLE)
+        return new Ground(COBBLE, COBBLE_DESCRIPTION, position, GROUND_SIZE, COBBLE_COLOR);
+    if (entityType == FARMLAND)
+        return new Ground(FARMLAND, FARMLAND_DESCRIPTION, position, GROUND_SIZE, FARMLAND_COLOR);
+    if (entityType == GRAVEL)
+        return new Ground(GRAVEL, GRAVEL_DESCRIPTION, position, GROUND_SIZE, GRAVEL_COLOR);
+    if (entityType == SNOW)
+        return new Ground(SNOW, SNOW_DESCRIPTION, position, GROUND_SIZE, SNOW_COLOR);
+    /*    Structure    */
+    if (entityType == TREE)
+        return new Structure(TREE, TREE_DESCRIPTION, position, TREE_SIZE, TREE_COLOR);
+    if (entityType == BUSH)
+        return new Structure(BUSH, BUSH_DESCRIPTION, position, BUSH_SIZE, BUSH_COLOR);
+    if (entityType == FLOWER_YELLOW)
+        return new Structure(FLOWER_YELLOW, FLOWER_YELLOW_DESCRIPTION, position, FLOWER_YELLOW_SIZE, FLOWER_YELLOW_COLOR);
+    if (entityType == TALL_GRASS)
+        return new Structure(TALL_GRASS, TALL_GRASS_DESCRIPTION, position, TALL_GRASS_SIZE, TALL_GRASS_COLOR);
+    if (entityType == STONE)
+        return new Structure(STONE, STONE_DESCRIPTION, position, STONE_SIZE, STONE_COLOR);
+    if (entityType == LOG)
+        return new Structure(LOG, LOG_DESCRIPTION, position, LOG_SIZE, LOG_COLOR);
+    /*    Animal    */
+    if (entityType == CHICKEN)
+        return new Animal(CHICKEN, CHICKEN_DESCRIPTION, position, CHICKEN_SIZE, CHICKEN_COLOR, CHICKEN_MOVEMENT_SPEED, CHICKEN_WALK_INTERVAL);
 }

@@ -2,12 +2,16 @@
 #include <math.h>
 #include "Body.h"
 
-class Collider : public virtual Body {
+class Collider {
     /**
     * Entity module representing ability to collide with other colliders.
     */
+    Body *body;
+private:
+    int dist2D(Position &p);
 public:
-    Collider(Position &position, Size &size);
+    Collider(Body *body);
+    Body *getBody();
     bool isCloseBy(Collider *other);
     bool isCloseBy(Rectangle_ *rectangle);
     bool overlapes(Collider *other);

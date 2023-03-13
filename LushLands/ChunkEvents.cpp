@@ -33,9 +33,8 @@ void ChunkEvents::update(miliseconds timeNow, miliseconds dt) {
         }
     }
     // Update Updateable entities
-    for (auto *en : *toUpdateEntities) {
-        auto *updateable = (EntityUpdater *)en;
-        updateable->updateEntity(timeNow, dt);
+    for (EntityUpdater *en : *toUpdateEntities) {
+        en->updateEntity(timeNow, dt);
     }
     // TODO: Implement RandomTick
     // ...

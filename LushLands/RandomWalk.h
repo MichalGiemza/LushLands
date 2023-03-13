@@ -8,19 +8,30 @@
 #include "Events.h"
 
 
-class RandomWalk : public DynamicCollider, public virtual EntityUpdater {
+class RandomWalk {
     /**
     * Entity module responsible for automatic wandering.
     */
-private:
+    DynamicCollider *dynamicCollider;
+    EntityUpdater *entityUpdater;
+
     miliseconds continueActionUntil = 0;
     actiontype currentAction = 0;
-protected:
     miliseconds walkInterval;
-
+private:
     void setNewAction(miliseconds currentTime);
 public:
-    RandomWalk(Position &position, Size &size, int movementSpeed_, miliseconds walkInterval);
+    // Constructors and main methods
+    RandomWalk(DynamicCollider *dynamicCollider, EntityUpdater *entityUpdater, miliseconds walkInterval);
+
+    // Getters, Setters
+    Mobility *getMobility();
+    Position *getPosition();
+    DynamicCollider *getDynamicCollider();
+
+    // Methods
+    
+    // Update
     friend void updateRandomWalk(miliseconds timeNow, miliseconds dt, void *caller);
 };
 

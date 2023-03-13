@@ -1,21 +1,23 @@
 #include "Body.h"
 
 void Body::refreshCenter() {
-    center->setAccurateX(position.getAccurateX() + size.getAccurateWidth() / 2);
-    center->setAccurateY(position.getAccurateY() + size.getAccurateHeight() / 2);
-    center->setAccurateZ(position.getAccurateZ() + size.getAccurateLength() / 2);
+    center.setAccurateX(position.getAccurateX() + size.getAccurateWidth() / 2);
+    center.setAccurateY(position.getAccurateY() + size.getAccurateHeight() / 2);
+    center.setAccurateZ(position.getAccurateZ() + size.getAccurateLength() / 2);
 }
 
-Body::Body(Position position, Size size) : position(position), size(size) {
-    center = new Position();
+Body::Body(Position &position, const Size &size) : 
+    position(position), size(size), rectangle(0, 0, 0, 0) { 
+    // Center
+    center = Position();
     refreshCenter();
-    rectangle = new Rectangle_(0, 0, 0, 0);
-    rectangle->setPosition(&position);
-    rectangle->setSize(&size);
+    // Rectangle
+    rectangle.setPosition(&this->position);
+    rectangle.setSize(&this->size);
 }
 
 Position *Body::getCenter() {
-    return center;
+    return &center;
 }
 
 Position *Body::getTopLeft() {
@@ -23,24 +25,24 @@ Position *Body::getTopLeft() {
 }
 
 Rectangle_ *Body::getRectangle() {
-    return rectangle;
+    return &rectangle;
 }
 
-Size Body::getSize() {
-    return Size(size);
-}
-
-void Body::setPosition(Position position) {
-    this->position = position;
-    refreshCenter();
+Size *Body::getSize() {
+    return &size;
 }
 
 Position *Body::getPosition() {
     return &position;
 }
 
+void Body::setPosition(Position &position) {
+    this->position = Position(position);
+    refreshCenter();
+}
+
 int Body::accurateDistanceTo2D(Body &other) const {
-    return rectangle->accurateDistanceTo2D(other.rectangle);
+    return rectangle.accurateDistanceTo2D(&other.rectangle);
 }
 
 bool Body::operator==(const Body &other) const {

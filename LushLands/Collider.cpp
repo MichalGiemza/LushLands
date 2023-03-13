@@ -1,23 +1,31 @@
 #include "Collider.h"
 
-Collider::Collider(Position &position, Size &size) : Body(position, size) {}
+int Collider::dist2D(Position &p) {
+    return body->getRectangle()->accurateDistanceFromCenter2D(p);
+}
+
+Collider::Collider(Body *body) : body(body) {}
+
+Body *Collider::getBody() {
+    return body;
+}
 
 bool Collider::isCloseBy(Collider *other) {
-    return isCloseBy(other->rectangle);
+    return isCloseBy(body->getRectangle());
 }
 
 bool Collider::isCloseBy(Rectangle_ *other) {
-    return rectangle->accurateDistanceFromCenter2D(*other->getPosition()) < size.getAccurateWidth() + size.getAccurateLength()
-        || rectangle->accurateDistanceFromCenter2D(*other->getPosition()) < other->getSize()->getAccurateWidth() + other->getSize()->getAccurateLength();
+    return dist2D(*other->getPosition()) < body->getSize()->getAccurateWidth() + body->getSize()->getAccurateLength()
+        || dist2D(*other->getPosition()) < other->getSize()->getAccurateWidth() + other->getSize()->getAccurateLength();
 }
 
 bool Collider::overlapes(Collider *other) {
-    if (not isCloseBy(other)) // TODO: Czy to w ogóle pomaga?
+    if (not isCloseBy(other)) // TODO: Czy to w ogóle pomaga w optymalizacji?
         return false;
 
-    return other->rectangle->isOverlapping(rectangle);
+    return other->body->getRectangle()->isOverlapping(body->getRectangle());
 }
 
 bool Collider::operator==(const Collider &other) const {
-    return (Body)(*this) == (Body)other;
+    return *body == *other.body;
 }

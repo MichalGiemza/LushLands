@@ -18,4 +18,5 @@ public:
     void rmFromUpdate(EntityUpdateSubscription *es);
     void registerParentEventSource(ALLEGRO_EVENT_SOURCE *aes);
     void unregisterParentEventSource();
+    ALLEGRO_EVENT_SOURCE *getEventSource();
 };

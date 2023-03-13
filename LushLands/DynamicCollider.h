@@ -4,12 +4,25 @@
 #include "Body.h"
 #include <unordered_set>
 
-class DynamicCollider : public virtual Collider, public virtual Mobility {
+class DynamicCollider {
     /**
     * Entity module responsible for collision control.
     */
+    Collider *collider;
+    Mobility *mobility;
+private:
+    Position *pos();
+    Size *size();
 public:
-    DynamicCollider(Position &position, Size &size, int movementSpeed_);
+    // Constructors and main methods
+    DynamicCollider(Collider *collider, Mobility *mobility);
+
+    // Getters, Setters
+    Mobility *getMobility();
+    Collider *getCollider();
+    void setPosition(Position &position);
+    
+    // Methods
     void updateNewPositionWithColliders(Position &newPosition, std::unordered_set<Collider *> &colliders);
 };
 

@@ -13,16 +13,16 @@ void CollisionManager::rmCollider(Collider *c) {
 }
 
 std::unordered_set<Collider *> *CollisionManager::getCollidersObstructuringNewPosition(DynamicCollider *dc, Position *newPos) {
-    Rectangle_ r = Rectangle_(*dc->getRectangle());
+    Rectangle_ r = Rectangle_(*dc->getCollider()->getBody()->getRectangle());
     r.setPosition(newPos);
     auto conp = new std::unordered_set<Collider *>();
 
-    for (auto *c : colliders) {
+    for (Collider *c : colliders) {
         if (not c->isCloseBy(&r))
             continue;
-        if ((Body)(*c) == (Body)(*dc))
+        if (*c->getBody() == *dc->getCollider()->getBody())
             continue;
-        if (dc->overlapes(c))
+        if (dc->getCollider()->overlapes(c))
             conp->insert(c);
     }
     return conp;

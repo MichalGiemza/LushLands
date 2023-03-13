@@ -3,18 +3,29 @@
 #include "RandomWalk.h"
 #include "Appearance.h"
 
-class Animal : 
-    public Entity, 
-    public RandomWalk, 
-    public Appearance,
-    public virtual EntityUpdater {
+class Animal : public Entity {
     /**
     * Representation of animal.
     *
     */
-    
+    EntityUpdater entityUpdater;
+    Appearance appearance;
+    Body body;
+    Collider collider;
+    Mobility mobility;
+    DynamicCollider dynamicCollider;
+    RandomWalk randomWalk;
 public:
-    Animal(entitytype entityType, std::string description, Position position, Size size, const Color *color, int movementSpeed_, miliseconds walkInterval);
+    // Constructors and main methods
+    Animal(const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, const int movementSpeed, const miliseconds walkInterval);
     Entity *clone() override;
+    
+    // Getters, Setters
+    EntityUpdater *getEntityUpdater();
+    Position *getPosition();
+    void setPosition(Position &position);
+    Size *getSize();
+    const Color *getColor();
+    Collider *getCollider();
 };
 

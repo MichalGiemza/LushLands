@@ -112,16 +112,16 @@ void ChunkRepresentationManager::drawStructureOutlines(ChunkRepresentation *cRep
         auto sBitmap = textureManager->getEntityTexture(sPair->second->getType());
         pxint x1 = shiftTexturePositionX(
             camera->shiftToScreenPosX(str->getPosition()->getAccurateX()), 
-            str->getSize().getCameraW());
+            str->getSize()->getCameraW());
         pxint z1 = shiftTexturePositionZ(
             camera->shiftToScreenPosZ(str->getPosition()->getAccurateZ()), 
-            str->getSize().getCameraL());
+            str->getSize()->getCameraL());
         pxint x2 = shiftTexturePositionX(
-            camera->shiftToScreenPosX(str->getPosition()->getAccurateX()) + str->getSize().getCameraW(),
-            str->getSize().getCameraW());
+            camera->shiftToScreenPosX(str->getPosition()->getAccurateX()) + str->getSize()->getCameraW(),
+            str->getSize()->getCameraW());
         pxint z2 = shiftTexturePositionZ(
-            camera->shiftToScreenPosZ(str->getPosition()->getAccurateZ()) + str->getSize().getCameraL(),
-            str->getSize().getCameraL());
+            camera->shiftToScreenPosZ(str->getPosition()->getAccurateZ()) + str->getSize()->getCameraL(),
+            str->getSize()->getCameraL());
         al_draw_rectangle(x1, z1, x2, z2, str->getColor()->getAllegroColor(), 1.0f);
     }
 }
@@ -136,16 +136,16 @@ void ChunkRepresentationManager::drawAnimalOutlines(ChunkRepresentation *cRep, i
         auto sBitmap = textureManager->getEntityTexture(sPair->second->getType());
         pxint x1 = shiftTexturePositionX(
             camera->shiftToScreenPosX(anm->getPosition()->getAccurateX()),
-            anm->getSize().getCameraW());
+            anm->getSize()->getCameraW());
         pxint z1 = shiftTexturePositionZ(
             camera->shiftToScreenPosZ(anm->getPosition()->getAccurateZ()),
-            anm->getSize().getCameraL());
+            anm->getSize()->getCameraL());
         pxint x2 = shiftTexturePositionX(
-            camera->shiftToScreenPosX(anm->getPosition()->getAccurateX()) + anm->getSize().getCameraW(),
-            anm->getSize().getCameraW());
+            camera->shiftToScreenPosX(anm->getPosition()->getAccurateX()) + anm->getSize()->getCameraW(),
+            anm->getSize()->getCameraW());
         pxint z2 = shiftTexturePositionZ(
-            camera->shiftToScreenPosZ(anm->getPosition()->getAccurateZ()) + anm->getSize().getCameraL(),
-            anm->getSize().getCameraL());
+            camera->shiftToScreenPosZ(anm->getPosition()->getAccurateZ()) + anm->getSize()->getCameraL(),
+            anm->getSize()->getCameraL());
         al_draw_rectangle(x1, z1, x2, z2, anm->getColor()->getAllegroColor(), 1.0f);
     }
 }

@@ -154,7 +154,9 @@
     <ClCompile Include="CollisionManager.cpp">
       <Filter>src\Simulation\World\ChunkSystem</Filter>
     </ClCompile>
-    <ClCompile Include="ChunkEventHandler.cpp" />
+    <ClCompile Include="ChunkEventHandler.cpp">
+      <Filter>src\Simulation\World\Events</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -241,7 +243,6 @@
     <ClInclude Include="GameElement.h">
       <Filter>src\Core</Filter>
     </ClInclude>
-    <ClInclude Include="ISimulationEvents.h" />
     <ClInclude Include="ActionMap.h">
       <Filter>src\Controller\Events</Filter>
     </ClInclude>
@@ -329,9 +330,11 @@
     <ClInclude Include="CollisionManager.h">
       <Filter>src\Simulation\World\ChunkSystem</Filter>
     </ClInclude>
-    <ClInclude Include="ChunkEventHandler.h" />
-    <ClInclude Include="EntityContainer.h">
-      <Filter>src\Simulation\World\Entities\Base</Filter>
+    <ClInclude Include="ChunkEventHandler.h">
+      <Filter>src\Simulation\World\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="ISimulationEvents.h">
+      <Filter>src\Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
