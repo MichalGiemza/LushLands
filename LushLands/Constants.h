@@ -13,7 +13,8 @@ const int chunkSizeByTiles = 32;
 const int chunkRenderDistance = 2;
 
 // System
-const int representationComaValue = 100;
+const int representationComaValue = 1000;
+const int meter = representationComaValue;
 const int tileSizePx = 32;
 const int displayWidth = 640;
 const int displayHeight = 480;

@@ -3,9 +3,9 @@
 
 Position::Position(int x, int y, int z, bool accurate) {
     if (accurate) {
-        setAccurateX(x);
-        setAccurateY(y);
-        setAccurateZ(z);
+        setPX(x);
+        setPY(y);
+        setPZ(z);
     } else {
         setX(x);
         setY(y);
@@ -55,15 +55,15 @@ int Position::getZ() const {
     return _z / representationComaValue;
 }
 
-int Position::getAccurateX() const {
+int Position::getPX() const {
     return _x;
 }
 
-int Position::getAccurateY() const {
+int Position::getPY() const {
     return _y;
 }
 
-int Position::getAccurateZ() const {
+int Position::getPZ() const {
     return _z;
 }
 
@@ -84,7 +84,7 @@ void Position::setX(int x) {
 }
 
 void Position::setY(int y) {
-    if (y >= worldHeight || y < 0)
+    if (y >= worldHeight || y * representationComaValue < 0)
         throw std::logic_error("Incorrect height of a position.");
     _y = y * representationComaValue;
 }
@@ -93,17 +93,17 @@ void Position::setZ(int z) {
     _z = z * representationComaValue;
 }
 
-void Position::setAccurateX(int x) {
+void Position::setPX(int x) {
     _x = x;
 }
 
-void Position::setAccurateY(int y) {
-    if (y >= worldHeight * representationComaValue || y * representationComaValue < 0)
+void Position::setPY(int y) {
+    if (y >= worldHeight * representationComaValue || y < 0)
         throw std::logic_error("Incorrect height of a position.");
     _y = y;
 }
 
-void Position::setAccurateZ(int z) {
+void Position::setPZ(int z) {
     _z = z;
 }
 
@@ -192,7 +192,7 @@ Position Position::operator+(const Position &other) const {
 }
 
 void Position::operator=(const Position &other) {
-    setAccurateX(other._x);
-    setAccurateY(other._y);
-    setAccurateZ(other._z);
+    setPX(other._x);
+    setPY(other._y);
+    setPZ(other._z);
 }

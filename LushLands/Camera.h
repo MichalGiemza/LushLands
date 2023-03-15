@@ -15,7 +15,7 @@ class Camera : GameElement {
     const int minZoom = 50;
     const int maxZoom = 400;
     int zoom = 100;
-    int scrollSpeed = 30;
+    int scrollSpeed = meter / 10;
     Rectangle_ *followedFrame = 0;
     Rectangle_ *independentFrame = 0;
 private:

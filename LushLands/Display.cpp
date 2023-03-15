@@ -35,15 +35,19 @@ void updateTrackingFPS(ALLEGRO_EVENT *allegroEvent, void *caller) {
     double newTime = al_get_time();
     d->currentFPS = 1 / (newTime - d->oldTimeFPS);
     d->oldTimeFPS = newTime;
-    //Logger::log("FPS: [%f]", currentFPS);
+
+    /*if (allegroEvent->timer.count % 100 == 0)
+        Logger::log(ll::DEBUG_ALL, "FPS: [%f]", d->currentFPS);*/
 }
 
 void updateTrackingTPS(ALLEGRO_EVENT *allegroEvent, void *caller) {
     Display *d = (Display *)caller;
     double newTime = al_get_time();
-    d->currentFPS = 1 / (newTime - d->oldTimeTPS);
+    d->currentTPS = 1 / (newTime - d->oldTimeTPS);
     d->oldTimeTPS = newTime;
-    //Logger::log("TPS: [%f]", currentFPS);
+
+    /*if (allegroEvent->timer.count % 100 == 0)
+        Logger::log(ll::DEBUG_ALL, "TPS: [%f]", d->currentTPS);*/
 }
 
 double Display::getCurrentFPS() {

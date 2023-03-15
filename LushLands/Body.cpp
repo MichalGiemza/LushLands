@@ -1,9 +1,9 @@
 #include "Body.h"
 
 void Body::refreshCenter() {
-    center.setAccurateX(position.getAccurateX() + size.getAccurateWidth() / 2);
-    center.setAccurateY(position.getAccurateY() + size.getAccurateHeight() / 2);
-    center.setAccurateZ(position.getAccurateZ() + size.getAccurateLength() / 2);
+    center.setPX(position.getPX() + size.getAccurateWidth() / 2);
+    center.setPY(position.getPY() + size.getAccurateHeight() / 2);
+    center.setPZ(position.getPZ() + size.getAccurateLength() / 2);
 }
 
 Body::Body(Position &position, const Size &size) : 

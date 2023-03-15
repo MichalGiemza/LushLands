@@ -6,19 +6,19 @@ Rectangle_::Rectangle_(int x, int z, int w, int l, bool accurate) {
 }
 
 int Rectangle_::accurateLeft() const {
-	return p->getAccurateX();
+	return p->getPX();
 }
 
 int Rectangle_::accurateRight() const {
-	return p->getAccurateX() + s->getAccurateWidth();
+	return p->getPX() + s->getAccurateWidth();
 }
 
 int Rectangle_::accurateTop() const {
-	return p->getAccurateZ();
+	return p->getPZ();
 }
 
 int Rectangle_::accurateBottom() const {
-	return p->getAccurateZ() - s->getAccurateLength();
+	return p->getPZ() - s->getAccurateLength();
 }
 
 int Rectangle_::left() const {
@@ -55,10 +55,10 @@ Size *Rectangle_::getSize() {
 
 bool Rectangle_::isOverlapping(const Rectangle_ *other) const {
 	// Determine left-right and top-bottom pairs
-	const Rectangle_ *lRect = p->getAccurateX() < other->p->getAccurateX() ? this : other;
-	const Rectangle_ *rRect = p->getAccurateX() >= other->p->getAccurateX() ? this : other;
-	const Rectangle_ *bRect = p->getAccurateZ() >= other->p->getAccurateZ() ? this : other;
-	const Rectangle_ *tRect = p->getAccurateZ() < other->p->getAccurateZ() ? this : other;
+	const Rectangle_ *lRect = p->getPX() < other->p->getPX() ? this : other;
+	const Rectangle_ *rRect = p->getPX() >= other->p->getPX() ? this : other;
+	const Rectangle_ *bRect = p->getPZ() >= other->p->getPZ() ? this : other;
+	const Rectangle_ *tRect = p->getPZ() < other->p->getPZ() ? this : other;
 
 	bool x_overlapping = lRect->accurateRight() > rRect->accurateLeft();
 	bool y_overlapping = bRect->accurateTop() > tRect->accurateBottom();
@@ -68,10 +68,10 @@ bool Rectangle_::isOverlapping(const Rectangle_ *other) const {
 
 int Rectangle_::accurateDistanceTo2D(const Rectangle_ *other) const {
 	// Determine left-right and top-bottom pairs
-	const Rectangle_ *lRect = p->getAccurateX() < other->p->getAccurateX() ? this : other;
-	const Rectangle_ *rRect = p->getAccurateX() >= other->p->getAccurateX() ? this : other;
-	const Rectangle_ *bRect = p->getAccurateZ() >= other->p->getAccurateZ() ? this : other;
-	const Rectangle_ *tRect = p->getAccurateZ() < other->p->getAccurateZ() ? this : other;
+	const Rectangle_ *lRect = p->getPX() < other->p->getPX() ? this : other;
+	const Rectangle_ *rRect = p->getPX() >= other->p->getPX() ? this : other;
+	const Rectangle_ *bRect = p->getPZ() >= other->p->getPZ() ? this : other;
+	const Rectangle_ *tRect = p->getPZ() < other->p->getPZ() ? this : other;
 
 	int x_diff = std::max(rRect->accurateLeft() - lRect->accurateRight(), 0);
 	int y_diff = std::max(tRect->accurateBottom() - bRect->accurateTop(), 0);
@@ -80,7 +80,7 @@ int Rectangle_::accurateDistanceTo2D(const Rectangle_ *other) const {
 }
 
 int Rectangle_::accurateDistanceFromCenter2D(Position &otherPosition) const {
-	int x = p->getAccurateX() + s->getAccurateWidth() / 2 - otherPosition.getAccurateX();
-	int z = p->getAccurateZ() + s->getAccurateLength() / 2 - otherPosition.getAccurateZ();
+	int x = p->getPX() + s->getAccurateWidth() / 2 - otherPosition.getPX();
+	int z = p->getPZ() + s->getAccurateLength() / 2 - otherPosition.getPZ();
 	return (int)sqrt(x * x + z * z);
 }

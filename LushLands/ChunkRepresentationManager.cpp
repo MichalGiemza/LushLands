@@ -52,8 +52,8 @@ void ChunkRepresentationManager::draw() {
 void ChunkRepresentationManager::drawGround(ChunkRepresentation *cRep, int level) {
     auto groundBitmap = cRep->getBitmap(level);
     // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
-    pxint x = camera->shiftToScreenPosX(cRep->getPosition()->getAccurateX());
-    pxint z = camera->shiftToScreenPosZ(cRep->getPosition()->getAccurateZ());
+    pxint x = camera->shiftToScreenPosX(cRep->getPosition()->getPX());
+    pxint z = camera->shiftToScreenPosZ(cRep->getPosition()->getPZ());
     al_draw_bitmap(groundBitmap, x, z, 0);
 }
 
@@ -66,10 +66,10 @@ void ChunkRepresentationManager::drawStructures(ChunkRepresentation *cRep, int l
         // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
         auto sBitmap = textureManager->getEntityTexture(sPair->second->getType());
         pxint x = shiftTexturePositionX(
-            camera->shiftToScreenPosX(str->getPosition()->getAccurateX()),
+            camera->shiftToScreenPosX(str->getPosition()->getPX()),
             al_get_bitmap_width(sBitmap));
         pxint z = shiftTexturePositionZ(
-            camera->shiftToScreenPosZ(str->getPosition()->getAccurateZ()),
+            camera->shiftToScreenPosZ(str->getPosition()->getPZ()),
             al_get_bitmap_height(sBitmap));
         al_draw_bitmap(sBitmap, x, z, 0);
     }
@@ -84,10 +84,10 @@ void ChunkRepresentationManager::drawAnimals(ChunkRepresentation *cRep, int leve
         // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
         auto sBitmap = textureManager->getEntityTexture(sPair->second->getType());
         pxint x = shiftTexturePositionX(
-            camera->shiftToScreenPosX(anm->getPosition()->getAccurateX()),
+            camera->shiftToScreenPosX(anm->getPosition()->getPX()),
             al_get_bitmap_width(sBitmap));
         pxint z = shiftTexturePositionZ(
-            camera->shiftToScreenPosZ(anm->getPosition()->getAccurateZ()),
+            camera->shiftToScreenPosZ(anm->getPosition()->getPZ()),
             al_get_bitmap_height(sBitmap));
         al_draw_bitmap(sBitmap, x, z, 0);
     }
@@ -95,10 +95,10 @@ void ChunkRepresentationManager::drawAnimals(ChunkRepresentation *cRep, int leve
 
 void ChunkRepresentationManager::drawChunkBorders(ChunkRepresentation *cRep) {
     // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
-    pxint x1 = camera->shiftToScreenPosX(cRep->getPosition()->getAccurateX());
-    pxint z1 = camera->shiftToScreenPosZ(cRep->getPosition()->getAccurateZ());
-    pxint x2 = camera->shiftToScreenPosX(cRep->getPosition()->getAccurateX()) + chunkSizeByTiles * chunkSizeByTiles;
-    pxint z2 = camera->shiftToScreenPosZ(cRep->getPosition()->getAccurateZ()) + chunkSizeByTiles * chunkSizeByTiles;
+    pxint x1 = camera->shiftToScreenPosX(cRep->getPosition()->getPX());
+    pxint z1 = camera->shiftToScreenPosZ(cRep->getPosition()->getPZ());
+    pxint x2 = camera->shiftToScreenPosX(cRep->getPosition()->getPX()) + chunkSizeByTiles * chunkSizeByTiles;
+    pxint z2 = camera->shiftToScreenPosZ(cRep->getPosition()->getPZ()) + chunkSizeByTiles * chunkSizeByTiles;
     al_draw_rectangle(x1, z1, x2, z2, DEBUG_CHUNK_BORDER_COLOR.getAllegroColor(), 1.0f);
 }
 
@@ -111,16 +111,16 @@ void ChunkRepresentationManager::drawStructureOutlines(ChunkRepresentation *cRep
         // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
         auto sBitmap = textureManager->getEntityTexture(sPair->second->getType());
         pxint x1 = shiftTexturePositionX(
-            camera->shiftToScreenPosX(str->getPosition()->getAccurateX()), 
+            camera->shiftToScreenPosX(str->getPosition()->getPX()), 
             str->getSize()->getCameraW());
         pxint z1 = shiftTexturePositionZ(
-            camera->shiftToScreenPosZ(str->getPosition()->getAccurateZ()), 
+            camera->shiftToScreenPosZ(str->getPosition()->getPZ()), 
             str->getSize()->getCameraL());
         pxint x2 = shiftTexturePositionX(
-            camera->shiftToScreenPosX(str->getPosition()->getAccurateX()) + str->getSize()->getCameraW(),
+            camera->shiftToScreenPosX(str->getPosition()->getPX()) + str->getSize()->getCameraW(),
             str->getSize()->getCameraW());
         pxint z2 = shiftTexturePositionZ(
-            camera->shiftToScreenPosZ(str->getPosition()->getAccurateZ()) + str->getSize()->getCameraL(),
+            camera->shiftToScreenPosZ(str->getPosition()->getPZ()) + str->getSize()->getCameraL(),
             str->getSize()->getCameraL());
         al_draw_rectangle(x1, z1, x2, z2, str->getColor()->getAllegroColor(), 1.0f);
     }
@@ -135,16 +135,16 @@ void ChunkRepresentationManager::drawAnimalOutlines(ChunkRepresentation *cRep, i
         // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
         auto sBitmap = textureManager->getEntityTexture(sPair->second->getType());
         pxint x1 = shiftTexturePositionX(
-            camera->shiftToScreenPosX(anm->getPosition()->getAccurateX()),
+            camera->shiftToScreenPosX(anm->getPosition()->getPX()),
             anm->getSize()->getCameraW());
         pxint z1 = shiftTexturePositionZ(
-            camera->shiftToScreenPosZ(anm->getPosition()->getAccurateZ()),
+            camera->shiftToScreenPosZ(anm->getPosition()->getPZ()),
             anm->getSize()->getCameraL());
         pxint x2 = shiftTexturePositionX(
-            camera->shiftToScreenPosX(anm->getPosition()->getAccurateX()) + anm->getSize()->getCameraW(),
+            camera->shiftToScreenPosX(anm->getPosition()->getPX()) + anm->getSize()->getCameraW(),
             anm->getSize()->getCameraW());
         pxint z2 = shiftTexturePositionZ(
-            camera->shiftToScreenPosZ(anm->getPosition()->getAccurateZ()) + anm->getSize()->getCameraL(),
+            camera->shiftToScreenPosZ(anm->getPosition()->getPZ()) + anm->getSize()->getCameraL(),
             anm->getSize()->getCameraL());
         al_draw_rectangle(x1, z1, x2, z2, anm->getColor()->getAllegroColor(), 1.0f);
     }

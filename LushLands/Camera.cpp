@@ -46,14 +46,14 @@ pxint Camera::shiftToScreenPosX(int accurateWorldX) {
     /**
     * Position of object -> shift by position of camera -> convert position to pixels
     */
-    return (accurateWorldX - getPosition()->getAccurateX()) * tileSizePx / representationComaValue;
+    return (accurateWorldX - getPosition()->getPX()) * tileSizePx / representationComaValue;
 }
 
 pxint Camera::shiftToScreenPosZ(int accurateWorldZ) {
     /**
     * Position of object -> shift by position of camera -> convert position to pixels
     */
-    return (accurateWorldZ - getPosition()->getAccurateZ()) * tileSizePx / representationComaValue;
+    return (accurateWorldZ - getPosition()->getPZ()) * tileSizePx / representationComaValue;
 }
 
 void handleMovement(ALLEGRO_EVENT *ae, void *obj) {
@@ -61,16 +61,16 @@ void handleMovement(ALLEGRO_EVENT *ae, void *obj) {
     Position *p = c->getPosition();
     switch (ae->type) {
     case camera_move_north:
-        p->setAccurateZ(p->getAccurateZ() - c->scrollSpeed);
+        p->setPZ(p->getPZ() - c->scrollSpeed);
         break;
     case camera_move_south:
-        p->setAccurateZ(p->getAccurateZ() + c->scrollSpeed);
+        p->setPZ(p->getPZ() + c->scrollSpeed);
         break;
     case camera_move_east:
-        p->setAccurateX(p->getAccurateX() - c->scrollSpeed);
+        p->setPX(p->getPX() - c->scrollSpeed);
         break;
     case camera_move_west:
-        p->setAccurateX(p->getAccurateX() + c->scrollSpeed);
+        p->setPX(p->getPX() + c->scrollSpeed);
         break;
     default:
         break;
