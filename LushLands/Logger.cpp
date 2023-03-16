@@ -91,7 +91,7 @@ void Logger::init() {
 
     font = al_load_ttf_font(jamesStrokerFont, 64, 0);
     logSubscribers = std::vector<LoggerSubscription>();
-    logLevel = ll::DEBUG_ALL;
+    logLevel = lg::DEBUG_ALL;
 
 }
 

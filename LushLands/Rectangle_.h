@@ -1,4 +1,5 @@
 #pragma once
+#include <algorithm>
 #include "Position.h"
 #include "Size.h"
 
@@ -8,7 +9,6 @@ class Rectangle_ {
 	* - uses X and Z coordinates.
 	* - uses accurate values by default.
 	*/
-private:
 	Position *p;
 	Size *s;
 public:

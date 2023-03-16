@@ -30,15 +30,15 @@ int Size::getLength() {
     return length / representationComaValue;
 }
 
-int Size::getAccurateWidth() const {
+int Size::getPW() const {
     return width;
 }
 
-int Size::getAccurateHeight() const {
+int Size::getPH() const {
     return height;
 }
 
-int Size::getAccurateLength() const {
+int Size::getPL() const {
     return length;
 }
 

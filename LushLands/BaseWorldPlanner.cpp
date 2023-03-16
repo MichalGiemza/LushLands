@@ -8,9 +8,9 @@ ChunkPlan *BaseWorldPlanner::getChunkPlan(ChunkPosition &chunkPosition) {
     for (int i = 0; i < chunkSizeByTiles; i++) {
         for (int j = 0; j < chunkSizeByTiles; j++) {
             for (int k = 0; k < worldHeight; k++) {
-                pos.setX(referencePosition.x() + i);
-                pos.setZ(referencePosition.z() + j);
-                pos.setY(referencePosition.y() + k);
+                pos.setX(referencePosition.getX() + i);
+                pos.setZ(referencePosition.getZ() + j);
+                pos.setY(referencePosition.getY() + k);
                 (*cp).fieldPlans[i][j][k] = getFieldPlan(pos);
             }
         }

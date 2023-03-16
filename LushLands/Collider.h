@@ -12,8 +12,6 @@ private:
 public:
     Collider(Body *body);
     Body *getBody();
-    bool isCloseBy(Collider *other);
-    bool isCloseBy(Rectangle_ *rectangle);
     bool overlapes(Collider *other);
     bool operator==(const Collider &other) const;
 };

@@ -1,7 +1,7 @@
 #include "ChunkRepresentationManager.h"
 
 void ChunkRepresentationManager::updateVisibleChunkRepresentations() {
-    int level = camera->getPosition()->y();
+    int level = camera->getPosition()->getY();
     auto cPositions = camera->getPosition()->getNeighbouringChunkPositions();
 
     for (auto i = 0; i < cPositions.n; i++) {
@@ -9,7 +9,7 @@ void ChunkRepresentationManager::updateVisibleChunkRepresentations() {
         if (!chunkRepresentations[cPos]) {
             auto chunk = world->getChunkLoadManager()->getChunk(cPos);
             if (!chunk) { // TODO: Dodaæ ³adowanie chunków
-                Logger::log(ll::DEBUG_CHUNK, "Chunk [%i, %i] was not loaded yet!", cPos.x, cPos.z);
+                Logger::log(lg::DEBUG_CHUNK, "Chunk [%i, %i] was not loaded yet!", cPos.x, cPos.z);
                 continue;
             }
             chunkRepresentations[cPos] = new ChunkRepresentation(display, cPos, *chunk->getGround(), *chunk->getStructures(), *chunk->getAnimals(), textureManager);
@@ -26,7 +26,7 @@ ChunkRepresentationManager::ChunkRepresentationManager(World *world, Display *di
 }
 
 void ChunkRepresentationManager::draw() {
-    int level = camera->getPosition()->y();
+    int level = camera->getPosition()->getY();
     auto cPositions = camera->getPosition()->getNeighbouringChunkPositions();
     Size chunkSize = Size(chunkSizeByTiles, 0, chunkSizeByTiles);
 

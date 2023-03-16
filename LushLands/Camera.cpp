@@ -29,8 +29,8 @@ Position *Camera::getPosition() {
 
 void Camera::setFollowedPosition(Position *position) {
     followedFrame = new Rectangle_(
-        0, 0, independentFrame->getSize()->getAccurateWidth(), 
-        independentFrame->getSize()->getAccurateLength(), true);
+        0, 0, independentFrame->getSize()->getPW(), 
+        independentFrame->getSize()->getPL(), true);
     followedFrame->setPosition(position);
 }
 

@@ -12,7 +12,7 @@ Console::Console(Display *display, TextureManager *textureManager) : StaticUIEle
     this->textureManager = textureManager;
     this->display = display;
     if (DEBUG)
-        logLevel = ll::DEBUG_ALL;
+        logLevel = lg::DEBUG_ALL;
     currentChat = std::vector<ConsoleLine>();
     Logger::subscribe(logLevel, handleLogMessage, this);
     font = al_load_ttf_font(openSansSBFont, 10, 0);

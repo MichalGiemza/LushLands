@@ -37,8 +37,8 @@ void updateRandomWalk(miliseconds timeNow, miliseconds dt, void *caller) {
     if (c->currentAction == ra::walking) {
         // Create desired position
         Position *newPos = new Position(*c->dynamicCollider->getCollider()->getBody()->getPosition());
-        newPos->setPX(newPos->getPX() - std::sin(c->getMobility()->getDirection()) * c->getMobility()->getMovementSpeed() / meter);
-        newPos->setPZ(newPos->getPZ() + std::cos(c->getMobility()->getDirection()) * c->getMobility()->getMovementSpeed() / meter); // TODO: - sin + cos -> czy napewno tak jest dobrze?
+        newPos->setPX(newPos->getPX() - std::sin(c->getMobility()->getDirection()) * c->getMobility()->getMovementSpeed());
+        newPos->setPZ(newPos->getPZ() + std::cos(c->getMobility()->getDirection()) * c->getMobility()->getMovementSpeed()); // TODO: - sin + cos -> czy napewno tak jest dobrze?
         // Send event
         ALLEGRO_EVENT *ae = (ALLEGRO_EVENT *)new ALLEGRO_EVENT {}; 
         ae->user.type = mob_attempt_go;

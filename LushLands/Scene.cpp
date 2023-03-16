@@ -13,7 +13,7 @@ Scene::Scene(scenename sceneName, World *world, Display *display, Position *foll
 
 void Scene::drawChunkGround(ChunkRepresentation &chunkRepresentation, int level) {
     Position pos = Position(*chunkRepresentation.getChunkPosition());
-    al_draw_bitmap(chunkRepresentation.getBitmap(level), pos.x(), pos.y(), 0);
+    al_draw_bitmap(chunkRepresentation.getBitmap(level), pos.getX(), pos.getZ(), 0);
 }
 
 void draw(ALLEGRO_EVENT *ae, void *scene) {

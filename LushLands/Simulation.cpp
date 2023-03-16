@@ -8,7 +8,7 @@ Simulation::Simulation(Controller *controller) {
 
     controller->getInputEvents()->subscribeTimerFPS(0, updateSimulation, this);
 
-    Logger::log(ll::DEBUG_SIMULATION, "Simulation started; Chunks loaded: [%i]; Entities loaded: [%i].",
+    Logger::log(lg::DEBUG_SIMULATION, "Simulation started; Chunks loaded: [%i]; Entities loaded: [%i].",
                 world->getChunkLoadManager()->getChunksLoadedCount(),
                 world->getChunkLoadManager()->getEntitiesCreatedCount());
 }

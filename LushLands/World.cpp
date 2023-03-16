@@ -16,7 +16,7 @@ World::World(worldtype worldType, seed seed_, EntityFactory *entityFactory, Even
     this->worldEvents = new WorldEvents(eventHandler);
     this->lastTimeUpdated = 0;
 
-    Logger::log(ll::DEBUG_WORLD, "Created World [%s]", worldType);
+    Logger::log(lg::DEBUG_WORLD, "Created World [%s]", worldType);
 }
 
 int World::getSeed() {

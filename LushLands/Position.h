@@ -9,35 +9,32 @@
 
 class Position {
 private:
-    int _x, _y, _z;
+    ll _x, _y, _z;
 public:
-    Position(int x, int y, int z, bool accurate=false);
+    Position(ll x, ll y, ll z, bool accurate=false);
     Position(ChunkPosition &cp);
     Position(const ChunkPosition &cp);
     Position(TilePosition &tp);
     Position(const TilePosition &tp);
     Position();
-    int getX() const;
-    int getY() const;
-    int getZ() const;
-    int getPX() const;
-    int getPY() const;
-    int getPZ() const;
-    int x() const;
-    int y() const;
-    int z() const;
-    void setX(int x);
-    void setY(int y);
-    void setZ(int z);
-    void setPX(int x);
-    void setPY(int y);
-    void setPZ(int z);
-    int getChunkX() const;
-    int getChunkZ() const;
+    ll getX() const;
+    ll getY() const;
+    ll getZ() const;
+    ll getPX() const;
+    ll getPY() const;
+    ll getPZ() const;
+    void setX(ll x);
+    void setY(ll y);
+    void setZ(ll z);
+    void setPX(ll x);
+    void setPY(ll y);
+    void setPZ(ll z);
+    ll getChunkX() const;
+    ll getChunkZ() const;
     ChunkPosition getChunkPosition() const;
     TilePosition getTilePosition() const;
-    int getInsideChunkRawX() const;
-    int getInsideChunkRawZ() const;
+    ll getInsideChunkRawX() const;
+    ll getInsideChunkRawZ() const;
     std::string getTextX() const;
     std::string getTextY() const;
     std::string getTextZ() const;

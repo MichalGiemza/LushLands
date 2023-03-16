@@ -12,9 +12,9 @@ public:
     int getWidth();
     int getHeight();
     int getLength();
-    int getAccurateWidth() const;
-    int getAccurateHeight() const;
-    int getAccurateLength() const;
+    int getPW() const;
+    int getPH() const;
+    int getPL() const;
     void setAccurateWidth(int width);
     void setAccurateHeight(int height);
     void setAccurateLength(int length);

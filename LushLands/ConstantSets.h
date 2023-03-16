@@ -39,7 +39,7 @@ namespace logging_level {
     const loglevel USER_COMMAND = 254;
     const loglevel USER_MESSAGE = 255;
 }
-namespace ll = logging_level;
+namespace lg = logging_level;
 
 namespace random_actions {
     // Random Walk

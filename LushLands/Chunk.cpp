@@ -7,9 +7,9 @@ void Chunk::generateTiles(ChunkPlan &chunkPlan) {
     for (int i = 0; i < chunkSizeByTiles; i++) {
         for (int j = 0; j < chunkSizeByTiles; j++) {
             for (int k = 0; k < worldHeight; k++) {
-                pos.setX(referencePosition.x() + i);
-                pos.setZ(referencePosition.z() + j);
-                pos.setY(referencePosition.y() + k);
+                pos.setX(referencePosition.getX() + i);
+                pos.setZ(referencePosition.getZ() + j);
+                pos.setY(referencePosition.getY() + k);
                 auto plannedEntityType = chunkPlan.fieldPlans[i][j][k].ground;
                 Ground *ground = (Ground *)entityFactory->buildEntity(plannedEntityType, pos);
                 if (ground == 0)
@@ -28,9 +28,9 @@ void Chunk::generateStructures(ChunkPlan &chunkPlan) {
     for (int i = 0; i < chunkSizeByTiles; i++) {
         for (int j = 0; j < chunkSizeByTiles; j++) {
             for (int k = 0; k < worldHeight; k++) {
-                pos.setX(referencePosition.x() + i);
-                pos.setZ(referencePosition.z() + j);
-                pos.setY(referencePosition.y() + k);
+                pos.setX(referencePosition.getX() + i);
+                pos.setZ(referencePosition.getZ() + j);
+                pos.setY(referencePosition.getY() + k);
                 auto plannedEntityType = chunkPlan.fieldPlans[i][j][k].structure;
                 auto structure = addStructure(plannedEntityType, pos);
                 if (structure == 0)
@@ -57,9 +57,9 @@ void Chunk::generateAnimal(ChunkPlan &chunkPlan) {
     for (int i = 0; i < chunkSizeByTiles; i++) {
         for (int j = 0; j < chunkSizeByTiles; j++) {
             for (int k = 0; k < worldHeight; k++) {
-                pos.setX(referencePosition.x() + i);
-                pos.setZ(referencePosition.z() + j);
-                pos.setY(referencePosition.y() + k);
+                pos.setX(referencePosition.getX() + i);
+                pos.setZ(referencePosition.getZ() + j);
+                pos.setY(referencePosition.getY() + k);
                 auto plannedEntityType = chunkPlan.fieldPlans[i][j][k].animal;
                 Animal *animal = addAnimal(plannedEntityType, pos);
                 if (animal == 0)
@@ -90,7 +90,7 @@ Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *e
     generateStructures(chunkPlan);
     generateAnimal(chunkPlan);
 
-    Logger::log(ll::DEBUG_CHUNK, "Created Chunk [%i, %i]", chunkPosition.x, chunkPosition.z);
+    Logger::log(lg::DEBUG_CHUNK, "Created Chunk [%i, %i]", chunkPosition.x, chunkPosition.z);
 }
 
 Entity *Chunk::getGround(TilePosition &tilePosition) {
