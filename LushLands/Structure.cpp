@@ -29,3 +29,7 @@ const Color *Structure::getColor() {
 Collider *Structure::getCollider() {
     return &collider;
 }
+
+Body *Structure::getBody() {
+    return &body;
+}

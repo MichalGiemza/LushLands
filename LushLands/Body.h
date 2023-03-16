@@ -26,6 +26,7 @@ public:
     Size *getSize();
     Position *getPosition();
     void setPosition(Position &position);
+    void setCenter(Position &center);
     int accurateDistanceTo2D(Body &other) const;
     bool operator==(const Body &other) const;
 };

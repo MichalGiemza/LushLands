@@ -31,10 +31,15 @@ Collider *Animal::getCollider() {
 const Color *Animal::getColor() {
     return appearance.getColor();
 }
+
 Entity *Animal::clone() {
     return new Animal(*this);
 }
 
 EntityUpdater *Animal::getEntityUpdater() {
     return &entityUpdater;
+}
+
+Body *Animal::getBody() {
+    return &body;
 }

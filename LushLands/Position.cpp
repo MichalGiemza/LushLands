@@ -95,7 +95,6 @@ void Position::setPZ(ll z) {
     _z = z;
 }
 
-
 ll Position::getChunkX() const {
     return _x / chunkSizeByTiles / representationComaValue;
 }
