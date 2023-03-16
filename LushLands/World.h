@@ -28,7 +28,7 @@ class World  {
     Time *time;
     miliseconds lastTimeUpdated;
 public:
-    World(worldtype worldType, seed seed_, EntityFactory *entityFactory, EventHandler *eventHandler);
+    World(worldtype worldType, int seed_, EntityFactory *entityFactory, EventHandler *eventHandler);
     void update(miliseconds dt);
     int getSeed();
     int getSeaLevel();

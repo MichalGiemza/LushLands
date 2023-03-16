@@ -122,7 +122,7 @@ void ChunkRepresentationManager::drawStructureOutlines(ChunkRepresentation *cRep
         pxint z2 = shiftTexturePositionZ(
             camera->shiftToScreenPosZ(str->getPosition()->getPZ()) + str->getSize()->getCameraL(),
             str->getSize()->getCameraL());
-        al_draw_rectangle(x1, z1, x2, z2, str->getColor()->getAllegroColor(), 1.0f);
+        al_draw_rectangle(x1, z1, x2, z2, DEBUG_STRUCTURE_BORDER_COLOR.getAllegroColor(), 1.0f);
     }
 }
 
@@ -146,7 +146,7 @@ void ChunkRepresentationManager::drawAnimalOutlines(ChunkRepresentation *cRep, i
         pxint z2 = shiftTexturePositionZ(
             camera->shiftToScreenPosZ(anm->getPosition()->getPZ()) + anm->getSize()->getCameraL(),
             anm->getSize()->getCameraL());
-        al_draw_rectangle(x1, z1, x2, z2, anm->getColor()->getAllegroColor(), 1.0f);
+        al_draw_rectangle(x1, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 1.0f);
     }
 }
 

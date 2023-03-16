@@ -12,7 +12,6 @@ typedef int keycode;
 typedef const char *actiontype;
 typedef const char *worldtype;
 typedef const char *entitytype;
-typedef int seed;
 typedef const char *texturename;
 typedef const char *scenename;
 typedef const char *rawpath;

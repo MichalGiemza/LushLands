@@ -24,23 +24,31 @@ void DynamicCollider::setPosition(Position &position) {
     mobility->getBody()->setPosition(position);
 }
 
-void DynamicCollider::updateNewPositionWithColliders(Position &newPosition, std::unordered_set<Collider *> &colliders) {
-    ll xVec = newPosition.getPX() - pos()->getPX();
-    ll zVec = newPosition.getPZ() - pos()->getPZ();
+void DynamicCollider::updateNewPositionWithColliders(Position &nP, std::unordered_set<Collider *> &colliders) { // FIXME: Not working properly
+    Size *s = size();
+    Position *p = pos();
+    ll nX = nP.getPX();
+    ll nZ = nP.getPZ();
     for (auto c = colliders.begin(); c != colliders.end(); ++c) {
         Position *cP = (*c)->getBody()->getPosition();
         Size *cS = (*c)->getBody()->getSize();
-        if (xVec > 0) {
-            xVec = std::min(xVec, cP->getPX() - size()->getPW());
-        } else {
-            xVec = std::max(xVec, cP->getPX() + cS->getPW());
-        }
-        if (zVec > 0) {
-            zVec = std::min(zVec, cP->getPZ() - size()->getPW());
-        } else {
-            zVec = std::max(zVec, cP->getPZ() + cS->getPL());
-        }
+        // Direction handling
+        bool goingRight = p->getPX() < nP.getPX();
+        bool goingDown_ = p->getPZ() < nP.getPZ();
+        // Distance to collider
+        ll dx = (nX > p->getPX()) ? cP->getPX() - s->getPW() : cP->getPX() + cS->getPW();
+        ll dz = (nZ > p->getPZ()) ? cP->getPZ() - s->getPL() : cP->getPZ() + cS->getPL();
+        // Update position
+        nX = goingRight ? std::min(nX, dx) : std::max(nX, dx);
+        nZ = goingDown_ ? std::min(nZ, dz) : std::max(nZ, dz);
     }
-    newPosition.setPX(xVec);
-    newPosition.setPZ(zVec);
+    // Direction handling
+    bool goingRight = p->getPX() < nP.getPX();
+    bool goingDown_ = p->getPZ() < nP.getPZ();
+    // Update position
+    nX = goingRight ? std::max(nX, p->getPX()) : std::min(nX, p->getPX());
+    nZ = goingDown_ ? std::max(nZ, p->getPZ()) : std::min(nZ, p->getPZ());
+
+    nP.setPX(nX);
+    nP.setPZ(nZ);
 }

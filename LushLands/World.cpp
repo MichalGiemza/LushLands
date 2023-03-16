@@ -1,7 +1,8 @@
 #include "World.h"
 
-World::World(worldtype worldType, seed seed_, EntityFactory *entityFactory, EventHandler *eventHandler) {
+World::World(worldtype worldType, int seed_, EntityFactory *entityFactory, EventHandler *eventHandler) {
     this->seed_ = seed_;
+    srand(seed_);
     this->worldType = worldType;
     this->entityFactory = entityFactory;
 

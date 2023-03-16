@@ -10,7 +10,8 @@ void ChunkEventHandler::handleMobMovementAttempt(ALLEGRO_EVENT *currentEvent) {
     auto newPos = (Position *)currentEvent->user.data2;
     auto collidersONP = collisionManager->getCollidersObstructuringNewPosition(dynCollider, newPos);
     if (not collidersONP->empty())
-        dynCollider->updateNewPositionWithColliders(*newPos, *collidersONP);
+        return;
+        //dynCollider->updateNewPositionWithColliders(*newPos, *collidersONP);
     dynCollider->setPosition(*newPos);
 }
 

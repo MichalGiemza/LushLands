@@ -3,6 +3,8 @@
 #include "Mobility.h"
 #include "Body.h"
 #include <unordered_set>
+#include <algorithm>
+#include <functional>
 
 class DynamicCollider {
     /**

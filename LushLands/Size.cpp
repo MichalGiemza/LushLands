@@ -103,11 +103,11 @@ void Size::setLength(float length) {
 }
 
 pxint Size::getCameraW() {
-    return (pxint)(w() * tileSizePx);
+    return (pxint)((width * tileSizePx) / representationComaValue);
 }
 
 pxint Size::getCameraL() {
-    return (pxint)(l() * tileSizePx);
+    return (pxint)((length * tileSizePx) / representationComaValue);
 }
 
 bool Size::operator==(const Size &other) const {
