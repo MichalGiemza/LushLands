@@ -6,7 +6,6 @@ void RandomWalk::setNewAction(miliseconds currentTime) {
         // Finished walking
         currentAction = ra::waiting;
         getMobility()->setDirection(std::nanf(""));
-        return;
     } else {
         // Finished waiting
         Collider *c = getCollider();

@@ -6,11 +6,13 @@ World::World(worldtype worldType, int seed_, EntityFactory *entityFactory, Event
     this->worldType = worldType;
     this->entityFactory = entityFactory;
 
-    if (worldType == FLATLAND) { // TODO: Coœ lepszego ni¿ ify? Mo¿e jakaœ mapa w czymœ zewnêtrznym
+    this->worldPlanner = 0;
+    if (worldType == FLATLAND) // TODO: Coœ lepszego ni¿ ify? Mo¿e jakaœ mapa w czymœ zewnêtrznym
         this->worldPlanner = new FlatlandWorldPlanner(seed_);
-    } else {
+    if (worldType == CHICKEN_BOX) // TODO: Coœ lepszego ni¿ ify? Mo¿e jakaœ mapa w czymœ zewnêtrznym
+        this->worldPlanner = new ChickenBoxWorldPlanner(seed_);
+    if (this->worldPlanner == 0)
         throw new std::logic_error(not_implemented);
-    }
     
     this->time = new Time();
     this->chunkSystem = new ChunkSystem(worldPlanner, entityFactory);

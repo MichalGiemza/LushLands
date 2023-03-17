@@ -157,6 +157,9 @@
     <ClCompile Include="ChunkEventHandler.cpp">
       <Filter>src\Simulation\World\Events</Filter>
     </ClCompile>
+    <ClCompile Include="ChickenBoxWorldPlanner.cpp">
+      <Filter>src\Simulation\World\WorldPlanners</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -335,6 +338,9 @@
     </ClInclude>
     <ClInclude Include="ISimulationEvents.h">
       <Filter>src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ChickenBoxWorldPlanner.h">
+      <Filter>src\Simulation\World\WorldPlanners</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

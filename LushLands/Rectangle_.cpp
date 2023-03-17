@@ -86,21 +86,17 @@ int Rectangle_::accurateDistanceFromCenter2D(Position &otherPosition) const {
 }
 
 bool Rectangle_::isCollidingTop(const Rectangle_ *other) const {
-	int dy = p->getPZ() + s->getPL() / 2 - other->p->getPZ() - other->s->getPL() / 2;
-	return dy < 0 and dy <= std::abs(s->getPL() + other->s->getPL()) / 2;
+	return std::abs(p->getPZ() - (other->p->getPZ() + other->s->getPL())) < collisionEpsilon;
 }
 
 bool Rectangle_::isCollidingBottom(const Rectangle_ *other) const {
-	int dy = p->getPZ() + s->getPL() / 2 - other->p->getPZ() - other->s->getPL() / 2;
-	return dy > 0 and dy <= std::abs(s->getPL() + other->s->getPL()) / 2;
+	return std::abs(other->p->getPZ() - (p->getPZ() + s->getPL())) < collisionEpsilon;
 }
 
 bool Rectangle_::isCollidingLeft(const Rectangle_ *other) const {
-	int dx = p->getPX() + s->getPW() / 2 - other->p->getPX() - other->s->getPW() / 2;
-	return dx < 0 and dx <= std::abs(s->getPW() + other->s->getPW()) / 2;
+	return std::abs(p->getPX() - (other->p->getPX() + other->s->getPW())) < collisionEpsilon;
 }
 
 bool Rectangle_::isCollidingRight(const Rectangle_ *other) const {
-	int dx = p->getPX() + s->getPW() / 2 - other->p->getPX() - other->s->getPW() / 2;
-	return dx > 0 and dx <= std::abs(s->getPW() + other->s->getPW()) / 2;
+	return std::abs(other->p->getPX() - (p->getPX() + s->getPW())) < collisionEpsilon;
 }

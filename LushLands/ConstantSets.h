@@ -54,6 +54,7 @@ const scenename MAINMENU_SCENE = "main_menu";
 
 // World types
 const worldtype FLATLAND = "flatland";
+const worldtype CHICKEN_BOX = "chicken_box";
 
 // Exception messages
 const exceptionmessage not_implemented = "Not implemented yet.\n";

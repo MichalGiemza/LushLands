@@ -23,6 +23,7 @@ void ChunkEventHandler::handleMobMovementAttempt(ALLEGRO_EVENT *currentEvent) {
     // Handle collision
     if (not collidersONP->empty()) {
         /*dynCollider->updateNewPositionWithColliders(*newPos, *collidersONP);*/
+        printf("");
     }
     // Handle free movement
     else {

@@ -1,5 +1,5 @@
 #pragma once
-
+#include <cmath>
 
 // Simulation
 const int TicksPerSecond = 24;
@@ -16,6 +16,7 @@ const int chunkRenderDistance = 2;
 // System
 const long long representationComaValue = 100000;
 const long long meter = representationComaValue;
+const long long collisionEpsilon = 1000;
 const int tileSizePx = 32;
 const int displayWidth = 1280;
 const int displayHeight = 720;

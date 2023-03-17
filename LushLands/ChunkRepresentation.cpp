@@ -10,7 +10,11 @@ size_t ChunkRepresentation::hashChunkGroundLevel(int level) {
         tp.x = referencePosition.x + i;
         for (int j = 0; j < chunkSizeByTiles; j++) {
             tp.z = referencePosition.z + j;
-            hash_ = 33 * hash_ + std::hash<char *>()(groundTiles[tp]->getType());
+            if (groundTiles.find(tp) != groundTiles.end()) {
+                hash_ = 33 * hash_ + std::hash<char *>()(groundTiles[tp]->getType());
+            } else {
+                hash_ = 33 * hash_;
+            }
         }
     }
     return hash_;

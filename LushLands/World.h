@@ -6,6 +6,7 @@
 #include "DataTypes.h"
 #include "ConstantSets.h"
 #include "FlatlandWorldPlanner.h"
+#include "ChickenBoxWorldPlanner.h"
 #include "WorldEvents.h"
 #include "Logger.h"
 

@@ -54,7 +54,8 @@ void ChunkRepresentationManager::drawGround(ChunkRepresentation *cRep, int level
     // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
     pxint x = camera->shiftToScreenPosX(cRep->getPosition()->getPX());
     pxint z = camera->shiftToScreenPosZ(cRep->getPosition()->getPZ());
-    al_draw_bitmap(groundBitmap, x, z, 0);
+    if (groundBitmap)
+        al_draw_bitmap(groundBitmap, x, z, 0);
 }
 
 void ChunkRepresentationManager::drawStructures(ChunkRepresentation *cRep, int level) {
@@ -135,6 +136,15 @@ void ChunkRepresentationManager::drawAnimalDebug(ChunkRepresentation *cRep, int 
         pxint x2 = camera->shiftToScreenPosX(ctr->getPX()) + size->getCameraW() / 2;
         pxint z2 = camera->shiftToScreenPosZ(ctr->getPZ()) + size->getCameraL() / 2;
         al_draw_rectangle(x1, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 1.0f);
+        // Draw collision indicators
+        if (anm->getCollider()->isInCollisionLeft())
+            al_draw_line(x1, z1, x1, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
+        if (anm->getCollider()->isInCollisionRight())
+            al_draw_line(x2, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
+        if (anm->getCollider()->isInCollisionTop())
+            al_draw_line(x1, z1, x2, z1, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
+        if (anm->getCollider()->isInCollisionBottom())
+            al_draw_line(x1, z2, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
         // Draw direction vector
         if (not std::isnan(anm->getMobility()->getDirection())) {
             x1 = camera->shiftToScreenPosX(ctr->getPX());

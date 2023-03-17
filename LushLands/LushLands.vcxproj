@@ -160,6 +160,7 @@
     <ClCompile Include="Appearance.cpp" />
     <ClCompile Include="Body.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="ChickenBoxWorldPlanner.cpp" />
     <ClCompile Include="Chunk.cpp" />
     <ClCompile Include="ChunkEventHandler.cpp" />
     <ClCompile Include="EntityUpdater.cpp" />
@@ -213,6 +214,7 @@
     <ClInclude Include="Appearance.h" />
     <ClInclude Include="Body.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="ChickenBoxWorldPlanner.h" />
     <ClInclude Include="Chunk.h" />
     <ClInclude Include="ChunkEventHandler.h" />
     <ClInclude Include="EntityUpdater.h" />
