@@ -18,7 +18,7 @@ std::unordered_set<Collider *> *CollisionManager::getCollidersObstructuringNewPo
     auto conp = new std::unordered_set<Collider *>();
 
     for (Collider *c : colliders) {
-        if (dc->getCollider()->overlapes(c))
+        if (r.isOverlapping(c->getBody()->getRectangle()))
             conp->insert(c);
     }
     conp->erase(dc->getCollider());

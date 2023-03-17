@@ -5,6 +5,7 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/color.h>
+#include <cmath>
 #include "ChunkRepresentation.h"
 #include "ConstantSets.h"
 #include "World.h"
@@ -24,9 +25,9 @@ private:
     void drawGround(ChunkRepresentation *cRep, int level);
     void drawStructures(ChunkRepresentation *cRep, int level);
     void drawAnimals(ChunkRepresentation *cRep, int level);
-    void drawChunkBorders(ChunkRepresentation *cRep);
-    void drawStructureOutlines(ChunkRepresentation *cRep, int level);
-    void drawAnimalOutlines(ChunkRepresentation *cRep, int level);
+    void drawChunkDebug(ChunkRepresentation *cRep);
+    void drawStructureDebug(ChunkRepresentation *cRep, int level);
+    void drawAnimalDebug(ChunkRepresentation *cRep, int level);
     pxint shiftTexturePositionX(pxint screenPositionX, pxint bitmapWidth, pxint bbWidth);
     pxint shiftTexturePositionZ(pxint screenPositionZ, pxint bitmapHeight, pxint bbHeight);
 public:

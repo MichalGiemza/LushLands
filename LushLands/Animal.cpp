@@ -43,3 +43,7 @@ EntityUpdater *Animal::getEntityUpdater() {
 Body *Animal::getBody() {
     return &body;
 }
+
+Mobility *Animal::getMobility() {
+    return &mobility;
+}

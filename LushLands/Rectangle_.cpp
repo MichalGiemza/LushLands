@@ -54,42 +54,20 @@ Size *Rectangle_::getSize() {
 }
 
 bool Rectangle_::isOverlapping(const Rectangle_ *other) const {
-	/*// Determine left-right and top-bottom pairs
-	const Rectangle_ *lRect = p->getPX() < other->p->getPX() ? this : other;
-	const Rectangle_ *rRect = p->getPX() >= other->p->getPX() ? this : other;
-	const Rectangle_ *bRect = p->getPZ() >= other->p->getPZ() ? this : other;
-	const Rectangle_ *tRect = p->getPZ() < other->p->getPZ() ? this : other;
-
-	bool x_overlapping = lRect->accurateRight() > rRect->accurateLeft();
-	bool y_overlapping = bRect->accurateTop() < tRect->accurateBottom();
-
-	return x_overlapping and y_overlapping;*/
-
 	// find the x and y distances between the centers of the two rectangles
 	int dx = std::abs(p->getPX() + s->getPW() / 2 - other->p->getPX() - other->s->getPW() / 2);
 	int dy = std::abs(p->getPZ() + s->getPL() / 2 - other->p->getPZ() - other->s->getPL() / 2);
 
-	return dx < (s->getPW() + other->s->getPW()) / 2 && dy < (s->getPL() + other->s->getPL()) / 2;
+	return dx <= (s->getPW() + other->s->getPW()) / 2 && dy <= (s->getPL() + other->s->getPL()) / 2;
 }
 
 int Rectangle_::accurateDistanceTo2D(const Rectangle_ *other) const {
-	/*// Determine left-right and top-bottom pairs
-	const Rectangle_ *lRect = p->getPX() < other->p->getPX() ? this : other;
-	const Rectangle_ *rRect = p->getPX() >= other->p->getPX() ? this : other;
-	const Rectangle_ *bRect = p->getPZ() >= other->p->getPZ() ? this : other;
-	const Rectangle_ *tRect = p->getPZ() < other->p->getPZ() ? this : other;
-
-	int x_diff = std::max(rRect->accurateLeft() - lRect->accurateRight(), 0);
-	int y_diff = std::max(tRect->accurateBottom() - bRect->accurateTop(), 0);
-
-	return sqrt(x_diff * x_diff + y_diff * y_diff);*/
-
 	// find the x and y distances between the centers of the two rectangles
 	int dx = std::abs(p->getPX() + s->getPW() / 2 - other->p->getPX() - other->s->getPW() / 2);
 	int dy = std::abs(p->getPZ() + s->getPL() / 2 - other->p->getPZ() - other->s->getPL() / 2);
 
 	// if the rectangles intersect, return 0
-	if (dx < (s->getPW() + other->s->getPW()) / 2 && dy < (s->getPL() + other->s->getPL()) / 2) {
+	if (dx <= (s->getPW() + other->s->getPW()) / 2 && dy <= (s->getPL() + other->s->getPL()) / 2) {
 		return 0;
 	}
 
@@ -105,4 +83,24 @@ int Rectangle_::accurateDistanceFromCenter2D(Position &otherPosition) const {
 	int x = p->getPX() + s->getPW() / 2 - otherPosition.getPX();
 	int z = p->getPZ() + s->getPL() / 2 - otherPosition.getPZ();
 	return (int)sqrt(x * x + z * z);
+}
+
+bool Rectangle_::isCollidingTop(const Rectangle_ *other) const {
+	int dy = p->getPZ() + s->getPL() / 2 - other->p->getPZ() - other->s->getPL() / 2;
+	return dy < 0 and dy <= std::abs(s->getPL() + other->s->getPL()) / 2;
+}
+
+bool Rectangle_::isCollidingBottom(const Rectangle_ *other) const {
+	int dy = p->getPZ() + s->getPL() / 2 - other->p->getPZ() - other->s->getPL() / 2;
+	return dy > 0 and dy <= std::abs(s->getPL() + other->s->getPL()) / 2;
+}
+
+bool Rectangle_::isCollidingLeft(const Rectangle_ *other) const {
+	int dx = p->getPX() + s->getPW() / 2 - other->p->getPX() - other->s->getPW() / 2;
+	return dx < 0 and dx <= std::abs(s->getPW() + other->s->getPW()) / 2;
+}
+
+bool Rectangle_::isCollidingRight(const Rectangle_ *other) const {
+	int dx = p->getPX() + s->getPW() / 2 - other->p->getPX() - other->s->getPW() / 2;
+	return dx > 0 and dx <= std::abs(s->getPW() + other->s->getPW()) / 2;
 }

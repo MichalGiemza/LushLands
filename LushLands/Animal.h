@@ -27,6 +27,7 @@ public:
     Size *getSize();
     const Color *getColor();
     Collider *getCollider();
+    Mobility *getMobility();
     Body *getBody();
 };
 

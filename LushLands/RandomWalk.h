@@ -1,5 +1,6 @@
 #pragma once
 #include <random>
+#include <cmath>
 #include "DynamicCollider.h"
 #include "Mobility.h"
 #include "Random_.h"
@@ -28,9 +29,10 @@ public:
     Mobility *getMobility();
     Position *getPosition();
     DynamicCollider *getDynamicCollider();
-
+    Collider *getCollider();
     // Methods
-    
+    radian getRandomDirection(bool forbidTop, bool forbidBottom, bool forbidLeft, bool forbidRight);
+
     // Update
     friend void updateRandomWalk(miliseconds timeNow, miliseconds dt, void *caller);
 };

@@ -52,3 +52,4 @@ void DynamicCollider::updateNewPositionWithColliders(Position &nP, std::unordere
     nP.setPX(nX);
     nP.setPZ(nZ);
 }
+

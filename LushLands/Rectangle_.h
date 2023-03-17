@@ -28,5 +28,9 @@ public:
 	bool isOverlapping(const Rectangle_ *other) const;
 	int accurateDistanceTo2D(const Rectangle_ *other) const;
 	int accurateDistanceFromCenter2D(Position &otherPosition) const;
+	bool isCollidingTop(const Rectangle_ *other) const;
+	bool isCollidingBottom(const Rectangle_ *other) const;
+	bool isCollidingLeft(const Rectangle_ *other) const;
+	bool isCollidingRight(const Rectangle_ *other) const;
 };
 
