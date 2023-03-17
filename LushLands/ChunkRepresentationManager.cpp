@@ -141,15 +141,9 @@ void ChunkRepresentationManager::drawAnimalOutlines(ChunkRepresentation *cRep, i
 }
 
 pxint ChunkRepresentationManager::shiftTexturePositionX(pxint screenPositionX, pxint bitmapWidth) {
-    //if (bitmapWidth >= 32) // Fixme: Magic number, but which one?
-        return tileSizePx - bitmapWidth + screenPositionX;
-    /*else
-        return tileSizePx / 2 - bitmapWidth / 2 + screenPositionX;*/
+    return screenPositionX - bitmapWidth / 2;
 }
 
 pxint ChunkRepresentationManager::shiftTexturePositionZ(pxint screenPositionZ, pxint bitmapHeight) {
-    //if (bitmapHeight >= 32)
-        return tileSizePx - bitmapHeight + screenPositionZ;
-    /*else
-        return tileSizePx / 2 - bitmapHeight / 2 + screenPositionZ;*/
+    return screenPositionZ - bitmapHeight / 2;
 }

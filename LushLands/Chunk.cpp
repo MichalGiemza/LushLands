@@ -7,9 +7,9 @@ void Chunk::generateTiles(ChunkPlan &chunkPlan) {
     for (int i = 0; i < chunkSizeByTiles; i++) {
         for (int j = 0; j < chunkSizeByTiles; j++) {
             for (int k = 0; k < worldHeight; k++) {
-                pos.setPX(referencePosition.getPX() + i * meter + meter / 2);
-                pos.setPZ(referencePosition.getPZ() + j * meter + meter / 2);
-                pos.setPY(referencePosition.getPY() + k * meter);
+                pos.setX(referencePosition.getX() + i);
+                pos.setZ(referencePosition.getZ() + j);
+                pos.setY(referencePosition.getY() + k);
                 auto plannedEntityType = chunkPlan.fieldPlans[i][j][k].ground;
                 Ground *ground = (Ground *)entityFactory->buildEntity(plannedEntityType, pos);
                 if (ground == 0)
