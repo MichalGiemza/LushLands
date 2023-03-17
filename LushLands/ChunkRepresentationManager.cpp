@@ -64,11 +64,12 @@ void ChunkRepresentationManager::drawStructures(ChunkRepresentation *cRep, int l
             continue;
         auto str = (Structure *)sPair->second;
         auto ctr = str->getBody()->getCenter();
+        auto size = str->getSize();
         // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
         auto sBitmap = textureManager->getEntityTexture(sPair->second->getType());
 
-        pxint x1 = shiftTexturePositionX(camera->shiftToScreenPosX(ctr->getPX()), al_get_bitmap_width(sBitmap));
-        pxint z1 = shiftTexturePositionZ(camera->shiftToScreenPosZ(ctr->getPZ()), al_get_bitmap_height(sBitmap));
+        pxint x1 = shiftTexturePositionX(camera->shiftToScreenPosX(ctr->getPX()), al_get_bitmap_width(sBitmap), size->getCameraW());
+        pxint z1 = shiftTexturePositionZ(camera->shiftToScreenPosZ(ctr->getPZ()), al_get_bitmap_height(sBitmap), size->getCameraL());
 
         al_draw_bitmap(sBitmap, x1, z1, 0);
     }
@@ -81,11 +82,12 @@ void ChunkRepresentationManager::drawAnimals(ChunkRepresentation *cRep, int leve
             continue;
         auto anm = (Animal *)sPair->second;
         auto ctr = anm->getBody()->getCenter();
+        auto size = anm->getSize();
         // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
         auto sBitmap = textureManager->getEntityTexture(sPair->second->getType());
 
-        pxint x1 = shiftTexturePositionX(camera->shiftToScreenPosX(ctr->getPX()), al_get_bitmap_width(sBitmap));
-        pxint z1 = shiftTexturePositionZ(camera->shiftToScreenPosZ(ctr->getPZ()), al_get_bitmap_height(sBitmap));
+        pxint x1 = shiftTexturePositionX(camera->shiftToScreenPosX(ctr->getPX()), al_get_bitmap_width(sBitmap), size->getCameraW());
+        pxint z1 = shiftTexturePositionZ(camera->shiftToScreenPosZ(ctr->getPZ()), al_get_bitmap_height(sBitmap), size->getCameraL());
 
         al_draw_bitmap(sBitmap, x1, z1, 0);
     }
@@ -140,10 +142,10 @@ void ChunkRepresentationManager::drawAnimalOutlines(ChunkRepresentation *cRep, i
     }
 }
 
-pxint ChunkRepresentationManager::shiftTexturePositionX(pxint screenPositionX, pxint bitmapWidth) {
+pxint ChunkRepresentationManager::shiftTexturePositionX(pxint screenPositionX, pxint bitmapWidth, pxint bbWidth) {
     return screenPositionX - bitmapWidth / 2;
 }
 
-pxint ChunkRepresentationManager::shiftTexturePositionZ(pxint screenPositionZ, pxint bitmapHeight) {
-    return screenPositionZ - bitmapHeight / 2;
+pxint ChunkRepresentationManager::shiftTexturePositionZ(pxint screenPositionZ, pxint bitmapHeight, pxint bbHeight) {
+    return screenPositionZ - bitmapHeight / 2 - (bitmapHeight - bbHeight) / 2;
 }

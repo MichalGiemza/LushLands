@@ -89,13 +89,13 @@ const entitytype TALL_GRASS = "tall_grass";
 const Color TALL_GRASS_COLOR = Color(50, 120, 40, 255);
 const std::string TALL_GRASS_DESCRIPTION = "Tallgrass, hard to pass through.";
 const Size TALL_GRASS_SIZE = Size(.6f, .4f, .6f);
-const TextureLocalization TALL_GRASS_TEXTURE_LOCALIZATION = TextureLocalization(0, 0, "..\\Assets\\textures\\Edinnu Small Forest by rowdy41\\Grass\\Grass-1.png", 25, 24);
+const TextureLocalization TALL_GRASS_TEXTURE_LOCALIZATION = TextureLocalization(4, 0, "..\\Assets\\textures\\Edinnu Small Forest by rowdy41\\Grass\\Grass-1.png", 21, 24);
 
 // Yellow Flower
 const entitytype FLOWER_YELLOW = "yellow_flower";
 const Color FLOWER_YELLOW_COLOR = TALL_GRASS_COLOR;
 const std::string FLOWER_YELLOW_DESCRIPTION = "Yellow flower.";
-const Size FLOWER_YELLOW_SIZE = Size(.4f, .4f, .4f);
+const Size FLOWER_YELLOW_SIZE = Size(.2f, .2f, .2f);
 const TextureLocalization FLOWER_YELLOW_TEXTURE_LOCALIZATION = TextureLocalization(0, 0, "..\\Assets\\textures\\Edinnu Small Forest by rowdy41\\Flowers\\Flower-2.png", 24, 22);
 
 // Stone

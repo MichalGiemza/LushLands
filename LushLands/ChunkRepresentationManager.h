@@ -27,8 +27,8 @@ private:
     void drawChunkBorders(ChunkRepresentation *cRep);
     void drawStructureOutlines(ChunkRepresentation *cRep, int level);
     void drawAnimalOutlines(ChunkRepresentation *cRep, int level);
-    pxint shiftTexturePositionX(pxint screenPositionX, pxint bitmapWidth);
-    pxint shiftTexturePositionZ(pxint screenPositionZ, pxint bitmapHeight);
+    pxint shiftTexturePositionX(pxint screenPositionX, pxint bitmapWidth, pxint bbWidth);
+    pxint shiftTexturePositionZ(pxint screenPositionZ, pxint bitmapHeight, pxint bbHeight);
 public:
     ChunkRepresentationManager(World *world, Display *display, Camera *camera, TextureManager *textureManager);
     void draw();
