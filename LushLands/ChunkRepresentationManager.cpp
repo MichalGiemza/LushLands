@@ -169,8 +169,8 @@ void ChunkRepresentationManager::drawAnimalDebug(ChunkRepresentation *cRep, int 
         if (not std::isnan(anm->getMobility()->getDirection())) {
             x1 = camera->shiftToScreenPosX(ctr->getPX());
             z1 = camera->shiftToScreenPosZ(ctr->getPZ());
-            x2 = camera->shiftToScreenPosX(ctr->getPX() - std::sin(anm->getMobility()->getDirection()) * anm->getMobility()->getMovementSpeed() * 100);
-            z2 = camera->shiftToScreenPosZ(ctr->getPZ() + std::cos(anm->getMobility()->getDirection()) * anm->getMobility()->getMovementSpeed() * 100);
+            x2 = camera->shiftToScreenPosX(ctr->getPX() - std::sin(anm->getMobility()->getDirection()) * sqrt(anm->getMobility()->getMovementSpeed() * meter) * 3);
+            z2 = camera->shiftToScreenPosZ(ctr->getPZ() + std::cos(anm->getMobility()->getDirection()) * sqrt(anm->getMobility()->getMovementSpeed() * meter) * 3);
             al_draw_line(x1, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 1.0f);
         }
     }
@@ -204,8 +204,8 @@ void ChunkRepresentationManager::drawHumanoidDebug(ChunkRepresentation *cRep, in
         if (not std::isnan(hmn->getMobility()->getDirection())) {
             x1 = camera->shiftToScreenPosX(ctr->getPX());
             z1 = camera->shiftToScreenPosZ(ctr->getPZ());
-            x2 = camera->shiftToScreenPosX(ctr->getPX() - std::sin(hmn->getMobility()->getDirection()) * hmn->getMobility()->getMovementSpeed() * 100);
-            z2 = camera->shiftToScreenPosZ(ctr->getPZ() + std::cos(hmn->getMobility()->getDirection()) * hmn->getMobility()->getMovementSpeed() * 100);
+            x2 = camera->shiftToScreenPosX(ctr->getPX() - std::sin(hmn->getMobility()->getDirection()) * sqrt(hmn->getMobility()->getMovementSpeed() * meter) * 3);
+            z2 = camera->shiftToScreenPosZ(ctr->getPZ() + std::cos(hmn->getMobility()->getDirection()) * sqrt(hmn->getMobility()->getMovementSpeed() * meter) * 3);
             al_draw_line(x1, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 1.0f);
         }
     }

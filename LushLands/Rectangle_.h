@@ -11,8 +11,9 @@ class Rectangle_ {
 	*/
 	Position *p;
 	Size *s;
+	bool asCtr;
 public:
-	Rectangle_(int x, int z, int w, int l, bool accurate = false);
+	Rectangle_(int x, int z, int w, int l, bool accurate = false, bool positionIsCenter = false);
 	int accurateLeft() const;
 	int accurateRight() const;
 	int accurateTop() const;

@@ -7,7 +7,7 @@ int Camera::level() {
 Camera::Camera(Position *startingPosition, Focus *focus, InputEvents *inputEvents) : GameElement(ft::CAMERA, fp::DEFAULT, fg::STATIC_UI) {
     int inGameScreenW = displayWidth / tileSizePx;
     int inGameScreenH = displayHeight / tileSizePx;
-    independentFrame = new Rectangle_(0, 0, inGameScreenW, inGameScreenH);
+    independentFrame = new Rectangle_(0, 0, inGameScreenW, inGameScreenH, false, true);
 
     this->independentFrame->setPosition(startingPosition);
     if (not focus->getFocusedObject())
@@ -32,7 +32,7 @@ Position *Camera::getPosition() {
 void Camera::setFollowedPosition(Position *position) {
     followedFrame = new Rectangle_(
         0, 0, independentFrame->getSize()->getPW(), 
-        independentFrame->getSize()->getPL(), true);
+        independentFrame->getSize()->getPL(), true, true);
     followedFrame->setPosition(position);
 }
 
@@ -48,14 +48,14 @@ pxint Camera::shiftToScreenPosX(int accurateWorldX) {
     /**
     * Position of object -> shift by position of camera -> convert position to pixels
     */
-    return (accurateWorldX - getPosition()->getPX()) * tileSizePx / representationComaValue;
+    return (accurateWorldX - getPosition()->getPX()) * tileSizePx / representationComaValue + displayWidth / 2;
 }
 
 pxint Camera::shiftToScreenPosZ(int accurateWorldZ) {
     /**
     * Position of object -> shift by position of camera -> convert position to pixels
     */
-    return (accurateWorldZ - getPosition()->getPZ()) * tileSizePx / representationComaValue;
+    return (accurateWorldZ - getPosition()->getPZ()) * tileSizePx / representationComaValue + displayHeight / 2;
 }
 
 void handleMovement(ALLEGRO_EVENT *ae, void *obj) {
