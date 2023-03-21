@@ -8,20 +8,16 @@ Size *DynamicCollider::size() {
     return collider->getBody()->getSize();
 }
 
-DynamicCollider::DynamicCollider(Collider *collider, Mobility *mobility) :
-    collider(collider), mobility(mobility)
+DynamicCollider::DynamicCollider(Collider *collider) :
+    collider(collider)
 { }
-
-Mobility *DynamicCollider::getMobility() {
-    return mobility;
-}
 
 Collider *DynamicCollider::getCollider() {
     return collider;
 }
 
 void DynamicCollider::setPosition(Position &position) {
-    mobility->getBody()->setPosition(position);
+    collider->getBody()->setPosition(position);
 }
 
 void DynamicCollider::updateNewPositionWithColliders(Position &nP, std::unordered_set<Collider *> &colliders) { // FIXME: Not working properly

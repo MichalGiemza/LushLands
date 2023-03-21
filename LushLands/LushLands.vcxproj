@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -156,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ActionMap.cpp" />
+    <ClCompile Include="AngleTools.cpp" />
     <ClCompile Include="Animal.cpp" />
     <ClCompile Include="Appearance.cpp" />
     <ClCompile Include="Body.cpp" />
@@ -174,6 +175,8 @@
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="DynamicCollider.cpp" />
     <ClCompile Include="EventTypes.h" />
+    <ClCompile Include="FileToArray.cpp" />
+    <ClCompile Include="Humanoid.cpp" />
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="Controller.cpp" />
@@ -191,6 +194,8 @@
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="LushLands.cpp" />
     <ClCompile Include="Mobility.cpp" />
+    <ClCompile Include="NameGenerator.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="RandomWalk.cpp" />
     <ClCompile Include="Random_.cpp" />
@@ -210,6 +215,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionMap.h" />
+    <ClInclude Include="AngleTools.h" />
     <ClInclude Include="Animal.h" />
     <ClInclude Include="Appearance.h" />
     <ClInclude Include="Body.h" />
@@ -232,6 +238,8 @@
     <ClInclude Include="DynamicCollider.h" />
     <ClInclude Include="EntityConstants.h" />
     <ClInclude Include="Events.h" />
+    <ClInclude Include="FileToArray.h" />
+    <ClInclude Include="Humanoid.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="ControlManager.h" />
@@ -251,6 +259,8 @@
     <ClInclude Include="Logger.h" />
     <ClInclude Include="LushLands.h" />
     <ClInclude Include="Mobility.h" />
+    <ClInclude Include="NameGenerator.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="PositionStructures.h" />
     <ClInclude Include="RandomWalk.h" />

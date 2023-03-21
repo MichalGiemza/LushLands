@@ -12,7 +12,7 @@ void ChunkRepresentationManager::updateVisibleChunkRepresentations() {
                 Logger::log(lg::DEBUG_CHUNK, "Chunk [%i, %i] was not loaded yet!", cPos.x, cPos.z);
                 continue;
             }
-            chunkRepresentations[cPos] = new ChunkRepresentation(display, cPos, *chunk->getGround(), *chunk->getStructures(), *chunk->getAnimals(), textureManager);
+            chunkRepresentations[cPos] = new ChunkRepresentation(display, cPos, *chunk->getGround(), *chunk->getStructures(), *chunk->getAnimals(), *chunk->getHumanoids(), textureManager);
         }
     }
 }
@@ -40,9 +40,11 @@ void ChunkRepresentationManager::draw() {
             drawGround(cRep, level);
             drawStructures(cRep, level);
             drawAnimals(cRep, level);
+            drawHumanoids(cRep, level);
             if (DEBUG) {
                 drawAnimalDebug(cRep, level);
                 drawStructureDebug(cRep, level);
+                drawHumanoidDebug(cRep, level);
                 drawChunkDebug(cRep);
             }
         }
@@ -78,14 +80,32 @@ void ChunkRepresentationManager::drawStructures(ChunkRepresentation *cRep, int l
 
 void ChunkRepresentationManager::drawAnimals(ChunkRepresentation *cRep, int level) { // TODO: Uogólniæ to i struktury do draw independent structure i póŸniej jednoliniowe metody o tych nazwach dobieraj¹ce w³aœciwy zestaw do rysowania do uogólnionej metody
     auto animals = cRep->getAnimals();
-    for (auto sPair = animals->begin(); sPair != animals->end(); ++sPair) {
-        if (sPair->first.y != level)
+    for (auto entity = animals->begin(); entity != animals->end(); ++entity) {
+        auto anm = (Animal *)(*entity);
+        if (anm->getPosition()->getY() != level)
             continue;
-        auto anm = (Animal *)sPair->second;
         auto ctr = anm->getBody()->getCenter();
         auto size = anm->getSize();
         // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
-        auto sBitmap = textureManager->getEntityTexture(sPair->second->getType());
+        auto sBitmap = textureManager->getEntityTexture(anm->getType());
+
+        pxint x1 = shiftTexturePositionX(camera->shiftToScreenPosX(ctr->getPX()), al_get_bitmap_width(sBitmap), size->getCameraW());
+        pxint z1 = shiftTexturePositionZ(camera->shiftToScreenPosZ(ctr->getPZ()), al_get_bitmap_height(sBitmap), size->getCameraL());
+
+        al_draw_bitmap(sBitmap, x1, z1, 0);
+    }
+}
+
+void ChunkRepresentationManager::drawHumanoids(ChunkRepresentation *cRep, int level) { // TODO: Uogólniæ to i struktury do draw independent structure i póŸniej jednoliniowe metody o tych nazwach dobieraj¹ce w³aœciwy zestaw do rysowania do uogólnionej metody
+    auto humanoids = cRep->getHumanoids();
+    for (auto entity = humanoids->begin(); entity != humanoids->end(); ++entity) {
+        auto hmn = (Humanoid *)(*entity);
+        if (hmn->getPosition()->getY() != level)
+            continue;
+        auto ctr = hmn->getBody()->getCenter();
+        auto size = hmn->getSize();
+        // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
+        auto sBitmap = textureManager->getEntityTexture(hmn->getType());
 
         pxint x1 = shiftTexturePositionX(camera->shiftToScreenPosX(ctr->getPX()), al_get_bitmap_width(sBitmap), size->getCameraW());
         pxint z1 = shiftTexturePositionZ(camera->shiftToScreenPosZ(ctr->getPZ()), al_get_bitmap_height(sBitmap), size->getCameraL());
@@ -123,14 +143,14 @@ void ChunkRepresentationManager::drawStructureDebug(ChunkRepresentation *cRep, i
 
 void ChunkRepresentationManager::drawAnimalDebug(ChunkRepresentation *cRep, int level) { // TODO: To te¿ uogólniæ
     auto animals = cRep->getAnimals();
-    for (auto sPair = animals->begin(); sPair != animals->end(); ++sPair) {
-        if (sPair->first.y != level)
+    for (auto entity = animals->begin(); entity != animals->end(); ++entity) {
+        auto anm = (Animal *)(*entity);
+        if (anm->getPosition()->getY() != level)
             continue;
-        auto anm = (Animal *)sPair->second; 
         auto ctr = anm->getBody()->getCenter();
         auto size = anm->getSize();
         // Draw outline
-        auto sBitmap = textureManager->getEntityTexture(sPair->second->getType()); // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
+        auto sBitmap = textureManager->getEntityTexture(anm->getType()); // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
         pxint x1 = camera->shiftToScreenPosX(ctr->getPX()) - size->getCameraW() / 2;
         pxint z1 = camera->shiftToScreenPosZ(ctr->getPZ()) - size->getCameraL() / 2;
         pxint x2 = camera->shiftToScreenPosX(ctr->getPX()) + size->getCameraW() / 2;
@@ -151,6 +171,41 @@ void ChunkRepresentationManager::drawAnimalDebug(ChunkRepresentation *cRep, int 
             z1 = camera->shiftToScreenPosZ(ctr->getPZ());
             x2 = camera->shiftToScreenPosX(ctr->getPX() - std::sin(anm->getMobility()->getDirection()) * anm->getMobility()->getMovementSpeed() * 100);
             z2 = camera->shiftToScreenPosZ(ctr->getPZ() + std::cos(anm->getMobility()->getDirection()) * anm->getMobility()->getMovementSpeed() * 100);
+            al_draw_line(x1, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 1.0f);
+        }
+    }
+}
+
+void ChunkRepresentationManager::drawHumanoidDebug(ChunkRepresentation *cRep, int level) { // TODO: To te¿ uogólniæ
+    auto humanoids = cRep->getHumanoids();
+    for (auto entity = humanoids->begin(); entity != humanoids->end(); ++entity) {
+        auto hmn = (Humanoid *)(*entity);
+        if (hmn->getPosition()->getY() != level)
+            continue;
+        auto ctr = hmn->getBody()->getCenter();
+        auto size = hmn->getSize();
+        // Draw outline
+        auto sBitmap = textureManager->getEntityTexture(hmn->getType()); // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
+        pxint x1 = camera->shiftToScreenPosX(ctr->getPX()) - size->getCameraW() / 2;
+        pxint z1 = camera->shiftToScreenPosZ(ctr->getPZ()) - size->getCameraL() / 2;
+        pxint x2 = camera->shiftToScreenPosX(ctr->getPX()) + size->getCameraW() / 2;
+        pxint z2 = camera->shiftToScreenPosZ(ctr->getPZ()) + size->getCameraL() / 2;
+        al_draw_rectangle(x1, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 1.0f);
+        // Draw collision indicators
+        if (hmn->getCollider()->isInCollisionLeft())
+            al_draw_line(x1, z1, x1, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
+        if (hmn->getCollider()->isInCollisionRight())
+            al_draw_line(x2, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
+        if (hmn->getCollider()->isInCollisionTop())
+            al_draw_line(x1, z1, x2, z1, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
+        if (hmn->getCollider()->isInCollisionBottom())
+            al_draw_line(x1, z2, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
+        // Draw direction vector
+        if (not std::isnan(hmn->getMobility()->getDirection())) {
+            x1 = camera->shiftToScreenPosX(ctr->getPX());
+            z1 = camera->shiftToScreenPosZ(ctr->getPZ());
+            x2 = camera->shiftToScreenPosX(ctr->getPX() - std::sin(hmn->getMobility()->getDirection()) * hmn->getMobility()->getMovementSpeed() * 100);
+            z2 = camera->shiftToScreenPosZ(ctr->getPZ() + std::cos(hmn->getMobility()->getDirection()) * hmn->getMobility()->getMovementSpeed() * 100);
             al_draw_line(x1, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 1.0f);
         }
     }

@@ -27,6 +27,8 @@ typedef long long miliseconds;
 typedef float radian;
 typedef const char *season;
 typedef const char *updatetype;
+typedef const char *name;
+typedef const char *gendertype;
 
 struct FieldPlan {
     entitytype ground;

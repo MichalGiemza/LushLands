@@ -5,7 +5,8 @@ Structure::Structure(const entitytype entityType, const std::string &description
     entityUpdater(),
     appearance(color),
     body(position, size),
-    collider(&body) {
+    collider(&body),
+    gameElement(ft::STRUCTURE, fp::STRUCTURE, fg::SIMULATION) {
 
     //Logger::log(ll::DEBUG_ENTITY, "Created Structure entity [%s;%i,%i]", entityType, position.x(), position.z());
 }
@@ -32,4 +33,8 @@ Collider *Structure::getCollider() {
 
 Body *Structure::getBody() {
     return &body;
+}
+
+GameElement *Structure::getGameElement() {
+    return &gameElement;
 }

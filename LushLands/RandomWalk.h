@@ -13,8 +13,8 @@ class RandomWalk {
     /**
     * Entity module responsible for automatic wandering.
     */
-    DynamicCollider *dynamicCollider;
     EntityUpdater *entityUpdater;
+    Mobility *mobility;
 
     miliseconds continueActionUntil = 0;
     actiontype currentAction = 0;
@@ -23,7 +23,7 @@ private:
     void setNewAction(miliseconds currentTime);
 public:
     // Constructors and main methods
-    RandomWalk(DynamicCollider *dynamicCollider, EntityUpdater *entityUpdater, miliseconds walkInterval);
+    RandomWalk(Mobility *mobility, EntityUpdater *entityUpdater, miliseconds walkInterval);
 
     // Getters, Setters
     Mobility *getMobility();

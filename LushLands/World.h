@@ -9,6 +9,7 @@
 #include "ChickenBoxWorldPlanner.h"
 #include "WorldEvents.h"
 #include "Logger.h"
+#include "Player.h"
 
 class World  {
     /** 
@@ -36,5 +37,5 @@ public:
     Time *getWorldTime();
     ChunkLoadManager *getChunkLoadManager();
     std::vector<Entity *> getByPosition(Position position); // TODO: Dla klikania myszk¹
-    void placePlayer(Entity *player, Position position);
+    void placePlayer(Player *player);
 };

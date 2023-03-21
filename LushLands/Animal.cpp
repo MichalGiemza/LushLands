@@ -6,9 +6,10 @@ Animal::Animal(const entitytype entityType, const std::string &description, Posi
     appearance(color),
     body(position, size),
     collider(&body),
-    mobility(&body, movementSpeed),
-    dynamicCollider(&collider, &mobility),
-    randomWalk(&dynamicCollider, &entityUpdater, walkInterval) {
+    dynamicCollider(&collider),
+    mobility(&dynamicCollider, &entityUpdater, movementSpeed),
+    randomWalk(&mobility, &entityUpdater, walkInterval),
+    gameElement(ft::ANIMAL, fp::ANIMAL, fg::SIMULATION) {
 
     //Logger::log(ll::DEBUG_ENTITY, "Created Animal entity [%s;%i,%i]", entityType, position.x(), position.z());
 }
@@ -46,4 +47,8 @@ Body *Animal::getBody() {
 
 Mobility *Animal::getMobility() {
     return &mobility;
+}
+
+GameElement *Animal::getGameElement() {
+    return &gameElement;
 }

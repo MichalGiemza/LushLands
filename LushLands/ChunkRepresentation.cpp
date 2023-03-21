@@ -36,8 +36,8 @@ void ChunkRepresentation::drawLevelTilesToBitmap(int level) {
     }
 }
 
-ChunkRepresentation::ChunkRepresentation(Display *display, ChunkPosition chunkPosition, std::unordered_map<TilePosition, Entity *> &groundTiles, std::unordered_map<TilePosition, Entity *> &structures, std::unordered_map<TilePosition, Entity *> &animals, TextureManager *textureManager) : 
-    groundTiles(groundTiles), structures(structures), animals(animals),
+ChunkRepresentation::ChunkRepresentation(Display *display, ChunkPosition chunkPosition, std::unordered_map<TilePosition, Entity *> &groundTiles, std::unordered_map<TilePosition, Entity *> &structures, std::unordered_set<Entity *> &animals, std::unordered_set<Entity *> &humanoids, TextureManager *textureManager) :
+    groundTiles(groundTiles), structures(structures), animals(animals), humanoids(humanoids),
     textureManager(textureManager), chunkPosition(chunkPosition), display(display) {
     this->position = Position(chunkPosition);
     this->area = new Rectangle_(0, 0, chunkSizeByTiles, chunkSizeByTiles);
@@ -62,8 +62,12 @@ std::unordered_map<TilePosition, Entity *> *ChunkRepresentation::getStructures()
     return &structures;
 }
 
-std::unordered_map<TilePosition, Entity *> *ChunkRepresentation::getAnimals() {
+std::unordered_set<Entity *> *ChunkRepresentation::getAnimals() {
     return &animals;
+}
+
+std::unordered_set<Entity *> *ChunkRepresentation::getHumanoids() {
+    return &humanoids;
 }
 
 ChunkPosition *ChunkRepresentation::getChunkPosition() {

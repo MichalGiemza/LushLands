@@ -2,12 +2,14 @@
 #include "Entity.h"
 #include "RandomWalk.h"
 #include "Appearance.h"
+#include "GameElement.h"
 
 class Animal : public Entity {
     /**
     * Representation of animal.
     *
     */
+    GameElement gameElement;
     EntityUpdater entityUpdater;
     Appearance appearance;
     Body body;
@@ -29,5 +31,6 @@ public:
     Collider *getCollider();
     Mobility *getMobility();
     Body *getBody();
+    GameElement *getGameElement();
 };
 

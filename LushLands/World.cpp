@@ -34,6 +34,14 @@ ChunkLoadManager *World::getChunkLoadManager() {
     return chunkSystem->getChunkLoadManager();
 }
 
+void World::placePlayer(Player *player) {
+    Humanoid *h = (Humanoid *)player->getEntity();
+    Position *p = h->getPosition();
+    Chunk *c = chunkSystem->getChunk(p->getChunkPosition());
+    c->placeHumanoid(h);
+    worldEvents->registerPlayer(player);
+}
+
 void World::update(miliseconds dt) {
     // Game time elapsed
     ChunkPositionsSet *activeChunks = getChunkLoadManager()->getLoadedChunkList();

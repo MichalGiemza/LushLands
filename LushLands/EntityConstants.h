@@ -124,3 +124,11 @@ const TextureLocalization CHICKEN_TEXTURE_LOCALIZATION = TextureLocalization(0, 
 const cstint CHICKEN_MOVEMENT_SPEED = 600;
 const miliseconds CHICKEN_WALK_INTERVAL = 1000;
 
+
+/*    Humanoids    */
+const entitytype HUMAN = "human";
+const Color HUMAN_COLOR = Color(250, 240, 230, 255);
+const std::string HUMAN_DESCRIPTION = "A living human, they are everywhere.";
+const Size HUMAN_SIZE = Size(1.0f, 1.0f, 1.0f);
+const TextureLocalization HUMAN_TEXTURE_LOCALIZATION = TextureLocalization(0, 0, "..\\Assets\\textures\\FREE Mana Seed Character Base Demo\\char_a_p1\\char_a_p1_0bas_humn_v01.png", 64, 64);
+const cstint HUMAN_MOVEMENT_SPEED = 10000;

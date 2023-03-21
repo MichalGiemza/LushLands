@@ -25,9 +25,9 @@ FieldPlan FlatlandWorldPlanner::getFieldPlan(Position position) {
         return fp;
     }
     // Exposed ground level
-    if (position.getX() == 0 or position.getZ() == 0) {
-        fp.ground = FARMLAND;
-        fp.structure = FLOWER_YELLOW;
+    if (position.getX() == 0 or position.getZ() == 0 or position.getX() == -1 or position.getZ() == -1) {
+        fp.ground = COBBLE;
+        fp.structure = 0;
         fp.animal = 0;
         return fp;
     }

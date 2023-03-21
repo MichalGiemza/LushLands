@@ -133,9 +133,6 @@
     <ClCompile Include="Animal.cpp">
       <Filter>src\Simulation\World\Entities\Concrete</Filter>
     </ClCompile>
-    <ClCompile Include="Random_.cpp">
-      <Filter>src\Core</Filter>
-    </ClCompile>
     <ClCompile Include="EventTypes.h">
       <Filter>src\Core</Filter>
     </ClCompile>
@@ -159,6 +156,24 @@
     </ClCompile>
     <ClCompile Include="ChickenBoxWorldPlanner.cpp">
       <Filter>src\Simulation\World\WorldPlanners</Filter>
+    </ClCompile>
+    <ClCompile Include="Humanoid.cpp">
+      <Filter>src\Simulation\World\Entities\Concrete</Filter>
+    </ClCompile>
+    <ClCompile Include="NameGenerator.cpp">
+      <Filter>src\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>src\Simulation\World\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="FileToArray.cpp">
+      <Filter>src\Core\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Random_.cpp">
+      <Filter>src\Core\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="AngleTools.cpp">
+      <Filter>src\Core\Tools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -303,9 +318,6 @@
     <ClInclude Include="Animal.h">
       <Filter>src\Simulation\World\Entities\Concrete</Filter>
     </ClInclude>
-    <ClInclude Include="Random_.h">
-      <Filter>src\Core</Filter>
-    </ClInclude>
     <ClInclude Include="Colors.h">
       <Filter>src\Core</Filter>
     </ClInclude>
@@ -341,6 +353,24 @@
     </ClInclude>
     <ClInclude Include="ChickenBoxWorldPlanner.h">
       <Filter>src\Simulation\World\WorldPlanners</Filter>
+    </ClInclude>
+    <ClInclude Include="Humanoid.h">
+      <Filter>src\Simulation\World\Entities\Concrete</Filter>
+    </ClInclude>
+    <ClInclude Include="NameGenerator.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>src\Simulation\World\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="FileToArray.h">
+      <Filter>src\Core\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Random_.h">
+      <Filter>src\Core\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="AngleTools.h">
+      <Filter>src\Core\Tools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -406,6 +436,9 @@
     </Filter>
     <Filter Include="src\Simulation\World\Events">
       <UniqueIdentifier>{14eea98d-a9f1-45f1-bb1a-a0c83beb6e09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Core\Tools">
+      <UniqueIdentifier>{0d40a4d4-bb5e-4282-9eb7-d7f61a311bf1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

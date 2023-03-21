@@ -4,13 +4,15 @@ int Camera::level() {
     return getFrame()->getPosition()->getY();
 }
 
-Camera::Camera(Position *startingPosition, Focus *focus, InputEvents *inputEvents) : GameElement(f::CAMERA, INT_MAX, f::STATIC_UI) {
+Camera::Camera(Position *startingPosition, Focus *focus, InputEvents *inputEvents) : GameElement(ft::CAMERA, fp::DEFAULT, fg::STATIC_UI) {
     int inGameScreenW = displayWidth / tileSizePx;
     int inGameScreenH = displayHeight / tileSizePx;
     independentFrame = new Rectangle_(0, 0, inGameScreenW, inGameScreenH);
 
     this->independentFrame->setPosition(startingPosition);
-    focus->setFocusedObject(this);
+    if (not focus->getFocusedObject())
+        focus->setFocusedObject(this);
+
     inputEvents->subscribeSystemEvent(camera_move_north, handleMovement, this);
     inputEvents->subscribeSystemEvent(camera_move_south, handleMovement, this);
     inputEvents->subscribeSystemEvent(camera_move_east, handleMovement, this);

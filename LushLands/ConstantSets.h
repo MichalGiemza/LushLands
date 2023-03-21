@@ -1,15 +1,12 @@
 #pragma once
 #include "DataTypes.h"
 
-namespace focus {
-    // Object Groups
-    const objectgroup STATIC_UI = "static_ui";
-    const objectgroup WORLD_UI = "world_ui";
-    const objectgroup SIMULATION = "simulation";
-
+namespace focus_type {
     // Object Types (world)
     const objecttype GROUND = "ground";
     const objecttype STRUCTURE = "structure";
+    const objecttype ANIMAL = "animal";
+    const objecttype HUMANOID = "humanoid";
     const objecttype ITEM_IN_INVENTORY = "item_in_inventory";
     const objecttype ITEM_PUT_ON_GROUND = "item_put_on_ground";
     // Object Types (ui)
@@ -17,11 +14,23 @@ namespace focus {
     const objecttype CONSOLE = "console";
     const objecttype UI_WINDOW = "ui_window";
 }
-namespace f = focus;
+namespace ft = focus_type;
+
+namespace focus_group {
+    // Object Groups
+    const objectgroup STATIC_UI = "static_ui";
+    const objectgroup WORLD_UI = "world_ui";
+    const objectgroup SIMULATION = "simulation";
+}
+namespace fg = focus_group;
 
 namespace focus_priority {
     // Focus priority
     const priority DEFAULT = USHRT_MAX;
+    const priority GROUND = 15000;
+    const priority STRUCTURE = 7500;
+    const priority ANIMAL = 5000;
+    const priority HUMANOID = 2000;
     const priority UI = 1024;
     const priority CONSOLE = 1;
 }
@@ -47,6 +56,14 @@ namespace random_actions {
     const actiontype waiting = "waiting";
 }
 namespace ra = random_actions;
+
+namespace genders {
+    const gendertype male = "male";
+    const gendertype female = "female";
+    const gendertype none = "none";
+    const gendertype other = "other";
+}
+namespace gdr = genders;
 
 // Scene types
 const scenename GAMEPLAY_SCENE = "gameplay";
@@ -79,3 +96,8 @@ const rawpath openSansSBFont = "fonts/OpenSans-Semibold.ttf";
 const updatetype no_update = "no_update";
 const updatetype random_tick = "random_tick";
 const updatetype constant_update = "constant_update";
+
+// Name sets
+const rawpath common_male_names_path = "..\\Assets\\text\\common_male_names.txt";
+const rawpath common_female_names_path = "..\\Assets\\text\\common_female_names.txt";
+const rawpath common_neutral_names_path = "..\\Assets\\text\\common_female_names.txt";

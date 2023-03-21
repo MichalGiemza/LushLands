@@ -23,7 +23,8 @@ private:
     ChunkPosition chunkPosition;
     std::unordered_map<TilePosition, Entity *> groundTiles;
     std::unordered_map<TilePosition, Entity *> structures;
-    std::unordered_map<TilePosition, Entity *> animals;
+    std::unordered_set<Entity *> animals;
+    std::unordered_set<Entity *> humanoids;
     EntityFactory *entityFactory;
     CollisionManager collisionManager;
     ChunkEvents chunkEvents;
@@ -32,19 +33,20 @@ private:
 private:
     void generateTiles(ChunkPlan &chunkPlan);
     void generateStructures(ChunkPlan &chunkPlan);
-    void generateAnimal(ChunkPlan &chunkPlan);
+    void generateAnimals(ChunkPlan &chunkPlan);
     Structure *addStructure(entitytype entityType, Position &position);
     Animal *addAnimal(entitytype entityType, Position &position);
 public:
     Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory);
+    void placeHumanoid(Humanoid *humanoid);
     Entity *getGround(TilePosition &tilePosition);
     Entity *getStructure(TilePosition &tilePosition);
-    Entity *getAnimal(TilePosition &tilePosition);
     ChunkEvents *getChunkEvents();
     CollisionManager *getCollisionManager();
     std::unordered_map<TilePosition, Entity *> *getGround();
     std::unordered_map<TilePosition, Entity *> *getStructures();
-    std::unordered_map<TilePosition, Entity *> *getAnimals();
+    std::unordered_set<Entity *> *getAnimals();
+    std::unordered_set<Entity *> *getHumanoids();
     ChunkPosition *getChunkPosition();
     int entitiesLoadedCount();
 };

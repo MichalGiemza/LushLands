@@ -16,27 +16,27 @@ void RandomWalk::setNewAction(miliseconds currentTime) {
     continueActionUntil = currentTime + (walkInterval * Random_::random(75, 125)) / 100;
 }
 
-RandomWalk::RandomWalk(DynamicCollider *dynamicCollider, EntityUpdater *entityUpdater, miliseconds walkInterval) :
-    dynamicCollider(dynamicCollider), entityUpdater(entityUpdater), walkInterval(walkInterval) {
+RandomWalk::RandomWalk(Mobility *mobility, EntityUpdater *entityUpdater, miliseconds walkInterval) :
+    mobility(mobility), entityUpdater(entityUpdater), walkInterval(walkInterval) {
     // Register to update
     EntityUpdateSubscription *es = new EntityUpdateSubscription { 0, 0, updateRandomWalk, this };
     entityUpdater->addToUpdate(es);
 }
 
 Mobility *RandomWalk::getMobility() {
-    return dynamicCollider->getMobility();
+    return mobility;
 }
 
 Position *RandomWalk::getPosition() {
-    return dynamicCollider->getMobility()->getBody()->getPosition();
+    return mobility->getBody()->getPosition();
 }
 
 DynamicCollider *RandomWalk::getDynamicCollider() {
-    return dynamicCollider;
+    return mobility->getDynamicCollider();
 }
 
 Collider *RandomWalk::getCollider() {
-    return dynamicCollider->getCollider();
+    return mobility->getDynamicCollider()->getCollider();
 }
 
 radian RandomWalk::getRandomDirection(bool forbidTop, bool forbidBottom, bool forbidLeft, bool forbidRight) {
@@ -58,13 +58,12 @@ radian RandomWalk::getRandomDirection(bool forbidTop, bool forbidBottom, bool fo
 
 void updateRandomWalk(miliseconds timeNow, miliseconds dt, void *caller) {
     RandomWalk *rw = (RandomWalk *)caller;
-    Collider *col = rw->dynamicCollider->getCollider();
 
     if (not rw->entityUpdater->getEventSource())
         return;
 
     // Change action on collision
-    if (col->isInCollision() and rw->currentAction == ra::walking)
+    if (rw->getCollider()->isInCollision() and rw->currentAction == ra::walking)
         rw->setNewAction(timeNow);
 
     // Action timed out, select new one
@@ -72,17 +71,7 @@ void updateRandomWalk(miliseconds timeNow, miliseconds dt, void *caller) {
         rw->setNewAction(timeNow);
 
     // Make step
-    if (rw->currentAction == ra::walking) {
-        // Create desired position
-        Position *newPos = new Position(*rw->dynamicCollider->getCollider()->getBody()->getPosition());
-        newPos->setPX(newPos->getPX() - std::sin(rw->getMobility()->getDirection()) * rw->getMobility()->getMovementSpeed());
-        newPos->setPZ(newPos->getPZ() + std::cos(rw->getMobility()->getDirection()) * rw->getMobility()->getMovementSpeed()); // TODO: - sin + cos -> czy napewno tak jest dobrze?
-        // Send event
-        ALLEGRO_EVENT *ae = (ALLEGRO_EVENT *)new ALLEGRO_EVENT {}; 
-        ae->user.type = mob_attempt_go;
-        ae->user.data1 = (intptr_t)rw->getDynamicCollider();
-        ae->user.data2 = (intptr_t)newPos;
-        al_emit_user_event(rw->entityUpdater->getEventSource(), ae, NULL);
-    }
+    if (rw->currentAction == ra::walking)
+        rw->getMobility()->attemptMovement();
 }
 

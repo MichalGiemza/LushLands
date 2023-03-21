@@ -1,6 +1,10 @@
 #include "EntityFactory.h"
 
 
+EntityFactory::EntityFactory() {
+    nameGenerator = new NameGenerator(common_male_names_path, common_female_names_path, common_neutral_names_path);
+}
+
 Entity *EntityFactory::buildEntity(entitytype entityType, Position &position) {
     /*    Empty    */
     if (entityType == AIR or entityType == 0)
@@ -40,4 +44,11 @@ Entity *EntityFactory::buildEntity(entitytype entityType, Position &position) {
     /*    Animal    */
     if (entityType == CHICKEN)
         return new Animal(CHICKEN, CHICKEN_DESCRIPTION, position, CHICKEN_SIZE, CHICKEN_COLOR, CHICKEN_MOVEMENT_SPEED, CHICKEN_WALK_INTERVAL);
+    /*    Humanoids    */
+    if (entityType == HUMAN) {
+        gendertype gender = rand() % 2 ? gdr::male : gdr::female;
+        name firstName = nameGenerator->getCommonName(gender);
+        name lastName = nameGenerator->getCommonName(gender);
+        return new Humanoid(HUMAN, HUMAN_DESCRIPTION, position, HUMAN_SIZE, HUMAN_COLOR, HUMAN_MOVEMENT_SPEED, firstName, lastName, gender);
+    }
 }

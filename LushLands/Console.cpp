@@ -8,7 +8,7 @@ int Console::determineChatW() {
     return displayWidth / 3;
 }
 
-Console::Console(Display *display, TextureManager *textureManager) : StaticUIElement(f::CONSOLE, fp::CONSOLE) {
+Console::Console(Display *display, TextureManager *textureManager) : StaticUIElement(ft::CONSOLE, fp::CONSOLE) {
     this->textureManager = textureManager;
     this->display = display;
     if (DEBUG)

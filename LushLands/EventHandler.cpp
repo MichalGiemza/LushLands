@@ -22,12 +22,12 @@ void EventHandler::registerChunkEvents(std::unordered_map<ChunkPosition, ISimula
 void handleKeyboardKey(ALLEGRO_EVENT *ae, void *obj) {
     EventHandler *eh = (EventHandler *)obj;
     auto fo = eh->focus->getFocusedObject();
-    if (fo->getObjGroup() == f::SIMULATION && eh->worldEvents) {
+    if (fo->getObjGroup() == fg::SIMULATION && eh->worldEvents) {
         ALLEGRO_EVENT newEvent {};
         newEvent.user.type = eh->actionMap->mapToWorldAction(ae->keyboard.keycode);
         al_emit_user_event(eh->worldEvents->getEventSource(), &newEvent, NULL);
     }
-    if (fo->getObjType() == f::CAMERA) {
+    if (fo->getObjType() == ft::CAMERA) {
         ALLEGRO_EVENT newEvent {};
         newEvent.user.type = eh->actionMap->mapToSystemAction(ae->keyboard.keycode);
         al_emit_user_event(eh->inputEvents->getEventSource(), &newEvent, NULL);
@@ -37,7 +37,7 @@ void handleKeyboardKey(ALLEGRO_EVENT *ae, void *obj) {
 void handleKeyboardLetter(ALLEGRO_EVENT *ae, void *obj) {
     EventHandler *eh = (EventHandler *)obj;
     auto fo = eh->focus->getFocusedObject();
-    if (fo->getObjGroup() == f::STATIC_UI || fo->getObjGroup() == f::WORLD_UI) {
+    if (fo->getObjGroup() == fg::STATIC_UI || fo->getObjGroup() == fg::WORLD_UI) {
         ALLEGRO_EVENT newEvent {};
         newEvent.user.type = letter_typed;
         al_emit_user_event(eh->inputEvents->getEventSource(), &newEvent, NULL);

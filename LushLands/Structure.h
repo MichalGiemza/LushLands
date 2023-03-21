@@ -3,11 +3,14 @@
 #include "Body.h"
 #include "Appearance.h"
 #include "Collider.h"
+#include "GameElement.h"
+
 
 class Structure : public Entity {
     /**
     * Structure
     */
+    GameElement gameElement;
     EntityUpdater entityUpdater; // Zamieniæ to potem na strategiê mo¿e? EntityUpdater/RandomTickUpdater/Nic
     Appearance appearance;
     Body body;
@@ -23,5 +26,6 @@ public:
     const Color *getColor();
     Collider *getCollider();
     Body *getBody();
+    GameElement *getGameElement();
 };
 

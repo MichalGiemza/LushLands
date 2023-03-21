@@ -38,6 +38,8 @@ void TextureManager::loadAllTextures() {
     textures[LOG] = loadTexture(LOG_TEXTURE_LOCALIZATION);
 
     textures[CHICKEN] = loadTexture(CHICKEN_TEXTURE_LOCALIZATION);
+
+    textures[HUMAN] = loadTexture(HUMAN_TEXTURE_LOCALIZATION);
 }
 
 ALLEGRO_BITMAP *TextureManager::getEntityTexture(entitytype entityType) {

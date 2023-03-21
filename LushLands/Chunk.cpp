@@ -50,7 +50,7 @@ Structure *Chunk::addStructure(entitytype entityType, Position &position) {
     return structure;
 }
 
-void Chunk::generateAnimal(ChunkPlan &chunkPlan) {
+void Chunk::generateAnimals(ChunkPlan &chunkPlan) {
     auto referencePosition = Position(chunkPosition);
     auto pos = Position(referencePosition);
 
@@ -64,7 +64,7 @@ void Chunk::generateAnimal(ChunkPlan &chunkPlan) {
                 Animal *animal = addAnimal(plannedEntityType, pos);
                 if (animal == 0)
                     continue;
-                animals[pos.getTilePosition()] = animal;
+                animals.insert(animal);
                 toUpdateEntities.insert(animal->getEntityUpdater()); // Fixme: Przywróciæ metodê przydzielaj¹c¹!
             }
         }
@@ -80,6 +80,11 @@ Animal *Chunk::addAnimal(entitytype entityType, Position &position) {
     return animal;
 }
 
+void Chunk::placeHumanoid(Humanoid *humanoid) {
+    humanoids.insert(humanoid);
+    humanoid->getEntityUpdater()->registerParentEventSource(chunkEvents.getEventSource());
+}
+
 Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory) :
     collisionManager(),
     chunkEvents(&chunkPosition, &collisionManager, &randomTickEntities, &toUpdateEntities) {
@@ -88,7 +93,7 @@ Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *e
     // Entities
     generateTiles(chunkPlan);
     generateStructures(chunkPlan);
-    generateAnimal(chunkPlan);
+    generateAnimals(chunkPlan);
 
     Logger::log(lg::DEBUG_CHUNK, "Created Chunk [%i, %i]", chunkPosition.x, chunkPosition.z);
 }
@@ -99,10 +104,6 @@ Entity *Chunk::getGround(TilePosition &tilePosition) {
 
 Entity *Chunk::getStructure(TilePosition &tilePosition) {
     return structures[tilePosition];
-}
-
-Entity *Chunk::getAnimal(TilePosition &tilePosition) {
-    return animals[tilePosition];
 }
 
 ChunkEvents *Chunk::getChunkEvents() {
@@ -121,8 +122,12 @@ std::unordered_map<TilePosition, Entity *> *Chunk::getStructures() {
     return &structures;
 }
 
-std::unordered_map<TilePosition, Entity *> *Chunk::getAnimals() {
+std::unordered_set<Entity *> *Chunk::getAnimals() {
     return &animals;
+}
+
+std::unordered_set<Entity *> *Chunk::getHumanoids() {
+    return &humanoids;
 }
 
 ChunkPosition *Chunk::getChunkPosition() {
