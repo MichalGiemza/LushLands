@@ -83,6 +83,7 @@ Animal *Chunk::addAnimal(entitytype entityType, Position &position) {
 void Chunk::placeHumanoid(Humanoid *humanoid) {
     humanoids.insert(humanoid);
     humanoid->getEntityUpdater()->registerParentEventSource(chunkEvents.getEventSource());
+    collisionManager.addCollider(humanoid->getCollider());
 }
 
 Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory) :

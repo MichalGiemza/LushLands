@@ -5,15 +5,15 @@
 
 
 // Chunk event types
-const simulationevent mob_attempt_go = CHAR_ID('M', 'A', 'G', 0); //data1: DynamicCollider, data2:desiredPosition;
+const simulationevent mobility_attempt_go = CHAR_ID('M', 'A', 'G', 0); //data1: DynamicCollider, data2:desiredPosition;
 
 
 // World event types
-const simulationevent player_attempt_go_north = CHAR_ID('P', 'A', 'G', 0);
-const simulationevent player_attempt_go_south = player_attempt_go_north + 1;
-const simulationevent player_attempt_go_east = player_attempt_go_north + 2;
-const simulationevent player_attempt_go_west = player_attempt_go_north + 3;
-const simulationevent player_attempt_use = CHAR_ID('P', 'A', 'U', 0);
+const simulationevent player_wills_go_north = CHAR_ID('P', 'A', 'G', 0);
+const simulationevent player_wills_go_south = player_wills_go_north + 1;
+const simulationevent player_wills_go_east = player_wills_go_north + 2;
+const simulationevent player_wills_go_west = player_wills_go_north + 3;
+const simulationevent player_wills_use = CHAR_ID('P', 'A', 'U', 0);
 
 // System Event Types
 const systemevent letter_typed = CHAR_ID('U', 'L', 'T', 0);

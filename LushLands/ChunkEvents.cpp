@@ -25,7 +25,7 @@ void ChunkEvents::update(miliseconds timeNow, miliseconds dt) {
             throw new std::logic_error(system_event_in_chunk_event_queue);
 
         switch (currentEvent->type) {
-        case mob_attempt_go:
+        case mobility_attempt_go:
             chunkEventHandler.handleMobMovementAttempt(currentEvent);
             break;
         default:

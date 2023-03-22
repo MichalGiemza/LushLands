@@ -22,19 +22,19 @@ void WorldEvents::update(miliseconds timeNow, miliseconds dt) {
             throw new std::logic_error(system_event_in_world_event_queue);
 
         switch (currentEvent->type) {
-        case player_attempt_go_north:
+        case player_wills_go_north:
             pN = true;
             break;
-        case player_attempt_go_south:
+        case player_wills_go_south:
             pS = true;
             break;
-        case player_attempt_go_east:
+        case player_wills_go_east:
             pE = true;
             break;
-        case player_attempt_go_west:
+        case player_wills_go_west:
             pW = true;
             break;
-        case player_attempt_use:
+        case player_wills_use:
             break;
 
         default:

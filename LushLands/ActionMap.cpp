@@ -2,11 +2,11 @@
 
 ActionMap::ActionMap() {
     worldActionMap = {
-        { ALLEGRO_KEY_W, player_attempt_go_north },
-        { ALLEGRO_KEY_S, player_attempt_go_south },
-        { ALLEGRO_KEY_A, player_attempt_go_east },
-        { ALLEGRO_KEY_D, player_attempt_go_west },
-        { ALLEGRO_KEY_E, player_attempt_use }
+        { ALLEGRO_KEY_W, player_wills_go_north },
+        { ALLEGRO_KEY_S, player_wills_go_south },
+        { ALLEGRO_KEY_A, player_wills_go_east },
+        { ALLEGRO_KEY_D, player_wills_go_west },
+        { ALLEGRO_KEY_E, player_wills_use }
     };
     systemActionMap = {
         { ALLEGRO_KEY_W, camera_move_north },
