@@ -23,6 +23,8 @@ class InputEvents {
     std::vector<TimerSubscription> subscribersTimerTPS;
     std::vector<TimerSubscription> subscribersTimerFPS;
     std::vector<SystemEventSubscription> subscribersSystemEvents;
+    std::vector<KeySubscribtion> subscribersMouseDown;
+    std::vector<MouseAxisSubscribtion> subscribersMouseAxis;
     std::unordered_map<keycode, bool> keyStates;
 private:
     void handleBeingPressedEvents();
@@ -40,6 +42,8 @@ public:
     void subscribeKeyTyped(eventfn fun, void *caller);
     void subscribeDisplayClosed(eventfn fun, void *caller);
     void subscribeDisplaySwitchedOut(eventfn fun, void *caller);
+    void subscribeMouseClick(eventfn fun, void *caller);
+    void subscribeMouseAxis(eventfn fun, void *caller);
     void subscribeTimerTPS(tickperiod tp, eventfn fun, void *caller);
     void subscribeTimerFPS(tickperiod tp, eventfn fun, void *caller);
     void subscribeSystemEvent(systemevent se, eventfn fun, void *caller);

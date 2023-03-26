@@ -19,5 +19,6 @@ class TextureManager {
 public:
     TextureManager();
     ALLEGRO_BITMAP *getEntityTexture(entitytype entityType);
+    ALLEGRO_BITMAP *getTexture(const TextureLocalization &tl);
 };
 

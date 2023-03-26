@@ -6,9 +6,11 @@ ChunkEventHandler::ChunkEventHandler(CollisionManager *collisionManager_) {
 }
 
 void ChunkEventHandler::handleMobMovementAttempt(ALLEGRO_EVENT *currentEvent) {
-    auto dynCollider = (DynamicCollider *)currentEvent->user.data1;
+    DynamicCollider *dynCollider;
+    Position *newPos;
+    EventFactory::unpackMobilityAttemptGo(currentEvent, (void **)&dynCollider, (void **)&newPos);
+
     auto collider = dynCollider->getCollider();
-    auto newPos = (Position *)currentEvent->user.data2;
     auto collidersONP = collisionManager->getCollidersObstructuringNewPosition(dynCollider, newPos);
 
     // Collision status

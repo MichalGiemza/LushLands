@@ -1,6 +1,8 @@
 #include "Position.h"
 
 
+ll Position::objectCount = 0;
+
 Position::Position(ll x, ll y, ll z, bool accurate) {
     if (accurate) {
         setPX(x);
@@ -11,36 +13,55 @@ Position::Position(ll x, ll y, ll z, bool accurate) {
         setY(y);
         setZ(z);
     }
+    objectCount += 1;
 }
 
 Position::Position(ChunkPosition &cp) {
     setX(cp.x * chunkSizeByTiles);
     setY(0);
     setZ(cp.z * chunkSizeByTiles);
+
+    objectCount += 1;
 }
 
 Position::Position(const ChunkPosition &cp) {
     setX(cp.x * chunkSizeByTiles);
     setY(0);
     setZ(cp.z * chunkSizeByTiles);
+
+    objectCount += 1;
 }
 
 Position::Position(TilePosition &tp) {
     setX(tp.x);
     setY(tp.y);
     setZ(tp.z);
+
+    objectCount += 1;
 }
 
 Position::Position(const TilePosition &tp) {
     setX(tp.x);
     setY(tp.y);
     setZ(tp.z);
+
+    objectCount += 1;
+}
+
+Position::Position(const Position &cp) : Position(cp._x, cp._y, cp._z, true) {
+    objectCount += 1;
 }
 
 Position::Position() {
     setX(0);
     setY(0);
     setZ(0);
+
+    objectCount += 1;
+}
+
+Position::~Position() {
+    objectCount -= 1;
 }
 
 ll Position::getX() const {
@@ -113,6 +134,12 @@ TilePosition Position::getTilePosition() const {
     tp.y = getY();
     tp.z = getZ();
     return tp;
+}
+
+void Position::updateTilePosition(TilePosition &tp) const {
+    tp.x = getX();
+    tp.y = getY();
+    tp.z = getZ();
 }
 
 ll Position::getInsideChunkRawX() const {

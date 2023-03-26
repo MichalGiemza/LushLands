@@ -124,9 +124,6 @@
     <ClCompile Include="StaticUIElement.cpp">
       <Filter>src\GraphicsManager\UI\Base</Filter>
     </ClCompile>
-    <ClCompile Include="Keyboard.cpp">
-      <Filter>src\Controller</Filter>
-    </ClCompile>
     <ClCompile Include="Console.cpp">
       <Filter>src\GraphicsManager\UI\Concrete</Filter>
     </ClCompile>
@@ -172,8 +169,23 @@
     <ClCompile Include="Random_.cpp">
       <Filter>src\Core\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="AngleTools.cpp">
+    <ClCompile Include="NumTools.cpp">
       <Filter>src\Core\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Keyboard.cpp">
+      <Filter>src\Controller\InputDevices</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>src\Controller\InputDevices</Filter>
+    </ClCompile>
+    <ClCompile Include="EventFactory.cpp">
+      <Filter>src\Simulation\World\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="FieldCursor.cpp">
+      <Filter>src\GraphicsManager\UI\Concrete</Filter>
+    </ClCompile>
+    <ClCompile Include="UICursor.cpp">
+      <Filter>src\GraphicsManager\UI\Concrete</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -263,9 +275,6 @@
     </ClInclude>
     <ClInclude Include="ActionMap.h">
       <Filter>src\Controller\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="Keyboard.h">
-      <Filter>src\Controller</Filter>
     </ClInclude>
     <ClInclude Include="Structure.h">
       <Filter>src\Simulation\World\Entities\Concrete</Filter>
@@ -369,8 +378,26 @@
     <ClInclude Include="Random_.h">
       <Filter>src\Core\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="AngleTools.h">
+    <ClInclude Include="NumTools.h">
       <Filter>src\Core\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Keyboard.h">
+      <Filter>src\Controller\InputDevices</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>src\Controller\InputDevices</Filter>
+    </ClInclude>
+    <ClInclude Include="EventFactory.h">
+      <Filter>src\Simulation\World\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemConstants.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="FieldCursor.h">
+      <Filter>src\GraphicsManager\UI\Concrete</Filter>
+    </ClInclude>
+    <ClInclude Include="UICursor.h">
+      <Filter>src\GraphicsManager\UI\Concrete</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -439,6 +466,9 @@
     </Filter>
     <Filter Include="src\Core\Tools">
       <UniqueIdentifier>{0d40a4d4-bb5e-4282-9eb7-d7f61a311bf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Controller\InputDevices">
+      <UniqueIdentifier>{49536009-d9bf-40e4-8df3-e89b4b1596dd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

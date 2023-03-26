@@ -35,6 +35,7 @@ void WorldEvents::update(miliseconds timeNow, miliseconds dt) {
             pW = true;
             break;
         case player_wills_use:
+            printf("");
             break;
 
         default:
@@ -42,10 +43,11 @@ void WorldEvents::update(miliseconds timeNow, miliseconds dt) {
         }
     }
     // Apply collected changes
-    radian direction = AngleTools::directionToRadian(pN, pS, pE, pW);
+    radian direction = NumTools::directionToRadian(pN, pS, pE, pW);
     playerMobility->setDirection(direction);
     if (not isnan(direction))
         playerMobility->attemptMovement();
+    delete currentEvent;
 }
 
 void WorldEvents::subscribeEvent(simulationevent eventType, eventfn fun, void *source, void *target) {

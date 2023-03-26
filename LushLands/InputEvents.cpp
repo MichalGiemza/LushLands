@@ -35,16 +35,6 @@ InputEvents::InputEvents() {
     userEventSource = new ALLEGRO_EVENT_SOURCE();
     al_init_user_event_source(userEventSource);
     al_register_event_source(eventQueue, userEventSource);
-    // Vars
-    subscribersKeyDown = std::vector<KeySubscribtion>();
-    subscribersKeyUp = std::vector<KeySubscribtion>();
-    subscribersKeyBeingPressed = std::vector<KeySubscribtion>();
-    subscribersKeyTyped = std::vector<KeySubscribtion>();
-    subscribersDisplayClosed = std::vector<eventfn>();
-    subscribersDisplaySwitchedOut = std::vector<eventfn>();
-    subscribersTimerTPS = std::vector<TimerSubscription>(); // TODO: Dodaæ dojœcie do event handlera œwiata i chunków (Zostawiæ tu sprawdzania TPS)
-    subscribersTimerFPS = std::vector<TimerSubscription>();
-    keyStates = std::unordered_map<keycode, bool>();
     // Timers
     timerTPS = al_create_timer(1.0 / TicksPerSecond);
     timerFPS = al_create_timer(1.0 / FramesPerSecond);
@@ -63,7 +53,7 @@ void InputEvents::mainLoop(bool *isRunning) { // TODO: Odwróciæ zale¿noœæ i prze
         al_wait_for_event(eventQueue, currentEvent);
 
         switch (currentEvent->type) {
-
+            /*          KEYBOARD          */
         case ALLEGRO_EVENT_KEY_DOWN: {
             //Input::passKeyDown(currentEvent->keyboard.keycode);
             beginPressingKey(currentEvent->keyboard.keycode);
@@ -84,6 +74,19 @@ void InputEvents::mainLoop(bool *isRunning) { // TODO: Odwróciæ zale¿noœæ i prze
                 keySub->func(currentEvent, keySub->caller);
             break;
         }
+            /*          MOUSE          */
+        case ALLEGRO_EVENT_MOUSE_BUTTON_DOWN: {
+            for (auto btnSub = subscribersMouseDown.begin(); btnSub != subscribersMouseDown.end(); ++btnSub)
+                btnSub->func(currentEvent, btnSub->caller);
+            break;
+        }
+        case ALLEGRO_EVENT_MOUSE_AXES:
+        {
+            for (auto axSub = subscribersMouseAxis.begin(); axSub != subscribersMouseAxis.end(); ++axSub)
+                axSub->func(currentEvent, axSub->caller);
+            break;
+        }
+            /*          DISPLAY          */
         case ALLEGRO_EVENT_DISPLAY_CLOSE: {
             // TODO
             *isRunning = false;
@@ -96,6 +99,7 @@ void InputEvents::mainLoop(bool *isRunning) { // TODO: Odwróciæ zale¿noœæ i prze
             stopAllBeingPressedEvents();
             break;
         }
+            /*          TIMER          */
         case ALLEGRO_EVENT_TIMER: {
             // Ticks (every TPS)
             handleBeingPressedEvents();
@@ -116,6 +120,7 @@ void InputEvents::mainLoop(bool *isRunning) { // TODO: Odwróciæ zale¿noœæ i prze
             }
             break;
         }
+            /*          SYSTEM          */
         }
         // System event
         if (ALLEGRO_EVENT_TYPE_IS_USER(currentEvent->type)) {
@@ -145,6 +150,16 @@ void InputEvents::subscribeKeyBeingPressed(eventfn fun, void *caller) {
 void InputEvents::subscribeKeyTyped(eventfn fun, void *caller) {
     auto p = KeySubscribtion(fun, caller);
     subscribersKeyTyped.push_back(p);
+}
+
+void InputEvents::subscribeMouseClick(eventfn fun, void *caller) {
+    auto p = KeySubscribtion(fun, caller);
+    subscribersMouseDown.push_back(p);
+}
+
+void InputEvents::subscribeMouseAxis(eventfn fun, void *caller) {
+    auto p = MouseAxisSubscribtion(fun, caller);
+    subscribersMouseAxis.push_back(p);
 }
 
 void InputEvents::subscribeTimerTPS(tickperiod tp, eventfn fun, void *caller) {

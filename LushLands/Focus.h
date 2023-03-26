@@ -9,6 +9,6 @@ class Focus {
     GameElement *focusedObject;
 public:
     void setFocusedObject(GameElement *focusedObject);
-    GameElement *getFocusedObject();
+    GameElement *getCurrentlyActiveGameElement();
 };
 

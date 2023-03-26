@@ -11,6 +11,11 @@ struct KeySubscribtion {
     void *caller;
 };
 
+struct MouseAxisSubscribtion {
+    eventfn func;
+    void *caller;
+};
+
 struct TimerSubscription {
     tickperiod period;
     int64_t lastTickExecutedOn;

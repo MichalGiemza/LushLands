@@ -20,5 +20,7 @@ class GraphicsManager {
 public:
     GraphicsManager(Controller *controller, Simulation *simulation);
     Scene *getCurrentGameplayScene();
+    TextureManager *getTextureManager();
+    Display *getDisplay();
 };
 

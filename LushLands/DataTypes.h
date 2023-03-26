@@ -9,6 +9,7 @@ typedef const int cstint;
 typedef long long ll;
 typedef int tickperiod;
 typedef int keycode;
+typedef int mousebcode;
 typedef const char *actiontype;
 typedef const char *worldtype;
 typedef const char *entitytype;

@@ -5,6 +5,7 @@
 #include "ChunkRepresentationManager.h"
 #include "ChunkRepresentation.h"
 #include "Console.h"
+#include "FieldCursor.h"
 
 
 class Scene {
@@ -19,6 +20,7 @@ class Scene {
     InputEvents *inputEvents;
     TextureManager *textureManager;
     Console *console;
+    FieldCursor *fieldCursor;
 
     void drawChunkGround(ChunkRepresentation &chunkRepresentation, int level);
     friend void draw(ALLEGRO_EVENT *ae, void *scene);

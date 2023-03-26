@@ -30,10 +30,7 @@ void Mobility::attemptMovement() {
     newPos->setPX(newPos->getPX() - std::sin(direction) * movementSpeed);
     newPos->setPZ(newPos->getPZ() + std::cos(direction) * movementSpeed);
     // Send event
-    ALLEGRO_EVENT *ae = (ALLEGRO_EVENT *)new ALLEGRO_EVENT {};
-    ae->user.type = mobility_attempt_go;
-    ae->user.data1 = (intptr_t)dynamicCollider;
-    ae->user.data2 = (intptr_t)newPos;
+    ALLEGRO_EVENT *ae = EventFactory::packMobilityAttemptGo(dynamicCollider, newPos);
     al_emit_user_event(entityUpdater->getEventSource(), ae, NULL);
 }
 

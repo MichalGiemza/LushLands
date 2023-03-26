@@ -23,6 +23,7 @@ public:
     ALLEGRO_DISPLAY *getDisplay();
     Display(InputEvents *inputEvents);
     void clearDisplay();
+    void setCursor(ALLEGRO_MOUSE_CURSOR *cursor);
     double getCurrentFPS();
     double getCurrentTPS();
 };

@@ -45,3 +45,7 @@ void TextureManager::loadAllTextures() {
 ALLEGRO_BITMAP *TextureManager::getEntityTexture(entitytype entityType) {
     return textures[entityType];
 }
+
+ALLEGRO_BITMAP *TextureManager::getTexture(const TextureLocalization &tl) {
+    return getRawBitmap(tl);
+}

@@ -14,3 +14,12 @@ GraphicsManager::GraphicsManager(Controller *controller, Simulation *simulation)
 Scene *GraphicsManager::getCurrentGameplayScene() {
     return gameplayScene;
 }
+
+TextureManager *GraphicsManager::getTextureManager() {
+    return textureManager;
+}
+
+Display *GraphicsManager::getDisplay() {
+    return display;
+}
+

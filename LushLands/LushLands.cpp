@@ -15,6 +15,8 @@ void init() {
     // View
     graphicsManager = new GraphicsManager(controller, simulation);
     // Done
+    controller->postInit(graphicsManager->getTextureManager()->getTexture(CURSOR_TEXTURE_LOCALIZATION)); // FIXME
+    graphicsManager->getDisplay()->setCursor(controller->getMouse()->getCursor());
     initialized = true;
 }
 

@@ -13,6 +13,7 @@ namespace focus_type {
     const objecttype CAMERA = "camera";
     const objecttype CONSOLE = "console";
     const objecttype UI_WINDOW = "ui_window";
+    const objecttype WORLD_CURSOR = "world_cursor";
 }
 namespace ft = focus_type;
 
@@ -65,6 +66,13 @@ namespace genders {
 }
 namespace gdr = genders;
 
+// Controls
+const mousebcode MOUSE_LMB = 1;
+const mousebcode MOUSE_RMB = 2;
+const mousebcode MOUSE_MMB = 3;
+const mousebcode MOUSE_BCK = 4;
+const mousebcode MOUSE_FWD = 5;
+
 // Scene types
 const scenename GAMEPLAY_SCENE = "gameplay";
 const scenename MAINMENU_SCENE = "main_menu";
@@ -81,6 +89,7 @@ const exceptionmessage could_not_init_allegro_font = "Could not initialize Alleg
 const exceptionmessage could_not_init_allegro_ttf = "Could not initialize Allegro TTF Addon.\n";
 const exceptionmessage could_not_create_event_queue = "Could not create event queue.\n";
 const exceptionmessage could_not_install_keyboard = "Could not install keyboard.\n";
+const exceptionmessage could_not_install_mouse = "Could not install mouse.\n";
 const exceptionmessage could_not_create_display = "Could not create display.\n";
 const exceptionmessage system_event_in_world_event_queue = "Unexpected system event found in world event queue.\n";
 const exceptionmessage system_event_in_chunk_event_queue = "Unexpected system event found in chunk event queue.\n";

@@ -10,7 +10,7 @@ Camera::Camera(Position *startingPosition, Focus *focus, InputEvents *inputEvent
     independentFrame = new Rectangle_(0, 0, inGameScreenW, inGameScreenH, false, true);
 
     this->independentFrame->setPosition(startingPosition);
-    if (not focus->getFocusedObject())
+    if (not focus->getCurrentlyActiveGameElement())
         focus->setFocusedObject(this);
 
     inputEvents->subscribeSystemEvent(camera_move_north, handleMovement, this);

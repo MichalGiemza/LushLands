@@ -156,7 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ActionMap.cpp" />
-    <ClCompile Include="AngleTools.cpp" />
+    <ClCompile Include="NumTools.cpp" />
     <ClCompile Include="Animal.cpp" />
     <ClCompile Include="Appearance.cpp" />
     <ClCompile Include="Body.cpp" />
@@ -174,6 +174,7 @@
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="DynamicCollider.cpp" />
+    <ClCompile Include="EventFactory.cpp" />
     <ClCompile Include="EventTypes.h" />
     <ClCompile Include="FileToArray.cpp" />
     <ClCompile Include="Humanoid.cpp" />
@@ -194,6 +195,7 @@
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="LushLands.cpp" />
     <ClCompile Include="Mobility.cpp" />
+    <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="NameGenerator.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Position.cpp" />
@@ -207,6 +209,8 @@
     <ClCompile Include="Structure.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Time.cpp" />
+    <ClCompile Include="FieldCursor.cpp" />
+    <ClCompile Include="UICursor.cpp" />
     <ClCompile Include="UIElement.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="BaseWorldPlanner.cpp" />
@@ -215,7 +219,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionMap.h" />
-    <ClInclude Include="AngleTools.h" />
+    <ClInclude Include="NumTools.h" />
     <ClInclude Include="Animal.h" />
     <ClInclude Include="Appearance.h" />
     <ClInclude Include="Body.h" />
@@ -237,6 +241,7 @@
     <ClInclude Include="Constants.h" />
     <ClInclude Include="DynamicCollider.h" />
     <ClInclude Include="EntityConstants.h" />
+    <ClInclude Include="EventFactory.h" />
     <ClInclude Include="Events.h" />
     <ClInclude Include="FileToArray.h" />
     <ClInclude Include="Humanoid.h" />
@@ -259,6 +264,7 @@
     <ClInclude Include="Logger.h" />
     <ClInclude Include="LushLands.h" />
     <ClInclude Include="Mobility.h" />
+    <ClInclude Include="Mouse.h" />
     <ClInclude Include="NameGenerator.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Position.h" />
@@ -271,9 +277,12 @@
     <ClInclude Include="Size.h" />
     <ClInclude Include="StaticUIElement.h" />
     <ClInclude Include="Structure.h" />
+    <ClInclude Include="SystemConstants.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="TimeConstants.h" />
+    <ClInclude Include="FieldCursor.h" />
+    <ClInclude Include="UICursor.h" />
     <ClInclude Include="UIElement.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="BaseWorldPlanner.h" />

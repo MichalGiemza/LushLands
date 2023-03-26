@@ -30,6 +30,10 @@ void Display::clearDisplay() {
     al_clear_to_color(al_map_rgb(255, 255, 255));
 }
 
+void Display::setCursor(ALLEGRO_MOUSE_CURSOR *cursor) {
+    al_set_mouse_cursor(display, cursor);
+}
+
 void updateTrackingFPS(ALLEGRO_EVENT *allegroEvent, void *caller) {
     Display *d = (Display *)caller;
     double newTime = al_get_time();

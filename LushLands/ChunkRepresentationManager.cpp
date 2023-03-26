@@ -132,7 +132,6 @@ void ChunkRepresentationManager::drawStructureDebug(ChunkRepresentation *cRep, i
         auto ctr = str->getBody()->getCenter();
         auto size = str->getSize();
         // Draw outline
-        auto sBitmap = textureManager->getEntityTexture(sPair->second->getType()); // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
         pxint x1 = camera->shiftToScreenPosX(ctr->getPX()) - size->getCameraW() / 2;
         pxint z1 = camera->shiftToScreenPosZ(ctr->getPZ()) - size->getCameraL() / 2;
         pxint x2 = camera->shiftToScreenPosX(ctr->getPX()) + size->getCameraW() / 2;
@@ -150,7 +149,6 @@ void ChunkRepresentationManager::drawAnimalDebug(ChunkRepresentation *cRep, int 
         auto ctr = anm->getBody()->getCenter();
         auto size = anm->getSize();
         // Draw outline
-        auto sBitmap = textureManager->getEntityTexture(anm->getType()); // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
         pxint x1 = camera->shiftToScreenPosX(ctr->getPX()) - size->getCameraW() / 2;
         pxint z1 = camera->shiftToScreenPosZ(ctr->getPZ()) - size->getCameraL() / 2;
         pxint x2 = camera->shiftToScreenPosX(ctr->getPX()) + size->getCameraW() / 2;
@@ -185,7 +183,6 @@ void ChunkRepresentationManager::drawHumanoidDebug(ChunkRepresentation *cRep, in
         auto ctr = hmn->getBody()->getCenter();
         auto size = hmn->getSize();
         // Draw outline
-        auto sBitmap = textureManager->getEntityTexture(hmn->getType()); // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
         pxint x1 = camera->shiftToScreenPosX(ctr->getPX()) - size->getCameraW() / 2;
         pxint z1 = camera->shiftToScreenPosZ(ctr->getPZ()) - size->getCameraL() / 2;
         pxint x2 = camera->shiftToScreenPosX(ctr->getPX()) + size->getCameraW() / 2;

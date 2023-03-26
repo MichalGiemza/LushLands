@@ -30,7 +30,9 @@ public:
     void registerChunkEvents(std::unordered_map<ChunkPosition, ISimulationEvents *> *chunkEvents);
     friend void handleKeyboardKey(ALLEGRO_EVENT *ae, void *obj);
     friend void handleKeyboardLetter(ALLEGRO_EVENT *ae, void *obj);
+    friend void handleMouseClick(ALLEGRO_EVENT *ae, void *obj);
 };
 
 void handleKeyboardKey(ALLEGRO_EVENT *ae, void *obj);
 void handleKeyboardLetter(ALLEGRO_EVENT *ae, void *obj);
+void handleMouseClick(ALLEGRO_EVENT *ae, void *obj);

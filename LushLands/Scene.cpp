@@ -7,6 +7,7 @@ Scene::Scene(scenename sceneName, World *world, Display *display, Position *foll
     this->display = display;
     this->inputEvents = inputEvents;
     this->console = console;
+    this->fieldCursor = new FieldCursor(&camera, inputEvents);
     name = sceneName;
     inputEvents->subscribeTimerFPS(1, draw, this);
 }
@@ -22,7 +23,9 @@ void draw(ALLEGRO_EVENT *ae, void *scene) {
     al_clear_to_color(BLACK_COLOR.getAllegroColor());
     // Draw world
     s->chunkRepresentationManager.draw();
-    // Draw GUI
+    // Draw world UI
+    s->fieldCursor->draw();
+    // Draw Static UI
     s->console->draw();
     // Apply drawing
     al_flip_display();
