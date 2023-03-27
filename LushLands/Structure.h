@@ -4,6 +4,7 @@
 #include "Appearance.h"
 #include "Collider.h"
 #include "GameElement.h"
+#include "Destroyability.h"
 
 
 class Structure : public Entity {
@@ -15,9 +16,10 @@ class Structure : public Entity {
     Appearance appearance;
     Body body;
     Collider collider;
+    Destroyability destroyability;
 public:
     // Constructors and main methods
-    Structure(const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, const updatetype updateType = no_update);
+    Structure(const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, int maxHealth, const tooltype requiredTool, const ItemDropChance *drops, const updatetype updateType = no_update);
     Entity *clone() override;
 
     // Getters, Setters

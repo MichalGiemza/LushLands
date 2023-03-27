@@ -1,6 +1,6 @@
 #include "Animal.h"
 
-Animal::Animal(const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, const int movementSpeed, const miliseconds walkInterval) :
+Animal::Animal(const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, const int movementSpeed, const miliseconds walkInterval, int maxHealth, const tooltype requiredTool, const ItemDropChance *drops) :
     Entity(entityType, description, constant_update), 
     entityUpdater(),
     appearance(color),
@@ -9,7 +9,8 @@ Animal::Animal(const entitytype entityType, const std::string &description, Posi
     dynamicCollider(&collider),
     mobility(&dynamicCollider, &entityUpdater, movementSpeed),
     randomWalk(&mobility, &entityUpdater, walkInterval),
-    gameElement(ft::ANIMAL, fp::ANIMAL, fg::SIMULATION) {
+    gameElement(ft::ANIMAL, fp::ANIMAL, fg::SIMULATION),
+    destroyability(maxHealth, requiredTool, drops){
 
     //Logger::log(ll::DEBUG_ENTITY, "Created Animal entity [%s;%i,%i]", entityType, position.x(), position.z());
 }

@@ -13,6 +13,8 @@ typedef int mousebcode;
 typedef const char *actiontype;
 typedef const char *worldtype;
 typedef const char *entitytype;
+typedef const char *itemtype;
+typedef const char *tooltype;
 typedef const char *texturename;
 typedef const char *scenename;
 typedef const char *rawpath;
@@ -35,6 +37,13 @@ struct FieldPlan {
     entitytype ground;
     entitytype structure;
     entitytype animal;
+};
+
+struct ItemDropChance {
+    itemtype item;
+    int chanceGuaranteed;
+    int chanceLow;
+    int chanceHigh;
 };
 
 struct ChunkPlan { // TODO: Zrobiæ z tego generator, takie jedno coœ mo¿e zajmowaæ chyba ok. 1.5MB miejsca.

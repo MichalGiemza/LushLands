@@ -66,6 +66,14 @@ namespace genders {
 }
 namespace gdr = genders;
 
+namespace tool_types {
+    const tooltype axe = "axe";
+    const tooltype pickaxe = "pickaxe";
+    const tooltype shovel = "shovel";
+    const tooltype weapon = "weapon";
+}
+namespace tlt = tool_types;
+
 // Controls
 const mousebcode MOUSE_LMB = 1;
 const mousebcode MOUSE_RMB = 2;

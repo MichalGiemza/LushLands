@@ -1,5 +1,7 @@
 #pragma once
 #include "DataTypes.h"
+#include "ItemConstants.h"
+#include "ConstantSets.h"
 #include "Color.h"
 #include "Size.h"
 
@@ -76,6 +78,9 @@ const Color TREE_COLOR = Color(70, 120, 50, 255);
 const std::string TREE_DESCRIPTION = "Tall tree, gives a lot of shade.";
 const Size TREE_SIZE = Size(1, 2, 1);
 const TextureLocalization TREE_TEXTURE_LOCALIZATION = TextureLocalization(0, 0, "..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\RPG Nature Tileset.png", 32, 64);
+extern const ItemDropChance TREE_DROPS[];
+const cstint TREE_HEALTH = 300;
+const tooltype TREE_TOOL = tlt::axe;
 
 // Bush
 const entitytype BUSH = "bush";
@@ -83,6 +88,9 @@ const Color BUSH_COLOR = TREE_COLOR;
 const std::string BUSH_DESCRIPTION = "Big blob of leaves";
 const Size BUSH_SIZE = Size(.8f, 0.8f, 0.8f);
 const TextureLocalization BUSH_TEXTURE_LOCALIZATION = TextureLocalization(0, 0, "..\\Assets\\textures\\Edinnu Small Forest by rowdy41\\Bushes\\Bush-3.png", 25, 19);
+extern const ItemDropChance BUSH_DROPS[];
+const cstint BUSH_HEALTH = 50;
+const tooltype BUSH_TOOL = 0;
 
 // Tall Grass
 const entitytype TALL_GRASS = "tall_grass";
@@ -90,6 +98,10 @@ const Color TALL_GRASS_COLOR = Color(50, 120, 40, 255);
 const std::string TALL_GRASS_DESCRIPTION = "Tallgrass, hard to pass through.";
 const Size TALL_GRASS_SIZE = Size(.6f, .4f, .6f);
 const TextureLocalization TALL_GRASS_TEXTURE_LOCALIZATION = TextureLocalization(4, 0, "..\\Assets\\textures\\Edinnu Small Forest by rowdy41\\Grass\\Grass-1.png", 21, 24);
+extern const ItemDropChance *TALL_GRASS_DROPS;
+const cstint TALL_GRASS_HEALTH = 20;
+const tooltype TALL_GRASS_TOOL = 0;
+
 
 // Yellow Flower
 const entitytype FLOWER_YELLOW = "yellow_flower";
@@ -97,6 +109,9 @@ const Color FLOWER_YELLOW_COLOR = TALL_GRASS_COLOR;
 const std::string FLOWER_YELLOW_DESCRIPTION = "Yellow flower.";
 const Size FLOWER_YELLOW_SIZE = Size(.2f, .2f, .2f);
 const TextureLocalization FLOWER_YELLOW_TEXTURE_LOCALIZATION = TextureLocalization(0, 0, "..\\Assets\\textures\\Edinnu Small Forest by rowdy41\\Flowers\\Flower-2.png", 24, 22);
+extern const ItemDropChance *FLOWER_YELLOW_DROPS;
+const cstint FLOWER_YELLOW_HEALTH = 20;
+const tooltype FLOWER_YELLOW_TOOL = 0;
 
 // Stone
 const entitytype STONE = "stone";
@@ -104,6 +119,9 @@ const Color STONE_COLOR = Color(90, 100, 110, 255);
 const std::string STONE_DESCRIPTION = "Just a stone, sized like any other stone.";
 const Size STONE_SIZE = Size(.5f, .5f, .5f);
 const TextureLocalization STONE_TEXTURE_LOCALIZATION = TextureLocalization(64, 32, "..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\RPG Nature Tileset.png");
+extern const ItemDropChance *STONE_DROPS;
+const cstint STONE_HEALTH = 50;
+const tooltype STONE_TOOL = tlt::pickaxe;
 
 // Log
 const entitytype LOG = "log";
@@ -111,6 +129,9 @@ const Color LOG_COLOR = Color(90, 80, 50, 255);
 const std::string LOG_DESCRIPTION = "Fallen tree, doesn't give too much shade anymore.";
 const Size LOG_SIZE = Size(1.0f, .6f, .6f);
 const TextureLocalization LOG_TEXTURE_LOCALIZATION = TextureLocalization(128, 0, "..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\RPG Nature Tileset.png");
+extern const ItemDropChance LOG_DROPS[];
+const cstint LOG_HEALTH = 200;
+const tooltype LOG_TOOL = tlt::axe;
 
 
 /*    Animal    */
@@ -123,9 +144,14 @@ const Size CHICKEN_SIZE = Size(.5f, .5f, .5f);
 const TextureLocalization CHICKEN_TEXTURE_LOCALIZATION = TextureLocalization(0, 130, "..\\Assets\\textures\\Cozy Farm Asset Pack by shubibubi\\free.png", 16, 16);
 const cstint CHICKEN_MOVEMENT_SPEED = 600;
 const miliseconds CHICKEN_WALK_INTERVAL = 1000;
+extern const ItemDropChance CHICKEN_DROPS[];
+const cstint CHICKEN_HEALTH = 70;
+const tooltype CHICKEN_TOOL = tlt::weapon;
 
 
 /*    Humanoids    */
+
+// HUMAN
 const entitytype HUMAN = "human";
 const Color HUMAN_COLOR = Color(250, 240, 230, 255);
 const std::string HUMAN_DESCRIPTION = "A living human, they are everywhere.";

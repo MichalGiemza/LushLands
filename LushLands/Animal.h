@@ -3,6 +3,7 @@
 #include "RandomWalk.h"
 #include "Appearance.h"
 #include "GameElement.h"
+#include "Destroyability.h"
 
 class Animal : public Entity {
     /**
@@ -17,9 +18,10 @@ class Animal : public Entity {
     Mobility mobility;
     DynamicCollider dynamicCollider;
     RandomWalk randomWalk;
+    Destroyability destroyability;
 public:
     // Constructors and main methods
-    Animal(const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, const int movementSpeed, const miliseconds walkInterval);
+    Animal(const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, const int movementSpeed, const miliseconds walkInterval, int maxHealth, const tooltype requiredTool, const ItemDropChance *drops);
     Entity *clone() override;
     
     // Getters, Setters

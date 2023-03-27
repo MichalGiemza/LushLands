@@ -187,6 +187,12 @@
     <ClCompile Include="UICursor.cpp">
       <Filter>src\GraphicsManager\UI\Concrete</Filter>
     </ClCompile>
+    <ClCompile Include="Destroyability.cpp">
+      <Filter>src\Simulation\World\Entities\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityConstants.cpp">
+      <Filter>src\Simulation\World\Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -330,9 +336,6 @@
     <ClInclude Include="Colors.h">
       <Filter>src\Core</Filter>
     </ClInclude>
-    <ClInclude Include="EntityConstants.h">
-      <Filter>src\Core</Filter>
-    </ClInclude>
     <ClInclude Include="Time.h">
       <Filter>src\Core</Filter>
     </ClInclude>
@@ -398,6 +401,15 @@
     </ClInclude>
     <ClInclude Include="UICursor.h">
       <Filter>src\GraphicsManager\UI\Concrete</Filter>
+    </ClInclude>
+    <ClInclude Include="Destroyability.h">
+      <Filter>src\Simulation\World\Entities\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemConstants.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityConstants.h">
+      <Filter>src\Simulation\World\Entities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

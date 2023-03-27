@@ -156,6 +156,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ActionMap.cpp" />
+    <ClCompile Include="Destroyability.cpp" />
+    <ClCompile Include="EntityConstants.cpp" />
     <ClCompile Include="NumTools.cpp" />
     <ClCompile Include="Animal.cpp" />
     <ClCompile Include="Appearance.cpp" />
@@ -219,6 +221,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionMap.h" />
+    <ClInclude Include="Destroyability.h" />
+    <ClInclude Include="ItemConstants.h" />
     <ClInclude Include="NumTools.h" />
     <ClInclude Include="Animal.h" />
     <ClInclude Include="Appearance.h" />

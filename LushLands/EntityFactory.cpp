@@ -30,20 +30,20 @@ Entity *EntityFactory::buildEntity(entitytype entityType, Position &position) {
         return new Ground(SNOW, SNOW_DESCRIPTION, position, GROUND_SIZE, SNOW_COLOR);
     /*    Structure    */
     if (entityType == TREE)
-        return new Structure(TREE, TREE_DESCRIPTION, position, TREE_SIZE, TREE_COLOR);
+        return new Structure(TREE, TREE_DESCRIPTION, position, TREE_SIZE, TREE_COLOR, TREE_HEALTH, TREE_TOOL, TREE_DROPS);
     if (entityType == BUSH)
-        return new Structure(BUSH, BUSH_DESCRIPTION, position, BUSH_SIZE, BUSH_COLOR);
+        return new Structure(BUSH, BUSH_DESCRIPTION, position, BUSH_SIZE, BUSH_COLOR, BUSH_HEALTH, BUSH_TOOL, BUSH_DROPS);
     if (entityType == FLOWER_YELLOW)
-        return new Structure(FLOWER_YELLOW, FLOWER_YELLOW_DESCRIPTION, position, FLOWER_YELLOW_SIZE, FLOWER_YELLOW_COLOR);
+        return new Structure(FLOWER_YELLOW, FLOWER_YELLOW_DESCRIPTION, position, FLOWER_YELLOW_SIZE, FLOWER_YELLOW_COLOR, FLOWER_YELLOW_HEALTH, FLOWER_YELLOW_TOOL, FLOWER_YELLOW_DROPS);
     if (entityType == TALL_GRASS)
-        return new Structure(TALL_GRASS, TALL_GRASS_DESCRIPTION, position, TALL_GRASS_SIZE, TALL_GRASS_COLOR);
+        return new Structure(TALL_GRASS, TALL_GRASS_DESCRIPTION, position, TALL_GRASS_SIZE, TALL_GRASS_COLOR, TALL_GRASS_HEALTH, TALL_GRASS_TOOL, TALL_GRASS_DROPS);
     if (entityType == STONE)
-        return new Structure(STONE, STONE_DESCRIPTION, position, STONE_SIZE, STONE_COLOR);
+        return new Structure(STONE, STONE_DESCRIPTION, position, STONE_SIZE, STONE_COLOR, TALL_GRASS_HEALTH, TALL_GRASS_TOOL, TALL_GRASS_DROPS);
     if (entityType == LOG)
-        return new Structure(LOG, LOG_DESCRIPTION, position, LOG_SIZE, LOG_COLOR);
+        return new Structure(LOG, LOG_DESCRIPTION, position, LOG_SIZE, LOG_COLOR, TALL_GRASS_HEALTH, TALL_GRASS_TOOL, TALL_GRASS_DROPS);
     /*    Animal    */
     if (entityType == CHICKEN)
-        return new Animal(CHICKEN, CHICKEN_DESCRIPTION, position, CHICKEN_SIZE, CHICKEN_COLOR, CHICKEN_MOVEMENT_SPEED, CHICKEN_WALK_INTERVAL);
+        return new Animal(CHICKEN, CHICKEN_DESCRIPTION, position, CHICKEN_SIZE, CHICKEN_COLOR, CHICKEN_MOVEMENT_SPEED, CHICKEN_WALK_INTERVAL, CHICKEN_HEALTH, CHICKEN_TOOL, CHICKEN_DROPS);
     /*    Humanoids    */
     if (entityType == HUMAN) {
         gendertype gender = rand() % 2 ? gdr::male : gdr::female;
