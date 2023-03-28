@@ -4,8 +4,9 @@ Simulation::Simulation(Controller *controller) :
     focus(controller->getFocus()) {
     // Systems
     entityFactory = new EntityFactory();
+    itemFactory = new ItemFactory();
     // World
-    world = new World(FLATLAND, 42, entityFactory, controller->getEventHandler());
+    world = new World(FLATLAND, 42, entityFactory, itemFactory, controller->getEventHandler());
     loadPosition = new Position(0, world->getSeaLevel(), 0);
     keepPositionLoaded(*loadPosition);
     // Events

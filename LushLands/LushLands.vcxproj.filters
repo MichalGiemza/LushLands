@@ -154,14 +154,8 @@
     <ClCompile Include="ChickenBoxWorldPlanner.cpp">
       <Filter>src\Simulation\World\WorldPlanners</Filter>
     </ClCompile>
-    <ClCompile Include="Humanoid.cpp">
-      <Filter>src\Simulation\World\Entities\Concrete</Filter>
-    </ClCompile>
     <ClCompile Include="NameGenerator.cpp">
       <Filter>src\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>src\Simulation\World\Entities</Filter>
     </ClCompile>
     <ClCompile Include="FileToArray.cpp">
       <Filter>src\Core\Tools</Filter>
@@ -192,6 +186,21 @@
     </ClCompile>
     <ClCompile Include="EntityConstants.cpp">
       <Filter>src\Simulation\World\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>src\Simulation\World\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemFactory.cpp">
+      <Filter>src\Simulation\World\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>src\Simulation\World\Entities\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>src\Simulation\World\Entities\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Humanoid.cpp">
+      <Filter>src\Simulation\World\Entities\Characters</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -366,14 +375,8 @@
     <ClInclude Include="ChickenBoxWorldPlanner.h">
       <Filter>src\Simulation\World\WorldPlanners</Filter>
     </ClInclude>
-    <ClInclude Include="Humanoid.h">
-      <Filter>src\Simulation\World\Entities\Concrete</Filter>
-    </ClInclude>
     <ClInclude Include="NameGenerator.h">
       <Filter>src\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>src\Simulation\World\Entities</Filter>
     </ClInclude>
     <ClInclude Include="FileToArray.h">
       <Filter>src\Core\Tools</Filter>
@@ -405,11 +408,26 @@
     <ClInclude Include="Destroyability.h">
       <Filter>src\Simulation\World\Entities\Modules</Filter>
     </ClInclude>
-    <ClInclude Include="ItemConstants.h">
-      <Filter>src\Core</Filter>
-    </ClInclude>
     <ClInclude Include="EntityConstants.h">
       <Filter>src\Simulation\World\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>src\Simulation\World\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemConstants.h">
+      <Filter>src\Simulation\World\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemFactory.h">
+      <Filter>src\Simulation\World\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>src\Simulation\World\Entities\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>src\Simulation\World\Entities\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="Humanoid.h">
+      <Filter>src\Simulation\World\Entities\Characters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -481,6 +499,12 @@
     </Filter>
     <Filter Include="src\Controller\InputDevices">
       <UniqueIdentifier>{49536009-d9bf-40e4-8df3-e89b4b1596dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Simulation\World\Items">
+      <UniqueIdentifier>{6ecfda54-1951-4544-b993-b6313e062b36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Simulation\World\Entities\Characters">
+      <UniqueIdentifier>{d00b01f4-0d3b-4a31-92c7-704348bc83fd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

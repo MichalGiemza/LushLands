@@ -8,6 +8,7 @@ const int maxMilisecondsPerTick = 1000;
 
 // World
 const long long worldHeight = 64;
+const int inventoryWidth = 12;
 
 // Chunks
 const int chunkSizeByTiles = 32;

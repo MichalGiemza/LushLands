@@ -6,6 +6,7 @@
 #include "Appearance.h"
 #include "GameElement.h"
 #include "Mobility.h"
+#include "Inventory.h"
 
 
 class Humanoid : public Entity {
@@ -19,13 +20,14 @@ class Humanoid : public Entity {
     Collider collider;
     Mobility mobility;
     DynamicCollider dynamicCollider;
+    Inventory inventory;
 
     name firstName;
     name lastName;
     gendertype gender;
 public:
     // Constructors and main methods
-    Humanoid(const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, const int movementSpeed, name firstName, name lastName, gendertype gender);
+    Humanoid(const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, const int movementSpeed, name firstName, name lastName, gendertype gender, const int invSize);
     Entity *clone() override;
 
     // Getters, Setters

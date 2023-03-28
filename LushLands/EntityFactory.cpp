@@ -49,6 +49,6 @@ Entity *EntityFactory::buildEntity(entitytype entityType, Position &position) {
         gendertype gender = rand() % 2 ? gdr::male : gdr::female;
         name firstName = nameGenerator->getCommonName(gender);
         name lastName = nameGenerator->getCommonName(gender);
-        return new Humanoid(HUMAN, HUMAN_DESCRIPTION, position, HUMAN_SIZE, HUMAN_COLOR, HUMAN_MOVEMENT_SPEED, firstName, lastName, gender);
+        return new Humanoid(HUMAN, HUMAN_DESCRIPTION, position, HUMAN_SIZE, HUMAN_COLOR, HUMAN_MOVEMENT_SPEED, firstName, lastName, gender, HUMAN_INVENTORY_SLOTS);
     }
 }

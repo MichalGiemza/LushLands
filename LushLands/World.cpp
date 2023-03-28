@@ -1,10 +1,11 @@
 #include "World.h"
 
-World::World(worldtype worldType, int seed_, EntityFactory *entityFactory, EventHandler *eventHandler) {
+World::World(worldtype worldType, int seed_, EntityFactory *entityFactory, ItemFactory *itemFactory, EventHandler *eventHandler) {
     this->seed_ = seed_;
     srand(seed_);
     this->worldType = worldType;
     this->entityFactory = entityFactory;
+    this->itemFactory = itemFactory;
 
     this->worldPlanner = 0;
     if (worldType == FLATLAND) // TODO: Coœ lepszego ni¿ ify? Mo¿e jakaœ mapa w czymœ zewnêtrznym

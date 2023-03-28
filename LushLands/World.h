@@ -10,6 +10,7 @@
 #include "WorldEvents.h"
 #include "Logger.h"
 #include "Player.h"
+#include "ItemFactory.h"
 
 class World  {
     /** 
@@ -26,11 +27,12 @@ class World  {
     ChunkSystem *chunkSystem;
     worldtype worldType;
     EntityFactory *entityFactory;
+    ItemFactory *itemFactory;
     WorldEvents *worldEvents;
     Time *time;
     miliseconds lastTimeUpdated;
 public:
-    World(worldtype worldType, int seed_, EntityFactory *entityFactory, EventHandler *eventHandler);
+    World(worldtype worldType, int seed_, EntityFactory *entityFactory, ItemFactory *itemFactory, EventHandler *eventHandler);
     void update(miliseconds dt);
     int getSeed();
     int getSeaLevel();

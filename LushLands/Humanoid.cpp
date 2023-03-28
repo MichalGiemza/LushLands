@@ -1,6 +1,6 @@
 #include "Humanoid.h"
 
-Humanoid::Humanoid(const entitytype entityType, const std::string &desc, Position &p, const Size &s, const Color &c, const int mSpeed, name fName, name lName, gendertype gender) :
+Humanoid::Humanoid(const entitytype entityType, const std::string &desc, Position &p, const Size &s, const Color &c, const int mSpeed, name fName, name lName, gendertype gender, const int invSize) :
     Entity(entityType, desc, constant_update),
     entityUpdater(),
     appearance(c),
@@ -11,6 +11,7 @@ Humanoid::Humanoid(const entitytype entityType, const std::string &desc, Positio
     firstName(fName),
     lastName(lName),
     gender(gender),
+    inventory(invSize),
     gameElement(ft::HUMANOID, fp::HUMANOID, fg::SIMULATION) {
 }
 
