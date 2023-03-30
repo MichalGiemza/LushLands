@@ -18,3 +18,7 @@ name Player::getLastName() {
 Entity *Player::getEntity() {
     return humanoid;
 }
+
+Inventory *Player::getInventory() {
+    return humanoid->getInventory();
+}

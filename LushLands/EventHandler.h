@@ -10,6 +10,8 @@
 #include "Events.h"
 #include "PositionStructures.h"
 #include "Time.h"
+#include "EventFactory.h"
+#include "Logger.h"
 
 
 class EventHandler {

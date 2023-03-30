@@ -7,7 +7,7 @@ int Camera::level() {
 Camera::Camera(Position *startingPosition, Focus *focus, InputEvents *inputEvents) : GameElement(ft::CAMERA, fp::DEFAULT, fg::STATIC_UI) {
     int inGameScreenW = displayWidth / tileSizePx;
     int inGameScreenH = displayHeight / tileSizePx;
-    independentFrame = new Rectangle_(0, 0, inGameScreenW, inGameScreenH, false, true);
+    independentFrame = new WorldRectangle(0, 0, inGameScreenW, inGameScreenH, false, true);
 
     this->independentFrame->setPosition(startingPosition);
     if (not focus->getCurrentlyActiveGameElement())
@@ -19,7 +19,7 @@ Camera::Camera(Position *startingPosition, Focus *focus, InputEvents *inputEvent
     inputEvents->subscribeSystemEvent(camera_move_west, handleMovement, this);
 }
 
-Rectangle_ *Camera::getFrame() {
+WorldRectangle *Camera::getFrame() {
     if (followedFrame)
         return followedFrame;
     return independentFrame;
@@ -30,13 +30,13 @@ Position *Camera::getPosition() {
 }
 
 void Camera::setFollowedPosition(Position *position) {
-    followedFrame = new Rectangle_(
+    followedFrame = new WorldRectangle(
         0, 0, independentFrame->getSize()->getPW(), 
         independentFrame->getSize()->getPL(), true, true);
     followedFrame->setPosition(position);
 }
 
-bool Camera::isAreaVisible(Rectangle_ *area) {
+bool Camera::isAreaVisible(WorldRectangle *area) {
     /** 
     * Tells if area visible at least partially on camera.
     * Calculated in standard position metric, not pixels. 

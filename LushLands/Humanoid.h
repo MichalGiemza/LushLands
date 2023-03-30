@@ -45,5 +45,6 @@ public:
     void setFirstName(name newName);
     void setLastName(name newName);
     GameElement *getGameElement();
+    Inventory *getInventory();
 };
 

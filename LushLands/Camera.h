@@ -1,5 +1,5 @@
 #pragma once
-#include "Rectangle_.h"
+#include "WorldRectangle.h"
 #include "Constants.h"
 #include "GameElement.h"
 #include "Focus.h"
@@ -16,18 +16,18 @@ class Camera : GameElement {
     const int maxZoom = 400;
     int zoom = 100;
     int scrollSpeed = meter / 10;
-    Rectangle_ *followedFrame = 0;
-    Rectangle_ *independentFrame = 0;
+    WorldRectangle *followedFrame = 0;
+    WorldRectangle *independentFrame = 0;
 private:
     int level();
 public:
     Camera(Position *startingPosition, Focus *focus, InputEvents *inputEvents);
     int getZoom();
     void setZoom(int zoom);
-    Rectangle_ *getFrame();
+    WorldRectangle *getFrame();
     Position *getPosition();
     void setFollowedPosition(Position *position);
-    bool isAreaVisible(Rectangle_ *area);
+    bool isAreaVisible(WorldRectangle *area);
     friend void handleMovement(ALLEGRO_EVENT *ae, void *obj);
     pxint shiftToScreenPosX(int accurateWorldX);
     pxint shiftToScreenPosZ(int accurateWorldZ);

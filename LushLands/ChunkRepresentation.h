@@ -1,5 +1,5 @@
 #pragma once
-#include "Rectangle_.h"
+#include "WorldRectangle.h"
 #include "Entity.h"
 #include "Display.h"
 #include "Ground.h"
@@ -12,7 +12,7 @@ class ChunkRepresentation {
     */
     ChunkPosition chunkPosition;
     Position position;
-    Rectangle_ *area;
+    WorldRectangle *area;
     std::unordered_map<TilePosition, Entity *> groundTiles;
     std::unordered_map<TilePosition, Entity *> structures;
     std::unordered_set<Entity *> animals;
@@ -32,6 +32,6 @@ public:
     std::unordered_set<Entity *> *getHumanoids();
     ChunkPosition *getChunkPosition();
     Position *getPosition();
-    Rectangle_ *getArea();
+    WorldRectangle *getArea();
 };
 

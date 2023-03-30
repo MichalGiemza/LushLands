@@ -21,6 +21,7 @@ public:
     void keepPositionLoaded(Position position);
     Position *getWorldLoadingPosition();
     void addPlayer();
+    Player *getPlayer();
     friend void updateSimulation(ALLEGRO_EVENT *ae, void *obj);
 };
 

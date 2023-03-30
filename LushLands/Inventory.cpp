@@ -22,3 +22,7 @@ Item *Inventory::takeItem(int i) {
     inventory[i] = 0;
     return item;
 }
+
+int Inventory::getSize() {
+    return size;
+}

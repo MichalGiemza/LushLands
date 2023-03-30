@@ -159,6 +159,7 @@
     <ClCompile Include="Destroyability.cpp" />
     <ClCompile Include="EntityConstants.cpp" />
     <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="InventoryDisplay.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemFactory.cpp" />
     <ClCompile Include="NumTools.cpp" />
@@ -206,10 +207,12 @@
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="RandomWalk.cpp" />
     <ClCompile Include="Random_.cpp" />
-    <ClCompile Include="Rectangle_.cpp" />
+    <ClCompile Include="WindowManager.cpp" />
+    <ClCompile Include="WorldRectangle.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="Size.cpp" />
+    <ClCompile Include="StaticBaseWindow.cpp" />
     <ClCompile Include="StaticUIElement.cpp" />
     <ClCompile Include="Structure.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -226,6 +229,7 @@
     <ClInclude Include="ActionMap.h" />
     <ClInclude Include="Destroyability.h" />
     <ClInclude Include="Inventory.h" />
+    <ClInclude Include="InventoryDisplay.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemConstants.h" />
     <ClInclude Include="ItemFactory.h" />
@@ -281,10 +285,12 @@
     <ClInclude Include="PositionStructures.h" />
     <ClInclude Include="RandomWalk.h" />
     <ClInclude Include="Random_.h" />
-    <ClInclude Include="Rectangle_.h" />
+    <ClInclude Include="WindowManager.h" />
+    <ClInclude Include="WorldRectangle.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Simulation.h" />
     <ClInclude Include="Size.h" />
+    <ClInclude Include="StaticBaseWindow.h" />
     <ClInclude Include="StaticUIElement.h" />
     <ClInclude Include="Structure.h" />
     <ClInclude Include="SystemConstants.h" />

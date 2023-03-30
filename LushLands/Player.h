@@ -20,5 +20,6 @@ public:
     name getFirstName();
     name getLastName();
     Entity *getEntity();
+    Inventory *getInventory();
 };
 

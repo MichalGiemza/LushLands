@@ -10,5 +10,7 @@ class Item {
     std::string description;
 public:
     Item(itemtype itemType, std::string description);
+    itemtype getType();
+    std::string getDescription();
 };
 

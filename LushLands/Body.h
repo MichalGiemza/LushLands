@@ -2,7 +2,7 @@
 #include "Position.h"
 #include "Size.h"
 #include "Logger.h"
-#include "Rectangle_.h"
+#include "WorldRectangle.h"
 #include <math.h>
 
 class Body {
@@ -16,13 +16,13 @@ protected:
     Position position;
     Size size;
     Position center;
-    Rectangle_ rectangle;
+    WorldRectangle rectangle;
     void refreshCenter();
 public:
     Body(Position &position, const Size &size);
     Position *getCenter();
     Position *getTopLeft();
-    Rectangle_ *getRectangle();
+    WorldRectangle *getRectangle();
     Size *getSize();
     Position *getPosition();
     void setPosition(Position &position);

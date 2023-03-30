@@ -24,7 +24,7 @@ Position *Body::getTopLeft() {
     return &position;
 }
 
-Rectangle_ *Body::getRectangle() {
+WorldRectangle *Body::getRectangle() {
     return &rectangle;
 }
 

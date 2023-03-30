@@ -1,12 +1,15 @@
 #include "ActionMap.h"
 
 ActionMap::ActionMap() {
-    worldKeyboardActionMap = {
+    worldKeyboardActionPressMap = {
         { ALLEGRO_KEY_W, player_wills_go_north },
         { ALLEGRO_KEY_S, player_wills_go_south },
         { ALLEGRO_KEY_A, player_wills_go_east },
         { ALLEGRO_KEY_D, player_wills_go_west },
 
+        { ALLEGRO_KEY_E, player_wills_use }
+    };
+    worldKeyboardActionClickMap = {
         { ALLEGRO_KEY_E, player_wills_use },
 
         { ALLEGRO_KEY_1, player_hotbar + 0 },
@@ -50,10 +53,16 @@ ActionMap::ActionMap() {
     };
 }
 
-simulationevent ActionMap::mapKeyboardToWorldAction(keycode kc) {
-    if (worldKeyboardActionMap.find(kc) == worldKeyboardActionMap.end())
+simulationevent ActionMap::mapKeyboardToWorldPressAction(keycode kc) {
+    if (worldKeyboardActionPressMap.find(kc) == worldKeyboardActionPressMap.end())
         return -1;
-    return worldKeyboardActionMap[kc];
+    return worldKeyboardActionPressMap[kc];
+}
+
+simulationevent ActionMap::mapKeyboardToWorldClickAction(keycode kc) {
+    if (worldKeyboardActionClickMap.find(kc) == worldKeyboardActionClickMap.end())
+        return -1;
+    return worldKeyboardActionClickMap[kc];
 }
 
 systemevent ActionMap::mapKeyboardToSystemAction(keycode kc) {

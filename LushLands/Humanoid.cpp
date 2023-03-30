@@ -39,6 +39,10 @@ GameElement *Humanoid::getGameElement() {
     return &gameElement;
 }
 
+Inventory *Humanoid::getInventory() {
+    return &inventory;
+}
+
 
 Position *Humanoid::getPosition() {
     return body.getPosition();

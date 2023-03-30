@@ -69,7 +69,7 @@ void ChunkRepresentationManager::drawStructures(ChunkRepresentation *cRep, int l
         auto ctr = str->getBody()->getCenter();
         auto size = str->getSize();
         // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
-        auto sBitmap = textureManager->getEntityTexture(sPair->second->getType());
+        auto sBitmap = textureManager->getNamedTexture(sPair->second->getType());
 
         pxint x1 = shiftTexturePositionX(camera->shiftToScreenPosX(ctr->getPX()), al_get_bitmap_width(sBitmap), size->getCameraW());
         pxint z1 = shiftTexturePositionZ(camera->shiftToScreenPosZ(ctr->getPZ()), al_get_bitmap_height(sBitmap), size->getCameraL());
@@ -87,7 +87,7 @@ void ChunkRepresentationManager::drawAnimals(ChunkRepresentation *cRep, int leve
         auto ctr = anm->getBody()->getCenter();
         auto size = anm->getSize();
         // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
-        auto sBitmap = textureManager->getEntityTexture(anm->getType());
+        auto sBitmap = textureManager->getNamedTexture(anm->getType());
 
         pxint x1 = shiftTexturePositionX(camera->shiftToScreenPosX(ctr->getPX()), al_get_bitmap_width(sBitmap), size->getCameraW());
         pxint z1 = shiftTexturePositionZ(camera->shiftToScreenPosZ(ctr->getPZ()), al_get_bitmap_height(sBitmap), size->getCameraL());
@@ -105,7 +105,7 @@ void ChunkRepresentationManager::drawHumanoids(ChunkRepresentation *cRep, int le
         auto ctr = hmn->getBody()->getCenter();
         auto size = hmn->getSize();
         // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
-        auto sBitmap = textureManager->getEntityTexture(hmn->getType());
+        auto sBitmap = textureManager->getNamedTexture(hmn->getType());
 
         pxint x1 = shiftTexturePositionX(camera->shiftToScreenPosX(ctr->getPX()), al_get_bitmap_width(sBitmap), size->getCameraW());
         pxint z1 = shiftTexturePositionZ(camera->shiftToScreenPosZ(ctr->getPZ()), al_get_bitmap_height(sBitmap), size->getCameraL());

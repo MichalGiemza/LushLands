@@ -100,7 +100,7 @@
     <ClCompile Include="Size.cpp">
       <Filter>src\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Rectangle_.cpp">
+    <ClCompile Include="WorldRectangle.cpp">
       <Filter>src\Core</Filter>
     </ClCompile>
     <ClCompile Include="Collider.cpp">
@@ -201,6 +201,15 @@
     </ClCompile>
     <ClCompile Include="Humanoid.cpp">
       <Filter>src\Simulation\World\Entities\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticBaseWindow.cpp">
+      <Filter>src\GraphicsManager\UI\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="InventoryDisplay.cpp">
+      <Filter>src\GraphicsManager\UI\Concrete</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowManager.cpp">
+      <Filter>src\GraphicsManager\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -312,7 +321,7 @@
     <ClInclude Include="Size.h">
       <Filter>src\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Rectangle_.h">
+    <ClInclude Include="WorldRectangle.h">
       <Filter>src\Core</Filter>
     </ClInclude>
     <ClInclude Include="Collider.h">
@@ -428,6 +437,15 @@
     </ClInclude>
     <ClInclude Include="Humanoid.h">
       <Filter>src\Simulation\World\Entities\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticBaseWindow.h">
+      <Filter>src\GraphicsManager\UI\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="InventoryDisplay.h">
+      <Filter>src\GraphicsManager\UI\Concrete</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowManager.h">
+      <Filter>src\GraphicsManager\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

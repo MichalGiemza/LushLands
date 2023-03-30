@@ -3,7 +3,7 @@
 #include "Position.h"
 #include "Size.h"
 
-class Rectangle_ {
+class WorldRectangle {
 	/**
 	* Represents geometric rectangle.
 	* - uses X and Z coordinates.
@@ -13,7 +13,7 @@ class Rectangle_ {
 	Size *s;
 	bool asCtr;
 public:
-	Rectangle_(int x, int z, int w, int l, bool accurate = false, bool positionIsCenter = false);
+	WorldRectangle(int x, int z, int w, int l, bool accurate = false, bool positionIsCenter = false);
 	int accurateLeft() const;
 	int accurateRight() const;
 	int accurateTop() const;
@@ -26,12 +26,12 @@ public:
 	void setSize(Size *newSize);
 	Position *getPosition();
 	Size *getSize();
-	bool isOverlapping(const Rectangle_ *other) const;
-	int accurateDistanceTo2D(const Rectangle_ *other) const;
+	bool isOverlapping(const WorldRectangle *other) const;
+	int accurateDistanceTo2D(const WorldRectangle *other) const;
 	int accurateDistanceFromCenter2D(Position &otherPosition) const;
-	bool isCollidingTop(const Rectangle_ *other) const;
-	bool isCollidingBottom(const Rectangle_ *other) const;
-	bool isCollidingLeft(const Rectangle_ *other) const;
-	bool isCollidingRight(const Rectangle_ *other) const;
+	bool isCollidingTop(const WorldRectangle *other) const;
+	bool isCollidingBottom(const WorldRectangle *other) const;
+	bool isCollidingLeft(const WorldRectangle *other) const;
+	bool isCollidingRight(const WorldRectangle *other) const;
 };
 

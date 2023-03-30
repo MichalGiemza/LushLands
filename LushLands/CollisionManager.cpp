@@ -13,7 +13,7 @@ void CollisionManager::rmCollider(Collider *c) {
 }
 
 std::unordered_set<Collider *> *CollisionManager::getCollidersObstructuringNewPosition(DynamicCollider *dc, Position *newPos) {
-    Rectangle_ r = Rectangle_(*dc->getCollider()->getBody()->getRectangle());
+    WorldRectangle r = WorldRectangle(*dc->getCollider()->getBody()->getRectangle());
     r.setPosition(newPos);
     auto conp = new std::unordered_set<Collider *>();
 

@@ -6,6 +6,8 @@
 #include "ChunkRepresentation.h"
 #include "Console.h"
 #include "FieldCursor.h"
+#include "InventoryDisplay.h"
+#include "WindowManager.h"
 
 
 class Scene {
@@ -16,16 +18,29 @@ class Scene {
     Camera camera;
     ChunkRepresentationManager chunkRepresentationManager;
     World *world;
+    Player *player;
     Display *display;
     InputEvents *inputEvents;
     TextureManager *textureManager;
     Console *console;
     FieldCursor *fieldCursor;
+    InventoryDisplay *invDispl;
+    WindowManager *windowManager;
+
+    bool invOpen = false;
+    bool mapOpen = false;
+    bool chtOpen = false;
+    bool stsOpen = false;
+    bool qstOpen = false;
+    bool bldOpen = false;
 
     void drawChunkGround(ChunkRepresentation &chunkRepresentation, int level);
-    friend void draw(ALLEGRO_EVENT *ae, void *scene);
 public:
-    Scene(scenename sceneName, World *world, Display *display, Position *followedPosition, InputEvents *inputEvents, TextureManager *textureManager, Focus *focus, Console *console);
+    Scene(scenename sceneName, World *world, Display *display, Position *followedPosition, InputEvents *inputEvents, TextureManager *textureManager, Focus *focus, Console *console, Player *player);
+
+    friend void draw(ALLEGRO_EVENT *ae, void *scene);
+    friend void handleAction(ALLEGRO_EVENT *ae, void *scene);
 };
 
 void draw(ALLEGRO_EVENT *ae, void *scene);
+void handleAction(ALLEGRO_EVENT *ae, void *scene);

@@ -21,6 +21,7 @@ class Console : StaticUIElement {
     std::vector<ConsoleLine> currentChat;
     loglevel logLevel;
     short chatLength = CHAT_LENGTH;
+
     ALLEGRO_BITMAP *bitmapCache = 0;
     bool bitmapToRedraw = true;
     Display *display;

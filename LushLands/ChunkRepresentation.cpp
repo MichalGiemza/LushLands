@@ -30,7 +30,7 @@ void ChunkRepresentation::drawLevelTilesToBitmap(int level) {
             tp.z = referencePosition.z + j;
             if (groundTiles.find(tp) != groundTiles.end()) {
                 Ground *g = (Ground *)groundTiles[tp];
-                al_draw_bitmap(textureManager->getEntityTexture(g->getType()), i * tileSizePx, j * tileSizePx, 0);
+                al_draw_bitmap(textureManager->getNamedTexture(g->getType()), i * tileSizePx, j * tileSizePx, 0);
             }
         }
     }
@@ -40,7 +40,7 @@ ChunkRepresentation::ChunkRepresentation(Display *display, ChunkPosition chunkPo
     groundTiles(groundTiles), structures(structures), animals(animals), humanoids(humanoids),
     textureManager(textureManager), chunkPosition(chunkPosition), display(display) {
     this->position = Position(chunkPosition);
-    this->area = new Rectangle_(0, 0, chunkSizeByTiles, chunkSizeByTiles);
+    this->area = new WorldRectangle(0, 0, chunkSizeByTiles, chunkSizeByTiles);
     this->area->setPosition(&this->position);
 }
 
@@ -78,7 +78,7 @@ Position *ChunkRepresentation::getPosition() {
     return &position;
 }
 
-Rectangle_ *ChunkRepresentation::getArea() {
+WorldRectangle *ChunkRepresentation::getArea() {
     return area;
 }
 

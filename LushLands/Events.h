@@ -2,6 +2,7 @@
 #include "ConstantSets.h"
 
 #define CHAR_ID(a, b, c, d) (((a) << 24) | ((b) << 16) | ((c) << 8) | (d))
+#define IS_USER_EVENT(t) ((t) >= 'U' << 24 && (t) < 'V' << 24)
 
 
 // Chunk event types

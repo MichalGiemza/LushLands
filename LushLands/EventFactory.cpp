@@ -12,3 +12,16 @@ void EventFactory::unpackMobilityAttemptGo(ALLEGRO_EVENT *aEvent, void **dynamic
     *dynamicCollider = (void *)aEvent->user.data1;
     *desiredPosition = (void *)aEvent->user.data2;
 }
+
+ALLEGRO_EVENT *EventFactory::packMouseAction(const systemevent se, int x, int y) {
+    ALLEGRO_EVENT *ae = new ALLEGRO_EVENT {};
+    ae->user.type = se;
+    ae->user.data1 = (intptr_t)x;
+    ae->user.data2 = (intptr_t)y;
+    return ae;
+}
+
+void EventFactory::unpackMouseAction(ALLEGRO_EVENT *aEvent, int *x, int *y) {
+    *x = aEvent->user.data1;
+    *y = aEvent->user.data2;
+}

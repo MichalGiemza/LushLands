@@ -16,5 +16,6 @@ public:
     Item *getItem(int i);
     Item *putItem(int i, Item *item);
     Item *takeItem(int i);
+    int getSize();
 };
 

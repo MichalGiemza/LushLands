@@ -1,60 +1,60 @@
-#include "Rectangle_.h"
+#include "WorldRectangle.h"
 
-Rectangle_::Rectangle_(int x, int z, int w, int l, bool accurate, bool asCenter) {
+WorldRectangle::WorldRectangle(int x, int z, int w, int l, bool accurate, bool asCenter) {
 	p = new Position(x, 0, z, accurate);
 	s = new Size(w, 0, l, accurate);
 	asCtr = asCenter;
 }
 
-int Rectangle_::accurateLeft() const {
+int WorldRectangle::accurateLeft() const {
 	return p->getPX() - asCtr * s->getPW() / 2;
 }
 
-int Rectangle_::accurateRight() const {
+int WorldRectangle::accurateRight() const {
 	return p->getPX() + s->getPW() - asCtr * s->getPW() / 2;
 }
 
-int Rectangle_::accurateTop() const {
+int WorldRectangle::accurateTop() const {
 	return p->getPZ() - asCtr * s->getPL() / 2;
 }
 
-int Rectangle_::accurateBottom() const {
+int WorldRectangle::accurateBottom() const {
 	return p->getPZ() + s->getPL() - asCtr * s->getPL() / 2;
 }
 
-int Rectangle_::left() const {
+int WorldRectangle::left() const {
 	return accurateLeft() / representationComaValue;
 }
 
-int Rectangle_::right() const {
+int WorldRectangle::right() const {
 	return accurateRight() / representationComaValue;
 }
 
-int Rectangle_::top() const {
+int WorldRectangle::top() const {
 	return accurateTop() / representationComaValue;
 }
 
-int Rectangle_::bottom() const {
+int WorldRectangle::bottom() const {
 	return accurateBottom() / representationComaValue;
 }
 
-void Rectangle_::setPosition(Position *newPosition) {
+void WorldRectangle::setPosition(Position *newPosition) {
 	p = newPosition;
 }
 
-void Rectangle_::setSize(Size *newSize) {
+void WorldRectangle::setSize(Size *newSize) {
 	s = newSize;
 }
 
-Position *Rectangle_::getPosition() {
+Position *WorldRectangle::getPosition() {
 	return p;
 }
 
-Size *Rectangle_::getSize() {
+Size *WorldRectangle::getSize() {
 	return s;
 }
 
-bool Rectangle_::isOverlapping(const Rectangle_ *other) const {
+bool WorldRectangle::isOverlapping(const WorldRectangle *other) const {
 	// find the x and y distances between the centers of the two rectangles
 	int dx = std::abs(accurateLeft() + s->getPW() / 2 - other->accurateLeft() - other->s->getPW() / 2);
 	int dy = std::abs(accurateTop() + s->getPL() / 2 - other->accurateTop() - other->s->getPL() / 2);
@@ -62,7 +62,7 @@ bool Rectangle_::isOverlapping(const Rectangle_ *other) const {
 	return dx <= (s->getPW() + other->s->getPW()) / 2 && dy <= (s->getPL() + other->s->getPL()) / 2;
 }
 
-int Rectangle_::accurateDistanceTo2D(const Rectangle_ *other) const {
+int WorldRectangle::accurateDistanceTo2D(const WorldRectangle *other) const {
 	// find the x and y distances between the centers of the two rectangles
 	int dx = std::abs(accurateLeft() + s->getPW() / 2 - other->accurateLeft() - other->s->getPW() / 2);
 	int dy = std::abs(accurateTop() + s->getPL() / 2 - other->accurateTop() - other->s->getPL() / 2);
@@ -79,24 +79,24 @@ int Rectangle_::accurateDistanceTo2D(const Rectangle_ *other) const {
 	return std::sqrt(xDist * xDist + yDist * yDist);
 }
 
-int Rectangle_::accurateDistanceFromCenter2D(Position &otherPosition) const {
+int WorldRectangle::accurateDistanceFromCenter2D(Position &otherPosition) const {
 	int x = accurateLeft() + s->getPW() / 2 - otherPosition.getPX();
 	int z = accurateTop() + s->getPL() / 2 - otherPosition.getPZ();
 	return (int)sqrt(x * x + z * z);
 }
 
-bool Rectangle_::isCollidingTop(const Rectangle_ *other) const {
+bool WorldRectangle::isCollidingTop(const WorldRectangle *other) const {
 	return std::abs(accurateTop() - (other->accurateTop() + other->s->getPL())) < collisionEpsilon;
 }
 
-bool Rectangle_::isCollidingBottom(const Rectangle_ *other) const {
+bool WorldRectangle::isCollidingBottom(const WorldRectangle *other) const {
 	return std::abs(other->accurateTop() - (accurateTop() + s->getPL())) < collisionEpsilon;
 }
 
-bool Rectangle_::isCollidingLeft(const Rectangle_ *other) const {
+bool WorldRectangle::isCollidingLeft(const WorldRectangle *other) const {
 	return std::abs(accurateLeft() - (other->accurateLeft() + other->s->getPW())) < collisionEpsilon;
 }
 
-bool Rectangle_::isCollidingRight(const Rectangle_ *other) const {
+bool WorldRectangle::isCollidingRight(const WorldRectangle *other) const {
 	return std::abs(other->accurateLeft() - (accurateLeft() + s->getPW())) < collisionEpsilon;
 }
