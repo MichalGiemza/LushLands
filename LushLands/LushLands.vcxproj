@@ -158,6 +158,7 @@
     <ClCompile Include="ActionMap.cpp" />
     <ClCompile Include="Destroyability.cpp" />
     <ClCompile Include="EntityConstants.cpp" />
+    <ClCompile Include="Hotbar.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="InventoryDisplay.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -228,6 +229,7 @@
   <ItemGroup>
     <ClInclude Include="ActionMap.h" />
     <ClInclude Include="Destroyability.h" />
+    <ClInclude Include="Hotbar.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="InventoryDisplay.h" />
     <ClInclude Include="Item.h" />

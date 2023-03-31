@@ -7,8 +7,8 @@ const Color COLOR_DARK_RED = Color(128, 0, 10, 255);
 const Color COLOR_FUXIA = Color(255, 0, 255, 255);
 const Color COLOR_CYAN = Color(0, 255, 255, 255);
 
-// Debug colors
-const Color UI_BG_COLOR = Color(100, 150, 160, 255);
+// UI colors
+const Color UI_BG_COLOR = Color(50, 75, 80, 128);
 const Color UI_FG_COLOR = Color(160, 240, 250, 255);
 
 // Debug colors

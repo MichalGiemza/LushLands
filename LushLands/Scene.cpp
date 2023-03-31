@@ -14,6 +14,8 @@ Scene::Scene(scenename sceneName, World *world, Display *display, Position *foll
     windowManager = new WindowManager(inputEvents);
     invDispl = new InventoryDisplay(display, textureManager, player->getInventory(), 50, 50); //TODO magic numbers
     windowManager->addWindow(invDispl);
+    hotbar = new Hotbar(display, textureManager, player->getInventory());
+    windowManager->addWindow(hotbar);
     // Event subscriptions
     inputEvents->subscribeTimerFPS(1, draw, this);
     inputEvents->subscribeSystemEvent(user_open_inventory, handleAction, this);

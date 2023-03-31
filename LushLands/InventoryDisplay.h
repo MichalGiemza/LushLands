@@ -12,7 +12,7 @@ class InventoryDisplay : public StaticBaseWindow {
     */
 protected:
     const pxint margin = 4;
-    const pxint invWidth = inventoryWidth * (tileSizePx + margin) + margin;
+    const pxint invWidth;
     const pxint invHeight;
     bool displayBg = true;
     Inventory *inventory;
@@ -20,9 +20,10 @@ protected:
     Display *dsp;
     TextureManager *textureManager;
     ALLEGRO_FONT *font;
-private:
+protected:
     int determineRows(int n);
     pxint determineHeight(int elements);
+    pxint determineWidth();
 
 public:
     InventoryDisplay(Display *display, TextureManager *textureManager, Inventory *inv, pxint x, pxint y);

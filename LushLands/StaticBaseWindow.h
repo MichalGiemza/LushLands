@@ -16,7 +16,7 @@ protected:
     bool movable, resizeable;
     bool hidden = false;
 public:
-    StaticBaseWindow(pxint x, pxint y, pxint w, pxint h, const Color *bgColor = &UI_FG_COLOR, const Color *fgColor = &UI_BG_COLOR, bool movable = false, bool resizeable = false);
+    StaticBaseWindow(pxint x, pxint y, pxint w, pxint h, const Color *bgColor = &UI_BG_COLOR, const Color *fgColor = &UI_FG_COLOR, bool movable = false, bool resizeable = false);
     bool screenPositionWithinBorders(pxint x, pxint y);
     virtual void interact(pxint x, pxint y) = 0;
     virtual void openContextMenu(pxint x, pxint y) = 0;

@@ -8,6 +8,7 @@
 #include "FieldCursor.h"
 #include "InventoryDisplay.h"
 #include "WindowManager.h"
+#include "Hotbar.h"
 
 
 class Scene {
@@ -25,6 +26,7 @@ class Scene {
     Console *console;
     FieldCursor *fieldCursor;
     InventoryDisplay *invDispl;
+    Hotbar *hotbar;
     WindowManager *windowManager;
 
     bool invOpen = false;

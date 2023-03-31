@@ -211,6 +211,9 @@
     <ClCompile Include="WindowManager.cpp">
       <Filter>src\GraphicsManager\UI</Filter>
     </ClCompile>
+    <ClCompile Include="Hotbar.cpp">
+      <Filter>src\GraphicsManager\UI\Concrete</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -446,6 +449,9 @@
     </ClInclude>
     <ClInclude Include="WindowManager.h">
       <Filter>src\GraphicsManager\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Hotbar.h">
+      <Filter>src\GraphicsManager\UI\Concrete</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

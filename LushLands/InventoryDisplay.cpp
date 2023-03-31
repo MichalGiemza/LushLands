@@ -9,9 +9,10 @@ pxint InventoryDisplay::determineHeight(int n) {
 }
 
 InventoryDisplay::InventoryDisplay(Display *display, TextureManager *textureManager, Inventory *inv, pxint x, pxint y) :
-    StaticBaseWindow(x, y, invWidth, determineHeight(inv->getSize())), dsp(display),
-    textureManager(textureManager), invHeight(determineHeight(inv->getSize())),
-    inventory(inv) {
+    StaticBaseWindow(x, y, determineWidth(), determineHeight(inv->getSize())), dsp(display),
+    textureManager(textureManager), inventory(inv),
+    invHeight(determineHeight(inv->getSize())),
+    invWidth(determineWidth()) {
     setHidden(true);
 }
 
@@ -36,9 +37,9 @@ void InventoryDisplay::draw() {
         int x_el = x + margin + (tileSizePx + margin) * (i % s);
         int y_el = y + margin + (tileSizePx + margin) * (i / s);
         // Item bg
-        al_draw_filled_rectangle(x_el, y_el,
+        al_draw_rectangle(x_el, y_el,
             x_el + tileSizePx, y_el + tileSizePx, 
-            fg->getAllegroColor());
+            fg->getAllegroColor(), 2.0f);
         // Item
         Item *item = inventory->getItem(i);
         if (not item)
@@ -46,4 +47,8 @@ void InventoryDisplay::draw() {
         ALLEGRO_BITMAP *itemTex = textureManager->getNamedTexture(item->getType());
         al_draw_bitmap(itemTex, x_el, y_el, 0);
     }
+}
+
+pxint InventoryDisplay::determineWidth() {
+    return inventoryWidth * (tileSizePx + margin) + margin;
 }
