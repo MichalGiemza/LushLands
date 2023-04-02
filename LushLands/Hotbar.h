@@ -16,6 +16,8 @@ public:
     pxint determineY();
     virtual void draw() override;
     friend void handleHotbarKey(ALLEGRO_EVENT *allegroEvent, void *caller);
+    friend void handleScroll(ALLEGRO_EVENT *allegroEvent, void *caller);
 };
 
 void handleHotbarKey(ALLEGRO_EVENT *allegroEvent, void *caller);
+void handleScroll(ALLEGRO_EVENT *allegroEvent, void *caller);

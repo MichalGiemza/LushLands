@@ -16,6 +16,7 @@ Hotbar::Hotbar(Display *display, TextureManager *textureManager, Inventory *inv,
     player(player) {
     setHidden(false);
     inputEvents->subscribeSystemEvent(player_hotbar, handleHotbarKey, this);
+    inputEvents->subscribeMouseAxis(handleScroll, this);
 }
 
 pxint Hotbar::determineX() {
@@ -43,3 +44,9 @@ void handleHotbarKey(ALLEGRO_EVENT *allegroEvent, void *caller) {
     EventFactory::unpackKeyboardLetter(allegroEvent, &kc);
     h->selectedIdx = h->keycodeToIdx(kc);
 }
+
+void handleScroll(ALLEGRO_EVENT *allegroEvent, void *caller) {
+    Hotbar *h = (Hotbar *)caller;
+    h->selectedIdx = (((h->selectedIdx - allegroEvent->mouse.dz) % player_hotbar_keycount) + player_hotbar_keycount) % player_hotbar_keycount;
+}
+
