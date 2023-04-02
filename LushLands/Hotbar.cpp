@@ -28,14 +28,16 @@ pxint Hotbar::determineY() {
 }
 
 void Hotbar::draw() {
-    InventoryDisplay::draw();
     // Selection frame
     int x_el = x + margin + (tileSizePx + margin) * (selectedIdx % inventory->getSize());
     int y_el = y + margin + (tileSizePx + margin) * (selectedIdx / inventory->getSize());
     // Item bg
-    al_draw_rectangle(x_el, y_el,
+    al_draw_filled_rounded_rectangle(x_el, y_el,
         x_el + tileSizePx, y_el + tileSizePx,
-        fg->getAllegroColor(), 4.0f);
+        roundingRadiusSmall, roundingRadiusSmall,
+        fg->getAllegroColor());
+    // Draw the rest
+    InventoryDisplay::draw();
 }
 
 void handleHotbarKey(ALLEGRO_EVENT *allegroEvent, void *caller) {

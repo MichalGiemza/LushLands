@@ -11,6 +11,6 @@ class ItemFactory {
 
 public:
     ItemFactory();
-    Item *buildItem(itemtype itemType);
+    Item *buildItem(itemtype itemType, stack amount);
 };
 

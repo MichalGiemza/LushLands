@@ -50,6 +50,12 @@ void TextureManager::loadAllTextures() {
     /*    Animal Loot    */
     textures[MEAT] = loadTexture(MEAT_TEXTURE_LOCALIZATION);
     textures[FEATHER] = loadTexture(FEATHER_TEXTURE_LOCALIZATION);
+    /*    Tools    */
+    textures[SWORD] = loadTexture(SWORD_TEXTURE_LOCALIZATION);
+    textures[SHOVEL] = loadTexture(SHOVEL_TEXTURE_LOCALIZATION);
+    textures[PICKAXE] = loadTexture(PICKAXE_TEXTURE_LOCALIZATION);
+    textures[AXE] = loadTexture(AXE_TEXTURE_LOCALIZATION);
+    textures[SCYTHE] = loadTexture(SCYTHE_TEXTURE_LOCALIZATION);
 }
 
 ALLEGRO_BITMAP *TextureManager::getNamedTexture(const char *name) {

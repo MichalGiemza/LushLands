@@ -13,8 +13,10 @@ public:
     Inventory(int size);
 
     // Getters, Setters
+    int getSuitableSpace(Item *item);
     Item *getItem(int i);
     Item *putItem(int i, Item *item);
+    Item *putItemAuto(Item *item);
     Item *takeItem(int i);
     int getSize();
 };

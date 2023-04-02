@@ -30,15 +30,16 @@ void InventoryDisplay::draw() {
     auto backbuffer = al_get_backbuffer(dsp->getDisplay());
     // Window bg
     if (displayBg)
-        al_draw_filled_rectangle(x, y, x + invWidth, y + invHeight, bg->getAllegroColor());
+        al_draw_filled_rounded_rectangle(x, y, x + invWidth, y + invHeight, roundingRadiusBig, roundingRadiusBig, bg->getAllegroColor());
     // Inventory elements
     int s = inventory->getSize();
     for (int i = 0; i < inventory->getSize(); i++) {
         int x_el = x + margin + (tileSizePx + margin) * (i % s);
         int y_el = y + margin + (tileSizePx + margin) * (i / s);
         // Item bg
-        al_draw_rectangle(x_el, y_el,
+        al_draw_rounded_rectangle(x_el, y_el,
             x_el + tileSizePx, y_el + tileSizePx, 
+            roundingRadiusSmall, roundingRadiusSmall,
             fg->getAllegroColor(), 2.0f);
         // Item
         Item *item = inventory->getItem(i);

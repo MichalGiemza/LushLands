@@ -6,6 +6,7 @@
 namespace fs = std::filesystem;
 
 typedef const int cstint;
+typedef unsigned char stack;
 typedef long long ll;
 typedef int tickperiod;
 typedef int keycode;

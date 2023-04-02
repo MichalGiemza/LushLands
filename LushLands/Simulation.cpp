@@ -38,6 +38,10 @@ void Simulation::addPlayer() {
     world->placePlayer(player);
     loadPosition = human->getPosition();
     focus->setFocusedObject(human->getGameElement());
+    // Tools
+    human->getInventory()->putItemAuto(itemFactory->buildItem(PICKAXE, 1));
+    human->getInventory()->putItemAuto(itemFactory->buildItem(SHOVEL, 1));
+    human->getInventory()->putItemAuto(itemFactory->buildItem(AXE, 1));
 }
 
 Player *Simulation::getPlayer() {
