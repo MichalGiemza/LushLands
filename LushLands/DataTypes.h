@@ -35,9 +35,11 @@ typedef const char *name;
 typedef const char *gendertype;
 
 struct FieldPlan {
-    entitytype ground;
-    entitytype structure;
-    entitytype animal;
+    entitytype ground = 0;
+    entitytype structure = 0;
+    entitytype animal = 0;
+    itemtype item = 0;
+    stack itemAmount = 0;
 };
 
 struct ItemDropChance {

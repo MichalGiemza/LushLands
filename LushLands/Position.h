@@ -37,6 +37,7 @@ public:
     ChunkPosition getChunkPosition() const;
     TilePosition getTilePosition() const;
     void updateTilePosition(TilePosition &tp) const;
+    void updatePosition(const Position &pos);
     ll getInsideChunkRawX() const;
     ll getInsideChunkRawZ() const;
     std::string getTextX() const;

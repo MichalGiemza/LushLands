@@ -71,6 +71,28 @@ void Chunk::generateAnimals(ChunkPlan &chunkPlan) {
     }
 }
 
+void Chunk::generateItems(ChunkPlan &chunkPlan) {
+    auto referencePosition = Position(chunkPosition);
+    auto pos = Position(referencePosition);
+
+    for (int i = 0; i < chunkSizeByTiles; i++) {
+        for (int j = 0; j < chunkSizeByTiles; j++) {
+            for (int k = 0; k < worldHeight; k++) {
+                pos.setPX(referencePosition.getPX() + i * meter + meter / 2);
+                pos.setPZ(referencePosition.getPZ() + j * meter + meter / 2);
+                pos.setPY(referencePosition.getPY() + k * meter);
+                auto plannedItemType = chunkPlan.fieldPlans[i][j][k].item;
+                auto plannedItemAmount = chunkPlan.fieldPlans[i][j][k].itemAmount;
+                if (not plannedItemType)
+                    continue;
+                Item *item = itemFactory->buildItem(plannedItemType, plannedItemAmount);
+                item->getPosition()->updatePosition(pos);
+                items.insert(item);
+            }
+        }
+    }
+}
+
 Animal *Chunk::addAnimal(entitytype entityType, Position &position) {
     Animal *animal = (Animal *)entityFactory->buildEntity(entityType, position);
     if (animal == 0)
@@ -86,15 +108,14 @@ void Chunk::placeHumanoid(Humanoid *humanoid) {
     collisionManager.addCollider(humanoid->getCollider());
 }
 
-Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory) :
-    collisionManager(),
+Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory, ItemFactory *itemFactory) :
+    collisionManager(), itemFactory(itemFactory), entityFactory(entityFactory), chunkPosition(chunkPosition),
     chunkEvents(&chunkPosition, &collisionManager, &randomTickEntities, &toUpdateEntities) {
-    this->entityFactory = entityFactory;
-    this->chunkPosition = chunkPosition;
-    // Entities
+    // Entities and Items
     generateTiles(chunkPlan);
     generateStructures(chunkPlan);
     generateAnimals(chunkPlan);
+    generateItems(chunkPlan);
 
     Logger::log(lg::DEBUG_CHUNK, "Created Chunk [%i, %i]", chunkPosition.x, chunkPosition.z);
 }
@@ -117,6 +138,10 @@ CollisionManager *Chunk::getCollisionManager() {
 
 std::unordered_map<TilePosition, Entity *> *Chunk::getGround() {
     return &groundTiles;
+}
+
+std::unordered_set<Item *> *Chunk::getItems() {
+    return &items;
 }
 
 std::unordered_map<TilePosition, Entity *> *Chunk::getStructures() {

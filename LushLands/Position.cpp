@@ -158,6 +158,12 @@ std::string Position::getTextY() const {
     return std::to_string(_y / representationComaValue);
 }
 
+void Position::updatePosition(const Position &pos) {
+    setPX(pos._x);
+    setPY(pos._y);
+    setPZ(pos._z);
+}
+
 std::string Position::getTextZ() const {
     return std::to_string(_z / representationComaValue);
 }

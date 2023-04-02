@@ -16,7 +16,7 @@ World::World(worldtype worldType, int seed_, EntityFactory *entityFactory, ItemF
         throw new std::logic_error(not_implemented);
     
     this->time = new Time();
-    this->chunkSystem = new ChunkSystem(worldPlanner, entityFactory);
+    this->chunkSystem = new ChunkSystem(worldPlanner, entityFactory, itemFactory);
     this->worldEvents = new WorldEvents(eventHandler);
     this->lastTimeUpdated = 0;
 

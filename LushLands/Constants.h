@@ -11,6 +11,7 @@ const long long worldHeight = 64;
 const unsigned char maxStack = UCHAR_MAX;
 const unsigned char singleItemStack = 1;
 const long long collisionEpsilon = 10000;
+const int itemMagnetRadius = 1;
 
 // Chunks
 const int chunkSizeByTiles = 32;

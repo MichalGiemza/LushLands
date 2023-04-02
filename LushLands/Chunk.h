@@ -6,6 +6,7 @@
 #include "Logger.h"
 #include "Ground.h"
 #include "EntityFactory.h"
+#include "ItemFactory.h"
 #include "Collider.h"
 #include "CollisionManager.h"
 #include "Animal.h"
@@ -25,7 +26,9 @@ private:
     std::unordered_map<TilePosition, Entity *> structures;
     std::unordered_set<Entity *> animals;
     std::unordered_set<Entity *> humanoids;
+    std::unordered_set<Item *> items;
     EntityFactory *entityFactory;
+    ItemFactory *itemFactory;
     CollisionManager collisionManager;
     ChunkEvents chunkEvents;
     std::unordered_set<Entity *> randomTickEntities; // Fixme: Bêdzie problem z castowaniem!
@@ -34,16 +37,18 @@ private:
     void generateTiles(ChunkPlan &chunkPlan);
     void generateStructures(ChunkPlan &chunkPlan);
     void generateAnimals(ChunkPlan &chunkPlan);
+    void generateItems(ChunkPlan &chunkPlan);
     Structure *addStructure(entitytype entityType, Position &position);
     Animal *addAnimal(entitytype entityType, Position &position);
 public:
-    Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory);
+    Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory, ItemFactory *itemFactory);
     void placeHumanoid(Humanoid *humanoid);
     Entity *getGround(TilePosition &tilePosition);
     Entity *getStructure(TilePosition &tilePosition);
     ChunkEvents *getChunkEvents();
     CollisionManager *getCollisionManager();
     std::unordered_map<TilePosition, Entity *> *getGround();
+    std::unordered_set<Item *> *getItems();
     std::unordered_map<TilePosition, Entity *> *getStructures();
     std::unordered_set<Entity *> *getAnimals();
     std::unordered_set<Entity *> *getHumanoids();

@@ -15,6 +15,10 @@ stack Item::getAmount() {
     return amount;
 }
 
+Position *Item::getPosition() {
+    return &position;
+}
+
 void Item::setAmount(stack newA) {
     amount = newA;
 }

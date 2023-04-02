@@ -4,6 +4,7 @@
 #include "Display.h"
 #include "Ground.h"
 #include "TextureManager.h"
+#include "Item.h"
 
 
 class ChunkRepresentation {
@@ -14,6 +15,7 @@ class ChunkRepresentation {
     Position position;
     WorldRectangle *area;
     std::unordered_map<TilePosition, Entity *> groundTiles;
+    std::unordered_set<Item *> items;
     std::unordered_map<TilePosition, Entity *> structures;
     std::unordered_set<Entity *> animals;
     std::unordered_set<Entity *> humanoids;
@@ -25,11 +27,12 @@ class ChunkRepresentation {
     size_t hashChunkGroundLevel(int level);
     void drawLevelTilesToBitmap(int level);
 public:
-    ChunkRepresentation(Display *display, ChunkPosition chunkPosition, std::unordered_map<TilePosition, Entity *> &groundTiles, std::unordered_map<TilePosition, Entity *> &structures, std::unordered_set<Entity *> &animals, std::unordered_set<Entity *> &humanoids, TextureManager *textureManager);
+    ChunkRepresentation(Display *display, ChunkPosition chunkPosition, std::unordered_map<TilePosition, Entity *> &groundTiles, std::unordered_set<Item *> &items, std::unordered_map<TilePosition, Entity *> &structures, std::unordered_set<Entity *> &animals, std::unordered_set<Entity *> &humanoids, TextureManager *textureManager);
     ALLEGRO_BITMAP *getBitmap(int level);
     std::unordered_map<TilePosition, Entity *> *getStructures();
     std::unordered_set<Entity *> *getAnimals();
     std::unordered_set<Entity *> *getHumanoids();
+    std::unordered_set<Item *> *getItems();
     ChunkPosition *getChunkPosition();
     Position *getPosition();
     WorldRectangle *getArea();

@@ -12,16 +12,13 @@ void ChunkRepresentationManager::updateVisibleChunkRepresentations() {
                 Logger::log(lg::DEBUG_CHUNK, "Chunk [%i, %i] was not loaded yet!", cPos.x, cPos.z);
                 continue;
             }
-            chunkRepresentations[cPos] = new ChunkRepresentation(display, cPos, *chunk->getGround(), *chunk->getStructures(), *chunk->getAnimals(), *chunk->getHumanoids(), textureManager);
+            chunkRepresentations[cPos] = new ChunkRepresentation(display, cPos, *chunk->getGround(), *chunk->getItems(), *chunk->getStructures(), *chunk->getAnimals(), *chunk->getHumanoids(), textureManager);
         }
     }
 }
 
-ChunkRepresentationManager::ChunkRepresentationManager(World *world, Display *display, Camera *camera, TextureManager *textureManager) {
-    this->textureManager = textureManager;
-    this->camera = camera;
-    this->world = world;
-    this->display = display;
+ChunkRepresentationManager::ChunkRepresentationManager(World *world, Display *display, Camera *camera, TextureManager *textureManager) :
+    textureManager(textureManager), camera(camera), world(world), display(display) {
     chunkRepresentations = std::unordered_map<ChunkPosition, ChunkRepresentation *>();
 }
 
@@ -38,11 +35,13 @@ void ChunkRepresentationManager::draw() {
             continue;
         if (camera->isAreaVisible(cRep->getArea())) {
             drawGround(cRep, level);
+            drawItems(cRep, level);
             drawStructures(cRep, level);
             drawAnimals(cRep, level);
             drawHumanoids(cRep, level);
             if (DEBUG) {
                 drawAnimalDebug(cRep, level);
+                drawItemsDebug(cRep, level);
                 drawStructureDebug(cRep, level);
                 drawHumanoidDebug(cRep, level);
                 drawChunkDebug(cRep);
@@ -58,6 +57,23 @@ void ChunkRepresentationManager::drawGround(ChunkRepresentation *cRep, int level
     pxint z = camera->shiftToScreenPosZ(cRep->getPosition()->getPZ());
     if (groundBitmap)
         al_draw_bitmap(groundBitmap, x, z, 0);
+}
+
+void ChunkRepresentationManager::drawItems(ChunkRepresentation *cRep, int level) { // TODO: Uogólniæ to i struktury do draw independent structure i póŸniej jednoliniowe metody o tych nazwach dobieraj¹ce w³aœciwy zestaw do rysowania do uogólnionej metody
+    auto items = cRep->getItems();
+    for (auto item = items->begin(); item != items->end(); ++item) {
+        auto it = (Item *)(*item);
+        if (it->getPosition()->getY() != level)
+            continue;
+        auto ctr = it->getPosition();
+        // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
+        auto sBitmap = textureManager->getNamedTexture(it->getType());
+
+        pxint x1 = shiftTexturePositionX(camera->shiftToScreenPosX(ctr->getPX()), al_get_bitmap_width(sBitmap), 0);
+        pxint z1 = shiftTexturePositionZ(camera->shiftToScreenPosZ(ctr->getPZ()), al_get_bitmap_height(sBitmap), 0);
+
+        al_draw_bitmap(sBitmap, x1, z1, 0);
+    }
 }
 
 void ChunkRepresentationManager::drawStructures(ChunkRepresentation *cRep, int level) {
@@ -137,6 +153,20 @@ void ChunkRepresentationManager::drawStructureDebug(ChunkRepresentation *cRep, i
         pxint x2 = camera->shiftToScreenPosX(ctr->getPX()) + size->getCameraW() / 2;
         pxint z2 = camera->shiftToScreenPosZ(ctr->getPZ()) + size->getCameraL() / 2;
         al_draw_rectangle(x1, z1, x2, z2, DEBUG_STRUCTURE_BORDER_COLOR.getAllegroColor(), 1.0f);
+    }
+}
+
+void ChunkRepresentationManager::drawItemsDebug(ChunkRepresentation *cRep, int level) {
+    auto items = cRep->getItems();
+    for (auto item = items->begin(); item != items->end(); ++item) {
+        auto it = (Item *)(*item);
+        if (it->getPosition()->getY() != level)
+            continue;
+        auto ctr = it->getPosition();
+        // Draw magnet radius
+        pxint x1 = camera->shiftToScreenPosX(ctr->getPX());
+        pxint z1 = camera->shiftToScreenPosZ(ctr->getPZ());
+        al_draw_circle(x1, z1, itemMagnetRadius * tileSizePx, DEBUG_ITEM_BORDER_COLOR.getAllegroColor(), 1.0f);
     }
 }
 
