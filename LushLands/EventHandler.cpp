@@ -39,25 +39,22 @@ void handleKeyboardLetter(ALLEGRO_EVENT *ae, void *obj) {
 
     simulationevent sec = eh->actionMap->mapKeyboardToWorldClickAction(ae->keyboard.keycode);
     if (sec > 0 and agel->getObjGroup() == fg::SIMULATION and eh->worldEvents) {
-        ALLEGRO_EVENT newEvent {};
-        newEvent.user.type = sec;
-        al_emit_user_event(eh->worldEvents->getEventSource(), &newEvent, NULL);
+        ALLEGRO_EVENT *newEvent = EventFactory::packKeyboardLetter(sec, ae->keyboard.keycode);
+        al_emit_user_event(eh->worldEvents->getEventSource(), newEvent, NULL);
         return;
     }
 
     systemevent sye = eh->actionMap->mapKeyboardToSystemAction(ae->keyboard.keycode);
     if (sye > 0 && agel->getObjType() != ft::CONSOLE) {
-        ALLEGRO_EVENT newEvent {};
-        newEvent.user.type = sye;
-        al_emit_user_event(eh->inputEvents->getEventSource(), &newEvent, NULL);
+        ALLEGRO_EVENT *newEvent = EventFactory::packKeyboardLetter(sye, ae->keyboard.keycode);
+        al_emit_user_event(eh->inputEvents->getEventSource(), newEvent, NULL);
         return;
     }
 
     systemevent sel = letter_typed;
     if (agel->getObjGroup() == fg::STATIC_UI || agel->getObjGroup() == fg::WORLD_UI) {
-        ALLEGRO_EVENT newEvent {}; // TODO: EventFactory
-        newEvent.user.type = sel;
-        al_emit_user_event(eh->inputEvents->getEventSource(), &newEvent, NULL);
+        ALLEGRO_EVENT *newEvent = EventFactory::packKeyboardLetter(sel, ae->keyboard.keycode);
+        al_emit_user_event(eh->inputEvents->getEventSource(), newEvent, NULL);
         return;
     }
 }

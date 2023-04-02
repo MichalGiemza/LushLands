@@ -15,5 +15,7 @@ public:
     static void unpackMobilityAttemptGo(ALLEGRO_EVENT *aEvent, void **dynamicCollider, void **desiredPosition);
     static ALLEGRO_EVENT *packMouseAction(const systemevent se, int x, int y);
     static void unpackMouseAction(ALLEGRO_EVENT *aEvent, int *x, int *y);
+    static ALLEGRO_EVENT *packKeyboardLetter(const systemevent se, keycode letter);
+    static void unpackKeyboardLetter(ALLEGRO_EVENT *aEvent, keycode *letter);
 };
 

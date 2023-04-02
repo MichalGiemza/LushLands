@@ -10,23 +10,23 @@ ActionMap::ActionMap() {
         { ALLEGRO_KEY_E, player_wills_use }
     };
     worldKeyboardActionClickMap = {
-        { ALLEGRO_KEY_E, player_wills_use },
-
-        { ALLEGRO_KEY_1, player_hotbar + 0 },
-        { ALLEGRO_KEY_2, player_hotbar + 1 },
-        { ALLEGRO_KEY_3, player_hotbar + 2 },
-        { ALLEGRO_KEY_4, player_hotbar + 3 },
-        { ALLEGRO_KEY_5, player_hotbar + 4 },
-        { ALLEGRO_KEY_6, player_hotbar + 5 },
-        { ALLEGRO_KEY_7, player_hotbar + 6 },
-        { ALLEGRO_KEY_8, player_hotbar + 7 },
-        { ALLEGRO_KEY_9, player_hotbar + 8 },
-        { ALLEGRO_KEY_0, player_hotbar + 9 },
-        { ALLEGRO_KEY_MINUS, player_hotbar + 10 },
-        { ALLEGRO_KEY_EQUALS, player_hotbar + 11 }
+        { ALLEGRO_KEY_E, player_wills_use }
     };
     systemKeyboardActionMap = {
         { ALLEGRO_KEY_ESCAPE, user_open_pause_menu },
+
+        { ALLEGRO_KEY_1, player_hotbar },
+        { ALLEGRO_KEY_2, player_hotbar },
+        { ALLEGRO_KEY_3, player_hotbar },
+        { ALLEGRO_KEY_4, player_hotbar },
+        { ALLEGRO_KEY_5, player_hotbar },
+        { ALLEGRO_KEY_6, player_hotbar },
+        { ALLEGRO_KEY_7, player_hotbar },
+        { ALLEGRO_KEY_8, player_hotbar },
+        { ALLEGRO_KEY_9, player_hotbar },
+        { ALLEGRO_KEY_0, player_hotbar },
+        { ALLEGRO_KEY_MINUS, player_hotbar },
+        { ALLEGRO_KEY_EQUALS, player_hotbar },
 
         { ALLEGRO_KEY_I, user_open_inventory },
         { ALLEGRO_KEY_M, user_open_map },

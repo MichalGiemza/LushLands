@@ -25,3 +25,14 @@ void EventFactory::unpackMouseAction(ALLEGRO_EVENT *aEvent, int *x, int *y) {
     *x = aEvent->user.data1;
     *y = aEvent->user.data2;
 }
+
+ALLEGRO_EVENT *EventFactory::packKeyboardLetter(const systemevent se, keycode letter) {
+    ALLEGRO_EVENT *ae = new ALLEGRO_EVENT {};
+    ae->user.type = se;
+    ae->user.data1 = (intptr_t)letter;
+    return ae;
+}
+
+void EventFactory::unpackKeyboardLetter(ALLEGRO_EVENT *aEvent, keycode *letter) {
+    *letter = aEvent->user.data1;
+}
