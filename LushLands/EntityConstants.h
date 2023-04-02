@@ -143,7 +143,7 @@ const std::string CHICKEN_DESCRIPTION = "A chicken! There should be eggs somewhe
 const Size CHICKEN_SIZE = Size(.5f, .5f, .5f);
 const TextureLocalization CHICKEN_TEXTURE_LOCALIZATION = TextureLocalization(0, 130, "..\\Assets\\textures\\Cozy Farm Asset Pack by shubibubi\\free.png", 16, 16);
 const cstint CHICKEN_MOVEMENT_SPEED = 600;
-const miliseconds CHICKEN_WALK_INTERVAL = 1000;
+const miliseconds CHICKEN_WALK_INTERVAL = 5000;
 extern const ItemDropChance CHICKEN_DROPS[];
 const cstint CHICKEN_HEALTH = 70;
 const tooltype CHICKEN_TOOL = tlt::weapon;

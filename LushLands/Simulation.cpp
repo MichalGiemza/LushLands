@@ -50,8 +50,9 @@ Player *Simulation::getPlayer() {
 
 void updateSimulation(ALLEGRO_EVENT *ae, void *obj) {
     auto *s = (Simulation *)obj;
-    miliseconds timeNow = al_get_timer_count(ae->timer.source);
+    miliseconds timeNow = al_get_time() * 1000;
     miliseconds dt = timeNow - s->lastUpdated;
+    dt = std::min(dt, (miliseconds)100);
 
     s->world->update(dt);
 

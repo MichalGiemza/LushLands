@@ -6,6 +6,8 @@
 #include "InputEvents.h"
 #include "Controller.h"
 #include "Player.h"
+#include <cmath>
+
 
 class Simulation {
     World *world;

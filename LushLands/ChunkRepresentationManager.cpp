@@ -71,7 +71,7 @@ void ChunkRepresentationManager::drawItems(ChunkRepresentation *cRep, int level,
         auto sBitmap = textureManager->getNamedTexture(it->getType());
 
         int randomDelay = ptr_hash(it) % 100000;
-        float bumpingPosZ = std::sinf((t + randomDelay) / 20.0f) * meter / 10.0f;
+        float bumpingPosZ = std::sinf((t + randomDelay) / 200.0f) * meter / 10.0f;
         pxint x1 = shiftTexturePositionX(camera->shiftToScreenPosX(p->getPX()), al_get_bitmap_width(sBitmap), 0);
         pxint z1 = shiftTexturePositionZ(camera->shiftToScreenPosZ(p->getPZ() - bumpingPosZ), al_get_bitmap_height(sBitmap), 0);
 
