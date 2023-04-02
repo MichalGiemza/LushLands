@@ -36,9 +36,10 @@ void Scene::drawChunkGround(ChunkRepresentation &chunkRepresentation, int level)
 void draw(ALLEGRO_EVENT *ae, void *scene) {
     // Prepare
     Scene *s = (Scene *)scene;
+    miliseconds t = s->world->getWorldTime()->getAsMiliseconds();
     al_clear_to_color(BLACK_COLOR.getAllegroColor());
     // Draw world
-    s->chunkRepresentationManager.draw();
+    s->chunkRepresentationManager.draw(t);
     // Draw world UI
     s->fieldCursor->draw();
     // Draw Static UI

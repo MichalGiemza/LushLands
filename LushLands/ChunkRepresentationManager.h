@@ -24,7 +24,7 @@ private:
     void updateVisibleChunkRepresentations();
     void drawGround(ChunkRepresentation *cRep, int level);
     void drawStructures(ChunkRepresentation *cRep, int level);
-    void drawItems(ChunkRepresentation *cRep, int level);
+    void drawItems(ChunkRepresentation *cRep, int level, miliseconds t);
     void drawAnimals(ChunkRepresentation *cRep, int level);
     void drawHumanoids(ChunkRepresentation *cRep, int level);
     void drawChunkDebug(ChunkRepresentation *cRep);
@@ -36,5 +36,5 @@ private:
     pxint shiftTexturePositionZ(pxint screenPositionZ, pxint bitmapHeight, pxint bbHeight);
 public:
     ChunkRepresentationManager(World *world, Display *display, Camera *camera, TextureManager *textureManager);
-    void draw();
+    void draw(miliseconds time);
 };

@@ -28,7 +28,7 @@ class Scene {
     InventoryDisplay *invDispl;
     Hotbar *hotbar;
     WindowManager *windowManager;
-
+    
     bool invOpen = false;
     bool mapOpen = false;
     bool chtOpen = false;

@@ -50,7 +50,7 @@ Player *Simulation::getPlayer() {
 
 void updateSimulation(ALLEGRO_EVENT *ae, void *obj) {
     auto *s = (Simulation *)obj;
-    miliseconds timeNow = ae->timer.count; // TODO: PóŸniej trzeba to zmieniæ - œwiat z zapisów i jego wiek
+    miliseconds timeNow = al_get_timer_count(ae->timer.source);
     miliseconds dt = timeNow - s->lastUpdated;
 
     s->world->update(dt);

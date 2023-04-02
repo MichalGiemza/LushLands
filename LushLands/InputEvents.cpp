@@ -45,9 +45,9 @@ InputEvents::InputEvents() {
 void InputEvents::mainLoop(bool *isRunning) { // TODO: Odwróciæ zale¿noœæ i przenieœæ MainLoop -> void mainLoop(inputEvents);
     // Prepare loop
     ALLEGRO_EVENT *currentEvent = new ALLEGRO_EVENT();
-    int64_t ticks;
     al_start_timer(timerTPS);
     al_start_timer(timerFPS);
+    int64_t ticks;
     // Start loop
     while (*isRunning) {
         al_wait_for_event(eventQueue, currentEvent);
@@ -101,24 +101,29 @@ void InputEvents::mainLoop(bool *isRunning) { // TODO: Odwróciæ zale¿noœæ i prze
         }
             /*          TIMER          */
         case ALLEGRO_EVENT_TIMER: {
-            // Ticks (every TPS)
-            handleBeingPressedEvents();
-            ticks = al_get_timer_count(timerTPS);
-            for (auto timerSub = subscribersTimerTPS.begin(); timerSub != subscribersTimerTPS.end(); ++timerSub) {
-                if (ticks - timerSub->lastTickExecutedOn >= timerSub->period) {
-                    timerSub->func(currentEvent, timerSub->caller);
-                    timerSub->lastTickExecutedOn = ticks;
+            if (currentEvent->timer.source == timerTPS) {
+                // Ticks (every TPS)
+                ticks = al_get_timer_count(timerTPS);
+                for (auto timerSubTPS = subscribersTimerTPS.begin(); timerSubTPS != subscribersTimerTPS.end(); ++timerSubTPS) {
+                    if (ticks - timerSubTPS->lastTickExecutedOn >= timerSubTPS->period) {
+                        timerSubTPS->func(currentEvent, timerSubTPS->caller);
+                        timerSubTPS->lastTickExecutedOn = ticks;
+                    }
                 }
+                break;
             }
-            // Frames (every FPS)
-            ticks = al_get_timer_count(timerFPS);
-            for (auto timerSub = subscribersTimerFPS.begin(); timerSub != subscribersTimerFPS.end(); ++timerSub) {
-                if (ticks - timerSub->lastTickExecutedOn >= timerSub->period) {
-                    timerSub->func(currentEvent, timerSub->caller);
-                    timerSub->lastTickExecutedOn = ticks;
+            if (currentEvent->timer.source == timerFPS) {
+                // Frames (every FPS)
+                handleBeingPressedEvents();
+                ticks = al_get_timer_count(timerFPS);
+                for (auto timerSubFPS = subscribersTimerFPS.begin(); timerSubFPS != subscribersTimerFPS.end(); ++timerSubFPS) {
+                    if (ticks - timerSubFPS->lastTickExecutedOn >= timerSubFPS->period) {
+                        timerSubFPS->func(currentEvent, timerSubFPS->caller);
+                        timerSubFPS->lastTickExecutedOn = ticks;
+                    }
                 }
+                break;
             }
-            break;
         }
             /*          SYSTEM          */
         }

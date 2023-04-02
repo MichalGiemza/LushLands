@@ -22,7 +22,7 @@ ChunkRepresentationManager::ChunkRepresentationManager(World *world, Display *di
     chunkRepresentations = std::unordered_map<ChunkPosition, ChunkRepresentation *>();
 }
 
-void ChunkRepresentationManager::draw() {
+void ChunkRepresentationManager::draw(miliseconds time) {
     int level = camera->getPosition()->getY();
     auto cPositions = camera->getPosition()->getNeighbouringChunkPositions();
     Size chunkSize = Size(chunkSizeByTiles, 0, chunkSizeByTiles);
@@ -35,7 +35,7 @@ void ChunkRepresentationManager::draw() {
             continue;
         if (camera->isAreaVisible(cRep->getArea())) {
             drawGround(cRep, level);
-            drawItems(cRep, level);
+            drawItems(cRep, level, time);
             drawStructures(cRep, level);
             drawAnimals(cRep, level);
             drawHumanoids(cRep, level);
@@ -59,18 +59,21 @@ void ChunkRepresentationManager::drawGround(ChunkRepresentation *cRep, int level
         al_draw_bitmap(groundBitmap, x, z, 0);
 }
 
-void ChunkRepresentationManager::drawItems(ChunkRepresentation *cRep, int level) { // TODO: Uogólniæ to i struktury do draw independent structure i póŸniej jednoliniowe metody o tych nazwach dobieraj¹ce w³aœciwy zestaw do rysowania do uogólnionej metody
+void ChunkRepresentationManager::drawItems(ChunkRepresentation *cRep, int level, miliseconds t) { // TODO: Uogólniæ to i struktury do draw independent structure i póŸniej jednoliniowe metody o tych nazwach dobieraj¹ce w³aœciwy zestaw do rysowania do uogólnionej metody
     auto items = cRep->getItems();
+    std::hash<void *> ptr_hash;
     for (auto item = items->begin(); item != items->end(); ++item) {
-        auto it = (Item *)(*item);
-        if (it->getPosition()->getY() != level)
+        Item *it = (Item *)(*item);
+        Position *p = it->getPosition();
+        if (p->getY() != level)
             continue;
-        auto ctr = it->getPosition();
         // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
         auto sBitmap = textureManager->getNamedTexture(it->getType());
 
-        pxint x1 = shiftTexturePositionX(camera->shiftToScreenPosX(ctr->getPX()), al_get_bitmap_width(sBitmap), 0);
-        pxint z1 = shiftTexturePositionZ(camera->shiftToScreenPosZ(ctr->getPZ()), al_get_bitmap_height(sBitmap), 0);
+        int randomDelay = ptr_hash(it) % 100000;
+        float bumpingPosZ = std::sinf((t + randomDelay) / 20.0f) * meter / 10.0f;
+        pxint x1 = shiftTexturePositionX(camera->shiftToScreenPosX(p->getPX()), al_get_bitmap_width(sBitmap), 0);
+        pxint z1 = shiftTexturePositionZ(camera->shiftToScreenPosZ(p->getPZ() - bumpingPosZ), al_get_bitmap_height(sBitmap), 0);
 
         al_draw_bitmap(sBitmap, x1, z1, 0);
     }
