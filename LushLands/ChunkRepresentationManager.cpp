@@ -72,10 +72,15 @@ void ChunkRepresentationManager::drawItems(ChunkRepresentation *cRep, int level,
 
         int randomDelay = ptr_hash(it) % 100000;
         float bumpingPosZ = std::sinf((t + randomDelay) / 200.0f) * meter / 10.0f;
-        pxint x1 = shiftTexturePositionX(camera->shiftToScreenPosX(p->getPX()), al_get_bitmap_width(sBitmap), 0);
-        pxint z1 = shiftTexturePositionZ(camera->shiftToScreenPosZ(p->getPZ() - bumpingPosZ), al_get_bitmap_height(sBitmap), 0);
 
+        pxint x1 = shiftTexturePositionX(camera->shiftToScreenPosX(p->getPX() + meter * 2 / 5), al_get_bitmap_width(sBitmap), 0);
+        pxint z1 = shiftTexturePositionZ(camera->shiftToScreenPosZ(p->getPZ() + meter * 9 / 10), al_get_bitmap_height(sBitmap), 0);
+        al_draw_filled_ellipse(x1, z1, 10.0f, 4.0f, ITEM_SHADOW_COLOR.getAllegroColor());
+
+        x1 = shiftTexturePositionX(camera->shiftToScreenPosX(p->getPX()), al_get_bitmap_width(sBitmap), 0);
+        z1 = shiftTexturePositionZ(camera->shiftToScreenPosZ(p->getPZ() - bumpingPosZ), al_get_bitmap_height(sBitmap), 0);
         al_draw_bitmap(sBitmap, x1, z1, 0);
+
     }
 }
 

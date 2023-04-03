@@ -42,6 +42,7 @@ void Simulation::addPlayer() {
     human->getInventory()->putItemAuto(itemFactory->buildItem(PICKAXE, 1));
     human->getInventory()->putItemAuto(itemFactory->buildItem(SHOVEL, 1));
     human->getInventory()->putItemAuto(itemFactory->buildItem(AXE, 1));
+    human->getInventory()->putItem(11, itemFactory->buildItem(SWORD, 1));
 }
 
 Player *Simulation::getPlayer() {

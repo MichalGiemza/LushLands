@@ -4,6 +4,7 @@
 
 class Color {
     const uint8_t red, green, blue, alpha;
+    ALLEGRO_COLOR allegroColor;
 public:
     Color(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha);
     uint8_t r();

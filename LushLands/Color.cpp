@@ -1,6 +1,7 @@
 #include "Color.h"
 
-Color::Color(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha) : red(red), green(green), blue(blue), alpha(alpha) {}
+Color::Color(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha) : 
+    red(red), green(green), blue(blue), alpha(alpha), allegroColor(al_map_rgba(red, green, blue, alpha)) { }
 
 uint8_t Color::r() { return red; }
 
@@ -19,5 +20,5 @@ uint8_t *Color::getRGB() const {
 }
 
 ALLEGRO_COLOR Color::getAllegroColor() const {
-    return al_map_rgba(red, green, blue, alpha);
+    return allegroColor;
 }

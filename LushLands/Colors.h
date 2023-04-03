@@ -7,9 +7,12 @@ const Color COLOR_DARK_RED = Color(128, 0, 10, 255);
 const Color COLOR_FUXIA = Color(255, 0, 255, 255);
 const Color COLOR_CYAN = Color(0, 255, 255, 255);
 const Color BLACK_COLOR = Color(0, 0, 0, 255);
-const Color TRANSPARENT_COLOR = Color(0, 0, 0, 0);
+
+// WORLD
+const Color ITEM_SHADOW_COLOR = Color(0, 0, 0, 64);
 
 // UI colors
+const Color TRANSPARENT_COLOR = Color(0, 0, 0, 0);
 const Color UI_BG_COLOR = Color(50, 75, 80, 128);
 const Color UI_FG_COLOR = Color(160, 240, 250, 255);
 const Color CHAT_GRAY_COLOR = Color(220, 220, 220, 255);
