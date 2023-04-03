@@ -5,6 +5,7 @@
 const int TicksPerSecond = 24;
 const int FramesPerSecond = 60;
 const int maxMilisecondsPerTick = 1000;
+const int itemCollectionEveryNTick = 4;
 
 // World
 const long long worldHeight = 64;

@@ -11,6 +11,7 @@
 #include "CollisionManager.h"
 #include "Animal.h"
 #include "ChunkEvents.h"
+#include "ChunkElements.h"
 
 
 class Chunk {
@@ -21,12 +22,8 @@ class Chunk {
     * oraz collidery.
     */
 private: 
+    ChunkElements ce;
     ChunkPosition chunkPosition;
-    std::unordered_map<TilePosition, Entity *> groundTiles;
-    std::unordered_map<TilePosition, Entity *> structures;
-    std::unordered_set<Entity *> animals;
-    std::unordered_set<Entity *> humanoids;
-    std::unordered_set<Item *> items;
     EntityFactory *entityFactory;
     ItemFactory *itemFactory;
     CollisionManager collisionManager;
@@ -47,11 +44,7 @@ public:
     Entity *getStructure(TilePosition &tilePosition);
     ChunkEvents *getChunkEvents();
     CollisionManager *getCollisionManager();
-    std::unordered_map<TilePosition, Entity *> *getGround();
-    std::unordered_set<Item *> *getItems();
-    std::unordered_map<TilePosition, Entity *> *getStructures();
-    std::unordered_set<Entity *> *getAnimals();
-    std::unordered_set<Entity *> *getHumanoids();
+    ChunkElements *getChunkElements();
     ChunkPosition *getChunkPosition();
     int entitiesLoadedCount();
 };

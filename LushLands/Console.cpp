@@ -15,7 +15,7 @@ Console::Console(Display *display, TextureManager *textureManager) : StaticUIEle
         logLevel = lg::DEBUG_ALL;
     currentChat = std::vector<ConsoleLine>();
     Logger::subscribe(logLevel, handleLogMessage, this);
-    font = al_load_ttf_font(openSansSBFont, 10, 0);
+    font = al_load_ttf_font(fontLambdaRegular, 16, 0);
     bitmapCache = al_create_bitmap(determineChatW(), determineChatH());
 }
 

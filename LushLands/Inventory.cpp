@@ -1,7 +1,7 @@
 #include "Inventory.h"
 
-Inventory::Inventory(int size) :
-    size(size) {
+Inventory::Inventory(int size, Position *position) :
+    size(size), position(position) {
     // Items
     inventory = (Item **)malloc(sizeof(Item *) * size);
     for (int i = 0; i < size; i++)
@@ -36,8 +36,8 @@ Item *Inventory::putItem(int i, Item *item) {
     // Space occupied by same type -> fill amount
     if (invIt and item->getType() == invIt->getType()) {
         int sumAm = (int)invIt->getAmount() + item->getAmount();
-        int overflow = std::min(sumAm - maxS, 0);
-        int newAm = std::max(sumAm, maxS);
+        int overflow = std::max(sumAm - maxS, 0);
+        int newAm = std::min(sumAm, maxS);
 
         invIt->setAmount(newAm);
         item->setAmount(overflow);
@@ -50,6 +50,8 @@ Item *Inventory::putItem(int i, Item *item) {
     // Space occupied by other type -> swap items
     // Empty slot -> put item and return 0
     inventory[i] = item;
+    if (invIt)
+        invIt->getPosition()->updatePosition(*position);
     return invIt;
 }
 

@@ -106,8 +106,20 @@ const exceptionmessage ui_element_priority = "User Interface Element priority ne
 const exceptionmessage could_not_create_random_from_type = "Could not create random value using provided type.\n";
 
 // Fonts 
-const rawpath jamesStrokerFont = "fonts/James Stroker.ttf";
-const rawpath openSansSBFont = "fonts/OpenSans-Semibold.ttf";
+const rawpath fontLambdaItalic = "..\\Assets\\fonts\\Lambda_Font_0_22\\TrueType (.ttf)\\Lambda-Italic.ttf";
+const rawpath fontLambdaRegular = "..\\Assets\\fonts\\Lambda_Font_0_22\\TrueType (.ttf)\\Lambda-Regular.ttf";
+const rawpath fontCyberoise = "..\\Assets\\fonts\\sik_fonts\\Cyberoise.ttf";
+const rawpath fontDecolue = "..\\Assets\\fonts\\sik_fonts\\Decolue.ttf";
+const rawpath fontDiamonaire = "..\\Assets\\fonts\\sik_fonts\\Diamonaire.ttf";
+const rawpath fontFunstella = "..\\Assets\\fonts\\sik_fonts\\Funstella.ttf";
+const rawpath fontNormaleste = "..\\Assets\\fonts\\sik_fonts\\Normaleste.ttf";
+const rawpath fontPinlight = "..\\Assets\\fonts\\sik_fonts\\Pinlight.ttf";
+const rawpath fontPinlightBold = "..\\Assets\\fonts\\sik_fonts\\PinlightBold.ttf";
+const rawpath fontPixeletter = "..\\Assets\\fonts\\sik_fonts\\Pixeletter.ttf";
+const rawpath fontPixeletterBold = "..\\Assets\\fonts\\sik_fonts\\PixeletterBold.ttf";
+const rawpath fontRomanTeal = "..\\Assets\\fonts\\sik_fonts\\RomanTeal.ttf";
+const rawpath fontVideoGlau = "..\\Assets\\fonts\\sik_fonts\\VideoGlau.ttf";
+const rawpath fontVideoGlauBold = "..\\Assets\\fonts\\sik_fonts\\VideoGlauBold.ttf";
 
 // Entity Update Type
 const updatetype no_update = "no_update";

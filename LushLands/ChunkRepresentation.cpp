@@ -10,8 +10,8 @@ size_t ChunkRepresentation::hashChunkGroundLevel(int level) {
         tp.x = referencePosition.x + i;
         for (int j = 0; j < chunkSizeByTiles; j++) {
             tp.z = referencePosition.z + j;
-            if (groundTiles.find(tp) != groundTiles.end()) {
-                hash_ = 33 * hash_ + std::hash<char *>()(groundTiles[tp]->getType());
+            if (ce->groundTiles.find(tp) != ce->groundTiles.end()) {
+                hash_ = 33 * hash_ + std::hash<char *>()(ce->groundTiles[tp]->getType());
             } else {
                 hash_ = 33 * hash_;
             }
@@ -28,17 +28,16 @@ void ChunkRepresentation::drawLevelTilesToBitmap(int level) {
         tp.x = referencePosition.x + i;
         for (int j = 0; j < chunkSizeByTiles; j++) {
             tp.z = referencePosition.z + j;
-            if (groundTiles.find(tp) != groundTiles.end()) {
-                Ground *g = (Ground *)groundTiles[tp];
+            if (ce->groundTiles.find(tp) != ce->groundTiles.end()) {
+                Ground *g = (Ground *)ce->groundTiles[tp];
                 al_draw_bitmap(textureManager->getNamedTexture(g->getType()), i * tileSizePx, j * tileSizePx, 0);
             }
         }
     }
 }
 
-ChunkRepresentation::ChunkRepresentation(Display *display, ChunkPosition chunkPosition, std::unordered_map<TilePosition, Entity *> &groundTiles, std::unordered_set<Item *> &items, std::unordered_map<TilePosition, Entity *> &structures, std::unordered_set<Entity *> &animals, std::unordered_set<Entity *> &humanoids, TextureManager *textureManager) :
-    groundTiles(groundTiles), structures(structures), animals(animals), humanoids(humanoids), items(items),
-    textureManager(textureManager), chunkPosition(chunkPosition), display(display) {
+ChunkRepresentation::ChunkRepresentation(Display *display, ChunkPosition chunkPosition, ChunkElements *ce, TextureManager *textureManager) :
+    ce(ce), textureManager(textureManager), chunkPosition(chunkPosition), display(display) {
     this->position = Position(chunkPosition);
     this->area = new WorldRectangle(0, 0, chunkSizeByTiles, chunkSizeByTiles);
     this->area->setPosition(&this->position);
@@ -58,24 +57,12 @@ ALLEGRO_BITMAP *ChunkRepresentation::getBitmap(int level) {
     return cachedLevelBitmap;
 }
 
-std::unordered_map<TilePosition, Entity *> *ChunkRepresentation::getStructures() {
-    return &structures;
-}
-
-std::unordered_set<Entity *> *ChunkRepresentation::getAnimals() {
-    return &animals;
-}
-
-std::unordered_set<Item *> *ChunkRepresentation::getItems() {
-    return &items;
-}
-
-std::unordered_set<Entity *> *ChunkRepresentation::getHumanoids() {
-    return &humanoids;
-}
-
 ChunkPosition *ChunkRepresentation::getChunkPosition() {
     return &chunkPosition;
+}
+
+ChunkElements *ChunkRepresentation::getChunkElements() {
+    return ce;
 }
 
 Position *ChunkRepresentation::getPosition() {

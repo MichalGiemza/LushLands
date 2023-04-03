@@ -11,7 +11,7 @@ Humanoid::Humanoid(const entitytype entityType, const std::string &desc, Positio
     firstName(fName),
     lastName(lName),
     gender(gender),
-    inventory(invSize),
+    inventory(invSize, body.getPosition()),
     gameElement(ft::HUMANOID, fp::HUMANOID, fg::SIMULATION) {
 }
 

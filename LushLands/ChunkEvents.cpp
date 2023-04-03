@@ -1,9 +1,7 @@
 #include "ChunkEvents.h"
 
-ChunkEvents::ChunkEvents(ChunkPosition *chunkPosition, CollisionManager *collisionManager, std::unordered_set<Entity *> *randomTickEntities, std::unordered_set<EntityUpdater *> *toUpdateEntities) :
-    chunkEventHandler(collisionManager),
-    randomTickEntities(randomTickEntities),
-    toUpdateEntities(toUpdateEntities) {
+ChunkEvents::ChunkEvents(ChunkPosition *chunkPosition, CollisionManager *collisionManager, ChunkElements *ce, std::unordered_set<Entity *> *randomTickEntities, std::unordered_set<EntityUpdater *> *toUpdateEntities) :
+    chunkEventHandler(collisionManager, ce), randomTickEntities(randomTickEntities), toUpdateEntities(toUpdateEntities), ce(ce) {
     toUpdate = std::set<TimerSubscription *>();
     // Queue
     eventQueue = al_create_event_queue();
@@ -36,6 +34,8 @@ void ChunkEvents::update(miliseconds timeNow, miliseconds dt) {
     for (EntityUpdater *en : *toUpdateEntities) {
         en->updateEntity(timeNow, dt);
     }
+    // Item Collection
+    chunkEventHandler.handleItemCollection();
     // TODO: Implement RandomTick
     // ...
 }

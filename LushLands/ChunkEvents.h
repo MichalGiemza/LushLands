@@ -15,6 +15,7 @@ class ChunkEvents : public ISimulationEvents {
     /**
     * System do obs³ugi eventów w obrêbie jednego chunka.
     */
+    ChunkElements *ce;
     ALLEGRO_EVENT_SOURCE *chunkEventSource;
     ALLEGRO_EVENT_QUEUE *eventQueue;
     std::unordered_map<int, std::vector<SimulationEventSubscription>> subscribers;
@@ -23,7 +24,7 @@ class ChunkEvents : public ISimulationEvents {
     std::unordered_set<Entity *> *randomTickEntities; // Fixme: Bêdzie problem z castowaniem!
     std::unordered_set<EntityUpdater *> *toUpdateEntities;
 public:
-    ChunkEvents(ChunkPosition *chunkPosition, CollisionManager *collisionManager, std::unordered_set<Entity *> *randomTickEntities, std::unordered_set<EntityUpdater *> *toUpdateEntities);
+    ChunkEvents(ChunkPosition *chunkPosition, CollisionManager *collisionManager, ChunkElements *ce, std::unordered_set<Entity *> *randomTickEntities, std::unordered_set<EntityUpdater *> *toUpdateEntities);
     virtual void update(miliseconds timeNow, miliseconds dt) override;
     virtual void subscribeEvent(simulationevent eventType, eventfn fun, void *source, void *target) override;
     virtual ALLEGRO_EVENT_SOURCE *getEventSource() override;

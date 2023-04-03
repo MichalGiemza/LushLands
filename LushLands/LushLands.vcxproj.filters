@@ -453,6 +453,9 @@
     <ClInclude Include="Hotbar.h">
       <Filter>src\GraphicsManager\UI\Concrete</Filter>
     </ClInclude>
+    <ClInclude Include="ChunkElements.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">

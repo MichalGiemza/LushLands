@@ -14,6 +14,7 @@ InventoryDisplay::InventoryDisplay(Display *display, TextureManager *textureMana
     invHeight(determineHeight(inv->getSize())),
     invWidth(determineWidth()) {
     setHidden(true);
+    font = al_load_ttf_font(fontNormaleste, 10, 0);
 }
 
 void InventoryDisplay::interact(pxint x, pxint y) {
@@ -33,6 +34,8 @@ void InventoryDisplay::draw() {
         al_draw_filled_rounded_rectangle(x, y, x + invWidth, y + invHeight, roundingRadiusBig, roundingRadiusBig, bg->getAllegroColor());
     // Inventory elements
     int s = inventory->getSize();
+    const int buffSize = 4;
+    char buffer[buffSize];
     for (int i = 0; i < inventory->getSize(); i++) {
         int x_el = x + margin + (tileSizePx + margin) * (i % s);
         int y_el = y + margin + (tileSizePx + margin) * (i / s);
@@ -47,6 +50,11 @@ void InventoryDisplay::draw() {
             continue;
         ALLEGRO_BITMAP *itemTex = textureManager->getNamedTexture(item->getType());
         al_draw_bitmap(itemTex, x_el, y_el, 0);
+        // Amount
+        if (item->getAmount() > 1) {
+            sprintf_s(buffer, buffSize, "%3d", item->getAmount());
+            al_draw_text(font, fg->getAllegroColor(), x_el + tileSizePx - 2, y_el + tileSizePx * 3 / 5, ALLEGRO_ALIGN_RIGHT, buffer);
+        }
     }
 }
 

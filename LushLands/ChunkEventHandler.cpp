@@ -1,9 +1,8 @@
 #include "ChunkEventHandler.h"
 
 
-ChunkEventHandler::ChunkEventHandler(CollisionManager *collisionManager_) {
-    collisionManager = collisionManager_;
-}
+ChunkEventHandler::ChunkEventHandler(CollisionManager *collisionManager_, ChunkElements *ce) :
+    ce(ce), collisionManager(collisionManager_) { }
 
 void ChunkEventHandler::handleMobMovementAttempt(ALLEGRO_EVENT *currentEvent) {
     DynamicCollider *dynCollider;
@@ -31,5 +30,33 @@ void ChunkEventHandler::handleMobMovementAttempt(ALLEGRO_EVENT *currentEvent) {
         dynCollider->setPosition(*newPos);
     }
     delete newPos;
+}
+
+void ChunkEventHandler::handleItemCollection() {
+    // FIXME: M*N complexity, can it be done better?
+    std::vector<std::pair<Item *, Entity *>> collection;
+    for (auto &i : ce->items) {
+        for (auto &h : ce->humanoids) {
+            Position *pI = i->getPosition();
+            Position *pH = ((Humanoid *)h)->getPosition();
+            if (pI->getY() != pH->getY())
+                continue;
+            if (pI->distance2D(*pH) <= itemMagnetRadius * meter)
+                collection.push_back(std::make_pair(i, h));
+        }
+    }
+    // Assign collected items to humanoids
+    std::vector<Item *> leftoverItems;
+    for (auto &p : collection) {
+        Item *leftover = ((Humanoid *)p.second)->getInventory()->putItemAuto(p.first);
+        if (leftover)
+            leftoverItems.push_back(leftover);
+    }
+    // Remove collected items from map
+    for (auto &p : collection)
+        ce->items.erase(p.first);
+    // Put back leftover items
+    for (auto &l : leftoverItems)
+        ce->items.insert(l);
 }
 

@@ -38,6 +38,8 @@ public:
     TilePosition getTilePosition() const;
     void updateTilePosition(TilePosition &tp) const;
     void updatePosition(const Position &pos);
+    ll distance3D(const Position &other) const;
+    ll distance2D(const Position &other) const;
     ll getInsideChunkRawX() const;
     ll getInsideChunkRawZ() const;
     std::string getTextX() const;

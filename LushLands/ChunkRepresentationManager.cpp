@@ -12,7 +12,7 @@ void ChunkRepresentationManager::updateVisibleChunkRepresentations() {
                 Logger::log(lg::DEBUG_CHUNK, "Chunk [%i, %i] was not loaded yet!", cPos.x, cPos.z);
                 continue;
             }
-            chunkRepresentations[cPos] = new ChunkRepresentation(display, cPos, *chunk->getGround(), *chunk->getItems(), *chunk->getStructures(), *chunk->getAnimals(), *chunk->getHumanoids(), textureManager);
+            chunkRepresentations[cPos] = new ChunkRepresentation(display, cPos, chunk->getChunkElements(), textureManager);
         }
     }
 }
@@ -60,7 +60,7 @@ void ChunkRepresentationManager::drawGround(ChunkRepresentation *cRep, int level
 }
 
 void ChunkRepresentationManager::drawItems(ChunkRepresentation *cRep, int level, miliseconds t) { // TODO: Uogólniæ to i struktury do draw independent structure i póŸniej jednoliniowe metody o tych nazwach dobieraj¹ce w³aœciwy zestaw do rysowania do uogólnionej metody
-    auto items = cRep->getItems();
+    auto items = &cRep->getChunkElements()->items;
     std::hash<void *> ptr_hash;
     for (auto item = items->begin(); item != items->end(); ++item) {
         Item *it = (Item *)(*item);
@@ -85,7 +85,7 @@ void ChunkRepresentationManager::drawItems(ChunkRepresentation *cRep, int level,
 }
 
 void ChunkRepresentationManager::drawStructures(ChunkRepresentation *cRep, int level) {
-    auto structures = cRep->getStructures();
+    auto structures = &cRep->getChunkElements()->structures;
     for (auto sPair = structures->begin(); sPair != structures->end(); ++sPair) {
         if (sPair->first.y != level)
             continue;
@@ -103,7 +103,7 @@ void ChunkRepresentationManager::drawStructures(ChunkRepresentation *cRep, int l
 }
 
 void ChunkRepresentationManager::drawAnimals(ChunkRepresentation *cRep, int level) { // TODO: Uogólniæ to i struktury do draw independent structure i póŸniej jednoliniowe metody o tych nazwach dobieraj¹ce w³aœciwy zestaw do rysowania do uogólnionej metody
-    auto animals = cRep->getAnimals();
+    auto animals = &cRep->getChunkElements()->animals;
     for (auto entity = animals->begin(); entity != animals->end(); ++entity) {
         auto anm = (Animal *)(*entity);
         if (anm->getPosition()->getY() != level)
@@ -121,7 +121,7 @@ void ChunkRepresentationManager::drawAnimals(ChunkRepresentation *cRep, int leve
 }
 
 void ChunkRepresentationManager::drawHumanoids(ChunkRepresentation *cRep, int level) { // TODO: Uogólniæ to i struktury do draw independent structure i póŸniej jednoliniowe metody o tych nazwach dobieraj¹ce w³aœciwy zestaw do rysowania do uogólnionej metody
-    auto humanoids = cRep->getHumanoids();
+    auto humanoids = &cRep->getChunkElements()->humanoids;
     for (auto entity = humanoids->begin(); entity != humanoids->end(); ++entity) {
         auto hmn = (Humanoid *)(*entity);
         if (hmn->getPosition()->getY() != level)
@@ -148,7 +148,7 @@ void ChunkRepresentationManager::drawChunkDebug(ChunkRepresentation *cRep) {
 }
 
 void ChunkRepresentationManager::drawStructureDebug(ChunkRepresentation *cRep, int level) {
-    auto structures = cRep->getStructures();
+    auto structures = &cRep->getChunkElements()->structures;
     for (auto sPair = structures->begin(); sPair != structures->end(); ++sPair) {
         if (sPair->first.y != level)
             continue;
@@ -165,7 +165,7 @@ void ChunkRepresentationManager::drawStructureDebug(ChunkRepresentation *cRep, i
 }
 
 void ChunkRepresentationManager::drawItemsDebug(ChunkRepresentation *cRep, int level) {
-    auto items = cRep->getItems();
+    auto items = &cRep->getChunkElements()->items;
     for (auto item = items->begin(); item != items->end(); ++item) {
         auto it = (Item *)(*item);
         if (it->getPosition()->getY() != level)
@@ -179,7 +179,7 @@ void ChunkRepresentationManager::drawItemsDebug(ChunkRepresentation *cRep, int l
 }
 
 void ChunkRepresentationManager::drawAnimalDebug(ChunkRepresentation *cRep, int level) { // TODO: To te¿ uogólniæ
-    auto animals = cRep->getAnimals();
+    auto animals = &cRep->getChunkElements()->animals;
     for (auto entity = animals->begin(); entity != animals->end(); ++entity) {
         auto anm = (Animal *)(*entity);
         if (anm->getPosition()->getY() != level)
@@ -213,7 +213,7 @@ void ChunkRepresentationManager::drawAnimalDebug(ChunkRepresentation *cRep, int 
 }
 
 void ChunkRepresentationManager::drawHumanoidDebug(ChunkRepresentation *cRep, int level) { // TODO: To te¿ uogólniæ
-    auto humanoids = cRep->getHumanoids();
+    auto humanoids = &cRep->getChunkElements()->humanoids;
     for (auto entity = humanoids->begin(); entity != humanoids->end(); ++entity) {
         auto hmn = (Humanoid *)(*entity);
         if (hmn->getPosition()->getY() != level)

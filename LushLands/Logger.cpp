@@ -89,7 +89,7 @@ void Logger::init() {
     if (!al_init_ttf_addon())
         throw std::logic_error(could_not_init_allegro_ttf);
 
-    font = al_load_ttf_font(jamesStrokerFont, 64, 0);
+    font = al_load_ttf_font(fontNormaleste, 64, 0);
     logSubscribers = std::vector<LoggerSubscription>();
     logLevel = lg::DEBUG_ALL;
 

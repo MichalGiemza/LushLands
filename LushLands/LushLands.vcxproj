@@ -228,6 +228,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionMap.h" />
+    <ClInclude Include="ChunkElements.h" />
     <ClInclude Include="Destroyability.h" />
     <ClInclude Include="Hotbar.h" />
     <ClInclude Include="Inventory.h" />

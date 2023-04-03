@@ -1,6 +1,7 @@
 #pragma once
 #include "Item.h"
 #include "DataTypes.h"
+#include "Position.h"
 
 
 class Inventory {
@@ -9,8 +10,9 @@ class Inventory {
     */
     Item **inventory;
     int size;
+    Position *position;
 public:
-    Inventory(int size);
+    Inventory(int size, Position *position);
 
     // Getters, Setters
     int getSuitableSpace(Item *item);

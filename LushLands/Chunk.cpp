@@ -15,7 +15,7 @@ void Chunk::generateTiles(ChunkPlan &chunkPlan) {
                 if (ground == 0)
                     continue;
                 //randomTickEntities.insert((Entity *)ground); // Fixme: Przywróciæ metodê przydzielaj¹c¹!
-                groundTiles[pos.getTilePosition()] = ground;
+                ce.groundTiles[pos.getTilePosition()] = ground;
             }
         }
     }
@@ -36,7 +36,7 @@ void Chunk::generateStructures(ChunkPlan &chunkPlan) {
                 if (structure == 0)
                     continue;
                 randomTickEntities.insert((Entity *)structure); // Fixme: Przywróciæ metodê przydzielaj¹c¹!
-                structures[pos.getTilePosition()] = structure;
+                ce.structures[pos.getTilePosition()] = structure;
             }
         }
     }
@@ -64,7 +64,7 @@ void Chunk::generateAnimals(ChunkPlan &chunkPlan) {
                 Animal *animal = addAnimal(plannedEntityType, pos);
                 if (animal == 0)
                     continue;
-                animals.insert(animal);
+                ce.animals.insert(animal);
                 toUpdateEntities.insert(animal->getEntityUpdater()); // Fixme: Przywróciæ metodê przydzielaj¹c¹!
             }
         }
@@ -87,7 +87,7 @@ void Chunk::generateItems(ChunkPlan &chunkPlan) {
                     continue;
                 Item *item = itemFactory->buildItem(plannedItemType, plannedItemAmount);
                 item->getPosition()->updatePosition(pos);
-                items.insert(item);
+                ce.items.insert(item);
             }
         }
     }
@@ -103,14 +103,14 @@ Animal *Chunk::addAnimal(entitytype entityType, Position &position) {
 }
 
 void Chunk::placeHumanoid(Humanoid *humanoid) {
-    humanoids.insert(humanoid);
+    ce.humanoids.insert(humanoid);
     humanoid->getEntityUpdater()->registerParentEventSource(chunkEvents.getEventSource());
     collisionManager.addCollider(humanoid->getCollider());
 }
 
 Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory, ItemFactory *itemFactory) :
     collisionManager(), itemFactory(itemFactory), entityFactory(entityFactory), chunkPosition(chunkPosition),
-    chunkEvents(&chunkPosition, &collisionManager, &randomTickEntities, &toUpdateEntities) {
+    chunkEvents(&chunkPosition, &collisionManager, &ce, &randomTickEntities, &toUpdateEntities) {
     // Entities and Items
     generateTiles(chunkPlan);
     generateStructures(chunkPlan);
@@ -121,11 +121,11 @@ Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *e
 }
 
 Entity *Chunk::getGround(TilePosition &tilePosition) {
-    return groundTiles[tilePosition];
+    return ce.groundTiles[tilePosition];
 }
 
 Entity *Chunk::getStructure(TilePosition &tilePosition) {
-    return structures[tilePosition];
+    return ce.structures[tilePosition];
 }
 
 ChunkEvents *Chunk::getChunkEvents() {
@@ -136,24 +136,8 @@ CollisionManager *Chunk::getCollisionManager() {
     return &collisionManager;
 }
 
-std::unordered_map<TilePosition, Entity *> *Chunk::getGround() {
-    return &groundTiles;
-}
-
-std::unordered_set<Item *> *Chunk::getItems() {
-    return &items;
-}
-
-std::unordered_map<TilePosition, Entity *> *Chunk::getStructures() {
-    return &structures;
-}
-
-std::unordered_set<Entity *> *Chunk::getAnimals() {
-    return &animals;
-}
-
-std::unordered_set<Entity *> *Chunk::getHumanoids() {
-    return &humanoids;
+ChunkElements *Chunk::getChunkElements() {
+    return &ce;
 }
 
 ChunkPosition *Chunk::getChunkPosition() {
@@ -161,6 +145,6 @@ ChunkPosition *Chunk::getChunkPosition() {
 }
 
 int Chunk::entitiesLoadedCount() {
-    return groundTiles.size() + structures.size();
+    return ce.groundTiles.size() + ce.structures.size();
 }
 

@@ -168,6 +168,19 @@ std::string Position::getTextZ() const {
     return std::to_string(_z / representationComaValue);
 }
 
+ll Position::distance3D(const Position &other) const {
+    ll x = getPX() - other.getPX();
+    ll y = getPY() - other.getPY();
+    ll z = getPZ() - other.getPZ();
+    return std::sqrt(x * x + y * y + z * z);
+}
+
+ll Position::distance2D(const Position &other) const {
+    ll x = getPX() - other.getPX();
+    ll z = getPZ() - other.getPZ();
+    return std::sqrt(x * x + z * z);
+}
+
 std::string Position::getText() const {
     return "(X=" + getTextX() + ",Y=" + getTextY() + ",Z=" + getTextZ() + ")";
 }
