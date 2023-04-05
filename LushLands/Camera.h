@@ -7,6 +7,8 @@
 #include "InputEvents.h"
 #include "Logger.h"
 #include "Events.h"
+#include "EventFactory.h"
+#include "NumTools.h"
 
 
 class Camera : GameElement {
@@ -18,6 +20,8 @@ class Camera : GameElement {
     int scrollSpeed = meter / 10;
     WorldRectangle *followedFrame = 0;
     WorldRectangle *independentFrame = 0;
+
+    bool pN = false, pS = false, pE = false, pW = false;
 private:
     int level();
 public:
@@ -28,10 +32,12 @@ public:
     Position *getPosition();
     void setFollowedPosition(Position *position);
     bool isAreaVisible(WorldRectangle *area);
+    friend void handleMovementAttempt(ALLEGRO_EVENT *ae, void *obj);
     friend void handleMovement(ALLEGRO_EVENT *ae, void *obj);
     pxint shiftToScreenPosX(int accurateWorldX);
     pxint shiftToScreenPosZ(int accurateWorldZ);
     Position mouseToWorldPosition(int x, int y);
 };
 
+void handleMovementAttempt(ALLEGRO_EVENT *ae, void *obj);
 void handleMovement(ALLEGRO_EVENT *ae, void *obj);

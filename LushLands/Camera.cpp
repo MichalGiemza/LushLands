@@ -13,10 +13,8 @@ Camera::Camera(Position *startingPosition, Focus *focus, InputEvents *inputEvent
     if (not focus->getCurrentlyActiveGameElement())
         focus->setFocusedObject(this);
 
-    inputEvents->subscribeSystemEvent(camera_move_north, handleMovement, this);
-    inputEvents->subscribeSystemEvent(camera_move_south, handleMovement, this);
-    inputEvents->subscribeSystemEvent(camera_move_east, handleMovement, this);
-    inputEvents->subscribeSystemEvent(camera_move_west, handleMovement, this);
+    inputEvents->subscribeSystemEvent(camera_move, handleMovementAttempt, this);
+    inputEvents->subscribeTimerFPS(0, handleMovement, this);
 }
 
 WorldRectangle *Camera::getFrame() {
@@ -58,23 +56,45 @@ pxint Camera::shiftToScreenPosZ(int accurateWorldZ) {
     return (accurateWorldZ - getPosition()->getPZ()) * tileSizePx / representationComaValue + displayHeight / 2;
 }
 
-void handleMovement(ALLEGRO_EVENT *ae, void *obj) {
+void handleMovementAttempt(ALLEGRO_EVENT *ae, void *obj) {
     Camera *c = (Camera *)obj;
-    Position *p = c->getPosition();
-    switch (ae->type) {
-    case camera_move_north:
-        p->setPZ(p->getPZ() - c->scrollSpeed);
+    keycode key = 0;
+    EventFactory::unpackKeyboardLetter(ae, &key);
+
+    switch (key) {
+    case ALLEGRO_KEY_W:
+    case ALLEGRO_KEY_UP:
+        c->pN = true;
         break;
-    case camera_move_south:
-        p->setPZ(p->getPZ() + c->scrollSpeed);
+    case ALLEGRO_KEY_S:
+    case ALLEGRO_KEY_DOWN:
+        c->pS = true;
         break;
-    case camera_move_east:
-        p->setPX(p->getPX() - c->scrollSpeed);
+    case ALLEGRO_KEY_A:
+    case ALLEGRO_KEY_LEFT:
+        c->pW = true;
         break;
-    case camera_move_west:
-        p->setPX(p->getPX() + c->scrollSpeed);
+    case ALLEGRO_KEY_D:
+    case ALLEGRO_KEY_RIGHT:
+        c->pE = true;
         break;
     default:
         break;
     }
+}
+
+void handleMovement(ALLEGRO_EVENT *ae, void *obj) {
+    Camera *c = (Camera *)obj;
+    radian direction = NumTools::directionToRadian(c->pN, c->pS, c->pE, c->pW);
+    
+    c->pN = false;
+    c->pS = false;
+    c->pE = false;
+    c->pW = false;
+
+    if (isnan(direction))
+        return;
+
+    c->getPosition()->setPX(c->getPosition()->getPX() - std::sin(direction) * c->scrollSpeed);
+    c->getPosition()->setPZ(c->getPosition()->getPZ() + std::cos(direction) * c->scrollSpeed);
 }

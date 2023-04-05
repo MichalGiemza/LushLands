@@ -4,6 +4,8 @@
 #include "Color.h"
 #include "Appearance.h"
 #include "Size.h"
+#include "NumTools.h"
+#include "InputEvents.h"
 
 
 class Player {
@@ -12,14 +14,18 @@ class Player {
     */
 
     Humanoid *humanoid;
+    radian lookingDirection = 0;
 public:
     // Constructors and main methods
-    Player(Humanoid *humanoid);
+    Player(Humanoid *humanoid, InputEvents *inputEvents);
 
     // Getters, Setters
     name getFirstName();
     name getLastName();
     Entity *getEntity();
     Inventory *getInventory();
+    radian getLookingDirection();
+    friend void handleLooking(ALLEGRO_EVENT *allegroEvent, void *caller);
 };
 
+void handleLooking(ALLEGRO_EVENT *allegroEvent, void *caller);

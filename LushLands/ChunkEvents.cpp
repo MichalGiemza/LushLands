@@ -35,9 +35,9 @@ void ChunkEvents::update(miliseconds timeNow, miliseconds dt) {
         en->updateEntity(timeNow, dt);
     }
     // Item Collection
-    chunkEventHandler.handleItemCollection();
-    // TODO: Implement RandomTick
-    // ...
+    chunkEventHandler.handleItemCollection(); // TODO: Czy musi byæ na ka¿dym update?
+    // RandomTick 
+    // TODO
 }
 
 void ChunkEvents::subscribeEvent(simulationevent eventType, eventfn fun, void *source, void *target) {

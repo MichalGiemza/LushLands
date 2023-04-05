@@ -10,12 +10,13 @@ Scene::Scene(scenename sceneName, World *world, Display *display, Position *foll
     name = sceneName;
 
     this->fieldCursor = new FieldCursor(&camera, inputEvents);
-    // Player related windows
+    // Player related elements
     windowManager = new WindowManager(inputEvents);
     invDispl = new InventoryDisplay(display, textureManager, player->getInventory(), 50, 50); //TODO magic numbers
     windowManager->addWindow(invDispl);
     hotbar = new Hotbar(display, textureManager, player->getInventory(), player, inputEvents);
     windowManager->addWindow(hotbar);
+    pah = new PlayerActionHandler(inputEvents, world, player, fieldCursor, invDispl, hotbar);
     // Event subscriptions
     inputEvents->subscribeTimerFPS(1, draw, this);
     inputEvents->subscribeSystemEvent(user_open_inventory, handleAction, this);

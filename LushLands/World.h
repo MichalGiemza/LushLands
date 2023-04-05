@@ -7,7 +7,6 @@
 #include "ConstantSets.h"
 #include "FlatlandWorldPlanner.h"
 #include "ChickenBoxWorldPlanner.h"
-#include "WorldEvents.h"
 #include "Logger.h"
 #include "Player.h"
 #include "ItemFactory.h"
@@ -28,7 +27,6 @@ class World  {
     worldtype worldType;
     EntityFactory *entityFactory;
     ItemFactory *itemFactory;
-    WorldEvents *worldEvents;
     Time *time;
     miliseconds lastTimeUpdated;
 public:

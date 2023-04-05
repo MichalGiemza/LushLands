@@ -16,7 +16,7 @@ Simulation::Simulation(Controller *controller) :
                 world->getChunkLoadManager()->getChunksLoadedCount(),
                 world->getChunkLoadManager()->getEntitiesCreatedCount());
     // Player
-    addPlayer();
+    addPlayer(controller->getInputEvents());
 }
 
 World *Simulation::getWorld() {
@@ -31,10 +31,10 @@ Position *Simulation::getWorldLoadingPosition() {
     return loadPosition;
 }
 
-void Simulation::addPlayer() {
+void Simulation::addPlayer(InputEvents *ie) {
     Position p = Position(0, world->getSeaLevel(), 0);
     Humanoid *human = (Humanoid *)entityFactory->buildEntity(HUMAN, p);
-    player = new Player(human);
+    player = new Player(human, ie);
     world->placePlayer(player);
     loadPosition = human->getPosition();
     focus->setFocusedObject(human->getGameElement());

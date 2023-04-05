@@ -205,6 +205,7 @@
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="NameGenerator.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerActionHandler.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="RandomWalk.cpp" />
     <ClCompile Include="Random_.cpp" />
@@ -223,7 +224,6 @@
     <ClCompile Include="UIElement.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="BaseWorldPlanner.cpp" />
-    <ClCompile Include="WorldEvents.cpp" />
     <ClCompile Include="WorldUIElement.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -284,6 +284,7 @@
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="NameGenerator.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerActionHandler.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="PositionStructures.h" />
     <ClInclude Include="RandomWalk.h" />
@@ -305,7 +306,6 @@
     <ClInclude Include="UIElement.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="BaseWorldPlanner.h" />
-    <ClInclude Include="WorldEvents.h" />
     <ClInclude Include="WorldUIElement.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

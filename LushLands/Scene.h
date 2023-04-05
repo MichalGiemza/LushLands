@@ -9,6 +9,7 @@
 #include "InventoryDisplay.h"
 #include "WindowManager.h"
 #include "Hotbar.h"
+#include "PlayerActionHandler.h"
 
 
 class Scene {
@@ -28,6 +29,7 @@ class Scene {
     InventoryDisplay *invDispl;
     Hotbar *hotbar;
     WindowManager *windowManager;
+    PlayerActionHandler *pah;
     
     bool invOpen = false;
     bool mapOpen = false;

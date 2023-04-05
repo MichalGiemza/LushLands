@@ -6,7 +6,6 @@
 #include "EventHandler.h"
 #include "DynamicCollider.h"
 #include "Position.h"
-#include "WorldEvents.h"
 #include "ChunkEventHandler.h"
 #include "EntityUpdater.h"
 

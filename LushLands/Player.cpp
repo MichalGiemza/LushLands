@@ -1,7 +1,8 @@
 #include "Player.h"
 
-Player::Player(Humanoid *humanoid) : 
+Player::Player(Humanoid *humanoid, InputEvents *inputEvents) : 
     humanoid(humanoid) { 
+    inputEvents->subscribeMouseAxis(handleLooking, this);
 
     Logger::log(lg::DEBUG_SIMULATION, "Created Player");
 }
@@ -21,4 +22,15 @@ Entity *Player::getEntity() {
 
 Inventory *Player::getInventory() {
     return humanoid->getInventory();
+}
+
+radian Player::getLookingDirection() {
+    return lookingDirection;
+}
+
+void handleLooking(ALLEGRO_EVENT *allegroEvent, void *caller) {
+    Player *p = (Player *)caller;
+    int x = allegroEvent->mouse.x - displayWidth / 2;
+    int y = allegroEvent->mouse.y - displayHeight / 2;
+    p->lookingDirection = NumTools::pointToRadian(x, y);
 }

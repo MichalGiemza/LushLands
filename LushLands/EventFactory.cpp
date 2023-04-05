@@ -13,6 +13,19 @@ void EventFactory::unpackMobilityAttemptGo(ALLEGRO_EVENT *aEvent, void **dynamic
     *desiredPosition = (void *)aEvent->user.data2;
 }
 
+ALLEGRO_EVENT *EventFactory::packItemDrop(void *item, radian direction) {
+    ALLEGRO_EVENT *ae = new ALLEGRO_EVENT {};
+    ae->user.type = item_drop;
+    ae->user.data1 = (intptr_t)item;
+    ae->user.data2 = (intptr_t)direction;
+    return ae;
+}
+
+void EventFactory::unpackItemDrop(ALLEGRO_EVENT *aEvent, void **item, radian *direction) {
+    *item = (void *)aEvent->user.data1;
+    *direction = (radian)aEvent->user.data2;
+}
+
 ALLEGRO_EVENT *EventFactory::packMouseAction(const systemevent se, int x, int y) {
     ALLEGRO_EVENT *ae = new ALLEGRO_EVENT {};
     ae->user.type = se;

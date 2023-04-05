@@ -5,15 +5,13 @@
 #define IS_USER_EVENT(t) ((t) >= 'U' << 24 && (t) < 'V' << 24)
 
 
-// Chunk event types
-const simulationevent mobility_attempt_go = CHAR_ID('M', 'A', 'G', 0); //data1: DynamicCollider, data2:desiredPosition;
+// Action Event Types
+const simulationevent mobility_attempt_go = CHAR_ID('M', 'A', 'G', 0);
+const simulationevent item_drop = CHAR_ID('I', 'D', 0, 0);
 
-// World event types
-const simulationevent player_wills_go_north = CHAR_ID('P', 'A', 'G', 0);
-const simulationevent player_wills_go_south = player_wills_go_north + 1;
-const simulationevent player_wills_go_east = player_wills_go_north + 2;
-const simulationevent player_wills_go_west = player_wills_go_north + 3;
+const simulationevent player_wills_go = CHAR_ID('P', 'A', 'G', 0);
 const simulationevent player_wills_use = CHAR_ID('P', 'A', 'U', 0);
+const simulationevent player_throws_item = CHAR_ID('P', 'A', 'T', 0);
 
 const simulationevent player_hotbar = CHAR_ID('P', 'A', 'H', 0);
 const cstint player_hotbar_keycount = 12;
@@ -36,7 +34,4 @@ const systemevent user_quick_load = CHAR_ID('U', 'Q', 'L', 0);
 
 const systemevent letter_typed = CHAR_ID('U', 'I', 'L', 0);
 
-const systemevent camera_move_north = CHAR_ID('U', 'A', 'G', 0);
-const systemevent camera_move_south = camera_move_north + 1;
-const systemevent camera_move_east = camera_move_north + 2;
-const systemevent camera_move_west = camera_move_north + 3;
+const systemevent camera_move = CHAR_ID('U', 'A', 'G', 0);

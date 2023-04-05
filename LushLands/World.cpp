@@ -17,7 +17,6 @@ World::World(worldtype worldType, int seed_, EntityFactory *entityFactory, ItemF
     
     this->time = new Time();
     this->chunkSystem = new ChunkSystem(worldPlanner, entityFactory, itemFactory);
-    this->worldEvents = new WorldEvents(eventHandler);
     this->lastTimeUpdated = 0;
 
     Logger::log(lg::DEBUG_WORLD, "Created World [%s]", worldType);
@@ -40,7 +39,7 @@ void World::placePlayer(Player *player) {
     Position *p = h->getPosition();
     Chunk *c = chunkSystem->getChunk(p->getChunkPosition());
     c->placeHumanoid(h);
-    worldEvents->registerPlayer(player);
+    //worldEvents->registerPlayer(player);
 }
 
 void World::update(miliseconds dt) {
@@ -58,8 +57,6 @@ void World::update(miliseconds dt) {
         ChunkEvents *ce = c->getChunkEvents();
         ce->update(timeNow, dt);
     }
-    // World
-    worldEvents->update(timeNow, dt);
 }
 
 Time *World::getWorldTime() {

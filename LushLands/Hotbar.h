@@ -1,5 +1,6 @@
 #pragma once
 #include "InventoryDisplay.h"
+#include "EventFactory.h"
 #include "Player.h"
 
 
@@ -8,6 +9,7 @@ class Hotbar : public InventoryDisplay {
     * Specialized inventory display - for hotbars
     */
     Player *player;
+    InputEvents *inputEvents;
     int selectedIdx = 0;
     int keycodeToIdx(keycode kc);
 public:
@@ -17,7 +19,9 @@ public:
     virtual void draw() override;
     friend void handleHotbarKey(ALLEGRO_EVENT *allegroEvent, void *caller);
     friend void handleScroll(ALLEGRO_EVENT *allegroEvent, void *caller);
+    friend void handleThrow(ALLEGRO_EVENT *allegroEvent, void *caller);
 };
 
 void handleHotbarKey(ALLEGRO_EVENT *allegroEvent, void *caller);
 void handleScroll(ALLEGRO_EVENT *allegroEvent, void *caller);
+void handleThrow(ALLEGRO_EVENT *allegroEvent, void *caller);

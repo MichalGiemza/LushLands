@@ -9,6 +9,7 @@ class NumTools {
     */
 public:
     static radian directionToRadian(bool north, bool south, bool east, bool west);
+    static radian pointToRadian(int x, int y);
     static ll customFloor(ll value, ll comaVal);
 };
 

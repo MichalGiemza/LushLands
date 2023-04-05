@@ -24,7 +24,6 @@ class EventHandler {
     InputEvents *inputEvents;
     Focus *focus;
     ActionMap *actionMap;
-    ISimulationEvents *worldEvents;
     std::unordered_map<ChunkPosition, ISimulationEvents *> *chunkEvents;
 public:
     EventHandler(InputEvents *inputEvents, Focus *focus, ActionMap *actionMap);
