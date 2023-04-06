@@ -60,3 +60,11 @@ void ChunkEventHandler::handleItemCollection() {
         ce->items.insert(l);
 }
 
+void ChunkEventHandler::handleItemDrop(ALLEGRO_EVENT *currentEvent) {
+    Item *item = 0;
+    radian direction = 0;
+    EventFactory::unpackItemDrop(currentEvent, (void **)&item, &direction);
+    item->getPosition()->push2D(direction, itemMagnetRadius * meter * 15 / 10);
+    ce->items.insert(item);
+}
+

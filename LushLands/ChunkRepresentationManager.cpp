@@ -22,7 +22,7 @@ ChunkRepresentationManager::ChunkRepresentationManager(World *world, Display *di
     chunkRepresentations = std::unordered_map<ChunkPosition, ChunkRepresentation *>();
 }
 
-void ChunkRepresentationManager::draw(miliseconds time) {
+void ChunkRepresentationManager::draw(miliseconds time, bool showDebug) {
     int level = camera->getPosition()->getY();
     auto cPositions = camera->getPosition()->getNeighbouringChunkPositions();
     Size chunkSize = Size(chunkSizeByTiles, 0, chunkSizeByTiles);
@@ -39,7 +39,7 @@ void ChunkRepresentationManager::draw(miliseconds time) {
             drawStructures(cRep, level);
             drawAnimals(cRep, level);
             drawHumanoids(cRep, level);
-            if (DEBUG) {
+            if (showDebug) {
                 drawAnimalDebug(cRep, level);
                 drawItemsDebug(cRep, level);
                 drawStructureDebug(cRep, level);

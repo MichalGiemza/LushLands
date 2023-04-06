@@ -27,8 +27,7 @@ DynamicCollider *Mobility::getDynamicCollider() {
 void Mobility::attemptMovement() {
     // Create desired position
     Position *newPos = new Position(*getBody()->getPosition());
-    newPos->setPX(newPos->getPX() - std::sin(direction) * movementSpeed);
-    newPos->setPZ(newPos->getPZ() + std::cos(direction) * movementSpeed);
+    newPos->push2D(direction, movementSpeed);
     // Send event
     ALLEGRO_EVENT *ae = EventFactory::packMobilityAttemptGo(dynamicCollider, newPos);
     al_emit_user_event(entityUpdater->getEventSource(), ae, NULL);

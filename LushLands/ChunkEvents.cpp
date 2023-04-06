@@ -26,6 +26,9 @@ void ChunkEvents::update(miliseconds timeNow, miliseconds dt) {
         case mobility_attempt_go:
             chunkEventHandler.handleMobMovementAttempt(currentEvent);
             break;
+        case item_drop: // TODO: Mo¿e niech te metody subskrybuj¹ ChunkEventy, a nie bêd¹ przez niego wywo³ywane?
+            chunkEventHandler.handleItemDrop(currentEvent);
+            break;
         default:
             break;
         }

@@ -13,6 +13,7 @@ class InputEvents {
     ALLEGRO_EVENT_QUEUE *eventQueue;
     ALLEGRO_TIMER *timerTPS;
     ALLEGRO_TIMER *timerFPS;
+    std::unordered_map<keycode, bool> keyStates;
     // Subscribing to events
     std::vector<KeySubscribtion> subscribersKeyDown;
     std::vector<KeySubscribtion> subscribersKeyUp;
@@ -25,7 +26,6 @@ class InputEvents {
     std::vector<SystemEventSubscription> subscribersSystemEvents;
     std::vector<KeySubscribtion> subscribersMouseDown;
     std::vector<MouseAxisSubscribtion> subscribersMouseAxis;
-    std::unordered_map<keycode, bool> keyStates;
 private:
     void handleBeingPressedEvents();
     void stopAllBeingPressedEvents();

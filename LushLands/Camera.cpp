@@ -4,6 +4,14 @@ int Camera::level() {
     return getFrame()->getPosition()->getY();
 }
 
+pxint Camera::sizeShX() {
+    return followedObjectSize->getWidth() * tileSizePx / 2;
+}
+
+pxint Camera::sizeShZ() {
+    return followedObjectSize->getLength() * tileSizePx / 2;
+}
+
 Camera::Camera(Position *startingPosition, Focus *focus, InputEvents *inputEvents) : GameElement(ft::CAMERA, fp::DEFAULT, fg::STATIC_UI) {
     int inGameScreenW = displayWidth / tileSizePx;
     int inGameScreenH = displayHeight / tileSizePx;
@@ -27,7 +35,8 @@ Position *Camera::getPosition() {
     return getFrame()->getPosition();
 }
 
-void Camera::setFollowedPosition(Position *position) {
+void Camera::setFollowedPosition(Position *position, Size *objectSize) {
+    followedObjectSize = objectSize;
     followedFrame = new WorldRectangle(
         0, 0, independentFrame->getSize()->getPW(), 
         independentFrame->getSize()->getPL(), true, true);
@@ -46,14 +55,18 @@ pxint Camera::shiftToScreenPosX(int accurateWorldX) {
     /**
     * Position of object -> shift by position of camera -> convert position to pixels
     */
-    return (accurateWorldX - getPosition()->getPX()) * tileSizePx / representationComaValue + displayWidth / 2;
+    int onCameraShift = accurateWorldX - getPosition()->getPX();
+    int toMiddleShift = displayWidth / 2 - sizeShX();
+    return onCameraShift * tileSizePx / representationComaValue + toMiddleShift;
 }
 
 pxint Camera::shiftToScreenPosZ(int accurateWorldZ) {
     /**
     * Position of object -> shift by position of camera -> convert position to pixels
     */
-    return (accurateWorldZ - getPosition()->getPZ()) * tileSizePx / representationComaValue + displayHeight / 2;
+    int onCameraShift = accurateWorldZ - getPosition()->getPZ();
+    int toMiddleShift = displayHeight / 2 - sizeShZ();
+    return onCameraShift * tileSizePx / representationComaValue + toMiddleShift;
 }
 
 void handleMovementAttempt(ALLEGRO_EVENT *ae, void *obj) {

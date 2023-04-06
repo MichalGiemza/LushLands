@@ -29,6 +29,8 @@ const systemevent user_open_status = CHAR_ID('U', 'O', 'S', 0);
 const systemevent user_open_quests = CHAR_ID('U', 'O', 'Q', 0);
 const systemevent user_open_build_menu = CHAR_ID('U', 'O', 'B', 0);
 
+const systemevent user_debug_view = CHAR_ID('U', 'O', 'D', 0);
+
 const systemevent user_quick_save = CHAR_ID('U', 'Q', 'S', 0);
 const systemevent user_quick_load = CHAR_ID('U', 'Q', 'L', 0);
 

@@ -27,7 +27,9 @@ public:
     PlayerActionHandler(InputEvents *inputEvents, World *world, Player *player, FieldCursor *fieldCursor, InventoryDisplay *invDispl, Hotbar *hotbar);
     friend void handlePlayerMovementAttempt(ALLEGRO_EVENT *ae, void *obj);
     friend void handlePlayerMovement(ALLEGRO_EVENT *ae, void *obj);
+    friend void handlePlayerThrowItem(ALLEGRO_EVENT *ae, void *obj);
 };
 
 void handlePlayerMovementAttempt(ALLEGRO_EVENT *ae, void *obj);
 void handlePlayerMovement(ALLEGRO_EVENT *ae, void *obj);
+void handlePlayerThrowItem(ALLEGRO_EVENT *ae, void *obj);

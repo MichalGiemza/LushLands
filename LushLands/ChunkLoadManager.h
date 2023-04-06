@@ -23,7 +23,7 @@ public:
     void loadByPosition(Position &position);
     void updateLoadedChunkList();
     Chunk *generateChunk(ChunkPosition &chunkPosition);
-    Chunk *getChunk(ChunkPosition chunkPosition);
+    Chunk *getChunk(ChunkPosition &chunkPosition);
     int getChunksLoadedCount();
     int getEntitiesCreatedCount();
     ChunkPositionsSet *getLoadedChunkList();

@@ -19,5 +19,6 @@ public:
     ChunkEventHandler(CollisionManager *collisionManager, ChunkElements *ce);
     void handleMobMovementAttempt(ALLEGRO_EVENT *currentEvent);
     void handleItemCollection();
+    void handleItemDrop(ALLEGRO_EVENT *currentEvent);
 };
 

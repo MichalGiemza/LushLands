@@ -65,7 +65,9 @@ Item *Inventory::putItemAuto(Item *item) {
 }
 
 Item *Inventory::takeItem(int i) {
-    auto item = inventory[i];
+    auto item = getItem(i);
+    if (item)
+        item->getPosition()->updatePosition(*position);
     inventory[i] = 0;
     return item;
 }

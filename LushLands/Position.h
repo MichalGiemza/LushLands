@@ -37,6 +37,7 @@ public:
     ChunkPosition getChunkPosition() const;
     TilePosition getTilePosition() const;
     void updateTilePosition(TilePosition &tp) const;
+    void push2D(radian direction, ll accureteDistance);
     void updatePosition(const Position &pos);
     ll distance3D(const Position &other) const;
     ll distance2D(const Position &other) const;

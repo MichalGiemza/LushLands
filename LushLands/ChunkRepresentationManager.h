@@ -36,5 +36,5 @@ private:
     pxint shiftTexturePositionZ(pxint screenPositionZ, pxint bitmapHeight, pxint bbHeight);
 public:
     ChunkRepresentationManager(World *world, Display *display, Camera *camera, TextureManager *textureManager);
-    void draw(miliseconds time);
+    void draw(miliseconds time, bool showDebug);
 };

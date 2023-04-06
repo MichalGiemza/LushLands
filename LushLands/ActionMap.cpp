@@ -50,6 +50,8 @@ ActionMap::ActionMap() {
         { ALLEGRO_KEY_J, user_open_quests },
         { ALLEGRO_KEY_B, user_open_build_menu },
 
+        { ALLEGRO_KEY_F3, user_debug_view },
+
         { ALLEGRO_KEY_F5, user_quick_save },
         { ALLEGRO_KEY_F9, user_quick_load },
     };

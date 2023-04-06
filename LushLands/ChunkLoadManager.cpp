@@ -28,7 +28,7 @@ Chunk *ChunkLoadManager::generateChunk(ChunkPosition &chunkPosition) {
     return new Chunk(chunkPosition, *cp, entityFactory, itemFactory);
 }
 
-Chunk *ChunkLoadManager::getChunk(ChunkPosition chunkPosition) {
+Chunk *ChunkLoadManager::getChunk(ChunkPosition &chunkPosition) {
     return (*chunks)[chunkPosition];
 }
 

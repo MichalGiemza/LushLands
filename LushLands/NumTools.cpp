@@ -10,8 +10,8 @@ radian NumTools::directionToRadian(bool north, bool south, bool east, bool west)
 }
 
 radian NumTools::pointToRadian(int x, int y) {
-    radian angle = atan2(y, x);
-    angle += (angle < 0) * 2 * PI; // Converting negative angle to positive one
+    radian angle = atan2(-x, y);
+    angle = fmodf(angle + 2 * PI, 2 * PI);
     return angle;
 }
 

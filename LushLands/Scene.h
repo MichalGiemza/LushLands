@@ -37,6 +37,7 @@ class Scene {
     bool stsOpen = false;
     bool qstOpen = false;
     bool bldOpen = false;
+    bool dbgOpen = true;
 
     void drawChunkGround(ChunkRepresentation &chunkRepresentation, int level);
 public:

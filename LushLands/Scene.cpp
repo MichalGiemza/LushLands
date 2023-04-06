@@ -1,22 +1,17 @@
 #include "Scene.h"
 
 Scene::Scene(scenename sceneName, World *world, Display *display, Position *followedPosition, InputEvents *inputEvents, TextureManager *textureManager, Focus *focus, Console *console, Player *player)
-    : camera(followedPosition, focus, inputEvents), chunkRepresentationManager(world, display, &camera, textureManager), player(player) {
-    this->textureManager = textureManager;
-    this->world = world;
-    this->display = display;
-    this->inputEvents = inputEvents;
-    this->console = console;
-    name = sceneName;
-
+    : camera(followedPosition, focus, inputEvents), chunkRepresentationManager(world, display, &camera, textureManager), player(player), world(world), textureManager(textureManager), display(display), inputEvents(inputEvents), console(console), name(sceneName) {
+    // Pure UI
     this->fieldCursor = new FieldCursor(&camera, inputEvents);
-    // Player related elements
     windowManager = new WindowManager(inputEvents);
+    // Player related elements
     invDispl = new InventoryDisplay(display, textureManager, player->getInventory(), 50, 50); //TODO magic numbers
     windowManager->addWindow(invDispl);
     hotbar = new Hotbar(display, textureManager, player->getInventory(), player, inputEvents);
     windowManager->addWindow(hotbar);
     pah = new PlayerActionHandler(inputEvents, world, player, fieldCursor, invDispl, hotbar);
+    camera.setFollowedPosition(((Humanoid *)player->getEntity())->getPosition(), ((Humanoid *)player->getEntity())->getSize());
     // Event subscriptions
     inputEvents->subscribeTimerFPS(1, draw, this);
     inputEvents->subscribeSystemEvent(user_open_inventory, handleAction, this);
@@ -26,7 +21,7 @@ Scene::Scene(scenename sceneName, World *world, Display *display, Position *foll
     inputEvents->subscribeSystemEvent(user_open_status, handleAction, this);
     inputEvents->subscribeSystemEvent(user_open_quests, handleAction, this);
     inputEvents->subscribeSystemEvent(user_open_build_menu, handleAction, this);
-
+    inputEvents->subscribeSystemEvent(user_debug_view, handleAction, this);
 }
 
 void Scene::drawChunkGround(ChunkRepresentation &chunkRepresentation, int level) {
@@ -40,7 +35,7 @@ void draw(ALLEGRO_EVENT *ae, void *scene) {
     miliseconds t = s->world->getWorldTime()->getAsMiliseconds();
     al_clear_to_color(BLACK_COLOR.getAllegroColor());
     // Draw world
-    s->chunkRepresentationManager.draw(t);
+    s->chunkRepresentationManager.draw(t, s->dbgOpen);
     // Draw world UI
     s->fieldCursor->draw();
     // Draw Static UI
@@ -93,6 +88,12 @@ void handleAction(ALLEGRO_EVENT *ae, void *scene) {
     case user_open_build_menu:
     {
         s->bldOpen ^= true;
+        // TODO
+        break;
+    }
+    case user_debug_view:
+    {
+        s->dbgOpen ^= true;
         // TODO
         break;
     }

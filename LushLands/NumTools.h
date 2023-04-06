@@ -1,5 +1,6 @@
 #pragma once
 #include "DataTypes.h"
+#include "Logger.h"
 #include <cmath>
 
 

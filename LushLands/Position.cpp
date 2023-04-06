@@ -164,6 +164,11 @@ void Position::updatePosition(const Position &pos) {
     setPZ(pos._z);
 }
 
+void Position::push2D(radian direction, ll distance) {
+    setPX(getPX() - std::sin(direction) * distance);
+    setPZ(getPZ() + std::cos(direction) * distance);
+}
+
 std::string Position::getTextZ() const {
     return std::to_string(_z / representationComaValue);
 }

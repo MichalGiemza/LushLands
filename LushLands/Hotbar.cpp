@@ -17,7 +17,6 @@ Hotbar::Hotbar(Display *display, TextureManager *textureManager, Inventory *inv,
     setHidden(false);
     inputEvents->subscribeSystemEvent(player_hotbar, handleHotbarKey, this);
     inputEvents->subscribeMouseAxis(handleScroll, this);
-    inputEvents->subscribeSystemEvent(player_throws_item, handleThrow, this);
 }
 
 pxint Hotbar::determineX() {
@@ -26,6 +25,10 @@ pxint Hotbar::determineX() {
 
 pxint Hotbar::determineY() {
     return displayHeight - determineHeight(inventoryWidth) - 10; // TODO magic number
+}
+
+int Hotbar::getSelectedIdx() {
+    return selectedIdx;
 }
 
 void Hotbar::draw() {
@@ -51,13 +54,5 @@ void handleHotbarKey(ALLEGRO_EVENT *allegroEvent, void *caller) {
 void handleScroll(ALLEGRO_EVENT *allegroEvent, void *caller) {
     Hotbar *h = (Hotbar *)caller;
     h->selectedIdx = (((h->selectedIdx - allegroEvent->mouse.dz) % player_hotbar_keycount) + player_hotbar_keycount) % player_hotbar_keycount;
-}
-
-void handleThrow(ALLEGRO_EVENT *allegroEvent, void *caller) {
-    Hotbar *h = (Hotbar *)caller;
-    Item *item = h->inventory->takeItem(h->selectedIdx);
-    radian direction = h->player->getLookingDirection();
-    auto *ae = EventFactory::packItemDrop(item, direction);
-    al_emit_user_event(h->inputEvents->getEventSource(), ae, NULL);
 }
 

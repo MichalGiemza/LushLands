@@ -136,17 +136,11 @@
     <ClCompile Include="Time.cpp">
       <Filter>src\Core</Filter>
     </ClCompile>
-    <ClCompile Include="ChunkEvents.cpp">
-      <Filter>src\Simulation\World\Events</Filter>
-    </ClCompile>
     <ClCompile Include="EntityUpdater.cpp">
       <Filter>src\Simulation\World\Entities\Modules</Filter>
     </ClCompile>
     <ClCompile Include="CollisionManager.cpp">
       <Filter>src\Simulation\World\ChunkSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="ChunkEventHandler.cpp">
-      <Filter>src\Simulation\World\Events</Filter>
     </ClCompile>
     <ClCompile Include="ChickenBoxWorldPlanner.cpp">
       <Filter>src\Simulation\World\WorldPlanners</Filter>
@@ -213,6 +207,12 @@
     </ClCompile>
     <ClCompile Include="EventFactory.cpp">
       <Filter>src\Controller\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="ChunkEventHandler.cpp">
+      <Filter>src\Simulation\World\ChunkSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ChunkEvents.cpp">
+      <Filter>src\Simulation\World\ChunkSystem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -360,9 +360,6 @@
     <ClInclude Include="Time.h">
       <Filter>src\Core</Filter>
     </ClInclude>
-    <ClInclude Include="ChunkEvents.h">
-      <Filter>src\Simulation\World\Events</Filter>
-    </ClInclude>
     <ClInclude Include="Events.h">
       <Filter>src\Core</Filter>
     </ClInclude>
@@ -374,9 +371,6 @@
     </ClInclude>
     <ClInclude Include="CollisionManager.h">
       <Filter>src\Simulation\World\ChunkSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="ChunkEventHandler.h">
-      <Filter>src\Simulation\World\Events</Filter>
     </ClInclude>
     <ClInclude Include="ISimulationEvents.h">
       <Filter>src\Core</Filter>
@@ -456,6 +450,12 @@
     <ClInclude Include="EventFactory.h">
       <Filter>src\Controller\Events</Filter>
     </ClInclude>
+    <ClInclude Include="ChunkEventHandler.h">
+      <Filter>src\Simulation\World\ChunkSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ChunkEvents.h">
+      <Filter>src\Simulation\World\ChunkSystem</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -517,9 +517,6 @@
     </Filter>
     <Filter Include="src\GraphicsManager\UI\Concrete">
       <UniqueIdentifier>{89e0646a-f87a-4915-8276-4e5c180eb7d3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Simulation\World\Events">
-      <UniqueIdentifier>{14eea98d-a9f1-45f1-bb1a-a0c83beb6e09}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Core\Tools">
       <UniqueIdentifier>{0d40a4d4-bb5e-4282-9eb7-d7f61a311bf1}</UniqueIdentifier>
