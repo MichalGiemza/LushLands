@@ -1,81 +1,77 @@
 #include "Humanoid.h"
 
-Humanoid::Humanoid(const entitytype entityType, const std::string &desc, Position &p, const Size &s, const Color &c, const int mSpeed, name fName, name lName, gendertype gender, const int invSize) :
-    Entity(entityType, desc, constant_update),
+Humanoid::Humanoid(const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, const int movementSpeed, name firstName, name lastName, gendertype gender, const int invSize, int maxHealth, const tooltype requiredTool, const ItemDropChance *drops) :
+    Entity(entityType, description, constant_update),
     entityUpdater(),
-    appearance(c),
-    body(p, s),
+    appearance(color),
+    body(position, size),
     collider(&body),
     dynamicCollider(&collider),
-    mobility(&dynamicCollider, &entityUpdater, mSpeed),
-    firstName(fName),
-    lastName(lName),
+    mobility(&dynamicCollider, &entityUpdater, movementSpeed),
+    firstName(firstName),
+    lastName(lastName),
     gender(gender),
     inventory(invSize, body.getPosition()),
+    destroyability(maxHealth, requiredTool, drops),
     gameElement(ft::HUMANOID, fp::HUMANOID, fg::SIMULATION) {
-}
-
-DynamicCollider *Humanoid::getDynamicCollider() {
-    return &dynamicCollider;
-}
-
-name Humanoid::getFirstName() {
-    return firstName;
-}
-
-name Humanoid::getLastName() {
-    return lastName;
-}
-
-void Humanoid::setFirstName(name newName) {
-    firstName = newName;
-}
-
-void Humanoid::setLastName(name newName) {
-    lastName = newName;
-}
-
-GameElement *Humanoid::getGameElement() {
-    return &gameElement;
-}
-
-Inventory *Humanoid::getInventory() {
-    return &inventory;
-}
-
-
-Position *Humanoid::getPosition() {
-    return body.getPosition();
-}
-
-void Humanoid::setPosition(Position &position) {
-    body.setPosition(position);
-}
-
-Size *Humanoid::getSize() {
-    return body.getSize();
-}
-
-Collider *Humanoid::getCollider() {
-    return &collider;
-}
-
-const Color *Humanoid::getColor() {
-    return appearance.getColor();
 }
 
 Entity *Humanoid::clone() {
     return new Humanoid(*this);
 }
 
-EntityUpdater *Humanoid::getEntityUpdater() {
+void *Humanoid::getEntityUpdater() {
     return &entityUpdater;
 }
 
-Body *Humanoid::getBody() {
+void *Humanoid::getGameElement() {
+    return &gameElement;
+}
+
+void *Humanoid::getColor() {
+    return (void *)appearance.getColor();
+}
+
+void *Humanoid::getAppearance() {
+    return &appearance;
+}
+
+void *Humanoid::getMobility() {
+    return &mobility;
+}
+
+void *Humanoid::getCollider() {
+    return &collider;
+}
+
+void *Humanoid::getDynamicCollider() {
+    return &dynamicCollider;
+}
+
+void *Humanoid::getBody() {
     return &body;
 }
 
-Mobility *Humanoid::getMobility() {
-    return &mobility;
+void *Humanoid::getSize() {
+    return body.getSize();
+}
+
+void *Humanoid::getPosition() {
+    return body.getPosition();
+}
+
+void *Humanoid::getDestroyability() {
+    return &destroyability;
+}
+
+void *Humanoid::getFirstName() {
+    return (void *)firstName;
+}
+
+void *Humanoid::getLastName() {
+    return (void *)lastName;
+}
+
+void *Humanoid::getInventory() {
+    return &inventory;
 }

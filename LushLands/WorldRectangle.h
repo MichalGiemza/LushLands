@@ -27,6 +27,7 @@ public:
 	Position *getPosition();
 	Size *getSize();
 	bool isOverlapping(const WorldRectangle *other) const;
+	bool pointBelongs(const Position &point) const;
 	int accurateDistanceTo2D(const WorldRectangle *other) const;
 	int accurateDistanceFromCenter2D(Position &otherPosition) const;
 	bool isCollidingTop(const WorldRectangle *other) const;

@@ -42,6 +42,7 @@ public:
     void placeHumanoid(Humanoid *humanoid);
     Entity *getGround(TilePosition &tilePosition);
     Entity *getStructure(TilePosition &tilePosition);
+    std::vector<Entity *> getByPosition(Position *position);
     ChunkEvents *getChunkEvents();
     CollisionManager *getCollisionManager();
     ChunkElements *getChunkElements();

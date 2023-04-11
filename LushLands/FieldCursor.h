@@ -14,12 +14,14 @@ class FieldCursor : public WorldUIElement {
     /** 
     * World UI element represented as selected square on the map.
     */
-    //TilePosition tp {0, 0, 0};
     Position cursorInWorld;
+    Position precisePos;
     Camera *camera;
 public:
     FieldCursor(Camera *camera, InputEvents *inputEvents);
     void draw();
+    Position *getPrecisePosition();
+    Position *getTilePosition();
     friend void updatePosition(ALLEGRO_EVENT *allegroEvent, void *caller);
 };
 

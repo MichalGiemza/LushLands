@@ -46,7 +46,7 @@ Structure *Chunk::addStructure(entitytype entityType, Position &position) {
     Structure *structure = (Structure *)entityFactory->buildEntity(entityType, position);
     if (structure == 0)
         return 0;
-    collisionManager.addCollider(structure->getCollider());
+    collisionManager.addCollider((Collider *)structure->getCollider());
     return structure;
 }
 
@@ -65,7 +65,7 @@ void Chunk::generateAnimals(ChunkPlan &chunkPlan) {
                 if (animal == 0)
                     continue;
                 ce.animals.insert(animal);
-                toUpdateEntities.insert(animal->getEntityUpdater()); // Fixme: Przywróciæ metodê przydzielaj¹c¹!
+                toUpdateEntities.insert((EntityUpdater *)animal->getEntityUpdater()); // Fixme: Przywróciæ metodê przydzielaj¹c¹!
             }
         }
     }
@@ -97,15 +97,17 @@ Animal *Chunk::addAnimal(entitytype entityType, Position &position) {
     Animal *animal = (Animal *)entityFactory->buildEntity(entityType, position);
     if (animal == 0)
         return 0;
-    collisionManager.addCollider(animal->getCollider());
-    animal->getEntityUpdater()->registerParentEventSource(chunkEvents.getEventSource());
+    collisionManager.addCollider((Collider *)animal->getCollider());
+    EntityUpdater *eu = (EntityUpdater *)animal->getEntityUpdater();
+    eu->registerParentEventSource(chunkEvents.getEventSource());
     return animal;
 }
 
 void Chunk::placeHumanoid(Humanoid *humanoid) {
     ce.humanoids.insert(humanoid);
-    humanoid->getEntityUpdater()->registerParentEventSource(chunkEvents.getEventSource());
-    collisionManager.addCollider(humanoid->getCollider());
+    EntityUpdater *eu = (EntityUpdater *)humanoid->getEntityUpdater();
+    eu->registerParentEventSource(chunkEvents.getEventSource());
+    collisionManager.addCollider((Collider *)humanoid->getCollider());
 }
 
 Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory, ItemFactory *itemFactory) :
@@ -126,6 +128,32 @@ Entity *Chunk::getGround(TilePosition &tilePosition) {
 
 Entity *Chunk::getStructure(TilePosition &tilePosition) {
     return ce.structures[tilePosition];
+}
+
+std::vector<Entity *> Chunk::getByPosition(Position *position) {
+    auto clickList = std::vector<Entity *>();
+
+    for (auto &pa : ce.groundTiles) {
+        Body *b = (Body *)pa.second->getBody();
+        if (b->getRectangle()->pointBelongs(*position))
+            clickList.push_back(pa.second);
+    }
+    for (auto &pa : ce.structures) {
+        Body *b = (Body *)pa.second->getBody();
+        if (b->getRectangle()->pointBelongs(*position))
+            clickList.push_back(pa.second);
+    }
+    for (auto *en : ce.animals) {
+        Body *b = (Body *)en->getBody();
+        if (b->getRectangle()->pointBelongs(*position))
+            clickList.push_back(en);
+    }
+    for (auto *en : ce.humanoids) {
+        Body *b = (Body *)en->getBody();
+        if (b->getRectangle()->pointBelongs(*position))
+            clickList.push_back(en);
+    }
+    return clickList;
 }
 
 ChunkEvents *Chunk::getChunkEvents() {

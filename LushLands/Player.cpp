@@ -9,11 +9,11 @@ Player::Player(Humanoid *humanoid, InputEvents *inputEvents) :
 
 
 name Player::getFirstName() {
-    return humanoid->getFirstName();
+    return (name)humanoid->getFirstName();
 }
 
 name Player::getLastName() {
-    return humanoid->getLastName();
+    return (name)humanoid->getLastName();
 }
 
 Entity *Player::getEntity() {
@@ -21,7 +21,7 @@ Entity *Player::getEntity() {
 }
 
 Inventory *Player::getInventory() {
-    return humanoid->getInventory();
+    return (Inventory *)humanoid->getInventory();
 }
 
 radian Player::getLookingDirection() {

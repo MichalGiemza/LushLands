@@ -11,23 +11,23 @@ Entity *EntityFactory::buildEntity(entitytype entityType, Position &position) {
         return 0;
     /*    Ground    */
     if (entityType == SOIL)
-        return new Ground(SOIL, SOIL_DESCRIPTION, position, GROUND_SIZE, SOIL_COLOR);
+        return new Ground(SOIL, SOIL_DESCRIPTION, position, GROUND_SIZE, SOIL_COLOR, SOIL_HEALTH, SOIL_TOOL, SOIL_DROPS);
     if (entityType == GRASS)
-        return new Ground(GRASS, GRASS_DESCRIPTION, position, GROUND_SIZE, GRASS_COLOR);
+        return new Ground(GRASS, GRASS_DESCRIPTION, position, GROUND_SIZE, GRASS_COLOR, GRASS_HEALTH, GRASS_TOOL, GRASS_DROPS);
     if (entityType == WATER)
-        return new Ground(WATER, WATER_DESCRIPTION, position, GROUND_SIZE, WATER_COLOR);
+        return new Ground(WATER, WATER_DESCRIPTION, position, GROUND_SIZE, WATER_COLOR, WATER_HEALTH, WATER_TOOL, WATER_DROPS);
     if (entityType == SAND)
-        return new Ground(SAND, SAND_DESCRIPTION, position, GROUND_SIZE, SAND_COLOR);
+        return new Ground(SAND, SAND_DESCRIPTION, position, GROUND_SIZE, SAND_COLOR, SAND_HEALTH, SAND_TOOL, SAND_DROPS);
     if (entityType == ROCK)
-        return new Ground(ROCK, ROCK_DESCRIPTION, position, GROUND_SIZE, ROCK_COLOR);
+        return new Ground(ROCK, ROCK_DESCRIPTION, position, GROUND_SIZE, ROCK_COLOR, ROCK_HEALTH, ROCK_TOOL, ROCK_DROPS);
     if (entityType == COBBLE)
-        return new Ground(COBBLE, COBBLE_DESCRIPTION, position, GROUND_SIZE, COBBLE_COLOR);
+        return new Ground(COBBLE, COBBLE_DESCRIPTION, position, GROUND_SIZE, COBBLE_COLOR, COBBLE_HEALTH, COBBLE_TOOL, COBBLE_DROPS);
     if (entityType == FARMLAND)
-        return new Ground(FARMLAND, FARMLAND_DESCRIPTION, position, GROUND_SIZE, FARMLAND_COLOR);
+        return new Ground(FARMLAND, FARMLAND_DESCRIPTION, position, GROUND_SIZE, FARMLAND_COLOR, FARMLAND_HEALTH, FARMLAND_TOOL, FARMLAND_DROPS);
     if (entityType == GRAVEL)
-        return new Ground(GRAVEL, GRAVEL_DESCRIPTION, position, GROUND_SIZE, GRAVEL_COLOR);
+        return new Ground(GRAVEL, GRAVEL_DESCRIPTION, position, GROUND_SIZE, GRAVEL_COLOR, GRAVEL_HEALTH, GRAVEL_TOOL, GRAVEL_DROPS);
     if (entityType == SNOW)
-        return new Ground(SNOW, SNOW_DESCRIPTION, position, GROUND_SIZE, SNOW_COLOR);
+        return new Ground(SNOW, SNOW_DESCRIPTION, position, GROUND_SIZE, SNOW_COLOR, SNOW_HEALTH, SNOW_TOOL, SNOW_DROPS);
     /*    Structure    */
     if (entityType == TREE)
         return new Structure(TREE, TREE_DESCRIPTION, position, TREE_SIZE, TREE_COLOR, TREE_HEALTH, TREE_TOOL, TREE_DROPS);
@@ -38,7 +38,7 @@ Entity *EntityFactory::buildEntity(entitytype entityType, Position &position) {
     if (entityType == TALL_GRASS)
         return new Structure(TALL_GRASS, TALL_GRASS_DESCRIPTION, position, TALL_GRASS_SIZE, TALL_GRASS_COLOR, TALL_GRASS_HEALTH, TALL_GRASS_TOOL, TALL_GRASS_DROPS);
     if (entityType == STONE)
-        return new Structure(STONE, STONE_DESCRIPTION, position, STONE_SIZE, STONE_COLOR, TALL_GRASS_HEALTH, TALL_GRASS_TOOL, TALL_GRASS_DROPS);
+        return new Structure(STONE, STONE_DESCRIPTION, position, STONE_SIZE, STONE_COLOR, STONE_HEALTH, STONE_TOOL, STONE_DROPS);
     if (entityType == LOG)
         return new Structure(LOG, LOG_DESCRIPTION, position, LOG_SIZE, LOG_COLOR, TALL_GRASS_HEALTH, TALL_GRASS_TOOL, TALL_GRASS_DROPS);
     /*    Animal    */
@@ -49,6 +49,6 @@ Entity *EntityFactory::buildEntity(entitytype entityType, Position &position) {
         gendertype gender = rand() % 2 ? gdr::male : gdr::female;
         name firstName = nameGenerator->getCommonName(gender);
         name lastName = nameGenerator->getCommonName(gender);
-        return new Humanoid(HUMAN, HUMAN_DESCRIPTION, position, HUMAN_SIZE, HUMAN_COLOR, HUMAN_MOVEMENT_SPEED, firstName, lastName, gender, HUMAN_INVENTORY_SLOTS);
+        return new Humanoid(HUMAN, HUMAN_DESCRIPTION, position, HUMAN_SIZE, HUMAN_COLOR, HUMAN_MOVEMENT_SPEED, firstName, lastName, gender, HUMAN_INVENTORY_SLOTS, HUMAN_HEALTH, HUMAN_TOOL, HUMAN_DROPS);
     }
 }

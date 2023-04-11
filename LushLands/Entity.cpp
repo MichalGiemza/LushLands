@@ -1,10 +1,7 @@
 #include "Entity.h"
 
 Entity::Entity(entitytype entityType, std::string description, updatetype updateType) :
-    entityType(entityType),
-    description(description),
-    updateType(updateType) 
-{ }
+    entityType(entityType), description(description), updateType(updateType) { }
 
 entitytype Entity::getType() {
     return entityType;
@@ -16,4 +13,8 @@ updatetype Entity::getUpdateType() {
 
 std::string Entity::getDescription() {
     return description;
+}
+
+Entity *Entity::clone() {
+    return nullptr;
 }

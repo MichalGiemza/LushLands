@@ -62,6 +62,12 @@ bool WorldRectangle::isOverlapping(const WorldRectangle *other) const {
 	return dx <= (s->getPW() + other->s->getPW()) / 2 && dy <= (s->getPL() + other->s->getPL()) / 2;
 }
 
+bool WorldRectangle::pointBelongs(const Position &point) const {
+	bool belongsX = accurateLeft() <= point.getPX() and point.getPX() <= accurateRight();
+	bool belongsZ = accurateTop() <= point.getPY() and point.getPY() <= accurateBottom();
+	return belongsX and belongsZ;
+}
+
 int WorldRectangle::accurateDistanceTo2D(const WorldRectangle *other) const {
 	// find the x and y distances between the centers of the two rectangles
 	int dx = std::abs(accurateLeft() + s->getPW() / 2 - other->accurateLeft() - other->s->getPW() / 2);

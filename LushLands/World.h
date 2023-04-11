@@ -36,6 +36,6 @@ public:
     int getSeaLevel();
     Time *getWorldTime();
     ChunkLoadManager *getChunkLoadManager();
-    std::vector<Entity *> getByPosition(Position position); // TODO: Dla klikania myszk¹
+    std::vector<Entity *> getByPosition(Position *position); // TODO: Dla klikania myszk¹
     void placePlayer(Player *player);
 };

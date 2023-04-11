@@ -16,9 +16,36 @@ class Entity {
     std::string description;
     updatetype updateType;
 public:
+    // Constructors and main methods
     Entity(entitytype entityType, std::string description, updatetype updateType);
+    virtual Entity *clone() = 0;
+
+    // Getters, Setters
     entitytype getType();
     updatetype getUpdateType();
     std::string getDescription();
-    virtual Entity *clone() = 0;
+    tooltype getToolAffecting();
+
+    // Virtual getters
+    virtual void *getEntityUpdater() = 0;
+    virtual void *getGameElement() = 0;
+
+    virtual void *getColor() = 0;
+    virtual void *getAppearance() = 0;
+
+    virtual void *getMobility() = 0;
+    virtual void *getCollider() = 0;
+    virtual void *getDynamicCollider() = 0;
+    virtual void *getRandomWalk() = 0;
+
+    virtual void *getBody() = 0;
+    virtual void *getSize() = 0;
+    virtual void *getPosition() = 0;
+
+    virtual void *getDestroyability() = 0;
+
+    virtual void *getFirstName() = 0;
+    virtual void *getLastName() = 0;
+    
+    virtual void *getInventory() = 0;
 };

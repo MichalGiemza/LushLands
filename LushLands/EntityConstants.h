@@ -20,55 +20,81 @@ const entitytype SOIL = "soil";
 const Color SOIL_COLOR = Color(100, 60, 20, 255);
 const std::string SOIL_DESCRIPTION = "Fertile soil.";
 const TextureLocalization SOIL_TEXTURE_LOCALIZATION = TextureLocalization(64, 64, "..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\RPG Nature Tileset.png");
+extern const ItemDropChance SOIL_DROPS[];
+const cstint SOIL_HEALTH = 50;
+const tooltype SOIL_TOOL = tlt::shovel;
 
 // Grass
 const entitytype GRASS = "grass";
 const Color GRASS_COLOR = Color(80, 100, 50, 255);
 const std::string GRASS_DESCRIPTION = "Green, idyllic grass.";
 const TextureLocalization GRASS_TEXTURE_LOCALIZATION = TextureLocalization(0, 64, "..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\RPG Nature Tileset.png");
+extern const ItemDropChance GRASS_DROPS[];
+const cstint GRASS_HEALTH = 50;
+const tooltype GRASS_TOOL = tlt::shovel;
 
 // Water
 const entitytype WATER = "water";
 const Color WATER_COLOR = Color(15, 50, 100, 255);
 const std::string WATER_DESCRIPTION = "Drinkable freshwater.";
 const TextureLocalization WATER_TEXTURE_LOCALIZATION = TextureLocalization(0, 0, "..\\Assets\\textures\\32x32 and 64x64 Pixel Art Textures by 711studios\\32x32 Tiles\\Water.png");
+extern const ItemDropChance WATER_DROPS[];
+const cstint WATER_HEALTH = 50;
+const tooltype WATER_TOOL = tlt::bucket;
 
 // Sand
 const entitytype SAND = "sand";
 const Color SAND_COLOR = Color(200, 200, 110, 255);
 const std::string SAND_DESCRIPTION = "Sand, just like on a beach.";
 const TextureLocalization SAND_TEXTURE_LOCALIZATION = TextureLocalization(0, 0, "..\\Assets\\textures\\32x32 and 64x64 Pixel Art Textures by 711studios\\32x32 Tiles\\Dehydrated_Earth.png");
+extern const ItemDropChance SAND_DROPS[];
+const cstint SAND_HEALTH = 50;
+const tooltype SAND_TOOL = tlt::shovel;
 
 // Rock
 const entitytype ROCK = "rock";
 const Color ROCK_COLOR = Color(100, 110, 120, 255);
 const std::string ROCK_DESCRIPTION = "Hard as rock.";
 const TextureLocalization ROCK_TEXTURE_LOCALIZATION = TextureLocalization(96, 64, "..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\RPG Nature Tileset.png");
+extern const ItemDropChance ROCK_DROPS[];
+const cstint ROCK_HEALTH = 50;
+const tooltype ROCK_TOOL = tlt::pickaxe;
 
 // Cobble
 const entitytype COBBLE = "cobble";
 const Color COBBLE_COLOR = Color(100, 120, 110, 255);
 const std::string COBBLE_DESCRIPTION = "Crushed rocks.";
 const TextureLocalization COBBLE_TEXTURE_LOCALIZATION = TextureLocalization(64, 64, "..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\IceTileset.png");
+extern const ItemDropChance COBBLE_DROPS[];
+const cstint COBBLE_HEALTH = 50;
+const tooltype COBBLE_TOOL = tlt::pickaxe;
 
 // Farmland
 const entitytype FARMLAND = "farmland";
 const Color FARMLAND_COLOR = Color(60, 40, 20, 255);
 const std::string FARMLAND_DESCRIPTION = "Land ready to grow crops.";
 const TextureLocalization FARMLAND_TEXTURE_LOCALIZATION = TextureLocalization(126, 9, "..\\Assets\\textures\\Edinnu Small Forest by rowdy41\\Ground tileset\\Earth-tileset.png");
+extern const ItemDropChance FARMLAND_DROPS[];
+const cstint FARMLAND_HEALTH = 50;
+const tooltype FARMLAND_TOOL = tlt::shovel;
 
 // Gravel
 const entitytype GRAVEL = "gravel";
 const Color GRAVEL_COLOR = Color(80, 80, 100, 255);
 const std::string GRAVEL_DESCRIPTION = "Lots of small, loose stones.";
 const TextureLocalization GRAVEL_TEXTURE_LOCALIZATION = TextureLocalization(0, 0, "..\\Assets\\textures\\32x32 and 64x64 Pixel Art Textures by 711studios\\32x32 Tiles\\Metal_Floor.png");
+extern const ItemDropChance GRAVEL_DROPS[];
+const cstint GRAVEL_HEALTH = 50;
+const tooltype GRAVEL_TOOL = tlt::shovel;
 
 // Snow
 const entitytype SNOW = "snow";
 const Color SNOW_COLOR = Color(240, 240, 250, 255);
 const std::string SNOW_DESCRIPTION = "So cold and crunches under your feet.";
 const TextureLocalization SNOW_TEXTURE_LOCALIZATION = TextureLocalization(0, 64, "..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\IceTileset.png");
-
+extern const ItemDropChance SNOW_DROPS[];
+const cstint SNOW_HEALTH = 50;
+const tooltype SNOW_TOOL = tlt::shovel;
 
 /*    Structure    */
 
@@ -159,3 +185,6 @@ const Size HUMAN_SIZE = Size(0.7f, 1.0f, 0.7f);
 const TextureLocalization HUMAN_TEXTURE_LOCALIZATION = TextureLocalization(0, 0, "..\\Assets\\textures\\FREE Mana Seed Character Base Demo\\char_a_p1\\char_a_p1_0bas_humn_v01.png", 64, 64);
 const cstint HUMAN_MOVEMENT_SPEED = 10000;
 const cstint HUMAN_INVENTORY_SLOTS = 12;
+extern const ItemDropChance *HUMAN_DROPS;
+const cstint HUMAN_HEALTH = 200;
+const tooltype HUMAN_TOOL = tlt::weapon;

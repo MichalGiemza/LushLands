@@ -236,13 +236,16 @@ void ChunkRepresentationManager::drawHumanoidDebug(ChunkRepresentation *cRep, in
         if (hmn->getCollider()->isInCollisionBottom())
             al_draw_line(x1, z2, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
         // Draw direction vector
+        x1 = camera->shiftToScreenPosX(ctr->getPX());
+        z1 = camera->shiftToScreenPosZ(ctr->getPZ());
         if (not std::isnan(hmn->getMobility()->getDirection())) {
-            x1 = camera->shiftToScreenPosX(ctr->getPX());
-            z1 = camera->shiftToScreenPosZ(ctr->getPZ());
             x2 = camera->shiftToScreenPosX(ctr->getPX() - std::sin(hmn->getMobility()->getDirection()) * sqrt(hmn->getMobility()->getMovementSpeed() * meter) * 3);
             z2 = camera->shiftToScreenPosZ(ctr->getPZ() + std::cos(hmn->getMobility()->getDirection()) * sqrt(hmn->getMobility()->getMovementSpeed() * meter) * 3);
             al_draw_line(x1, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 1.0f);
         }
+        // Draw interaction range
+        al_draw_circle(x1, z1, interactionRadiusS * tileSizePx , COLOR_DARK_RED.getAllegroColor(), 1.0f);
+        al_draw_circle(x1, z1, interactionRadiusL * tileSizePx, COLOR_DARK_RED.getAllegroColor(), 1.0f);
     }
 }
 

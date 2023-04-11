@@ -36,13 +36,14 @@ void Simulation::addPlayer(InputEvents *ie) {
     Humanoid *human = (Humanoid *)entityFactory->buildEntity(HUMAN, p);
     player = new Player(human, ie);
     world->placePlayer(player);
-    loadPosition = human->getPosition();
-    focus->setFocusedObject(human->getGameElement());
+    loadPosition = (Position *)human->getPosition();
+    focus->setFocusedObject((GameElement *)human->getGameElement());
     // Tools
-    human->getInventory()->putItemAuto(itemFactory->buildItem(PICKAXE, 1));
-    human->getInventory()->putItemAuto(itemFactory->buildItem(SHOVEL, 1));
-    human->getInventory()->putItemAuto(itemFactory->buildItem(AXE, 1));
-    human->getInventory()->putItem(11, itemFactory->buildItem(SWORD, 1));
+    Inventory *inv = (Inventory *)human->getInventory();
+    inv->putItemAuto(itemFactory->buildItem(PICKAXE, 1));
+    inv->putItemAuto(itemFactory->buildItem(SHOVEL, 1));
+    inv->putItemAuto(itemFactory->buildItem(AXE, 1));
+    inv->putItem(11, itemFactory->buildItem(SWORD, 1));
 }
 
 Player *Simulation::getPlayer() {

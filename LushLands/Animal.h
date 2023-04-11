@@ -25,14 +25,26 @@ public:
     Entity *clone() override;
     
     // Getters, Setters
-    EntityUpdater *getEntityUpdater();
-    Position *getPosition();
-    void setPosition(Position &position);
-    Size *getSize();
-    const Color *getColor();
-    Collider *getCollider();
-    Mobility *getMobility();
-    Body *getBody();
-    GameElement *getGameElement();
+    virtual void *getEntityUpdater() override;
+    virtual void *getGameElement() override;
+
+    virtual void *getColor() override;
+    virtual void *getAppearance() override;
+
+    virtual void *getMobility() override;
+    virtual void *getCollider() override;
+    virtual void *getDynamicCollider() override;
+    virtual void *getRandomWalk() override;
+
+    virtual void *getBody() override;
+    virtual void *getSize() override;
+    virtual void *getPosition() override;
+
+    virtual void *getDestroyability() override;
+
+    virtual void *getFirstName() override;
+    virtual void *getLastName() override;
+
+    virtual void *getInventory() override;
 };
 

@@ -7,6 +7,7 @@
 #include "GameElement.h"
 #include "Mobility.h"
 #include "Inventory.h"
+#include "Destroyability.h"
 
 
 class Humanoid : public Entity {
@@ -21,30 +22,37 @@ class Humanoid : public Entity {
     Mobility mobility;
     DynamicCollider dynamicCollider;
     Inventory inventory;
+    Destroyability destroyability;
 
     name firstName;
     name lastName;
     gendertype gender;
 public:
     // Constructors and main methods
-    Humanoid(const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, const int movementSpeed, name firstName, name lastName, gendertype gender, const int invSize);
+    Humanoid(const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, const int movementSpeed, name firstName, name lastName, gendertype gender, const int invSize, int maxHealth, const tooltype requiredTool, const ItemDropChance *drops);
     Entity *clone() override;
 
     // Getters, Setters
-    DynamicCollider *getDynamicCollider();
-    EntityUpdater *getEntityUpdater();
-    Position *getPosition();
-    void setPosition(Position &position);
-    Size *getSize();
-    const Color *getColor();
-    Collider *getCollider();
-    Mobility *getMobility();
-    Body *getBody();
-    name getFirstName();
-    name getLastName();
-    void setFirstName(name newName);
-    void setLastName(name newName);
-    GameElement *getGameElement();
-    Inventory *getInventory();
+    virtual void *getEntityUpdater() override;
+    virtual void *getGameElement() override;
+
+    virtual void *getColor() override;
+    virtual void *getAppearance() override;
+
+    virtual void *getMobility() override;
+    virtual void *getCollider() override;
+    virtual void *getDynamicCollider() override;
+    virtual void *getRandomWalk() override;
+
+    virtual void *getBody() override;
+    virtual void *getSize() override;
+    virtual void *getPosition() override;
+
+    virtual void *getDestroyability() override;
+
+    virtual void *getFirstName() override;
+    virtual void *getLastName() override;
+
+    virtual void *getInventory() override;
 };
 

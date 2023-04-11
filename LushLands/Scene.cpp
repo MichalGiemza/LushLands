@@ -11,7 +11,7 @@ Scene::Scene(scenename sceneName, World *world, Display *display, Position *foll
     hotbar = new Hotbar(display, textureManager, player->getInventory(), player, inputEvents);
     windowManager->addWindow(hotbar);
     pah = new PlayerActionHandler(inputEvents, world, player, fieldCursor, invDispl, hotbar);
-    camera.setFollowedPosition(((Humanoid *)player->getEntity())->getPosition(), ((Humanoid *)player->getEntity())->getSize());
+    camera.setFollowedPosition((Position *)((Humanoid *)player->getEntity())->getPosition(), ((Humanoid *)player->getEntity())->getSize());
     // Event subscriptions
     inputEvents->subscribeTimerFPS(1, draw, this);
     inputEvents->subscribeSystemEvent(user_open_inventory, handleAction, this);

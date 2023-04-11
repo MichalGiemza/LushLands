@@ -37,7 +37,7 @@ void handlePlayerMovementAttempt(ALLEGRO_EVENT *ae, void *obj) {
 
 void handlePlayerMovement(ALLEGRO_EVENT *ae, void *obj) {
     PlayerActionHandler *pah = (PlayerActionHandler *)obj;
-    Mobility *playerMobility = ((Humanoid *)pah->player->getEntity())->getMobility();
+    Mobility *playerMobility = (Mobility *)((Humanoid *)pah->player->getEntity())->getMobility();
 
     radian direction = NumTools::directionToRadian(pah->pN, pah->pS, pah->pE, pah->pW);
     playerMobility->setDirection(direction);
@@ -61,4 +61,13 @@ void handlePlayerThrowItem(ALLEGRO_EVENT *ae, void *obj) {
     ChunkPosition cp = ((Humanoid *)pah->player->getEntity())->getPosition()->getChunkPosition();
     ALLEGRO_EVENT_SOURCE *es = pah->world->getChunkLoadManager()->getChunk(cp)->getChunkEvents()->getEventSource();
     al_emit_user_event(es, nae, NULL); // FIXME - przyda³oby siê skróciæ drogê tej mêczarni...
+}
+
+void handlePlayerContextUse(ALLEGRO_EVENT *ae, void *obj) {
+    PlayerActionHandler *pah = (PlayerActionHandler *)obj;
+    Position *fcp = pah->fieldCursor->getPrecisePosition();
+    auto clickList = pah->world->getByPosition(fcp);
+    // Tool usage
+
+
 }

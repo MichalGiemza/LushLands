@@ -14,42 +14,55 @@ Animal::Animal(const entitytype entityType, const std::string &description, Posi
 
     //Logger::log(ll::DEBUG_ENTITY, "Created Animal entity [%s;%i,%i]", entityType, position.x(), position.z());
 }
-Position *Animal::getPosition() {
-    return body.getPosition();
-}
-
-void Animal::setPosition(Position &position) {
-    body.setPosition(position);
-}
-
-Size *Animal::getSize() {
-    return body.getSize();
-}
-
-Collider *Animal::getCollider() {
-    return &collider;
-}
-
-const Color *Animal::getColor() {
-    return appearance.getColor();
-}
 
 Entity *Animal::clone() {
     return new Animal(*this);
 }
 
-EntityUpdater *Animal::getEntityUpdater() {
+void *Animal::getEntityUpdater() {
     return &entityUpdater;
 }
 
-Body *Animal::getBody() {
-    return &body;
+void *Animal::getGameElement() {
+    return &gameElement;
 }
 
-Mobility *Animal::getMobility() {
+void *Animal::getColor() {
+    return (void *)appearance.getColor();
+}
+
+void *Animal::getAppearance() {
+    return &appearance;
+}
+
+void *Animal::getMobility() {
     return &mobility;
 }
 
-GameElement *Animal::getGameElement() {
-    return &gameElement;
+void *Animal::getCollider() {
+    return &collider;
+}
+
+void *Animal::getDynamicCollider() {
+    return &dynamicCollider;
+}
+
+void *Animal::getRandomWalk() {
+    return &randomWalk;
+}
+
+void *Animal::getBody() {
+    return &body;
+}
+
+void *Animal::getSize() {
+    return body.getSize();
+}
+
+void *Animal::getPosition() {
+    return body.getPosition();
+}
+
+void *Animal::getDestroyability() {
+    return &destroyability;
 }

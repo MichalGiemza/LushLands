@@ -12,7 +12,7 @@ class Structure : public Entity {
     * Structure
     */
     GameElement gameElement;
-    EntityUpdater entityUpdater; // Zamieniæ to potem na strategiê mo¿e? EntityUpdater/RandomTickUpdater/Nic
+    EntityUpdater entityUpdater; // TODO Zamieniæ to potem na strategiê mo¿e? EntityUpdater/RandomTickUpdater/Nic
     Appearance appearance;
     Body body;
     Collider collider;
@@ -23,11 +23,26 @@ public:
     Entity *clone() override;
 
     // Getters, Setters
-    Position *getPosition();
-    Size *getSize();
-    const Color *getColor();
-    Collider *getCollider();
-    Body *getBody();
-    GameElement *getGameElement();
+    virtual void *getEntityUpdater() override;
+    virtual void *getGameElement() override;
+
+    virtual void *getColor() override;
+    virtual void *getAppearance() override;
+
+    virtual void *getMobility() override;
+    virtual void *getCollider() override;
+    virtual void *getDynamicCollider() override;
+    virtual void *getRandomWalk() override;
+
+    virtual void *getBody() override;
+    virtual void *getSize() override;
+    virtual void *getPosition() override;
+
+    virtual void *getDestroyability() override;
+
+    virtual void *getFirstName() override;
+    virtual void *getLastName() override;
+
+    virtual void *getInventory() override;
 };
 

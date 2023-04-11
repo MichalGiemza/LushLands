@@ -16,26 +16,38 @@ Entity *Structure::clone() {
     return new Structure(*this);
 }
 
-Position *Structure::getPosition() {
-    return body.getPosition();
+void *Structure::getEntityUpdater() {
+    return &entityUpdater;
 }
 
-Size *Structure::getSize() {
-    return body.getSize();
+void *Structure::getGameElement() {
+    return &gameElement;
 }
 
-const Color *Structure::getColor() {
-    return appearance.getColor();
+void *Structure::getColor() {
+    return (void *)appearance.getColor();
 }
 
-Collider *Structure::getCollider() {
+void *Structure::getAppearance() {
+    return &appearance;
+}
+
+void *Structure::getCollider() {
     return &collider;
 }
 
-Body *Structure::getBody() {
+void *Structure::getBody() {
     return &body;
 }
 
-GameElement *Structure::getGameElement() {
-    return &gameElement;
+void *Structure::getSize() {
+    return body.getSize();
+}
+
+void *Structure::getPosition() {
+    return body.getPosition();
+}
+
+void *Structure::getDestroyability() {
+    return &destroyability;
 }

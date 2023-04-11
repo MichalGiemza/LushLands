@@ -38,7 +38,7 @@ void ChunkEventHandler::handleItemCollection() {
     for (auto &i : ce->items) {
         for (auto &h : ce->humanoids) {
             Position *pI = i->getPosition();
-            Position *pH = ((Humanoid *)h)->getPosition();
+            Position *pH = (Position *)((Humanoid *)h)->getPosition();
             if (pI->getY() != pH->getY())
                 continue;
             if (pI->distance2D(*pH) <= itemMagnetRadius * meter)

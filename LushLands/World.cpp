@@ -34,9 +34,17 @@ ChunkLoadManager *World::getChunkLoadManager() {
     return chunkSystem->getChunkLoadManager();
 }
 
+std::vector<Entity *> World::getByPosition(Position *position) {
+    auto cP = position->getChunkPosition();
+    auto chunk = getChunkLoadManager()->getChunk(cP);
+    if (chunk)
+        return chunk->getByPosition(position);
+    return std::vector<Entity *>();
+}
+
 void World::placePlayer(Player *player) {
     Humanoid *h = (Humanoid *)player->getEntity();
-    Position *p = h->getPosition();
+    Position *p = (Position *)h->getPosition();
     Chunk *c = chunkSystem->getChunk(p->getChunkPosition());
     c->placeHumanoid(h);
     //worldEvents->registerPlayer(player);

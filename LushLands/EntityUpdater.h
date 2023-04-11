@@ -1,6 +1,5 @@
 #pragma once
 #include "EventTypes.h"
-#include "Entity.h"
 #include <set>
 
 class EntityUpdater {
