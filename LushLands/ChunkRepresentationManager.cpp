@@ -90,8 +90,8 @@ void ChunkRepresentationManager::drawStructures(ChunkRepresentation *cRep, int l
         if (sPair->first.y != level)
             continue;
         auto str = (Structure *)sPair->second;
-        auto ctr = str->getBody()->getCenter();
-        auto size = str->getSize();
+        Position *ctr = ((Body *)str->getBody())->getCenter();
+        Size *size = (Size *)str->getSize();
         // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
         auto sBitmap = textureManager->getNamedTexture(sPair->second->getType());
 
@@ -106,10 +106,10 @@ void ChunkRepresentationManager::drawAnimals(ChunkRepresentation *cRep, int leve
     auto animals = &cRep->getChunkElements()->animals;
     for (auto entity = animals->begin(); entity != animals->end(); ++entity) {
         auto anm = (Animal *)(*entity);
-        if (anm->getPosition()->getY() != level)
+        if (((Position *)anm->getPosition())->getY() != level)
             continue;
-        auto ctr = anm->getBody()->getCenter();
-        auto size = anm->getSize();
+        auto ctr = ((Body *)anm->getBody())->getCenter();
+        Size *size = (Size *)anm->getSize();
         // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
         auto sBitmap = textureManager->getNamedTexture(anm->getType());
 
@@ -124,10 +124,10 @@ void ChunkRepresentationManager::drawHumanoids(ChunkRepresentation *cRep, int le
     auto humanoids = &cRep->getChunkElements()->humanoids;
     for (auto entity = humanoids->begin(); entity != humanoids->end(); ++entity) {
         auto hmn = (Humanoid *)(*entity);
-        if (hmn->getPosition()->getY() != level)
+        if (((Position *)hmn->getPosition())->getY() != level)
             continue;
-        auto ctr = hmn->getBody()->getCenter();
-        auto size = hmn->getSize();
+        auto ctr = ((Body *)hmn->getBody())->getCenter();
+        Size *size = (Size *)hmn->getSize();
         // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
         auto sBitmap = textureManager->getNamedTexture(hmn->getType());
 
@@ -153,8 +153,8 @@ void ChunkRepresentationManager::drawStructureDebug(ChunkRepresentation *cRep, i
         if (sPair->first.y != level)
             continue;
         auto str = (Structure *)sPair->second;
-        auto ctr = str->getBody()->getCenter();
-        auto size = str->getSize();
+        auto ctr = ((Body *)str->getBody())->getCenter();
+        Size *size = (Size *)str->getSize();
         // Draw outline
         pxint x1 = camera->shiftToScreenPosX(ctr->getPX()) - size->getCameraW() / 2;
         pxint z1 = camera->shiftToScreenPosZ(ctr->getPZ()) - size->getCameraL() / 2;
@@ -182,10 +182,10 @@ void ChunkRepresentationManager::drawAnimalDebug(ChunkRepresentation *cRep, int 
     auto animals = &cRep->getChunkElements()->animals;
     for (auto entity = animals->begin(); entity != animals->end(); ++entity) {
         auto anm = (Animal *)(*entity);
-        if (anm->getPosition()->getY() != level)
+        if (((Position *)anm->getPosition())->getY() != level)
             continue;
-        auto ctr = anm->getBody()->getCenter();
-        auto size = anm->getSize();
+        auto ctr = ((Body *)anm->getBody())->getCenter();
+        Size *size = (Size *)anm->getSize();
         // Draw outline
         pxint x1 = camera->shiftToScreenPosX(ctr->getPX()) - size->getCameraW() / 2;
         pxint z1 = camera->shiftToScreenPosZ(ctr->getPZ()) - size->getCameraL() / 2;
@@ -193,20 +193,22 @@ void ChunkRepresentationManager::drawAnimalDebug(ChunkRepresentation *cRep, int 
         pxint z2 = camera->shiftToScreenPosZ(ctr->getPZ()) + size->getCameraL() / 2;
         al_draw_rectangle(x1, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 1.0f);
         // Draw collision indicators
-        if (anm->getCollider()->isInCollisionLeft())
+        Collider *col = (Collider *)anm->getCollider();
+        if (col->isInCollisionLeft())
             al_draw_line(x1, z1, x1, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
-        if (anm->getCollider()->isInCollisionRight())
+        if (col->isInCollisionRight())
             al_draw_line(x2, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
-        if (anm->getCollider()->isInCollisionTop())
+        if (col->isInCollisionTop())
             al_draw_line(x1, z1, x2, z1, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
-        if (anm->getCollider()->isInCollisionBottom())
+        if (col->isInCollisionBottom())
             al_draw_line(x1, z2, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
         // Draw direction vector
-        if (not std::isnan(anm->getMobility()->getDirection())) {
+        Mobility *mob = (Mobility *)anm->getMobility();
+        if (not std::isnan(mob->getDirection())) {
             x1 = camera->shiftToScreenPosX(ctr->getPX());
             z1 = camera->shiftToScreenPosZ(ctr->getPZ());
-            x2 = camera->shiftToScreenPosX(ctr->getPX() - std::sin(anm->getMobility()->getDirection()) * sqrt(anm->getMobility()->getMovementSpeed() * meter) * 3);
-            z2 = camera->shiftToScreenPosZ(ctr->getPZ() + std::cos(anm->getMobility()->getDirection()) * sqrt(anm->getMobility()->getMovementSpeed() * meter) * 3);
+            x2 = camera->shiftToScreenPosX(ctr->getPX() - std::sin(mob->getDirection()) * sqrt(mob->getMovementSpeed() * meter) * 3);
+            z2 = camera->shiftToScreenPosZ(ctr->getPZ() + std::cos(mob->getDirection()) * sqrt(mob->getMovementSpeed() * meter) * 3);
             al_draw_line(x1, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 1.0f);
         }
     }
@@ -216,10 +218,10 @@ void ChunkRepresentationManager::drawHumanoidDebug(ChunkRepresentation *cRep, in
     auto humanoids = &cRep->getChunkElements()->humanoids;
     for (auto entity = humanoids->begin(); entity != humanoids->end(); ++entity) {
         auto hmn = (Humanoid *)(*entity);
-        if (hmn->getPosition()->getY() != level)
+        if (((Position *)hmn->getPosition())->getY() != level)
             continue;
-        auto ctr = hmn->getBody()->getCenter();
-        auto size = hmn->getSize();
+        auto ctr = ((Body *)hmn->getBody())->getCenter();
+        Size *size = (Size *)hmn->getSize();
         // Draw outline
         pxint x1 = camera->shiftToScreenPosX(ctr->getPX()) - size->getCameraW() / 2;
         pxint z1 = camera->shiftToScreenPosZ(ctr->getPZ()) - size->getCameraL() / 2;
@@ -227,20 +229,22 @@ void ChunkRepresentationManager::drawHumanoidDebug(ChunkRepresentation *cRep, in
         pxint z2 = camera->shiftToScreenPosZ(ctr->getPZ()) + size->getCameraL() / 2;
         al_draw_rectangle(x1, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 1.0f);
         // Draw collision indicators
-        if (hmn->getCollider()->isInCollisionLeft())
+        Collider *col = (Collider *)hmn->getCollider();
+        if (col->isInCollisionLeft())
             al_draw_line(x1, z1, x1, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
-        if (hmn->getCollider()->isInCollisionRight())
+        if (col->isInCollisionRight())
             al_draw_line(x2, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
-        if (hmn->getCollider()->isInCollisionTop())
+        if (col->isInCollisionTop())
             al_draw_line(x1, z1, x2, z1, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
-        if (hmn->getCollider()->isInCollisionBottom())
+        if (col->isInCollisionBottom())
             al_draw_line(x1, z2, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
         // Draw direction vector
         x1 = camera->shiftToScreenPosX(ctr->getPX());
         z1 = camera->shiftToScreenPosZ(ctr->getPZ());
-        if (not std::isnan(hmn->getMobility()->getDirection())) {
-            x2 = camera->shiftToScreenPosX(ctr->getPX() - std::sin(hmn->getMobility()->getDirection()) * sqrt(hmn->getMobility()->getMovementSpeed() * meter) * 3);
-            z2 = camera->shiftToScreenPosZ(ctr->getPZ() + std::cos(hmn->getMobility()->getDirection()) * sqrt(hmn->getMobility()->getMovementSpeed() * meter) * 3);
+        Mobility *mob = (Mobility *)hmn->getMobility();
+        if (not std::isnan(mob->getDirection())) {
+            x2 = camera->shiftToScreenPosX(ctr->getPX() - std::sin(mob->getDirection()) * sqrt(mob->getMovementSpeed() * meter) * 3);
+            z2 = camera->shiftToScreenPosZ(ctr->getPZ() + std::cos(mob->getDirection()) * sqrt(mob->getMovementSpeed() * meter) * 3);
             al_draw_line(x1, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 1.0f);
         }
         // Draw interaction range

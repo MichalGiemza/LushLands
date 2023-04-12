@@ -66,3 +66,15 @@ void *Animal::getPosition() {
 void *Animal::getDestroyability() {
     return &destroyability;
 }
+
+void *Animal::getFirstName() {
+    return nullptr;
+}
+
+void *Animal::getLastName() {
+    return nullptr;
+}
+
+void *Animal::getInventory() {
+    return nullptr;
+}

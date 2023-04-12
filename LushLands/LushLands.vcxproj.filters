@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="World.cpp">
       <Filter>src\Simulation\World</Filter>
     </ClCompile>
@@ -530,5 +527,8 @@
     <Filter Include="src\Simulation\World\Entities\Characters">
       <UniqueIdentifier>{d00b01f4-0d3b-4a31-92c7-704348bc83fd}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

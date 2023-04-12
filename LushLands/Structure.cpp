@@ -32,8 +32,20 @@ void *Structure::getAppearance() {
     return &appearance;
 }
 
+void *Structure::getMobility() {
+    return nullptr;
+}
+
 void *Structure::getCollider() {
     return &collider;
+}
+
+void *Structure::getDynamicCollider() {
+    return nullptr;
+}
+
+void *Structure::getRandomWalk() {
+    return nullptr;
 }
 
 void *Structure::getBody() {
@@ -50,4 +62,16 @@ void *Structure::getPosition() {
 
 void *Structure::getDestroyability() {
     return &destroyability;
+}
+
+void *Structure::getFirstName() {
+    return nullptr;
+}
+
+void *Structure::getLastName() {
+    return nullptr;
+}
+
+void *Structure::getInventory() {
+    return nullptr;
 }

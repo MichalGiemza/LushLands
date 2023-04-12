@@ -31,6 +31,22 @@ void *Ground::getAppearance() {
     return &appearance;
 }
 
+void *Ground::getMobility() {
+    return nullptr;
+}
+
+void *Ground::getCollider() {
+    return nullptr;
+}
+
+void *Ground::getDynamicCollider() {
+    return nullptr;
+}
+
+void *Ground::getRandomWalk() {
+    return nullptr;
+}
+
 void *Ground::getBody() {
     return &body;
 }
@@ -45,4 +61,16 @@ void *Ground::getPosition() {
 
 void *Ground::getDestroyability() {
     return &destroyability;
+}
+
+void *Ground::getFirstName() {
+    return nullptr;
+}
+
+void *Ground::getLastName() {
+    return nullptr;
+}
+
+void *Ground::getInventory() {
+    return nullptr;
 }

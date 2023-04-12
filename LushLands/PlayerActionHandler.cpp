@@ -58,7 +58,7 @@ void handlePlayerThrowItem(ALLEGRO_EVENT *ae, void *obj) {
     radian direction = pah->player->getLookingDirection();
     auto *nae = EventFactory::packItemDrop(item, direction);
     // Throw item to chunk
-    ChunkPosition cp = ((Humanoid *)pah->player->getEntity())->getPosition()->getChunkPosition();
+    ChunkPosition cp = ((Position *)((Humanoid *)pah->player->getEntity())->getPosition())->getChunkPosition();
     ALLEGRO_EVENT_SOURCE *es = pah->world->getChunkLoadManager()->getChunk(cp)->getChunkEvents()->getEventSource();
     al_emit_user_event(es, nae, NULL); // FIXME - przyda³oby siê skróciæ drogê tej mêczarni...
 }

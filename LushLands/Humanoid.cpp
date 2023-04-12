@@ -48,6 +48,10 @@ void *Humanoid::getDynamicCollider() {
     return &dynamicCollider;
 }
 
+void *Humanoid::getRandomWalk() {
+    return nullptr;
+}
+
 void *Humanoid::getBody() {
     return &body;
 }

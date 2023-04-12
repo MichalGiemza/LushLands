@@ -48,7 +48,8 @@ void ChunkEventHandler::handleItemCollection() {
     // Assign collected items to humanoids
     std::vector<Item *> leftoverItems;
     for (auto &p : collection) {
-        Item *leftover = ((Humanoid *)p.second)->getInventory()->putItemAuto(p.first);
+        Inventory *inv = (Inventory *)((Humanoid *)p.second)->getInventory();
+        Item *leftover = inv->putItemAuto(p.first);
         if (leftover)
             leftoverItems.push_back(leftover);
     }
