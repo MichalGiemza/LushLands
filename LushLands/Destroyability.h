@@ -19,5 +19,6 @@ public:
     int getHealth();
     int getMaxHealth();
     const ItemDropChance* getDropChances();
+    tooltype getToolAffecting();
 };
 

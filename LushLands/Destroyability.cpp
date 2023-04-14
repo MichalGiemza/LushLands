@@ -19,3 +19,7 @@ bool Destroyability::takeDamage(int damage, tooltype usedTool) {
 const ItemDropChance *Destroyability::getDropChances() {
     return drops;
 }
+
+tooltype Destroyability::getToolAffecting() {
+    return tool;
+}

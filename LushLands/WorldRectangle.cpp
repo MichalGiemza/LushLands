@@ -64,7 +64,7 @@ bool WorldRectangle::isOverlapping(const WorldRectangle *other) const {
 
 bool WorldRectangle::pointBelongs(const Position &point) const {
 	bool belongsX = accurateLeft() <= point.getPX() and point.getPX() <= accurateRight();
-	bool belongsZ = accurateTop() <= point.getPY() and point.getPY() <= accurateBottom();
+	bool belongsZ = accurateTop() <= point.getPZ() and point.getPZ() <= accurateBottom();
 	return belongsX and belongsZ;
 }
 

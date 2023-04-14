@@ -11,6 +11,11 @@ int Hotbar::keycodeToIdx(keycode kc) {
         return 11;
 }
 
+void Hotbar::setSelectionIdx(int idx) {
+    selectedIdx = idx;
+    player->setEquippedItem(inventory->getItem(idx)); // TODO: player - hotbar.onIdxSelect(setEquippedItem);
+}
+
 Hotbar::Hotbar(Display *display, TextureManager *textureManager, Inventory *inv, Player *player, InputEvents *inputEvents) :
     InventoryDisplay(display, textureManager, inv, determineX(), determineY()),
     player(player), inputEvents(inputEvents) {
@@ -48,11 +53,11 @@ void handleHotbarKey(ALLEGRO_EVENT *allegroEvent, void *caller) {
     Hotbar *h = (Hotbar *)caller;
     keycode kc = 0;
     EventFactory::unpackKeyboardLetter(allegroEvent, &kc);
-    h->selectedIdx = h->keycodeToIdx(kc);
+    h->setSelectionIdx(h->keycodeToIdx(kc));
 }
 
 void handleScroll(ALLEGRO_EVENT *allegroEvent, void *caller) {
     Hotbar *h = (Hotbar *)caller;
-    h->selectedIdx = (((h->selectedIdx - allegroEvent->mouse.dz) % player_hotbar_keycount) + player_hotbar_keycount) % player_hotbar_keycount;
+    h->setSelectionIdx((((h->selectedIdx - allegroEvent->mouse.dz) % player_hotbar_keycount) + player_hotbar_keycount) % player_hotbar_keycount);
 }
 

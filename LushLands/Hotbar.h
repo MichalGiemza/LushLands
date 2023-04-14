@@ -11,7 +11,9 @@ class Hotbar : public InventoryDisplay {
     Player *player;
     InputEvents *inputEvents;
     int selectedIdx = 0;
+private:
     int keycodeToIdx(keycode kc);
+    void setSelectionIdx(int idx);
 public:
     Hotbar(Display *display, TextureManager *textureManager, Inventory *inv, Player *player, InputEvents *inputEvents);
     pxint determineX();

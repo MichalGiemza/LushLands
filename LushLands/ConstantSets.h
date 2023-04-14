@@ -72,6 +72,7 @@ namespace tool_types {
     const tooltype shovel = "shovel";
     const tooltype weapon = "weapon";
     const tooltype bucket = "bucket";
+    const tooltype harvesting = "harvesting";
 }
 namespace tlt = tool_types;
 

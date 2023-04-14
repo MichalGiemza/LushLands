@@ -20,13 +20,13 @@ Item *ItemFactory::buildItem(itemtype itemType, stack amount) {
 		return new Item(FEATHER, FEATHER_DESCRIPTION, FEATHER_STACK, amount);
 	/*    Tools    */
 	if (itemType == SWORD)
-		return new Item(SWORD, SWORD_DESCRIPTION, SWORD_STACK, amount);
+		return new Item(SWORD, SWORD_DESCRIPTION, SWORD_STACK, amount, tlt::weapon); //TODO: Przerobic constanty na baze/plik config
 	if (itemType == SHOVEL)
-		return new Item(SHOVEL, SHOVEL_DESCRIPTION, SHOVEL_STACK, amount);
+		return new Item(SHOVEL, SHOVEL_DESCRIPTION, SHOVEL_STACK, amount, tlt::shovel);
 	if (itemType == PICKAXE)
-		return new Item(PICKAXE, PICKAXE_DESCRIPTION, PICKAXE_STACK, amount);
+		return new Item(PICKAXE, PICKAXE_DESCRIPTION, PICKAXE_STACK, amount, tlt::pickaxe);
 	if (itemType == AXE)
-		return new Item(AXE, AXE_DESCRIPTION, AXE_STACK, amount);
+		return new Item(AXE, AXE_DESCRIPTION, AXE_STACK, amount, tlt::axe);
 	if (itemType == SCYTHE)
-		return new Item(SCYTHE, SCYTHE_DESCRIPTION, SCYTHE_STACK, amount);
+		return new Item(SCYTHE, SCYTHE_DESCRIPTION, SCYTHE_STACK, amount, tlt::harvesting);
 }

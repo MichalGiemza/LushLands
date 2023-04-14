@@ -1,7 +1,7 @@
 #include "Item.h"
 
-Item::Item(itemtype itemType, std::string description, const stack maxStack, stack amount) :
-    itemType(itemType), description(description), maxStack(maxStack), amount(amount) { }
+Item::Item(itemtype itemType, std::string description, const stack maxStack, stack amount, tooltype toolType) :
+    itemType(itemType), description(description), maxStack(maxStack), amount(amount), toolType(toolType) { }
 
 itemtype Item::getType() {
     return itemType;
@@ -25,4 +25,8 @@ void Item::setAmount(stack newA) {
 
 std::string Item::getDescription() {
     return description;
+}
+
+tooltype Item::getToolType() {
+    return toolType;
 }

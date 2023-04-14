@@ -6,6 +6,7 @@ PlayerActionHandler::PlayerActionHandler(InputEvents *inputEvents, World *world,
     inputEvents->subscribeTimerFPS(0, handlePlayerMovement, this);
     inputEvents->subscribeSystemEvent(player_wills_go, handlePlayerMovementAttempt, this);
     inputEvents->subscribeSystemEvent(player_throws_item, handlePlayerThrowItem, this);
+    inputEvents->subscribeSystemEvent(player_wills_use, handlePlayerContextUse, this);
 }
 
 void handlePlayerMovementAttempt(ALLEGRO_EVENT *ae, void *obj) {
@@ -65,9 +66,27 @@ void handlePlayerThrowItem(ALLEGRO_EVENT *ae, void *obj) {
 
 void handlePlayerContextUse(ALLEGRO_EVENT *ae, void *obj) {
     PlayerActionHandler *pah = (PlayerActionHandler *)obj;
+    // Get tool
+    Item *ei = pah->player->getEquippedItem();
+    tooltype tt = 0;
+    if (ei)
+        tt = ei->getToolType();
+    if (tt == 0)
+        return;
+    // Get targeted entity
     Position *fcp = pah->fieldCursor->getPrecisePosition();
     auto clickList = pah->world->getByPosition(fcp);
-    // Tool usage
-
-
+    Entity *suitableEn = 0;
+    for (auto *en : clickList) {
+        Destroyability *dstr = (Destroyability *)en->getDestroyability();
+        if (dstr->getToolAffecting() == tt) {
+            suitableEn = en;
+            break;
+        }
+    }
+    if (suitableEn == 0)
+        return;
+    // Affect entity
+    int damage = 50; // TODO: add tool damage
+    ((Destroyability *)suitableEn->getDestroyability())->takeDamage(damage, tt);
 }

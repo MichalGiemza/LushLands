@@ -28,6 +28,14 @@ radian Player::getLookingDirection() {
     return lookingDirection;
 }
 
+Item *Player::getEquippedItem() {
+    return equipped;
+}
+
+void Player::setEquippedItem(Item *item) {
+    equipped = item;
+}
+
 void handleLooking(ALLEGRO_EVENT *allegroEvent, void *caller) {
     Player *p = (Player *)caller;
     int x = allegroEvent->mouse.x - displayWidth / 2;

@@ -15,6 +15,7 @@ class Player {
 
     Humanoid *humanoid;
     radian lookingDirection = 0;
+    Item *equipped = 0;
 public:
     // Constructors and main methods
     Player(Humanoid *humanoid, InputEvents *inputEvents);
@@ -25,6 +26,8 @@ public:
     Entity *getEntity();
     Inventory *getInventory();
     radian getLookingDirection();
+    Item *getEquippedItem();
+    void setEquippedItem(Item *item);
     friend void handleLooking(ALLEGRO_EVENT *allegroEvent, void *caller);
 };
 
