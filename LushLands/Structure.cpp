@@ -1,13 +1,13 @@
 #include "Structure.h"
 
-Structure::Structure(const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, int maxHealth, const tooltype requiredTool, const ItemDropChance *drops, const updatetype updateType) :
-    Entity(entityType, description, updateType),
+Structure::Structure(InputEvents *inputEvents, const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, int maxHealth, const tooltype requiredTool, const ItemDropChance *drops, const updatetype updateType) :
+    Entity(entityType, description, updateType, inputEvents),
     entityUpdater(),
     appearance(color),
     body(position, size),
     collider(&body),
     gameElement(ft::STRUCTURE, fp::STRUCTURE, fg::SIMULATION),
-    destroyability(maxHealth, requiredTool, drops) {
+    destroyability(this, inputEvents, maxHealth, requiredTool, drops) {
 
     //Logger::log(ll::DEBUG_ENTITY, "Created Structure entity [%s;%i,%i]", entityType, position.x(), position.z());
 }

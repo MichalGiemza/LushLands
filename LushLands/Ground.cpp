@@ -1,11 +1,11 @@
 #include "Ground.h"
 
-Ground::Ground(const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, int maxHealth, const tooltype requiredTool, const ItemDropChance *drops, const updatetype updateType) :
-    Entity(entityType, description, updateType),
+Ground::Ground(InputEvents *inputEvents, const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, int maxHealth, const tooltype requiredTool, const ItemDropChance *drops, const updatetype updateType) :
+    Entity(entityType, description, updateType, inputEvents),
     entityUpdater(),
     appearance(color),
     body(position, size), 
-    destroyability(maxHealth, requiredTool, drops),
+    destroyability(this, inputEvents, maxHealth, requiredTool, drops),
     gameElement(ft::GROUND, fp::GROUND, fg::SIMULATION) {
 
     //Logger::log(ll::DEBUG_ENTITY, "Created Ground entity [%s;%i,%i]", entityType, position.x(), position.z());

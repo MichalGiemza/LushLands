@@ -6,6 +6,7 @@
 #include "DataTypes.h"
 #include "ConstantSets.h"
 #include "EventTypes.h"
+#include "Logger.h"
 
 
 class InputEvents {

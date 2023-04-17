@@ -1,5 +1,8 @@
 #pragma once
 #include "DataTypes.h"
+#include "InputEvents.h"
+#include "EventFactory.h"
+#include "Random_.h"
 
 
 class Destroyability {
@@ -10,11 +13,13 @@ class Destroyability {
     int maxHealth;
     tooltype tool;
     const ItemDropChance *drops;
+    void *entity;
+    InputEvents inputEvents;
 public:
     // Constructors and main methods
-    Destroyability(int maxHealth, tooltype requiredTool, const ItemDropChance *drops);
+    Destroyability(void *entity, InputEvents *inputEvents, int maxHealth, tooltype requiredTool, const ItemDropChance *drops);
     // Methods
-    bool takeDamage(int damage, tooltype tool);
+    void takeDamage(int damage);
     // Getters, Setters
     int getHealth();
     int getMaxHealth();

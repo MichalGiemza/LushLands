@@ -6,6 +6,7 @@
 #include "DataTypes.h"
 #include "Logger.h"
 #include "EntityUpdater.h"
+#include "InputEvents.h"
 
 
 class Entity {
@@ -15,16 +16,16 @@ class Entity {
     entitytype entityType;
     std::string description;
     updatetype updateType;
+    InputEvents *inputEvents;
 public:
     // Constructors and main methods
-    Entity(entitytype entityType, std::string description, updatetype updateType);
+    Entity(entitytype entityType, std::string description, updatetype updateType, InputEvents *inputEvents);
     virtual Entity *clone() = 0;
 
     // Getters, Setters
     entitytype getType();
     updatetype getUpdateType();
     std::string getDescription();
-    tooltype getToolAffecting();
 
     // Virtual getters
     virtual void *getEntityUpdater() = 0;

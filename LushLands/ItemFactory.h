@@ -3,6 +3,7 @@
 #include "Item.h"
 #include "ItemConstants.h"
 #include "ConstantSets.h"
+#include "Random_.h"
 
 
 class ItemFactory {
@@ -13,5 +14,6 @@ class ItemFactory {
 public:
     ItemFactory();
     Item *buildItem(itemtype itemType, stack amount);
+    Item *buildItem(ItemDropChance &itemDropChance);
 };
 

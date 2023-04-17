@@ -30,3 +30,8 @@ Item *ItemFactory::buildItem(itemtype itemType, stack amount) {
 	if (itemType == SCYTHE)
 		return new Item(SCYTHE, SCYTHE_DESCRIPTION, SCYTHE_STACK, amount, tlt::harvesting);
 }
+
+Item *ItemFactory::buildItem(ItemDropChance &idc) {
+	stack amount = std::min(idc.chanceGuaranteed, Random_::random(idc.chanceLow, idc.chanceHigh));
+	return buildItem(idc.item, amount);
+}

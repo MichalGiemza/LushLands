@@ -16,8 +16,9 @@ class EntityFactory {
     * 
     */
     NameGenerator *nameGenerator;
+    InputEvents *inputEvents;
 public:
-    EntityFactory();
+    EntityFactory(InputEvents *inputEvents);
     Entity *buildEntity(entitytype entityType, Position &position);
 };
 

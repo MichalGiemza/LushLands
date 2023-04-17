@@ -132,25 +132,26 @@ Entity *Chunk::getStructure(TilePosition &tilePosition) {
 
 std::vector<Entity *> Chunk::getByPosition(Position *position) {
     auto clickList = std::vector<Entity *>();
+    ll level = position->getY();
 
     for (auto &pa : ce.groundTiles) {
         Body *b = (Body *)pa.second->getBody();
-        if (b->getRectangle()->pointBelongs(*position))
+        if (b->getPosition()->getY() == level and b->getRectangle()->pointBelongs(*position))
             clickList.push_back(pa.second);
     }
     for (auto &pa : ce.structures) {
         Body *b = (Body *)pa.second->getBody();
-        if (b->getRectangle()->pointBelongs(*position))
+        if (b->getPosition()->getY() == level and b->getRectangle()->pointBelongs(*position))
             clickList.push_back(pa.second);
     }
     for (auto *en : ce.animals) {
         Body *b = (Body *)en->getBody();
-        if (b->getRectangle()->pointBelongs(*position))
+        if (b->getPosition()->getY() == level and b->getRectangle()->pointBelongs(*position))
             clickList.push_back(en);
     }
     for (auto *en : ce.humanoids) {
         Body *b = (Body *)en->getBody();
-        if (b->getRectangle()->pointBelongs(*position))
+        if (b->getPosition()->getY() == level and b->getRectangle()->pointBelongs(*position))
             clickList.push_back(en);
     }
     return clickList;

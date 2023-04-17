@@ -1,7 +1,7 @@
 #include "Destroyability.h"
 
-Destroyability::Destroyability(int maxHealth, tooltype requiredTool, const ItemDropChance *drops) :
-    maxHealth(maxHealth), health(maxHealth), tool(requiredTool), drops(drops) {}
+Destroyability::Destroyability(void *entity, InputEvents *inputEvents, int maxHealth, tooltype requiredTool, const ItemDropChance *drops) :
+    maxHealth(maxHealth), health(maxHealth), tool(requiredTool), drops(drops), entity(entity), inputEvents(inputEvents) {}
 
 int Destroyability::getHealth() {
     return 0;
@@ -11,9 +11,18 @@ int Destroyability::getMaxHealth() {
     return 0;
 }
 
-bool Destroyability::takeDamage(int damage, tooltype usedTool) {
-    health = std::min(0, (health - damage) * (tool == usedTool));
-    return tool == usedTool;
+void Destroyability::takeDamage(int damage) {
+    // Damage
+    health = std::min(0, (health - damage));
+    if (health > 0)
+        return;
+    // Drops
+    if (drops) {
+        for (int i = 0; i < sizeof(drops) / sizeof(drops[0]); i++) 
+            al_emit_user_event(inputEvents.getEventSource(), EventFactory::packItemDrop((void *) & drops[i], Random_::random(0.0f, 2 * PI)), 0);
+    }
+    // Destroy
+    // TODO: Chunk - remove item
 }
 
 const ItemDropChance *Destroyability::getDropChances() {

@@ -88,5 +88,5 @@ void handlePlayerContextUse(ALLEGRO_EVENT *ae, void *obj) {
         return;
     // Affect entity
     int damage = 50; // TODO: add tool damage
-    ((Destroyability *)suitableEn->getDestroyability())->takeDamage(damage, tt);
+    ((Destroyability *)suitableEn->getDestroyability())->takeDamage(damage);
 }

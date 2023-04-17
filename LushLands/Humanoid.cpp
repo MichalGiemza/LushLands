@@ -1,7 +1,7 @@
 #include "Humanoid.h"
 
-Humanoid::Humanoid(const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, const int movementSpeed, name firstName, name lastName, gendertype gender, const int invSize, int maxHealth, const tooltype requiredTool, const ItemDropChance *drops) :
-    Entity(entityType, description, constant_update),
+Humanoid::Humanoid(InputEvents *inputEvents, const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, const int movementSpeed, name firstName, name lastName, gendertype gender, const int invSize, int maxHealth, const tooltype requiredTool, const ItemDropChance *drops) :
+    Entity(entityType, description, constant_update, inputEvents),
     entityUpdater(),
     appearance(color),
     body(position, size),
@@ -12,7 +12,7 @@ Humanoid::Humanoid(const entitytype entityType, const std::string &description, 
     lastName(lastName),
     gender(gender),
     inventory(invSize, body.getPosition()),
-    destroyability(maxHealth, requiredTool, drops),
+    destroyability(this, inputEvents, maxHealth, requiredTool, drops),
     gameElement(ft::HUMANOID, fp::HUMANOID, fg::SIMULATION) {
 }
 

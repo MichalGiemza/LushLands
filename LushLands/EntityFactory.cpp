@@ -1,7 +1,7 @@
 #include "EntityFactory.h"
 
 
-EntityFactory::EntityFactory() {
+EntityFactory::EntityFactory(InputEvents *inputEvents) : inputEvents(inputEvents) {
     nameGenerator = new NameGenerator(common_male_names_path, common_female_names_path, common_neutral_names_path);
 }
 
