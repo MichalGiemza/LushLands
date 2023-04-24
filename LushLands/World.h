@@ -29,13 +29,14 @@ class World  {
     ItemFactory *itemFactory;
     Time *time;
     miliseconds lastTimeUpdated;
+    InputEvents *inputEvents;
 public:
-    World(worldtype worldType, int seed_, EntityFactory *entityFactory, ItemFactory *itemFactory, EventHandler *eventHandler);
-    void update(miliseconds dt);
+    World(worldtype worldType, int seed_, EntityFactory *entityFactory, ItemFactory *itemFactory, InputEvents *inputEvents);
     int getSeed();
     int getSeaLevel();
     Time *getWorldTime();
     ChunkLoadManager *getChunkLoadManager();
     std::vector<Entity *> getByPosition(Position *position); // TODO: Dla klikania myszk¹
     void placePlayer(Player *player);
+    void placeItem(Item *item);
 };

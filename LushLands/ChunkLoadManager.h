@@ -16,16 +16,17 @@ class ChunkLoadManager {
     BaseWorldPlanner *worldPlanner;
     EntityFactory *entityFactory;
     ItemFactory *itemFactory;
+    InputEvents *inputEvents;
 private:
     void generateChunksByPosition(Position &pos);
 public:
-    ChunkLoadManager(std::unordered_map<ChunkPosition, Chunk *> *chunks, BaseWorldPlanner *worldPlanner, EntityFactory *entityFactory, ItemFactory *itemFactory);
+    ChunkLoadManager(std::unordered_map<ChunkPosition, Chunk *> *chunks, BaseWorldPlanner *worldPlanner, EntityFactory *entityFactory, ItemFactory *itemFactory, InputEvents *inputEvents);
     void loadByPosition(Position &position);
     void updateLoadedChunkList();
     Chunk *generateChunk(ChunkPosition &chunkPosition);
     Chunk *getChunk(ChunkPosition &chunkPosition);
     int getChunksLoadedCount();
     int getEntitiesCreatedCount();
-    ChunkPositionsSet *getLoadedChunkList();
+    std::vector<Chunk *> getActiveChunks();
 };
 

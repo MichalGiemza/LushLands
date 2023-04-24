@@ -1,39 +1,61 @@
 #pragma once
-#include "DataTypes.h"
-#include "GameElement.h"
-#include "Focus.h"
-#include "ConstantSets.h"
-#include "InputEvents.h"
-#include "ActionMap.h"
-#include "ISimulationEvents.h"
-#include "ActionMap.h"
-#include "Events.h"
-#include "PositionStructures.h"
-#include "Time.h"
-#include "EventFactory.h"
-#include "Logger.h"
+#include <vector>
+#include "Controller.h"
+#include "Simulation.h"
+#include "GraphicsManager.h"
 
 
 class EventHandler {
     /**
-    * Handles default events and passes them down after processing
-    * them through context.
-    * 
-    * EventHandler is part of Controller and cannot be part of Simulation.
+    * Class responsible for handling player's actions that has been translated from user input.
+    * Most actions can be handled inside of entity or scene components - this class handles cases where are needed:
+    *  - Interactions between disconnected components.
+    *  - Interactions involving multiple events at once.
     */
+    Controller *c;
+    Simulation *s;
+    GraphicsManager *g;
     InputEvents *inputEvents;
+    ALLEGRO_EVENT_SOURCE *aes;
     Focus *focus;
     ActionMap *actionMap;
-    std::unordered_map<ChunkPosition, ISimulationEvents *> *chunkEvents;
+    World *world;
+    Player *player;
+    FieldCursor *fieldCursor;
+    InventoryDisplay *invDispl;
+    Hotbar *hotbar;
+
+    bool pN = false, pS = false, pE = false, pW = false;
+private:
+    std::vector<Chunk *> getChunks();
+    Chunk *getChunk(ChunkPosition &chunkPosition);
+    Chunk *getChunk(Position &position);
 public:
-    EventHandler(InputEvents *inputEvents, Focus *focus, ActionMap *actionMap);
-    void registerWorldEvents(ISimulationEvents *worldEvents);
-    void registerChunkEvents(std::unordered_map<ChunkPosition, ISimulationEvents *> *chunkEvents);
+    EventHandler(Controller *controller, Simulation *simulation, GraphicsManager *graphicsManager);
+    // Input to Action translation
     friend void handleKeyboardKey(ALLEGRO_EVENT *ae, void *obj);
     friend void handleKeyboardLetter(ALLEGRO_EVENT *ae, void *obj);
     friend void handleMouseClick(ALLEGRO_EVENT *ae, void *obj);
+    friend void handlePlayerMovementInput(ALLEGRO_EVENT *ae, void *obj);
+    // Action handling
+    friend void handleMobMovementAttempt(ALLEGRO_EVENT *ae, void *obj);
+    friend void handleItemCollection(ALLEGRO_EVENT *ae, void *obj);
+    friend void handleItemDrop(ALLEGRO_EVENT *ae, void *obj);
+    // Player actions
+    friend void handlePlayerMovementAttempt(ALLEGRO_EVENT *ae, void *obj);
+    friend void handlePlayerThrowItem(ALLEGRO_EVENT *ae, void *obj);
+    friend void handlePlayerContextUse(ALLEGRO_EVENT *ae, void *obj);
 };
 
 void handleKeyboardKey(ALLEGRO_EVENT *ae, void *obj);
 void handleKeyboardLetter(ALLEGRO_EVENT *ae, void *obj);
 void handleMouseClick(ALLEGRO_EVENT *ae, void *obj);
+void handlePlayerMovementInput(ALLEGRO_EVENT *ae, void *obj);
+
+void handleMobMovementAttempt(ALLEGRO_EVENT *ae, void *obj);
+void handleItemCollection(ALLEGRO_EVENT *ae, void *obj);
+void handleItemDrop(ALLEGRO_EVENT *ae, void *obj);
+
+void handlePlayerMovementAttempt(ALLEGRO_EVENT *ae, void *obj);
+void handlePlayerThrowItem(ALLEGRO_EVENT *ae, void *obj);
+void handlePlayerContextUse(ALLEGRO_EVENT *ae, void *obj);

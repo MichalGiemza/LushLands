@@ -1,7 +1,7 @@
 #include "ChunkLoadManager.h"
 
-ChunkLoadManager::ChunkLoadManager(std::unordered_map<ChunkPosition, Chunk *> *chunks, BaseWorldPlanner *worldPlanner, EntityFactory *entityFactory, ItemFactory *itemFactory) :
-    entityFactory(entityFactory), itemFactory(itemFactory), chunks(chunks), worldPlanner(worldPlanner) { }
+ChunkLoadManager::ChunkLoadManager(std::unordered_map<ChunkPosition, Chunk *> *chunks, BaseWorldPlanner *worldPlanner, EntityFactory *entityFactory, ItemFactory *itemFactory, InputEvents *inputEvents) :
+    entityFactory(entityFactory), itemFactory(itemFactory), chunks(chunks), worldPlanner(worldPlanner), inputEvents(inputEvents) { }
 
 void ChunkLoadManager::loadByPosition(Position &position) {
     followedLoadingPositions.push_back(position);
@@ -25,7 +25,7 @@ void ChunkLoadManager::updateLoadedChunkList() {
 
 Chunk *ChunkLoadManager::generateChunk(ChunkPosition &chunkPosition) {
     ChunkPlan *cp = worldPlanner->getChunkPlan(chunkPosition);
-    return new Chunk(chunkPosition, *cp, entityFactory, itemFactory);
+    return new Chunk(chunkPosition, *cp, entityFactory, itemFactory, inputEvents);
 }
 
 Chunk *ChunkLoadManager::getChunk(ChunkPosition &chunkPosition) {
@@ -43,16 +43,9 @@ int ChunkLoadManager::getEntitiesCreatedCount() {
     return sum;
 }
 
-ChunkPositionsSet *ChunkLoadManager::getLoadedChunkList() {
-    // TODO: Is this piece of code destined to be a cancer, or is there a way?
-    int n = getChunksLoadedCount();
-    ChunkPositionsSet *cps = new ChunkPositionsSet {
-        new ChunkPosition[n], n
-    };
-    int i = 0;
-    for (auto &p : *chunks) {
-        cps->chunkPositions[i] = p.first;
-        i += 1;
-    }
-    return cps;
+std::vector<Chunk *> ChunkLoadManager::getActiveChunks() {
+    std::vector<Chunk *> activeChunks;
+    for (auto &p : *chunks)
+        activeChunks.push_back(p.second);
+    return activeChunks;
 }

@@ -14,7 +14,7 @@ class Destroyability {
     tooltype tool;
     const ItemDropChance *drops;
     void *entity;
-    InputEvents inputEvents;
+    InputEvents *inputEvents;
 public:
     // Constructors and main methods
     Destroyability(void *entity, InputEvents *inputEvents, int maxHealth, tooltype requiredTool, const ItemDropChance *drops);

@@ -10,7 +10,6 @@ Scene::Scene(scenename sceneName, World *world, Display *display, Position *foll
     windowManager->addWindow(invDispl);
     hotbar = new Hotbar(display, textureManager, player->getInventory(), player, inputEvents);
     windowManager->addWindow(hotbar);
-    pah = new PlayerActionHandler(inputEvents, world, player, fieldCursor, invDispl, hotbar);
     camera.setFollowedPosition((Position *)((Humanoid *)player->getEntity())->getPosition(), (Size *)((Humanoid *)player->getEntity())->getSize());
     // Event subscriptions
     inputEvents->subscribeTimerFPS(1, draw, this);
@@ -22,6 +21,18 @@ Scene::Scene(scenename sceneName, World *world, Display *display, Position *foll
     inputEvents->subscribeSystemEvent(user_open_quests, handleAction, this);
     inputEvents->subscribeSystemEvent(user_open_build_menu, handleAction, this);
     inputEvents->subscribeSystemEvent(user_debug_view, handleAction, this);
+}
+
+FieldCursor *Scene::getFieldCursor() {
+    return fieldCursor;
+}
+
+Hotbar *Scene::getHotbar() {
+    return hotbar;
+}
+
+InventoryDisplay *Scene::getInventoryDisplay() {
+    return invDispl;
 }
 
 void Scene::drawChunkGround(ChunkRepresentation &chunkRepresentation, int level) {

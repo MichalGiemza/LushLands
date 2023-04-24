@@ -5,6 +5,7 @@
 
 typedef std::function<void(ALLEGRO_EVENT *allegroEvent, void *caller)> eventfn;
 typedef std::function<void(miliseconds timeNow, miliseconds dt, void *caller)> updatefn;
+typedef std::function<void(void *caller)> defaultfn;
 
 struct KeySubscribtion {
     eventfn func;

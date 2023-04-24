@@ -18,8 +18,10 @@ void Destroyability::takeDamage(int damage) {
         return;
     // Drops
     if (drops) {
-        for (int i = 0; i < sizeof(drops) / sizeof(drops[0]); i++) 
-            al_emit_user_event(inputEvents.getEventSource(), EventFactory::packItemDrop((void *) & drops[i], Random_::random(0.0f, 2 * PI)), 0);
+        for (int i = 0; i < sizeof(drops) / sizeof(drops[0]); i++) {
+            ALLEGRO_EVENT *ae = EventFactory::packItemDrop((void *)&drops[i], Random_::random(0.0f, 2 * PI));
+            al_emit_user_event(inputEvents->getEventSource(), ae, 0);
+        }
     }
     // Destroy
     // TODO: Chunk - remove item

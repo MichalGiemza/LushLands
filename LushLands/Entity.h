@@ -17,6 +17,11 @@ class Entity {
     std::string description;
     updatetype updateType;
     InputEvents *inputEvents;
+    std::vector<std::pair<defaultfn *, void *>> onChunkReg; // FIXME: Jeœli nie zadzia³a to zrobiæ vector<pair>
+    std::vector<std::pair<defaultfn *, void *>> onChunkUnreg; // FIXME: Jeœli nie zadzia³a to zrobiæ vector<pair>
+private:
+    void handleChunkRegister();
+    void handleChunkUnregister();
 public:
     // Constructors and main methods
     Entity(entitytype entityType, std::string description, updatetype updateType, InputEvents *inputEvents);

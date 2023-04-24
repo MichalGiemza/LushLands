@@ -1,13 +1,9 @@
 #include "World.h"
 
-World::World(worldtype worldType, int seed_, EntityFactory *entityFactory, ItemFactory *itemFactory, EventHandler *eventHandler) {
-    this->seed_ = seed_;
+World::World(worldtype worldType, int seed_, EntityFactory *entityFactory, ItemFactory *itemFactory, InputEvents *inputEvents) :
+    seed_(seed_), worldType(worldType), entityFactory(entityFactory), itemFactory(itemFactory), worldPlanner(0), inputEvents(inputEvents) {
     srand(seed_);
-    this->worldType = worldType;
-    this->entityFactory = entityFactory;
-    this->itemFactory = itemFactory;
-
-    this->worldPlanner = 0;
+    
     if (worldType == FLATLAND) // TODO: Coœ lepszego ni¿ ify? Mo¿e jakaœ mapa w czymœ zewnêtrznym
         this->worldPlanner = new FlatlandWorldPlanner(seed_);
     if (worldType == CHICKEN_BOX) // TODO: Coœ lepszego ni¿ ify? Mo¿e jakaœ mapa w czymœ zewnêtrznym
@@ -16,7 +12,7 @@ World::World(worldtype worldType, int seed_, EntityFactory *entityFactory, ItemF
         throw new std::logic_error(not_implemented);
     
     this->time = new Time();
-    this->chunkSystem = new ChunkSystem(worldPlanner, entityFactory, itemFactory);
+    this->chunkSystem = new ChunkSystem(worldPlanner, entityFactory, itemFactory, inputEvents);
     this->lastTimeUpdated = 0;
 
     Logger::log(lg::DEBUG_WORLD, "Created World [%s]", worldType);
@@ -45,26 +41,15 @@ std::vector<Entity *> World::getByPosition(Position *position) {
 void World::placePlayer(Player *player) {
     Humanoid *h = (Humanoid *)player->getEntity();
     Position *p = (Position *)h->getPosition();
-    Chunk *c = chunkSystem->getChunk(p->getChunkPosition());
+    ChunkPosition cp = p->getChunkPosition();
+    Chunk *c = chunkSystem->getChunk(cp);
     c->placeHumanoid(h);
-    //worldEvents->registerPlayer(player);
 }
 
-void World::update(miliseconds dt) {
-    // Game time elapsed
-    ChunkPositionsSet *activeChunks = getChunkLoadManager()->getLoadedChunkList();
-    *time += dt;
-    miliseconds timeNow = time->getAsMiliseconds();
-    lastTimeUpdated = timeNow;
-    // Chunks
-    for (int i = 0; i < activeChunks->n; i++) {
-        ChunkPosition cPos = activeChunks->chunkPositions[i];
-        Chunk *c = chunkSystem->getChunk(cPos);
-        if (not c)
-            continue;
-        ChunkEvents *ce = c->getChunkEvents();
-        ce->update(timeNow, dt);
-    }
+void World::placeItem(Item *item) {
+    ChunkPosition cp = item->getPosition()->getChunkPosition();
+    Chunk *c = chunkSystem->getChunk(cp);
+    c->placeItem(item);
 }
 
 Time *World::getWorldTime() {

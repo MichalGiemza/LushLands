@@ -6,6 +6,7 @@ bool running = false;
 GraphicsManager *graphicsManager;
 Simulation *simulation;
 Controller *controller;
+EventHandler *eventHandler;
 
 void init() {
     // Controller
@@ -14,6 +15,8 @@ void init() {
     simulation = new Simulation(controller);
     // View
     graphicsManager = new GraphicsManager(controller, simulation);
+    // Event Handling
+    eventHandler = new EventHandler(controller, simulation, graphicsManager);
     // Done
     controller->postInit(graphicsManager->getTextureManager()->getTexture(CURSOR_TEXTURE_LOCALIZATION)); // FIXME
     graphicsManager->getDisplay()->setCursor(controller->getMouse()->getCursor());

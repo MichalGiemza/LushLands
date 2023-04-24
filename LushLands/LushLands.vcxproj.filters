@@ -199,17 +199,8 @@
     <ClCompile Include="Hotbar.cpp">
       <Filter>src\GraphicsManager\UI\Concrete</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerActionHandler.cpp">
-      <Filter>src\GraphicsManager\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="EventFactory.cpp">
       <Filter>src\Controller\Events</Filter>
-    </ClCompile>
-    <ClCompile Include="ChunkEventHandler.cpp">
-      <Filter>src\Simulation\World\ChunkSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="ChunkEvents.cpp">
-      <Filter>src\Simulation\World\ChunkSystem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -369,9 +360,6 @@
     <ClInclude Include="CollisionManager.h">
       <Filter>src\Simulation\World\ChunkSystem</Filter>
     </ClInclude>
-    <ClInclude Include="ISimulationEvents.h">
-      <Filter>src\Core</Filter>
-    </ClInclude>
     <ClInclude Include="ChickenBoxWorldPlanner.h">
       <Filter>src\Simulation\World\WorldPlanners</Filter>
     </ClInclude>
@@ -441,17 +429,8 @@
     <ClInclude Include="ChunkElements.h">
       <Filter>src\Core</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerActionHandler.h">
-      <Filter>src\GraphicsManager\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="EventFactory.h">
       <Filter>src\Controller\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="ChunkEventHandler.h">
-      <Filter>src\Simulation\World\ChunkSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="ChunkEvents.h">
-      <Filter>src\Simulation\World\ChunkSystem</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

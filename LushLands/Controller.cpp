@@ -13,7 +13,6 @@ Controller::Controller() {
     mouse = new Mouse(inputEvents);
     
     focus = new Focus();
-    eventHandler = new EventHandler(inputEvents, focus, actionMap);
 }
 
 void Controller::postInit(ALLEGRO_BITMAP *cursorBitmap) {
@@ -22,10 +21,6 @@ void Controller::postInit(ALLEGRO_BITMAP *cursorBitmap) {
 
 InputEvents *Controller::getInputEvents() {
     return inputEvents;
-}
-
-EventHandler *Controller::getEventHandler() {
-    return eventHandler;
 }
 
 Focus *Controller::getFocus() {

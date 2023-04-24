@@ -10,7 +10,6 @@
 #include "Collider.h"
 #include "CollisionManager.h"
 #include "Animal.h"
-#include "ChunkEvents.h"
 #include "ChunkElements.h"
 
 
@@ -26,8 +25,8 @@ private:
     ChunkPosition chunkPosition;
     EntityFactory *entityFactory;
     ItemFactory *itemFactory;
+    InputEvents *inputEvents;
     CollisionManager collisionManager;
-    ChunkEvents chunkEvents;
     std::unordered_set<Entity *> randomTickEntities; // Fixme: Bêdzie problem z castowaniem!
     std::unordered_set<EntityUpdater *> toUpdateEntities;
 private:
@@ -38,15 +37,16 @@ private:
     Structure *addStructure(entitytype entityType, Position &position);
     Animal *addAnimal(entitytype entityType, Position &position);
 public:
-    Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory, ItemFactory *itemFactory);
+    Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory, ItemFactory *itemFactory, InputEvents *inputEvents);
     void placeHumanoid(Humanoid *humanoid);
+    void placeItem(Item *item);
     Entity *getGround(TilePosition &tilePosition);
     Entity *getStructure(TilePosition &tilePosition);
     std::vector<Entity *> getByPosition(Position *position);
-    ChunkEvents *getChunkEvents();
     CollisionManager *getCollisionManager();
     ChunkElements *getChunkElements();
     ChunkPosition *getChunkPosition();
     int entitiesLoadedCount();
+    void handleItemCollection();
 };
 

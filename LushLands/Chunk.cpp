@@ -99,20 +99,23 @@ Animal *Chunk::addAnimal(entitytype entityType, Position &position) {
         return 0;
     collisionManager.addCollider((Collider *)animal->getCollider());
     EntityUpdater *eu = (EntityUpdater *)animal->getEntityUpdater();
-    eu->registerParentEventSource(chunkEvents.getEventSource());
+    eu->registerParentEventSource(inputEvents->getEventSource());
     return animal;
 }
 
 void Chunk::placeHumanoid(Humanoid *humanoid) {
     ce.humanoids.insert(humanoid);
     EntityUpdater *eu = (EntityUpdater *)humanoid->getEntityUpdater();
-    eu->registerParentEventSource(chunkEvents.getEventSource());
+    eu->registerParentEventSource(inputEvents->getEventSource());
     collisionManager.addCollider((Collider *)humanoid->getCollider());
 }
 
-Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory, ItemFactory *itemFactory) :
-    collisionManager(), itemFactory(itemFactory), entityFactory(entityFactory), chunkPosition(chunkPosition),
-    chunkEvents(&chunkPosition, &collisionManager, &ce, &randomTickEntities, &toUpdateEntities) {
+void Chunk::placeItem(Item *item) {
+    ce.items.insert(item);
+}
+
+Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory, ItemFactory *itemFactory, InputEvents *inputEvents) :
+    collisionManager(), itemFactory(itemFactory), entityFactory(entityFactory), chunkPosition(chunkPosition), inputEvents(inputEvents) {
     // Entities and Items
     generateTiles(chunkPlan);
     generateStructures(chunkPlan);
@@ -157,10 +160,6 @@ std::vector<Entity *> Chunk::getByPosition(Position *position) {
     return clickList;
 }
 
-ChunkEvents *Chunk::getChunkEvents() {
-    return &chunkEvents;
-}
-
 CollisionManager *Chunk::getCollisionManager() {
     return &collisionManager;
 }
@@ -175,5 +174,34 @@ ChunkPosition *Chunk::getChunkPosition() {
 
 int Chunk::entitiesLoadedCount() {
     return ce.groundTiles.size() + ce.structures.size();
+}
+
+void Chunk::handleItemCollection() {
+    // FIXME: M*N complexity, can it be done better?
+    std::vector<std::pair<Item *, Entity *>> collection;
+    for (auto &i : ce.items) {
+        for (auto &h : ce.humanoids) {
+            Position *pI = i->getPosition();
+            Position *pH = (Position *)((Humanoid *)h)->getPosition();
+            if (pI->getY() != pH->getY())
+                continue;
+            if (pI->distance2D(*pH) <= itemMagnetRadius * meter)
+                collection.push_back(std::make_pair(i, h));
+        }
+    }
+    // Assign collected items to humanoids
+    std::vector<Item *> leftoverItems;
+    for (auto &p : collection) {
+        Inventory *inv = (Inventory *)((Humanoid *)p.second)->getInventory();
+        Item *leftover = inv->putItemAuto(p.first);
+        if (leftover)
+            leftoverItems.push_back(leftover);
+    }
+    // Remove collected items from map
+    for (auto &p : collection)
+        ce.items.erase(p.first);
+    // Put back leftover items
+    for (auto &l : leftoverItems)
+        ce.items.insert(l);
 }
 

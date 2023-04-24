@@ -9,7 +9,6 @@
 #include "InventoryDisplay.h"
 #include "WindowManager.h"
 #include "Hotbar.h"
-#include "PlayerActionHandler.h"
 
 
 class Scene {
@@ -29,7 +28,6 @@ class Scene {
     InventoryDisplay *invDispl;
     Hotbar *hotbar;
     WindowManager *windowManager;
-    PlayerActionHandler *pah;
     
     bool invOpen = false;
     bool mapOpen = false;
@@ -42,6 +40,10 @@ class Scene {
     void drawChunkGround(ChunkRepresentation &chunkRepresentation, int level);
 public:
     Scene(scenename sceneName, World *world, Display *display, Position *followedPosition, InputEvents *inputEvents, TextureManager *textureManager, Focus *focus, Console *console, Player *player);
+
+    FieldCursor *getFieldCursor();
+    Hotbar *getHotbar();
+    InventoryDisplay *getInventoryDisplay();
 
     friend void draw(ALLEGRO_EVENT *ae, void *scene);
     friend void handleAction(ALLEGRO_EVENT *ae, void *scene);

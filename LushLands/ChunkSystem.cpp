@@ -1,11 +1,11 @@
 #include "ChunkSystem.h"
 
-ChunkSystem::ChunkSystem(BaseWorldPlanner *worldPlanner, EntityFactory *entityFactory, ItemFactory *itemFactory) :
-    itemFactory(itemFactory), entityFactory(entityFactory), worldPlanner(worldPlanner) {
-    chunkLoadManager = new ChunkLoadManager(&chunks, worldPlanner, entityFactory, itemFactory);
+ChunkSystem::ChunkSystem(BaseWorldPlanner *worldPlanner, EntityFactory *entityFactory, ItemFactory *itemFactory, InputEvents *inputEvents) :
+    itemFactory(itemFactory), entityFactory(entityFactory), worldPlanner(worldPlanner), inputEvents(inputEvents) {
+    chunkLoadManager = new ChunkLoadManager(&chunks, worldPlanner, entityFactory, itemFactory, inputEvents);
 }
 
-Chunk *ChunkSystem::getChunk(ChunkPosition chunkPosition) {
+Chunk *ChunkSystem::getChunk(ChunkPosition &chunkPosition) {
     return chunks[chunkPosition];
 }
 

@@ -15,6 +15,12 @@ std::string Entity::getDescription() {
     return description;
 }
 
-Entity *Entity::clone() {
-    return nullptr;
+void Entity::handleChunkRegister() {
+    for (auto &p : onChunkReg)
+        (*p.first)(p.second);
+}
+
+void Entity::handleChunkUnregister() {
+    for (auto &p : onChunkUnreg)
+        (*p.first)(p.second);
 }

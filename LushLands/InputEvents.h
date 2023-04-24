@@ -3,6 +3,7 @@
 #include <allegro5/allegro.h>
 #include <allegro5/events.h>
 #include <vector>
+#include <unordered_map>
 #include "DataTypes.h"
 #include "ConstantSets.h"
 #include "EventTypes.h"
@@ -24,9 +25,9 @@ class InputEvents {
     std::vector<eventfn> subscribersDisplaySwitchedOut;
     std::vector<TimerSubscription> subscribersTimerTPS;
     std::vector<TimerSubscription> subscribersTimerFPS;
-    std::vector<SystemEventSubscription> subscribersSystemEvents;
     std::vector<KeySubscribtion> subscribersMouseDown;
     std::vector<MouseAxisSubscribtion> subscribersMouseAxis;
+    std::unordered_map<int, std::vector<SystemEventSubscription>> subscribersSystemEvents;
 private:
     void handleBeingPressedEvents();
     void stopAllBeingPressedEvents();
