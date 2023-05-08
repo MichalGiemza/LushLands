@@ -202,6 +202,7 @@
     <ClCompile Include="EventFactory.cpp">
       <Filter>src\Controller\Events</Filter>
     </ClCompile>
+    <ClCompile Include="ChunkUpdater.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -432,6 +433,7 @@
     <ClInclude Include="EventFactory.h">
       <Filter>src\Controller\Events</Filter>
     </ClInclude>
+    <ClInclude Include="ChunkUpdater.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">

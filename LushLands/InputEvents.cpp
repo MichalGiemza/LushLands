@@ -179,9 +179,9 @@ void InputEvents::subscribeTimerFPS(tickperiod tp, eventfn fun, void *caller) {
 void InputEvents::subscribeSystemEvent(systemevent se, eventfn fun, void *caller) {
     if (not ALLEGRO_EVENT_TYPE_IS_USER(se))
         throw std::logic_error(user_event_was_expected);
-    std::vector<SystemEventSubscription> seVec = subscribersSystemEvents[se];
+    std::vector<SystemEventSubscription> *seVec = &subscribersSystemEvents[se];
     auto p = SystemEventSubscription { se, fun, caller };
-    seVec.push_back(p);
+    seVec->push_back(p);
 }
 
 ALLEGRO_EVENT_SOURCE *InputEvents::getEventSource() {

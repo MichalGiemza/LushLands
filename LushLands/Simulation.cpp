@@ -9,8 +9,6 @@ Simulation::Simulation(Controller *controller) :
     world = new World(FLATLAND, 42, entityFactory, itemFactory, controller->getInputEvents());
     loadPosition = new Position(0, world->getSeaLevel(), 0);
     keepPositionLoaded(*loadPosition);
-    // Events
-    controller->getInputEvents()->subscribeTimerFPS(0, updateSimulation, this);
     // System
     Logger::log(lg::DEBUG_SIMULATION, "Simulation started; Chunks loaded: [%i]; Entities loaded: [%i].",
                 world->getChunkLoadManager()->getChunksLoadedCount(),
@@ -50,13 +48,3 @@ Player *Simulation::getPlayer() {
     return player;
 }
 
-void updateSimulation(ALLEGRO_EVENT *ae, void *obj) {
-    auto *s = (Simulation *)obj;
-    miliseconds timeNow = al_get_time() * 1000;
-    miliseconds dt = timeNow - s->lastUpdated;
-    dt = std::min(dt, (miliseconds)100);
-
-    s->world->update(dt);
-
-    s->lastUpdated = timeNow;
-}

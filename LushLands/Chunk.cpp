@@ -14,7 +14,7 @@ void Chunk::generateTiles(ChunkPlan &chunkPlan) {
                 Ground *ground = (Ground *)entityFactory->buildEntity(plannedEntityType, pos);
                 if (ground == 0)
                     continue;
-                //randomTickEntities.insert((Entity *)ground); // Fixme: Przywróciæ metodê przydzielaj¹c¹!
+                chunkUpdater.registerEntity(ground);
                 ce.groundTiles[pos.getTilePosition()] = ground;
             }
         }
@@ -35,7 +35,7 @@ void Chunk::generateStructures(ChunkPlan &chunkPlan) {
                 auto structure = addStructure(plannedEntityType, pos);
                 if (structure == 0)
                     continue;
-                randomTickEntities.insert((Entity *)structure); // Fixme: Przywróciæ metodê przydzielaj¹c¹!
+                chunkUpdater.registerEntity(structure);
                 ce.structures[pos.getTilePosition()] = structure;
             }
         }
@@ -65,7 +65,7 @@ void Chunk::generateAnimals(ChunkPlan &chunkPlan) {
                 if (animal == 0)
                     continue;
                 ce.animals.insert(animal);
-                toUpdateEntities.insert((EntityUpdater *)animal->getEntityUpdater()); // Fixme: Przywróciæ metodê przydzielaj¹c¹!
+                chunkUpdater.registerEntity(animal);
             }
         }
     }
@@ -115,7 +115,7 @@ void Chunk::placeItem(Item *item) {
 }
 
 Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory, ItemFactory *itemFactory, InputEvents *inputEvents) :
-    collisionManager(), itemFactory(itemFactory), entityFactory(entityFactory), chunkPosition(chunkPosition), inputEvents(inputEvents) {
+    collisionManager(), itemFactory(itemFactory), entityFactory(entityFactory), chunkPosition(chunkPosition), inputEvents(inputEvents), chunkUpdater(inputEvents) {
     // Entities and Items
     generateTiles(chunkPlan);
     generateStructures(chunkPlan);

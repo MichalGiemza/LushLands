@@ -11,6 +11,7 @@
 #include "CollisionManager.h"
 #include "Animal.h"
 #include "ChunkElements.h"
+#include "ChunkUpdater.h"
 
 
 class Chunk {
@@ -27,8 +28,7 @@ private:
     ItemFactory *itemFactory;
     InputEvents *inputEvents;
     CollisionManager collisionManager;
-    std::unordered_set<Entity *> randomTickEntities; // Fixme: Bêdzie problem z castowaniem!
-    std::unordered_set<EntityUpdater *> toUpdateEntities;
+    ChunkUpdater chunkUpdater;
 private:
     void generateTiles(ChunkPlan &chunkPlan);
     void generateStructures(ChunkPlan &chunkPlan);
