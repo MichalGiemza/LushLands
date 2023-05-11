@@ -1,6 +1,6 @@
 #include "Animal.h"
 
-Animal::Animal(InputEvents *inputEvents, const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, const int movementSpeed, const miliseconds walkInterval, int maxHealth, const tooltype requiredTool, const ItemDropChance *drops) :
+Animal::Animal(InputEvents *inputEvents, const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, const int movementSpeed, const miliseconds walkInterval, int maxHealth, const tooltype requiredTool, const EntityDrops &drops) :
     Entity(entityType, description, constant_update, inputEvents), 
     entityUpdater(),
     appearance(color),

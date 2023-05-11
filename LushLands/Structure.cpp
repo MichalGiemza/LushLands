@@ -1,6 +1,6 @@
 #include "Structure.h"
 
-Structure::Structure(InputEvents *inputEvents, const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, int maxHealth, const tooltype requiredTool, const ItemDropChance *drops, const updatetype updateType) :
+Structure::Structure(InputEvents *inputEvents, const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, int maxHealth, const tooltype requiredTool, const EntityDrops &drops, const updatetype updateType) :
     Entity(entityType, description, updateType, inputEvents),
     entityUpdater(),
     appearance(color),

@@ -16,7 +16,7 @@ Chunk *EventHandler::getChunk(Position &position) {
 EventHandler::EventHandler(Controller *c, Simulation *s, GraphicsManager *g) :
     c(c), s(s), g(g), inputEvents(c->getInputEvents()), world(s->getWorld()), player(s->getPlayer()), fieldCursor(g->getCurrentGameplayScene()->getFieldCursor()),
     invDispl(g->getCurrentGameplayScene()->getInventoryDisplay()), hotbar(g->getCurrentGameplayScene()->getHotbar()), focus(c->getFocus()), actionMap(c->getActionMap()),
-    aes(inputEvents->getEventSource()) {
+    aes(inputEvents->getEventSource()), itemFactory(s->getItemFactory()) {
     // Input to Action translation
     inputEvents->subscribeKeyBeingPressed(handleKeyboardKey, this);
     inputEvents->subscribeKeyTyped(handleKeyboardLetter, this);
@@ -25,7 +25,9 @@ EventHandler::EventHandler(Controller *c, Simulation *s, GraphicsManager *g) :
     // Action handling
     inputEvents->subscribeTimerTPS(0, handleItemCollection, this);
     inputEvents->subscribeSystemEvent(item_drop, handleItemDrop, this);
+    inputEvents->subscribeSystemEvent(item_generate, handleItemGenerate, this);
     inputEvents->subscribeSystemEvent(mobility_attempt_go, handleMobMovementAttempt, this);
+    inputEvents->subscribeSystemEvent(entity_destroy, handleEntityDestroy, this);
     // Player actions
     inputEvents->subscribeSystemEvent(player_wills_go, handlePlayerMovementAttempt, this);
     inputEvents->subscribeSystemEvent(player_throws_item, handlePlayerThrowItem, this);
@@ -144,8 +146,30 @@ void handleItemDrop(ALLEGRO_EVENT *ae, void *obj) {
     Item *item = 0;
     radian direction = 0;
     EventFactory::unpackItemDrop(ae, (void **)&item, &direction);
+    
     item->getPosition()->push2D(direction, itemMagnetRadius * meter * 15 / 10);
     eh->world->placeItem(item);
+}
+
+void handleItemGenerate(ALLEGRO_EVENT *ae, void *obj) {
+    EventHandler *eh = (EventHandler *)obj;
+    ItemDropChance *itemDC = 0;
+    radian direction = 0;
+    Entity *entity = 0;
+    EventFactory::unpackItemGenerate(ae, (void **)&itemDC, &direction, (void **)&entity);
+    
+    Item *item = eh->itemFactory->buildItem(*itemDC);
+    item->getPosition()->updatePosition((*(Position *)entity->getPosition()));
+    item->getPosition()->push2D(direction, itemMagnetRadius * meter * 15 / 10);
+    eh->world->placeItem(item);
+}
+
+void handleEntityDestroy(ALLEGRO_EVENT *ae, void *obj) {
+    EventHandler *eh = (EventHandler *)obj;
+    Entity *entity = 0;
+    EventFactory::unpackEntityDestroy(ae, (void **)entity);
+
+    // TODO
 }
 
 // Player Actions

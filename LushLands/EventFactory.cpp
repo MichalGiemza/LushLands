@@ -26,6 +26,32 @@ void EventFactory::unpackItemDrop(ALLEGRO_EVENT *aEvent, void **item, radian *di
     *direction = (radian)aEvent->user.data2;
 }
 
+ALLEGRO_EVENT *EventFactory::packItemGenerate(void *itemDropChance, radian direction, void *entity) {
+    ALLEGRO_EVENT *ae = new ALLEGRO_EVENT {};
+    ae->user.type = item_generate;
+    ae->user.data1 = (intptr_t)itemDropChance;
+    ae->user.data2 = (intptr_t)direction;
+    ae->user.data3 = (intptr_t)entity;
+    return ae;
+}
+
+void EventFactory::unpackItemGenerate(ALLEGRO_EVENT *aEvent, void **itemDropChance, radian *direction, void **entity) {
+    *itemDropChance = (void *)aEvent->user.data1;
+    *direction = (radian)aEvent->user.data2;
+    *entity = (void *)aEvent->user.data3;
+}
+
+ALLEGRO_EVENT *EventFactory::packEntityDestroy(void *entity) {
+    ALLEGRO_EVENT *ae = new ALLEGRO_EVENT {};
+    ae->user.type = item_generate;
+    ae->user.data1 = (intptr_t)entity;
+    return ae;
+}
+
+void EventFactory::unpackEntityDestroy(ALLEGRO_EVENT *aEvent, void **entity) {
+    *entity = (void *)aEvent->user.data1;
+}
+
 ALLEGRO_EVENT *EventFactory::packMouseAction(const systemevent se, int x, int y) {
     ALLEGRO_EVENT *ae = new ALLEGRO_EVENT {};
     ae->user.type = se;

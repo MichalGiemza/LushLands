@@ -24,5 +24,6 @@ public:
     Position *getWorldLoadingPosition();
     void addPlayer(InputEvents *inputEvents);
     Player *getPlayer();
+    ItemFactory *getItemFactory();
 };
 

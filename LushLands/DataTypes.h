@@ -49,6 +49,11 @@ struct ItemDropChance {
     int chanceHigh;
 };
 
+struct EntityDrops {
+    int n;
+    ItemDropChance *dropChances;
+};
+
 struct ChunkPlan { // TODO: Zrobiæ z tego generator, takie jedno coœ mo¿e zajmowaæ chyba ok. 1.5MB miejsca.
     FieldPlan fieldPlans[chunkSizeByTiles][chunkSizeByTiles][worldHeight]; // [X][Z][Y]
 };

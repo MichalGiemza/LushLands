@@ -1,7 +1,7 @@
 #include "Destroyability.h"
 
-Destroyability::Destroyability(void *entity, InputEvents *inputEvents, int maxHealth, tooltype requiredTool, const ItemDropChance *drops) :
-    maxHealth(maxHealth), health(maxHealth), tool(requiredTool), drops(drops), entity(entity), inputEvents(inputEvents) {}
+Destroyability::Destroyability(void *entity, InputEvents *inputEvents, int maxHealth, tooltype requiredTool, const EntityDrops &drops) :
+    maxHealth(maxHealth), health(maxHealth), tool(requiredTool), drops(&drops), entity(entity), inputEvents(inputEvents) {}
 
 int Destroyability::getHealth() {
     return 0;
@@ -13,21 +13,23 @@ int Destroyability::getMaxHealth() {
 
 void Destroyability::takeDamage(int damage) {
     // Damage
-    health = std::min(0, (health - damage));
+    health = std::max(0, (health - damage));
     if (health > 0)
         return;
     // Drops
     if (drops) {
-        for (int i = 0; i < sizeof(drops) / sizeof(drops[0]); i++) {
-            ALLEGRO_EVENT *ae = EventFactory::packItemDrop((void *)&drops[i], Random_::random(0.0f, 2 * PI));
+        for (int i = 0; i < drops->n; i++) {
+            ItemDropChance *dc = &drops->dropChances[i];
+            ALLEGRO_EVENT *ae = EventFactory::packItemGenerate((void *)dc, Random_::random(0.0f, 2 * PI), entity);
             al_emit_user_event(inputEvents->getEventSource(), ae, 0);
         }
     }
     // Destroy
-    // TODO: Chunk - remove item
+    ALLEGRO_EVENT *ae = EventFactory::packEntityDestroy(entity);
+    al_emit_user_event(inputEvents->getEventSource(), ae, 0);
 }
 
-const ItemDropChance *Destroyability::getDropChances() {
+const EntityDrops *Destroyability::getDropChances() {
     return drops;
 }
 

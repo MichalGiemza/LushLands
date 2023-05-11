@@ -24,6 +24,7 @@ class EventHandler {
     FieldCursor *fieldCursor;
     InventoryDisplay *invDispl;
     Hotbar *hotbar;
+    ItemFactory *itemFactory;
 
     bool pN = false, pS = false, pE = false, pW = false;
 private:
@@ -41,6 +42,8 @@ public:
     friend void handleMobMovementAttempt(ALLEGRO_EVENT *ae, void *obj);
     friend void handleItemCollection(ALLEGRO_EVENT *ae, void *obj);
     friend void handleItemDrop(ALLEGRO_EVENT *ae, void *obj);
+    friend void handleItemGenerate(ALLEGRO_EVENT *ae, void *obj);
+    friend void handleEntityDestroy(ALLEGRO_EVENT *ae, void *obj);
     // Player actions
     friend void handlePlayerMovementAttempt(ALLEGRO_EVENT *ae, void *obj);
     friend void handlePlayerThrowItem(ALLEGRO_EVENT *ae, void *obj);
@@ -55,6 +58,8 @@ void handlePlayerMovementInput(ALLEGRO_EVENT *ae, void *obj);
 void handleMobMovementAttempt(ALLEGRO_EVENT *ae, void *obj);
 void handleItemCollection(ALLEGRO_EVENT *ae, void *obj);
 void handleItemDrop(ALLEGRO_EVENT *ae, void *obj);
+void handleItemGenerate(ALLEGRO_EVENT *ae, void *obj);
+void handleEntityDestroy(ALLEGRO_EVENT *ae, void *obj);
 
 void handlePlayerMovementAttempt(ALLEGRO_EVENT *ae, void *obj);
 void handlePlayerThrowItem(ALLEGRO_EVENT *ae, void *obj);

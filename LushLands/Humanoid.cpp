@@ -1,6 +1,6 @@
 #include "Humanoid.h"
 
-Humanoid::Humanoid(InputEvents *inputEvents, const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, const int movementSpeed, name firstName, name lastName, gendertype gender, const int invSize, int maxHealth, const tooltype requiredTool, const ItemDropChance *drops) :
+Humanoid::Humanoid(InputEvents *inputEvents, const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, const int movementSpeed, name firstName, name lastName, gendertype gender, const int invSize, int maxHealth, const tooltype requiredTool, const EntityDrops &drops) :
     Entity(entityType, description, constant_update, inputEvents),
     entityUpdater(),
     appearance(color),

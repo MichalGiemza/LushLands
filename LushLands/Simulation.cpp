@@ -48,3 +48,7 @@ Player *Simulation::getPlayer() {
     return player;
 }
 
+ItemFactory *Simulation::getItemFactory() {
+    return itemFactory;
+}
+
