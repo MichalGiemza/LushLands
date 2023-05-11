@@ -108,6 +108,8 @@ void handleMobMovementAttempt(ALLEGRO_EVENT *ae, void *obj) {
 
     auto collider = dynCollider->getCollider();
     auto chunk = eh->getChunk(*newPos);
+    if (chunk == 0)
+        return;
     auto contactingColliders = chunk->getCollisionManager()->getCollidersObstructuringNewPosition(dynCollider, newPos);
 
     // Collision status

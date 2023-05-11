@@ -12,8 +12,11 @@ World::World(worldtype worldType, int seed_, EntityFactory *entityFactory, ItemF
         throw new std::logic_error(not_implemented);
     
     this->time = new Time();
+    this->sessionActiveSince = time->getAsMiliseconds();
+    this->lastTimeUpdated = time->getAsMiliseconds();
     this->chunkSystem = new ChunkSystem(worldPlanner, entityFactory, itemFactory, inputEvents);
-    this->lastTimeUpdated = 0;
+
+    inputEvents->subscribeTimerFPS(0, updateTime, this);
 
     Logger::log(lg::DEBUG_WORLD, "Created World [%s]", worldType);
 }
@@ -54,4 +57,10 @@ void World::placeItem(Item *item) {
 
 Time *World::getWorldTime() {
     return time;
+}
+
+void updateTime(ALLEGRO_EVENT *ae, void *obj) {
+    World *w = (World *)obj;
+    w->lastTimeUpdated = w->time->getAsMiliseconds();
+    w->time->setAsMiliseconds(w->sessionActiveSince + ae->timer.count);
 }

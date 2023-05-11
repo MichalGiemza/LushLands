@@ -28,6 +28,7 @@ class World  {
     EntityFactory *entityFactory;
     ItemFactory *itemFactory;
     Time *time;
+    miliseconds sessionActiveSince;
     miliseconds lastTimeUpdated;
     InputEvents *inputEvents;
 public:
@@ -39,4 +40,7 @@ public:
     std::vector<Entity *> getByPosition(Position *position); // TODO: Dla klikania myszk¹
     void placePlayer(Player *player);
     void placeItem(Item *item);
+    friend void updateTime(ALLEGRO_EVENT *allegroEvent, void *obj);
 };
+
+void updateTime(ALLEGRO_EVENT *allegroEvent, void *obj);

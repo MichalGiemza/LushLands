@@ -29,7 +29,10 @@ Chunk *ChunkLoadManager::generateChunk(ChunkPosition &chunkPosition) {
 }
 
 Chunk *ChunkLoadManager::getChunk(ChunkPosition &chunkPosition) {
-    return (*chunks)[chunkPosition];
+    auto result = (*chunks).find(chunkPosition);
+    if (result != (*chunks).end())
+        return result->second;
+    return 0;
 }
 
 int ChunkLoadManager::getChunksLoadedCount() {
