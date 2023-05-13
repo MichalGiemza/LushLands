@@ -114,6 +114,31 @@ void Chunk::placeItem(Item *item) {
     ce.items.insert(item);
 }
 
+void Chunk::removeEntity(Entity *entity) {
+    // - Loose entities
+    // Animal
+    auto sr = ce.animals.find(entity);
+    if (sr != ce.animals.end())
+        ce.animals.erase(entity);
+    // Humanoid
+    sr = ce.humanoids.find(entity);
+    if (sr != ce.humanoids.end())
+        ce.humanoids.erase(entity);
+    // - Positioned entities
+    auto *pos = (Position *)entity->getPosition();
+    if (pos) {
+        auto tPos = pos->getTilePosition();
+        // Ground
+        auto msr = ce.groundTiles.find(tPos);
+        if (msr != ce.groundTiles.end() and msr->second == entity)
+            ce.groundTiles.erase(msr);
+        // Structure
+        msr = ce.structures.find(tPos);
+        if (msr != ce.structures.end() and msr->second == entity)
+            ce.structures.erase(msr);
+    }
+}
+
 Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory, ItemFactory *itemFactory, InputEvents *inputEvents) :
     collisionManager(), itemFactory(itemFactory), entityFactory(entityFactory), chunkPosition(chunkPosition), inputEvents(inputEvents), chunkUpdater(inputEvents) {
     // Entities and Items

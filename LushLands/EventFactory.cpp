@@ -43,7 +43,7 @@ void EventFactory::unpackItemGenerate(ALLEGRO_EVENT *aEvent, void **itemDropChan
 
 ALLEGRO_EVENT *EventFactory::packEntityDestroy(void *entity) {
     ALLEGRO_EVENT *ae = new ALLEGRO_EVENT {};
-    ae->user.type = item_generate;
+    ae->user.type = entity_destroy;
     ae->user.data1 = (intptr_t)entity;
     return ae;
 }

@@ -40,6 +40,7 @@ public:
     Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory, ItemFactory *itemFactory, InputEvents *inputEvents);
     void placeHumanoid(Humanoid *humanoid);
     void placeItem(Item *item);
+    void removeEntity(Entity *entity);
     Entity *getGround(TilePosition &tilePosition);
     Entity *getStructure(TilePosition &tilePosition);
     std::vector<Entity *> getByPosition(Position *position);

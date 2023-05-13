@@ -167,9 +167,10 @@ void handleItemGenerate(ALLEGRO_EVENT *ae, void *obj) {
 void handleEntityDestroy(ALLEGRO_EVENT *ae, void *obj) {
     EventHandler *eh = (EventHandler *)obj;
     Entity *entity = 0;
-    EventFactory::unpackEntityDestroy(ae, (void **)entity);
+    EventFactory::unpackEntityDestroy(ae, (void **)&entity);
 
-    // TODO
+    Chunk *c = eh->getChunk(*(Position *)entity->getPosition());
+    c->removeEntity(entity);
 }
 
 // Player Actions
