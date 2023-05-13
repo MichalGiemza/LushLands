@@ -35,7 +35,11 @@ private:
     void generateAnimals(ChunkPlan &chunkPlan);
     void generateItems(ChunkPlan &chunkPlan);
     Structure *addStructure(entitytype entityType, Position &position);
+    Entity *rmStructure(Entity *entity);
     Animal *addAnimal(entitytype entityType, Position &position);
+    Entity *rmAnimal(Entity *entity);
+    Entity *rmHumanoid(Entity *entity);
+    Entity *rmGround(Entity *entity);
 public:
     Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory, ItemFactory *itemFactory, InputEvents *inputEvents);
     void placeHumanoid(Humanoid *humanoid);

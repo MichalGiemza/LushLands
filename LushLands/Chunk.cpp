@@ -50,6 +50,24 @@ Structure *Chunk::addStructure(entitytype entityType, Position &position) {
     return structure;
 }
 
+Entity *Chunk::rmStructure(Entity *entity) {
+    if (not entity)
+        return entity;
+    auto *pos = (Position *)entity->getPosition();
+    if (pos) {
+        auto tPos = pos->getTilePosition();
+        auto msr = ce.structures.find(tPos);
+        if (msr != ce.structures.end() and msr->second == entity) {
+            Structure *structure = (Structure *)entity;
+            collisionManager.rmCollider((Collider *)entity->getCollider());
+            ce.structures.erase(msr);
+            delete structure;
+            entity = 0;
+        }
+    }
+    return entity;
+}
+
 void Chunk::generateAnimals(ChunkPlan &chunkPlan) {
     auto referencePosition = Position(chunkPosition);
     auto pos = Position(referencePosition);
@@ -103,6 +121,51 @@ Animal *Chunk::addAnimal(entitytype entityType, Position &position) {
     return animal;
 }
 
+Entity *Chunk::rmAnimal(Entity *entity) {
+    if (not entity)
+        return entity;
+    auto sr = ce.animals.find(entity);
+    if (sr != ce.animals.end()) {
+        Animal *animal = (Animal *)entity;
+        collisionManager.rmCollider((Collider *)entity->getCollider());
+        ce.animals.erase(entity);
+        delete animal;
+        entity = 0;
+    }
+    return entity;
+}
+
+Entity *Chunk::rmHumanoid(Entity *entity) {
+    if (not entity)
+        return entity;
+    auto sr = ce.humanoids.find(entity);
+    if (sr != ce.humanoids.end()) {
+        Humanoid *humanoid = (Humanoid *)entity;
+        collisionManager.rmCollider((Collider *)entity->getCollider());
+        ce.humanoids.erase(entity);
+        delete humanoid;
+        entity = 0;
+    }
+    return entity;
+}
+
+Entity *Chunk::rmGround(Entity *entity) {
+    if (not entity)
+        return entity;
+    auto *pos = (Position *)entity->getPosition();
+    if (pos) {
+        auto tPos = pos->getTilePosition();
+        auto msr = ce.groundTiles.find(tPos);
+        if (msr != ce.groundTiles.end() and msr->second == entity) {
+            Ground *ground = (Ground *)entity;
+            ce.groundTiles.erase(msr);
+            delete ground;
+            entity = 0;
+        }
+    }
+    return entity;
+}
+
 void Chunk::placeHumanoid(Humanoid *humanoid) {
     ce.humanoids.insert(humanoid);
     EntityUpdater *eu = (EntityUpdater *)humanoid->getEntityUpdater();
@@ -115,28 +178,10 @@ void Chunk::placeItem(Item *item) {
 }
 
 void Chunk::removeEntity(Entity *entity) {
-    // - Loose entities
-    // Animal
-    auto sr = ce.animals.find(entity);
-    if (sr != ce.animals.end())
-        ce.animals.erase(entity);
-    // Humanoid
-    sr = ce.humanoids.find(entity);
-    if (sr != ce.humanoids.end())
-        ce.humanoids.erase(entity);
-    // - Positioned entities
-    auto *pos = (Position *)entity->getPosition();
-    if (pos) {
-        auto tPos = pos->getTilePosition();
-        // Ground
-        auto msr = ce.groundTiles.find(tPos);
-        if (msr != ce.groundTiles.end() and msr->second == entity)
-            ce.groundTiles.erase(msr);
-        // Structure
-        msr = ce.structures.find(tPos);
-        if (msr != ce.structures.end() and msr->second == entity)
-            ce.structures.erase(msr);
-    }
+    entity = rmHumanoid(entity);
+    entity = rmAnimal(entity);
+    entity = rmStructure(entity);
+    entity = rmGround(entity);
 }
 
 Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory, ItemFactory *itemFactory, InputEvents *inputEvents) :
