@@ -8,9 +8,8 @@ void Body::refreshCenter() {
 
 Body::Body(Position &position, const Size &size) : 
     position(), size(size), rectangle(0, 0, 0, 0) { 
-    // Center
-    center = Position();
-    setCenter(position);
+    // Position
+    setPosition(position);
     // Rectangle
     rectangle.setPosition(&this->position);
     rectangle.setSize(&this->size);
@@ -43,15 +42,6 @@ void Body::setPosition(Position &pos) {
     refreshCenter();
 }
 
-void Body::setCenter(Position &ctr) {
-    center.setPX(ctr.getPX());
-    center.setPY(ctr.getPY());
-    center.setPZ(ctr.getPZ());
-
-    position.setPX(ctr.getPX() - size.getPW() / 2);
-    position.setPY(ctr.getPY());
-    position.setPZ(ctr.getPZ() - size.getPL() / 2);
-}
 int Body::accurateDistanceTo2D(Body &other) const {
     return rectangle.accurateDistanceTo2D(&other.rectangle);
 }

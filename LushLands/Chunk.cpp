@@ -28,9 +28,9 @@ void Chunk::generateStructures(ChunkPlan &chunkPlan) {
     for (int i = 0; i < chunkSizeByTiles; i++) {
         for (int j = 0; j < chunkSizeByTiles; j++) {
             for (int k = 0; k < worldHeight; k++) {
-                pos.setPX(referencePosition.getPX() + i * meter + meter / 2);
-                pos.setPZ(referencePosition.getPZ() + j * meter + meter / 2);
-                pos.setPY(referencePosition.getPY() + k * meter);
+                pos.setX(referencePosition.getX() + i);
+                pos.setZ(referencePosition.getZ() + j);
+                pos.setY(referencePosition.getY() + k);
                 auto plannedEntityType = chunkPlan.fieldPlans[i][j][k].structure;
                 auto structure = addStructure(plannedEntityType, pos);
                 if (structure == 0)
@@ -72,9 +72,9 @@ void Chunk::generateAnimals(ChunkPlan &chunkPlan) {
     for (int i = 0; i < chunkSizeByTiles; i++) {
         for (int j = 0; j < chunkSizeByTiles; j++) {
             for (int k = 0; k < worldHeight; k++) {
-                pos.setPX(referencePosition.getPX() + i * meter + meter / 2);
-                pos.setPZ(referencePosition.getPZ() + j * meter + meter / 2);
-                pos.setPY(referencePosition.getPY() + k * meter);
+                pos.setX(referencePosition.getX() + i);
+                pos.setZ(referencePosition.getZ() + j);
+                pos.setY(referencePosition.getY() + k);
                 auto plannedEntityType = chunkPlan.fieldPlans[i][j][k].animal;
                 Animal *animal = addAnimal(plannedEntityType, pos);
                 if (animal == 0)
