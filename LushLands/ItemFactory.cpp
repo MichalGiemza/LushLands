@@ -7,28 +7,28 @@ Item *ItemFactory::buildItem(itemtype itemType, stack amount) {
 	if (itemType == 0) 
 		return 0;
 	/*    Resources    */
-	if (itemType == WOOD)
-		return new Item(WOOD, WOOD_DESCRIPTION, WOOD_STACK, amount);
-	if (itemType == PLANK)
-		return new Item(PLANK, PLANK_DESCRIPTION, PLANK_STACK, amount);
-	if (itemType == BRANCH)
-		return new Item(BRANCH, BRANCH_DESCRIPTION, BRANCH_STACK, amount);
+	if (itemType == i::WOOD)
+		return new Item(i::WOOD, i::WOOD_DESCRIPTION, i::WOOD_STACK, amount);
+	if (itemType == i::PLANK)
+		return new Item(i::PLANK, i::PLANK_DESCRIPTION, i::PLANK_STACK, amount);
+	if (itemType == i::BRANCH)
+		return new Item(i::BRANCH, i::BRANCH_DESCRIPTION, i::BRANCH_STACK, amount);
 	/*    Animal Loot    */
-	if (itemType == MEAT)
-		return new Item(MEAT, MEAT_DESCRIPTION, MEAT_STACK, amount);
-	if (itemType == FEATHER)
-		return new Item(FEATHER, FEATHER_DESCRIPTION, FEATHER_STACK, amount);
+	if (itemType == i::MEAT)
+		return new Item(i::MEAT, i::MEAT_DESCRIPTION, i::MEAT_STACK, amount);
+	if (itemType == i::FEATHER)
+		return new Item(i::FEATHER, i::FEATHER_DESCRIPTION, i::FEATHER_STACK, amount);
 	/*    Tools    */
-	if (itemType == SWORD)
-		return new Item(SWORD, SWORD_DESCRIPTION, SWORD_STACK, amount, tlt::weapon); //TODO: Przerobic constanty na baze/plik config
-	if (itemType == SHOVEL)
-		return new Item(SHOVEL, SHOVEL_DESCRIPTION, SHOVEL_STACK, amount, tlt::shovel);
-	if (itemType == PICKAXE)
-		return new Item(PICKAXE, PICKAXE_DESCRIPTION, PICKAXE_STACK, amount, tlt::pickaxe);
-	if (itemType == AXE)
-		return new Item(AXE, AXE_DESCRIPTION, AXE_STACK, amount, tlt::axe);
-	if (itemType == SCYTHE)
-		return new Item(SCYTHE, SCYTHE_DESCRIPTION, SCYTHE_STACK, amount, tlt::harvesting);
+	if (itemType == i::SWORD)
+		return new Item(i::SWORD, i::SWORD_DESCRIPTION, i::SWORD_STACK, amount, tlt::weapon); //TODO: Przerobic constanty na baze/plik config
+	if (itemType == i::SHOVEL)
+		return new Item(i::SHOVEL, i::SHOVEL_DESCRIPTION, i::SHOVEL_STACK, amount, tlt::shovel);
+	if (itemType == i::PICKAXE)
+		return new Item(i::PICKAXE, i::PICKAXE_DESCRIPTION, i::PICKAXE_STACK, amount, tlt::pickaxe);
+	if (itemType == i::AXE)
+		return new Item(i::AXE, i::AXE_DESCRIPTION, i::AXE_STACK, amount, tlt::axe);
+	if (itemType == i::SCYTHE)
+		return new Item(i::SCYTHE, i::SCYTHE_DESCRIPTION, i::SCYTHE_STACK, amount, tlt::harvesting);
 }
 
 Item *ItemFactory::buildItem(ItemDropChance &idc) {

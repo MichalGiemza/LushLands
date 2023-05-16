@@ -31,17 +31,17 @@ Position *Simulation::getWorldLoadingPosition() {
 
 void Simulation::addPlayer(InputEvents *ie) {
     Position p = Position(0, world->getSeaLevel(), 0);
-    Humanoid *human = (Humanoid *)entityFactory->buildEntity(HUMAN, p);
+    Humanoid *human = (Humanoid *)entityFactory->buildEntity(e::HUMAN, p);
     player = new Player(human, ie);
     world->placePlayer(player);
     loadPosition = (Position *)human->getPosition();
     focus->setFocusedObject((GameElement *)human->getGameElement());
     // Tools
     Inventory *inv = (Inventory *)human->getInventory();
-    inv->putItemAuto(itemFactory->buildItem(PICKAXE, 1));
-    inv->putItemAuto(itemFactory->buildItem(SHOVEL, 1));
-    inv->putItemAuto(itemFactory->buildItem(AXE, 1));
-    inv->putItem(11, itemFactory->buildItem(SWORD, 1));
+    inv->putItemAuto(itemFactory->buildItem(i::PICKAXE, 1));
+    inv->putItemAuto(itemFactory->buildItem(i::SHOVEL, 1));
+    inv->putItemAuto(itemFactory->buildItem(i::AXE, 1));
+    inv->putItem(11, itemFactory->buildItem(i::SWORD, 1));
 }
 
 Player *Simulation::getPlayer() {
