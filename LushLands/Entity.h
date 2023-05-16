@@ -3,16 +3,21 @@
 #include <string>
 #include <vector>
 #include <unordered_set>
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/uuid_generators.hpp>
+#include <boost/uuid/uuid_io.hpp>
 #include "DataTypes.h"
 #include "Logger.h"
 #include "EntityUpdater.h"
 #include "InputEvents.h"
 
+extern boost::uuids::random_generator uuidGenerator;
 
 class Entity {
     /**
     * Definicja najbardziej podstawowego elementu œwiata.
     */
+    boost::uuids::uuid id;
     entitytype entityType;
     std::string description;
     updatetype updateType;
@@ -47,6 +52,7 @@ public:
     virtual void *getBody() = 0;
     virtual void *getSize() = 0;
     virtual void *getPosition() = 0;
+    virtual void *getTilePosition() = 0;
 
     virtual void *getDestroyability() = 0;
 
@@ -54,4 +60,9 @@ public:
     virtual void *getLastName() = 0;
     
     virtual void *getInventory() = 0;
+
+    // Operators
+    friend bool operator== (const Entity &e1, const Entity &e2);
 };
+
+bool operator== (const Entity &e1, const Entity &e2);

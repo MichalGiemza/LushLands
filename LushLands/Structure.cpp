@@ -60,6 +60,10 @@ void *Structure::getPosition() {
     return body.getPosition();
 }
 
+void *Structure::getTilePosition() {
+    return new TilePosition(body.getCenter()->getTilePosition());
+}
+
 void *Structure::getDestroyability() {
     return &destroyability;
 }

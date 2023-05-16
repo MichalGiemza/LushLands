@@ -59,6 +59,10 @@ void *Ground::getPosition() {
     return body.getPosition();
 }
 
+void *Ground::getTilePosition() {
+    return new TilePosition(body.getCenter()->getTilePosition());
+}
+
 void *Ground::getDestroyability() {
     return &destroyability;
 }

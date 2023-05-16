@@ -37,6 +37,7 @@ public:
     virtual void *getBody() override;
     virtual void *getSize() override;
     virtual void *getPosition() override;
+    virtual void *getTilePosition() override;
 
     virtual void *getDestroyability() override;
 

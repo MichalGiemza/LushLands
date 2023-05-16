@@ -63,6 +63,10 @@ void *Animal::getPosition() {
     return body.getPosition();
 }
 
+void *Animal::getTilePosition() {
+    return new TilePosition(body.getCenter()->getTilePosition());
+}
+
 void *Animal::getDestroyability() {
     return &destroyability;
 }

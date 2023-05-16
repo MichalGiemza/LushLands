@@ -64,6 +64,10 @@ void *Humanoid::getPosition() {
     return body.getPosition();
 }
 
+void *Humanoid::getTilePosition() {
+    return new TilePosition(body.getCenter()->getTilePosition());
+}
+
 void *Humanoid::getDestroyability() {
     return &destroyability;
 }

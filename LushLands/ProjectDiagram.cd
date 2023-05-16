@@ -1,0 +1,795 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Simulation" Collapsed="true">
+    <Position X="23" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAEAgAAEAAAQAAAQAAAAAAhAAACAEBAAAABAAgAAA=</HashCode>
+      <FileName>Simulation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="World" Collapsed="true">
+    <Position X="19.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AMCRAABAABAAEAAgAAEAAAAAgBEAIAAEAEAAAAAAAAA=</HashCode>
+      <FileName>World.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chunk" Collapsed="true">
+    <Position X="21.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AMABAMCMxCBAgAAAQAIABCAAgBEAAAQEAACAAFAAAAA=</HashCode>
+      <FileName>Chunk.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChunkLoadManager" Collapsed="true">
+    <Position X="23" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>REAAAABQAABAAAAAAAQAAAAAoAFQAAAAAAAAQAIAABA=</HashCode>
+      <FileName>ChunkLoadManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChunkSystem" Collapsed="true">
+    <Position X="16" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BEAAAABAEABAAAAAAAAAAAAAgAEAAAAABEAAAAAAAAA=</HashCode>
+      <FileName>ChunkSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CollisionManager" Collapsed="true">
+    <Position X="21.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAIEACAAAA=</HashCode>
+      <FileName>CollisionManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChickenBoxWorldPlanner" Collapsed="true">
+    <Position X="0.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAUBAgAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ChickenBoxWorldPlanner.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FlatlandWorldPlanner" Collapsed="true">
+    <Position X="2.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAUBAgAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FlatlandWorldPlanner.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseWorldPlanner" Collapsed="true">
+    <Position X="1.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAEAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BaseWorldPlanner.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entity" Collapsed="true">
+    <Position X="10" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAYDAAAIAwABAAIBBAAQAAAQEIAAAABAIAkEIAQgE=</HashCode>
+      <FileName>Entity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Destroyability" Collapsed="true">
+    <Position X="16" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACBAIAAAggAIAAAAAAAAABAEAAACCIAAAAAAAAAg=</HashCode>
+      <FileName>Destroyability.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Appearance" Collapsed="true">
+    <Position X="17.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAACAAAAAgAAAAAA=</HashCode>
+      <FileName>Appearance.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Body" Collapsed="true">
+    <Position X="19.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAIAAAAIAAACAAAIABISAKAABCACAAAQAAAAAAAAA=</HashCode>
+      <FileName>Body.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EntityUpdater" Collapsed="true">
+    <Position X="23" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAACAAAAAAAAAEBAAAAABAIABAGAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityUpdater.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Collider" Collapsed="true">
+    <Position X="19.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCAAAAAAADAQAAABEIDAAUgAAQEAACAQEAAAAAAEAAA=</HashCode>
+      <FileName>Collider.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DynamicCollider" Collapsed="true">
+    <Position X="19.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAJAAAIACAAAAAAAAAAAAEAAAAIA=</HashCode>
+      <FileName>DynamicCollider.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mobility" Collapsed="true">
+    <Position X="19.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAgAAAAQoEEAAEAAAAAAAAAAAIAIAAAAAAAAAAE=</HashCode>
+      <FileName>Mobility.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomWalk" Collapsed="true">
+    <Position X="19.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAYAgAAQAAAFIAABgAAAAACAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>RandomWalk.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Animal">
+    <Position X="9" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAYjAAAYAQAFAQAFACACAAAQAIAAAAJAIAkEIgAAA=</HashCode>
+      <FileName>Animal.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ground">
+    <Position X="11.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAYjAAAIAQAFAQABACACAAAQAIAAAABAIAkEAgEAA=</HashCode>
+      <FileName>Ground.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Structure">
+    <Position X="13.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAYjAAAIAQAFAQABACACAEAQAIAAAABAIAkEAgAAA=</HashCode>
+      <FileName>Structure.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EntityFactory" Collapsed="true">
+    <Position X="21.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAIAAAAAAEAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>EntityFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Inventory" Collapsed="true">
+    <Position X="23" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQoAAAIAAAIAAKAAAAAAAEAACAAAAAgAAAAA=</HashCode>
+      <FileName>Inventory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Humanoid">
+    <Position X="6.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAYiAAIYBQAFQQAFACgCACAQAAAAACBAIAmEAAAAA=</HashCode>
+      <FileName>Humanoid.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player" Collapsed="true">
+    <Position X="26.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABACAAAAAAAAAAABAAAAAAAQASACAAAAIAA0AAAAA=</HashCode>
+      <FileName>Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Item" Collapsed="true">
+    <Position X="24.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAEAAAAgAAAIIIAAoAAEAQAAgAAAAAASAAAIAAA=</HashCode>
+      <FileName>Item.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemFactory" Collapsed="true">
+    <Position X="26.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ItemFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ControlManager" Collapsed="true">
+    <Position X="26.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAAAAAAEAAAgAAAAAAAAAABAAAAAAAACAAAA=</HashCode>
+      <FileName>ControlManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Color" Collapsed="true">
+    <Position X="23" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EBAAAAAAAAAAABAAAAIAAAAACAAAAQAoAQARgAAAAgA=</HashCode>
+      <FileName>Color.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameElement" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAECAAAAAAAAAAAAAEAAAAAAgAAAAAAAAAEgAAIA=</HashCode>
+      <FileName>GameElement.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NameGenerator" Collapsed="true">
+    <Position X="23" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAIAAAAAAAIIAAAAAAAAgAAAAA=</HashCode>
+      <FileName>NameGenerator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Position" Collapsed="true">
+    <Position X="16" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAQABAIAAQEAAIwSAIWCQgBBEABAGAAAAAooGABIAA=</HashCode>
+      <FileName>Position.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WorldRectangle" Collapsed="true">
+    <Position X="21.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAIBAgAJAAABgAAIBAAAgSAAHIAQIEEMAAAAAAgAA=</HashCode>
+      <FileName>WorldRectangle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Size" Collapsed="true">
+    <Position X="24.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAABABBAAAEgAQAwEAEAQJAAACAQAAERAgAACAAAAA=</HashCode>
+      <FileName>Size.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Time" Collapsed="true">
+    <Position X="16" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAgAAIAIAAAAIAAAAAMQAAAAAAAAiAAAAgAAAQAwQA=</HashCode>
+      <FileName>Time.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NumTools" Collapsed="true">
+    <Position X="24.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>NumTools.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileToArray" Collapsed="true">
+    <Position X="16" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FileToArray.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Random_" Collapsed="true">
+    <Position X="17.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Random_.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Logger" Collapsed="true">
+    <Position X="17.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICBAAAAgAAAAAAACAADAIgAAIAAAIAADAAAAQAAAA=</HashCode>
+      <FileName>Logger.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Controller" Collapsed="true">
+    <Position X="24.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAIAQAAAAAAAAAAAEABAAEAQAAAAAEAAAghAAA=</HashCode>
+      <FileName>Controller.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Focus" Collapsed="true">
+    <Position X="17.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAASAA=</HashCode>
+      <FileName>Focus.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ActionMap" Collapsed="true">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAhAAAgAAAAAAAQAAAAAAAAAEAIAAQBBAA=</HashCode>
+      <FileName>ActionMap.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EventFactory" Collapsed="true">
+    <Position X="24.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAIAEAAAAAAAABBAABAQAACAAAgAAAAAAABYAAAAAAA=</HashCode>
+      <FileName>EventFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EventHandler" Collapsed="true">
+    <Position X="26.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BEAAkAAAIAAAAAAAAAAAEAgRAAEEAAKNAIAAAAggAAA=</HashCode>
+      <FileName>EventHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputEvents" Collapsed="true">
+    <Position X="21.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIABBAABAAEIAARAEAUQSAFAAMgIAAABAAgRYAAAwAA=</HashCode>
+      <FileName>InputEvents.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Keyboard" Collapsed="true">
+    <Position X="16" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Keyboard.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mouse" Collapsed="true">
+    <Position X="21.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAQAAAAAAAAAEAAAAAAAAAACAAEAA=</HashCode>
+      <FileName>Mouse.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camera" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAACICAQIBBRAAAIAAAEABAQCQEACEIAAAIAAAgAAFA=</HashCode>
+      <FileName>Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChunkRepresentationManager" Collapsed="true">
+    <Position X="26.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQFSEUAgAMBIQAAAIAAABgAAEAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ChunkRepresentationManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Display" Collapsed="true">
+    <Position X="17.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABRAAAEAQAEAAEAAQAAAAEAEAAAAAAAAACBAAA=</HashCode>
+      <FileName>Display.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphicsManager" Collapsed="true">
+    <Position X="19.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAEAAgAAAEAAAAABAEAACAEAAAABBAAAAA=</HashCode>
+      <FileName>GraphicsManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextureManager" Collapsed="true">
+    <Position X="26.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABEAAAgAABAAQAAAAABIAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>TextureManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChunkRepresentation" Collapsed="true">
+    <Position X="24.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAIAAAgCAEAAAAAAoAJAAIAAEAAAAAAAAQAACACBE=</HashCode>
+      <FileName>ChunkRepresentation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Scene" Collapsed="true">
+    <Position X="21.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIEAAghoAECAAAggAIABgAAAEEAAAFAIAIAAgAEAE=</HashCode>
+      <FileName>Scene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowManager" Collapsed="true">
+    <Position X="17.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAQAAAAAAFAAABAQAAAAAAAAAA=</HashCode>
+      <FileName>WindowManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StaticBaseWindow" Collapsed="true">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAcAIAAAIAAAAAAAAAACQAQAxgAAAAAAA=</HashCode>
+      <FileName>StaticBaseWindow.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StaticUIElement" Collapsed="true">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StaticUIElement.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIElement" Collapsed="true">
+    <Position X="4.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UIElement.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WorldUIElement" Collapsed="true">
+    <Position X="7.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>WorldUIElement.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hotbar" Collapsed="true">
+    <Position X="3" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAACAAAAAACAACIAAAAAAAEAAAABAAAABAMAAAA=</HashCode>
+      <FileName>Hotbar.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventoryDisplay" Collapsed="true">
+    <Position X="3" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIIAAAAAAIAEAAAAAgIEACAAAQAACCACAAACgAAAAAA=</HashCode>
+      <FileName>InventoryDisplay.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Console" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKCAAAAgAAESAAAAAIAAAAAAAFAAAAAAEAAAAAAAgA=</HashCode>
+      <FileName>Console.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FieldCursor" Collapsed="true">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAgAAAAAEAAIAAAAAAAAIAAAAAAAAAACAAAQ=</HashCode>
+      <FileName>FieldCursor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UICursor" Collapsed="true">
+    <Position X="0.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>UICursor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChunkUpdater" Collapsed="true">
+    <Position X="17.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAAAAAAAAIAAAgAQAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ChunkUpdater.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="KeySubscribtion" Collapsed="true">
+    <Position X="19.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>EventTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="MouseAxisSubscribtion" Collapsed="true">
+    <Position X="23" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>EventTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="TimerSubscription" Collapsed="true">
+    <Position X="19.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAAAAgAAAAA=</HashCode>
+      <FileName>EventTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="EntityUpdateSubscription" Collapsed="true">
+    <Position X="26.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAgAEAAA=</HashCode>
+      <FileName>EventTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="SystemEventSubscription" Collapsed="true">
+    <Position X="26.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>EventTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="LoggerSubscription" Collapsed="true">
+    <Position X="21.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>EventTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="SimulationEventSubscription" Collapsed="true">
+    <Position X="24.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAIAQAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>EventTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ChunkElements" Collapsed="true">
+    <Position X="16" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAMAAgAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>ChunkElements.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="FieldPlan" Collapsed="true">
+    <Position X="16" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAgAAAQAAAAAAAAgBAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ItemDropChance" Collapsed="true">
+    <Position X="17.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAACAAAAQAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="EntityDrops" Collapsed="true">
+    <Position X="24.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ChunkPlan" Collapsed="true">
+    <Position X="17.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="TextureLocalization" Collapsed="true">
+    <Position X="16" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAQAAAAAAAAAAQAhgAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ChunkPosition" Collapsed="true">
+    <Position X="19.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAA=</HashCode>
+      <FileName>PositionStructures.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="TilePosition" Collapsed="true">
+    <Position X="17.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAABgAQAAAAA=</HashCode>
+      <FileName>PositionStructures.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ChunkPositionsSet" Collapsed="true">
+    <Position X="21.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>PositionStructures.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ConsoleLine" Collapsed="true">
+    <Position X="23" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACIAAAAAAAAAAA=</HashCode>
+      <FileName>Console.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Typedef Name="eventfn" Collapsed="true">
+    <Position X="23" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EventTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="updatefn" Collapsed="true">
+    <Position X="16" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EventTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="defaultfn" Collapsed="true">
+    <Position X="19.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EventTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="cstint" Collapsed="true">
+    <Position X="17.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="stack" Collapsed="true">
+    <Position X="19.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="ll" Collapsed="true">
+    <Position X="19.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="tickperiod" Collapsed="true">
+    <Position X="24.75" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="keycode" Collapsed="true">
+    <Position X="17.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="mousebcode" Collapsed="true">
+    <Position X="24.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="actiontype" Collapsed="true">
+    <Position X="16" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="worldtype" Collapsed="true">
+    <Position X="19.5" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="entitytype" Collapsed="true">
+    <Position X="21.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="itemtype" Collapsed="true">
+    <Position X="16" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="tooltype" Collapsed="true">
+    <Position X="26.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="texturename" Collapsed="true">
+    <Position X="23" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="scenename" Collapsed="true">
+    <Position X="26.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="rawpath" Collapsed="true">
+    <Position X="24.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="pxint" Collapsed="true">
+    <Position X="21.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="exceptionmessage" Collapsed="true">
+    <Position X="24.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="simulationevent" Collapsed="true">
+    <Position X="17.75" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="systemevent" Collapsed="true">
+    <Position X="21.25" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="priority" Collapsed="true">
+    <Position X="19.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="objecttype" Collapsed="true">
+    <Position X="17.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="objectgroup" Collapsed="true">
+    <Position X="16" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="loglevel" Collapsed="true">
+    <Position X="21.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="miliseconds" Collapsed="true">
+    <Position X="23" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="radian" Collapsed="true">
+    <Position X="23" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="season" Collapsed="true">
+    <Position X="16" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="updatetype" Collapsed="true">
+    <Position X="17.75" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="name" Collapsed="true">
+    <Position X="26.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="gendertype" Collapsed="true">
+    <Position X="26.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

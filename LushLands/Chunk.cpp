@@ -53,17 +53,14 @@ Structure *Chunk::addStructure(entitytype entityType, Position &position) {
 Entity *Chunk::rmStructure(Entity *entity) {
     if (not entity)
         return entity;
-    auto *pos = (Position *)entity->getPosition();
-    if (pos) {
-        auto tPos = pos->getTilePosition();
-        auto msr = ce.structures.find(tPos);
-        if (msr != ce.structures.end() and msr->second == entity) {
-            Structure *structure = (Structure *)entity;
-            collisionManager.rmCollider((Collider *)entity->getCollider());
-            ce.structures.erase(msr);
-            delete structure;
-            entity = 0;
-        }
+    TilePosition *tPos = (TilePosition *)entity->getTilePosition();
+    auto msr = ce.structures.find(*tPos);
+    if (msr != ce.structures.end() and msr->second == entity) {
+        Structure *structure = (Structure *)entity;
+        collisionManager.rmCollider((Collider *)entity->getCollider());
+        ce.structures.erase(msr);
+        delete structure;
+        entity = 0;
     }
     return entity;
 }
@@ -152,17 +149,15 @@ Entity *Chunk::rmHumanoid(Entity *entity) {
 Entity *Chunk::rmGround(Entity *entity) {
     if (not entity)
         return entity;
-    auto *pos = (Position *)entity->getPosition();
-    if (pos) {
-        auto tPos = pos->getTilePosition();
-        auto msr = ce.groundTiles.find(tPos);
-        if (msr != ce.groundTiles.end() and msr->second == entity) {
-            Ground *ground = (Ground *)entity;
-            ce.groundTiles.erase(msr);
-            delete ground;
-            entity = 0;
-        }
+    TilePosition *tPos = (TilePosition *)entity->getTilePosition();
+    auto msr = ce.groundTiles.find(*tPos);
+    if (msr != ce.groundTiles.end() and *msr->second == *entity) {
+        Ground *ground = (Ground *)entity;
+        ce.groundTiles.erase(msr);
+        delete ground;
+        entity = 0;
     }
+    
     return entity;
 }
 

@@ -511,5 +511,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="ProjectDiagram.cd" />
   </ItemGroup>
 </Project>
