@@ -1,0 +1,16 @@
+{
+    "EntityType": "tree",
+	"TemplateClass": "structure",
+    "Color": {"R": 50, "G": 120, "B": 60, "A": 255},
+	"Size": {"W": 1.0, "H": 2.0, "L": 1.0},
+    "Description": "Tall tree, gives a lot of shade.",
+    "TexturePosition": {"X": 0, "Y": 0},
+    "TextureImage": "..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\RPG Nature Tileset.png",
+    "TextureSize": {"W": 32, "H": 64},
+    "EntityDrops" : [
+        {"ItemType": "wood", "ChanceGuaranteed": 3, "ChanceLow": 3, "ChanceHigh": 5},
+        {"ItemType": "branch", "ChanceGuaranteed": 2, "ChanceLow": 2, "ChanceHigh": 3}
+    ],
+    "Health" : 300,
+    "ToolType": "axe"
+}

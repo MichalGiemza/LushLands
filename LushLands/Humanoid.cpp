@@ -1,18 +1,18 @@
 #include "Humanoid.h"
 
-Humanoid::Humanoid(InputEvents *inputEvents, const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, const int movementSpeed, name firstName, name lastName, gendertype gender, const int invSize, int maxHealth, const tooltype requiredTool, const EntityDrops &drops) :
-    Entity(entityType, description, constant_update, inputEvents),
+Humanoid::Humanoid(HumanoidCtorParams &p) :
+    Entity(p.entityType, *p.description, constant_update, p.inputEvents),
     entityUpdater(),
-    appearance(color),
-    body(position, size),
+    appearance(*p.color),
+    body(*p.position, *p.size),
     collider(&body),
     dynamicCollider(&collider),
-    mobility(&dynamicCollider, &entityUpdater, movementSpeed),
+    mobility(&dynamicCollider, &entityUpdater, p.movementSpeed),
     firstName(firstName),
     lastName(lastName),
     gender(gender),
-    inventory(invSize, body.getPosition()),
-    destroyability(this, inputEvents, maxHealth, requiredTool, drops),
+    inventory(p.invSize, body.getPosition()),
+    destroyability(this, p.inputEvents, p.maxHealth, p.requiredTool, *p.drops),
     gameElement(ft::HUMANOID, fp::HUMANOID, fg::SIMULATION) {
 }
 

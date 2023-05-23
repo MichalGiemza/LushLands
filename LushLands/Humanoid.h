@@ -8,6 +8,7 @@
 #include "Mobility.h"
 #include "Inventory.h"
 #include "Destroyability.h"
+#include "CtorParamStructures.h"
 
 
 class Humanoid : public Entity {
@@ -29,7 +30,7 @@ class Humanoid : public Entity {
     gendertype gender;
 public:
     // Constructors and main methods
-    Humanoid(InputEvents *inputEvents, const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, const int movementSpeed, name firstName, name lastName, gendertype gender, const int invSize, int maxHealth, const tooltype requiredTool, const EntityDrops &drops);
+    Humanoid(HumanoidCtorParams &params);
     Entity *clone() override;
 
     // Getters, Setters

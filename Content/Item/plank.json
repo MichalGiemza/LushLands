@@ -1,0 +1,9 @@
+{
+    "ItemType": "plank",
+    "Color": {"R": 210, "G": 180, "B": 80, "A": 255},
+    "Description": "Wooden plank, one of the most usable resources.",
+    "TexturePosition": {"X": 24, "Y": 0},
+    "TextureImage": "..\\Assets\\textures\\Crafting Materials by Beast Pixels\\resources_basic.png",
+    "TextureSize": {"Width": 24, "Height": 24},
+    "Stack": "maxStack"
+}

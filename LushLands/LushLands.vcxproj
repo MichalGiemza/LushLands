@@ -129,10 +129,12 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Libraries\boost_1_82_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Libraries\boost_1_82_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -154,13 +156,17 @@
   <ItemGroup>
     <ClCompile Include="ActionMap.cpp" />
     <ClCompile Include="ChunkUpdater.cpp" />
+    <ClCompile Include="ConstSelector.cpp" />
+    <ClCompile Include="DataTypes.cpp" />
     <ClCompile Include="Destroyability.cpp" />
+    <ClCompile Include="Directories.cpp" />
     <ClCompile Include="EntityConstants.cpp" />
     <ClCompile Include="Hotbar.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="InventoryDisplay.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemFactory.cpp" />
+    <ClCompile Include="JsonHandler.cpp" />
     <ClCompile Include="NumTools.cpp" />
     <ClCompile Include="Animal.cpp" />
     <ClCompile Include="Appearance.cpp" />
@@ -225,13 +231,17 @@
     <ClInclude Include="ActionMap.h" />
     <ClInclude Include="ChunkElements.h" />
     <ClInclude Include="ChunkUpdater.h" />
+    <ClInclude Include="ConstSelector.h" />
+    <ClInclude Include="CtorParamStructures.h" />
     <ClInclude Include="Destroyability.h" />
+    <ClInclude Include="Directories.h" />
     <ClInclude Include="Hotbar.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="InventoryDisplay.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemConstants.h" />
     <ClInclude Include="ItemFactory.h" />
+    <ClInclude Include="JsonHandler.h" />
     <ClInclude Include="NumTools.h" />
     <ClInclude Include="Animal.h" />
     <ClInclude Include="Appearance.h" />

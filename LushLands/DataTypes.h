@@ -1,6 +1,7 @@
 #pragma once
 #include <functional>
 #include <filesystem>
+#include <tuple>
 #include "Constants.h"
 
 namespace fs = std::filesystem;
@@ -14,6 +15,7 @@ typedef int mousebcode;
 typedef const char *actiontype;
 typedef const char *worldtype;
 typedef const char *entitytype;
+typedef const char *templateclass;
 typedef const char *itemtype;
 typedef const char *tooltype;
 typedef const char *texturename;
@@ -59,7 +61,12 @@ struct ChunkPlan { // TODO: Zrobiæ z tego generator, takie jedno coœ mo¿e zajmow
 };
 
 struct TextureLocalization {
-    int x, y; // [x,y] position on bitmap, 32x32 tile size defined in constants as tileSize
+    /** 
+    * x, y - position on bitmap
+    * x, h - tile size, default is defined in constants as tileSize
+    * path - to source image
+    */
+    int x, y; 
     const char *path;
     int w = tileSizePx, h = tileSizePx;
     bool operator==(const TextureLocalization &other) const {
@@ -68,20 +75,19 @@ struct TextureLocalization {
 };
 
 template<> struct std::hash<char *> {
-    std::size_t operator()(const char *p) const {
-        std::size_t hash_ = 0;
-        for (int i = 0; p[i] != 0; i++) {
-            hash_ = 33 * hash_ + p[i];
-        }
-        return hash_;
-    }
+    std::size_t operator()(const char *p) const;
 };
 
 template<> struct std::hash<TextureLocalization> {
-    std::size_t operator()(const TextureLocalization &p) const {
-        return
-            hash<int>()(p.x) ^
-            hash<int>()(p.y) ^
-            hash<char *>()(p.path);
-    }
+    std::size_t operator()(const TextureLocalization &p) const;
+};
+
+bool operator==(const std::tuple<float, float, float> &lhs, const std::tuple<float, float, float> &rhs);
+template<> struct std::hash<std::tuple<float, float, float>> {
+    std::size_t operator()(const std::tuple<float, float, float> &p) const;
+};
+
+bool operator==(const std::tuple<uint8_t, uint8_t, uint8_t> &lhs, const std::tuple<uint8_t, uint8_t, uint8_t> &rhs);
+template<> struct std::hash<std::tuple<uint8_t, uint8_t, uint8_t>> {
+    std::size_t operator()(const std::tuple<uint8_t, uint8_t, uint8_t> &p) const;
 };

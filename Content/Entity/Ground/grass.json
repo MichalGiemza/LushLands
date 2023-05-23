@@ -1,0 +1,14 @@
+{
+    "EntityType": "grass",
+	"TemplateClass": "ground",
+    "Color": {"R": 80, "G": 100, "B": 50, "A": 255},
+    "Description": "Green, idyllic grass.",
+    "TexturePosition": {"X": 0, "Y": 64},
+    "TextureImage": "..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\RPG Nature Tileset.png",
+    "TextureSize": null,
+    "EntityDrops" : [
+        {"ItemType": "soil", "ChanceGuaranteed": 1, "ChanceLow": 1, "ChanceHigh": 1}
+    ],
+    "Health" : 50,
+    "ToolType": "shovel"
+}

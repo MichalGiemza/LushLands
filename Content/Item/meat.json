@@ -1,0 +1,9 @@
+{
+    "ItemType": "meat",
+    "Color": {"R": 60, "G": 10, "B": 30, "A": 255},
+    "Description": "Delicious piece of raw meat.",
+    "TexturePosition": {"X": 24, "Y": 192},
+    "TextureImage": "..\\Assets\\textures\\Crafting Materials by Beast Pixels\\resources_basic.png",
+    "TextureSize": {"Width": 24, "Height": 24},
+    "Stack": "maxStack"
+}

@@ -1,0 +1,14 @@
+{
+    "EntityType": "farmland",
+	"TemplateClass": "ground",
+    "Color": {"R": 150, "G": 100, "B": 50, "A": 255},
+    "Description": "Fertile land for growing crops.",
+    "TexturePosition": {"X": 0, "Y": 0},
+    "TextureImage": "..\\Assets\\textures\\RPG Terrain Pack - Seasons by Stealthix\\RPG Terrain Pack.png",
+    "TextureSize": null,
+    "EntityDrops": [
+        {"ItemType": "soil", "ChanceGuaranteed": 1, "ChanceLow": 1, "ChanceHigh": 1}
+    ],
+    "Health": 0,
+    "ToolType": "shovel"
+}

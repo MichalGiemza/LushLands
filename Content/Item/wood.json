@@ -1,0 +1,9 @@
+{
+    "ItemType": "wood",
+    "Color": {"R": 110, "G": 60, "B": 30, "A": 255},
+    "Description": "Wood from cut down tree.",
+    "TexturePosition": {"X": 0, "Y": 0},
+    "TextureImage": "..\\Assets\\textures\\Crafting Materials by Beast Pixels\\resources_basic.png",
+    "TextureSize": {"Width": 24, "Height": 24},
+    "Stack": "maxStack"
+}

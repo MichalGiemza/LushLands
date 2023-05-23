@@ -1,0 +1,9 @@
+{
+    "ItemType": "stone",
+    "Color": {"R": 210, "G": 180, "B": 80, "A": 255},
+    "Description": "Sturdy resource.",
+    "TexturePosition": {"X": 48, "Y": 24},
+    "TextureImage": "..\\Assets\\textures\\Crafting Materials by Beast Pixels\\resources_basic.png",
+    "TextureSize": {"Width": 24, "Height": 24},
+    "Stack": "maxStack"
+}

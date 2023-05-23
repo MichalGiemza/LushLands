@@ -1,6 +1,16 @@
 #pragma once
 #include "DataTypes.h"
 
+namespace template_class {
+    const templateclass GROUND = "ground";
+    const templateclass STRUCTURE = "structure";
+    const templateclass ANIMAL = "animal";
+    const templateclass HUMANOID = "humanoid";
+    const templateclass ITEM_SIMPLE = "item_simple";
+    const templateclass ITEM_COMPLEX = "item_complex";
+}
+namespace tc = template_class;
+
 namespace focus_type {
     // Object Types (world)
     const objecttype GROUND = "ground";
@@ -48,6 +58,10 @@ namespace logging_level {
     // Logging levels (user messages)
     const loglevel USER_COMMAND = 254;
     const loglevel USER_MESSAGE = 255;
+    // Logging levels (errors)
+    const loglevel WARNING_ = 128;
+    const loglevel ERROR_ = 200;
+    const loglevel CRASH_ = 255;
 }
 namespace lg = logging_level;
 
@@ -121,6 +135,13 @@ const rawpath fontPixeletterBold = "..\\Assets\\fonts\\sik_fonts\\PixeletterBold
 const rawpath fontRomanTeal = "..\\Assets\\fonts\\sik_fonts\\RomanTeal.ttf";
 const rawpath fontVideoGlau = "..\\Assets\\fonts\\sik_fonts\\VideoGlau.ttf";
 const rawpath fontVideoGlauBold = "..\\Assets\\fonts\\sik_fonts\\VideoGlauBold.ttf";
+
+// Ctor Param Json Files
+const rawpath ctorParamsAnimal = "..\\Content\\Entity\\Animal";
+const rawpath ctorParamsHumanoid = "..\\Content\\Entity\\Humanoid";
+const rawpath ctorParamsGround = "..\\Content\\Entity\\Ground";
+const rawpath ctorParamsStructure = "..\\Content\\Entity\\Structure";
+const rawpath ctorParamsItem = "..\\Content\\Item";
 
 // Entity Update Type
 const updatetype no_update = "no_update";

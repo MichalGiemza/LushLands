@@ -1,0 +1,9 @@
+{
+    "ItemType": "SWORD",
+    "Color": null,
+    "Description": "Most common melee weapon around here.",
+    "TexturePosition": null,
+    "TextureImage": "..\\Assets\\textures\\All tools mini-pack by SnowHex\\AllTools - SnowHex.png",
+    "TextureSize": null,
+    "Stack": "singleItemStack"
+}

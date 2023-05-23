@@ -4,6 +4,7 @@
 #include "Appearance.h"
 #include "GameElement.h"
 #include "Destroyability.h"
+#include "CtorParamStructures.h"
 
 
 class Ground : public Entity {
@@ -17,7 +18,7 @@ class Ground : public Entity {
     Destroyability destroyability;
 public:
     // Constructors and main methods
-    Ground(InputEvents *inputEvents, const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, int maxHealth, const tooltype requiredTool, const EntityDrops &drops, const updatetype updateType = no_update);
+    Ground(GroundCtorParams &params);
     Entity *clone() override;
 
     // Getters, Setters

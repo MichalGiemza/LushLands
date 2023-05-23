@@ -1,0 +1,9 @@
+{
+    "ItemType": "dirt",
+    "Color": {"R": 110, "G": 60, "B": 30, "A": 255},
+    "Description": "Dug up soil.",
+    "TexturePosition": {"X": 32, "Y": 644},
+    "TextureImage": "..\\Assets\\textures\\Shikashi's Fantasy Icons Pack v2\\#1 - Transparent Icons.png",
+    "TextureSize": {"Width": 32, "Height": 32},
+    "Stack": "maxStack"
+}

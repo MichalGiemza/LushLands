@@ -1,0 +1,9 @@
+{
+    "ItemType": "snow",
+    "Color": {"R": 110, "G": 60, "B": 30, "A": 255},
+    "Description": "Cold lump of snow.",
+    "TexturePosition": {"X": 320, "Y": 483},
+    "TextureImage": "..\\Assets\\textures\\Shikashi's Fantasy Icons Pack v2\\#1 - Transparent Icons.png",
+    "TextureSize": {"Width": 32, "Height": 32},
+    "Stack": "maxStack"
+}

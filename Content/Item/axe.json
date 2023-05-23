@@ -1,0 +1,9 @@
+{
+    "ItemType": "AXE",
+    "Color": null,
+    "Description": "Obligatory for every lumberjack.",
+    "TexturePosition": {"X": 199, "Y": 63},
+    "TextureImage": "..\\Assets\\textures\\All tools mini-pack by SnowHex\\AllTools - SnowHex.png",
+    "TextureSize": null,
+    "Stack": "singleItemStack"
+}

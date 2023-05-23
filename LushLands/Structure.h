@@ -5,6 +5,7 @@
 #include "Collider.h"
 #include "GameElement.h"
 #include "Destroyability.h"
+#include "CtorParamStructures.h"
 
 
 class Structure : public Entity {
@@ -19,7 +20,7 @@ class Structure : public Entity {
     Destroyability destroyability;
 public:
     // Constructors and main methods
-    Structure(InputEvents *inputEvents, const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, int maxHealth, const tooltype requiredTool, const EntityDrops &drops, const updatetype updateType = no_update);
+    Structure(StructureCtorParams &params);
     Entity *clone() override;
 
     // Getters, Setters

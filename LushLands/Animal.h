@@ -4,6 +4,8 @@
 #include "Appearance.h"
 #include "GameElement.h"
 #include "Destroyability.h"
+#include "CtorParamStructures.h"
+
 
 class Animal : public Entity {
     /**
@@ -21,7 +23,7 @@ class Animal : public Entity {
     Destroyability destroyability;
 public:
     // Constructors and main methods
-    Animal(InputEvents *inputEvents, const entitytype entityType, const std::string &description, Position &position, const Size &size, const Color &color, const int movementSpeed, const miliseconds walkInterval, int maxHealth, const tooltype requiredTool, const EntityDrops &drops);
+    Animal(AnimalCtorParams &params);
     Entity *clone() override;
     
     // Getters, Setters
