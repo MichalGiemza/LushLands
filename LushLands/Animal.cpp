@@ -3,7 +3,7 @@
 Animal::Animal(AnimalCtorParams &p) :
     Entity(p.entityType, *p.description, constant_update, p.inputEvents),
     entityUpdater(),
-    appearance(*p.color),
+    appearance(*p.color, p.textureLocalization),
     body(*p.position, *p.size),
     collider(&body),
     dynamicCollider(&collider),

@@ -156,11 +156,10 @@
   <ItemGroup>
     <ClCompile Include="ActionMap.cpp" />
     <ClCompile Include="ChunkUpdater.cpp" />
-    <ClCompile Include="ConstSelector.cpp" />
+    <ClCompile Include="ConstantRepository.cpp" />
     <ClCompile Include="DataTypes.cpp" />
     <ClCompile Include="Destroyability.cpp" />
     <ClCompile Include="Directories.cpp" />
-    <ClCompile Include="EntityConstants.cpp" />
     <ClCompile Include="Hotbar.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="InventoryDisplay.cpp" />
@@ -231,7 +230,7 @@
     <ClInclude Include="ActionMap.h" />
     <ClInclude Include="ChunkElements.h" />
     <ClInclude Include="ChunkUpdater.h" />
-    <ClInclude Include="ConstSelector.h" />
+    <ClInclude Include="ConstantRepository.h" />
     <ClInclude Include="CtorParamStructures.h" />
     <ClInclude Include="Destroyability.h" />
     <ClInclude Include="Directories.h" />
@@ -261,7 +260,6 @@
     <ClInclude Include="Console.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="DynamicCollider.h" />
-    <ClInclude Include="EntityConstants.h" />
     <ClInclude Include="EventFactory.h" />
     <ClInclude Include="Events.h" />
     <ClInclude Include="FileToArray.h" />

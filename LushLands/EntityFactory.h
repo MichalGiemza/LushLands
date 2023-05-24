@@ -2,7 +2,7 @@
 #include "Entity.h"
 #include "DataTypes.h"
 #include "ConstantSets.h"
-#include "EntityConstants.h"
+
 #include "Ground.h"
 #include "Structure.h"
 #include "Animal.h"
@@ -13,7 +13,7 @@
 #include <unordered_map>
 #include "Directories.h"
 #include "JsonHandler.h"
-#include "ConstSelector.h"
+#include "ConstantRepository.h"
 
 
 class EntityFactory {

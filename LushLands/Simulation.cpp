@@ -31,7 +31,7 @@ Position *Simulation::getWorldLoadingPosition() {
 
 void Simulation::addPlayer(InputEvents *ie) {
     Position p = Position(0, world->getSeaLevel(), 0);
-    Humanoid *human = (Humanoid *)entityFactory->buildEntity(e::HUMAN, p);
+    Humanoid *human = (Humanoid *)entityFactory->buildEntity("human", p);
     player = new Player(human, ie);
     world->placePlayer(player);
     loadPosition = (Position *)human->getPosition();

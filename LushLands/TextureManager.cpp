@@ -21,30 +21,11 @@ TextureManager::TextureManager() {
 
 void TextureManager::loadAllTextures() {
     // Entities
-    /*    Ground    */
-    textures[e::SOIL] = loadTexture(e::SOIL_TEXTURE_LOCALIZATION);
-    textures[e::GRASS] = loadTexture(e::GRASS_TEXTURE_LOCALIZATION);
-    textures[e::WATER] = loadTexture(e::WATER_TEXTURE_LOCALIZATION);
-    textures[e::SAND] = loadTexture(e::SAND_TEXTURE_LOCALIZATION);
-    textures[e::ROCK] = loadTexture(e::ROCK_TEXTURE_LOCALIZATION);
-    textures[e::COBBLE] = loadTexture(e::COBBLE_TEXTURE_LOCALIZATION);
-    textures[e::FARMLAND] = loadTexture(e::FARMLAND_TEXTURE_LOCALIZATION);
-    textures[e::GRAVEL] = loadTexture(e::GRAVEL_TEXTURE_LOCALIZATION);
-    textures[e::SNOW] = loadTexture(e::SNOW_TEXTURE_LOCALIZATION);
-    /*    Structure    */
-    textures[e::TREE] = loadTexture(e::TREE_TEXTURE_LOCALIZATION);
-    textures[e::BUSH] = loadTexture(e::BUSH_TEXTURE_LOCALIZATION);
-    textures[e::TALL_GRASS] = loadTexture(e::TALL_GRASS_TEXTURE_LOCALIZATION);
-    textures[e::FLOWER_YELLOW] = loadTexture(e::FLOWER_YELLOW_TEXTURE_LOCALIZATION);
-    textures[e::STONE] = loadTexture(e::STONE_TEXTURE_LOCALIZATION);
-    textures[e::LOG] = loadTexture(e::LOG_TEXTURE_LOCALIZATION);
-    /*    Animal    */
-    textures[e::CHICKEN] = loadTexture(e::CHICKEN_TEXTURE_LOCALIZATION);
-    /*    Humanoids    */
-    textures[e::HUMAN] = loadTexture(e::HUMAN_TEXTURE_LOCALIZATION);
+    for (entitytype entityType : CR::getAllEntityTypes())
+        textures[entityType] = loadTexture(*CR::selectTextureLocalization((char *)entityType));
     // Items 
     /*    Resources    */
-    textures[i::WOOD] = loadTexture(i::WOOD_TEXTURE_LOCALIZATION);
+    textures[i::WOOD] = loadTexture(i::WOOD_TEXTURE_LOCALIZATION); // TODO
     textures[i::PLANK] = loadTexture(i::PLANK_TEXTURE_LOCALIZATION);
     textures[i::BRANCH] = loadTexture(i::BRANCH_TEXTURE_LOCALIZATION);
     /*    Animal Loot    */

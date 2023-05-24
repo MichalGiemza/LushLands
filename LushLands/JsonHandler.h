@@ -2,8 +2,8 @@
 #include <iostream>
 #include <fstream>
 #include <boost/json.hpp>
-#include "Logger.h"
 #include <boost/container_hash/hash.hpp>
+#include "Logger.h"
 
 using namespace boost;
 
@@ -25,4 +25,4 @@ public:
 };
 
 json::string a_s(const json::object &d, const char *key);
-
+char *a_c(const json::string &str);

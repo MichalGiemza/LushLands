@@ -169,9 +169,6 @@
     <ClCompile Include="Destroyability.cpp">
       <Filter>src\Simulation\World\Entities\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="EntityConstants.cpp">
-      <Filter>src\Simulation\World\Entities</Filter>
-    </ClCompile>
     <ClCompile Include="Item.cpp">
       <Filter>src\Simulation\World\Items</Filter>
     </ClCompile>
@@ -208,7 +205,7 @@
     <ClCompile Include="Directories.cpp">
       <Filter>src\Core\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="ConstSelector.cpp">
+    <ClCompile Include="ConstantRepository.cpp">
       <Filter>src\Core\Tools</Filter>
     </ClCompile>
     <ClCompile Include="ChunkUpdater.cpp">
@@ -408,9 +405,6 @@
     <ClInclude Include="Destroyability.h">
       <Filter>src\Simulation\World\Entities\Modules</Filter>
     </ClInclude>
-    <ClInclude Include="EntityConstants.h">
-      <Filter>src\Simulation\World\Entities</Filter>
-    </ClInclude>
     <ClInclude Include="Item.h">
       <Filter>src\Simulation\World\Items</Filter>
     </ClInclude>
@@ -456,7 +450,7 @@
     <ClInclude Include="Directories.h">
       <Filter>src\Core\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="ConstSelector.h">
+    <ClInclude Include="ConstantRepository.h">
       <Filter>src\Core\Tools</Filter>
     </ClInclude>
     <ClInclude Include="ChunkUpdater.h">

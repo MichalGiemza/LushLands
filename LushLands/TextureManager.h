@@ -5,7 +5,9 @@
 #include "DataTypes.h"
 #include "Constants.h"
 #include "ConstantSets.h"
-#include "EntityConstants.h"
+#include "ItemConstants.h"
+#include "ConstantRepository.h"
+
 
 class TextureManager {
     /**

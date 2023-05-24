@@ -8,7 +8,7 @@
     "TextureImage": "..\\Assets\\textures\\Edinnu Small Forest by rowdy41\\Bushes\\Bush-3.png",
     "TextureSize": {"W": 25, "H": 19},
     "EntityDrops" : [
-        {"ItemType": "branch", "ChanceGuaranteed": 2, "ChanceLow": 2, "ChanceHigh": 3},
+        {"ItemType": "branch", "ChanceGuaranteed": 2, "ChanceLow": 2, "ChanceHigh": 3}
     ],
     "Health" : 50,
     "ToolType": null
