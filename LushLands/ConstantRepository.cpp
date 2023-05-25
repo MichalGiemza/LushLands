@@ -49,7 +49,7 @@ const TextureLocalization *ConstantRepository::selectTextureLocalization(const j
 	auto &tp = d.at("TexturePosition");
 	if (not tp.is_null()) {
 		tl.x = tp.as_object().at("X").as_int64();
-		tl.x = tp.as_object().at("Y").as_int64();
+		tl.y = tp.as_object().at("Y").as_int64();
 	} else {
 		tl.x = 0;
 		tl.y = 0;
@@ -60,8 +60,8 @@ const TextureLocalization *ConstantRepository::selectTextureLocalization(const j
 		tl.w = ts.as_object().at("W").as_int64();
 		tl.h = ts.as_object().at("H").as_int64();
 	} else {
-		tl.w = 0;
-		tl.h = 0;
+		tl.w = tileSizePx;
+		tl.h = tileSizePx;
 	}
 	//   ImagePath
 	auto &ti = d.at("TextureImage");

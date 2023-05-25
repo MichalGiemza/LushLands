@@ -6,7 +6,7 @@
     "Description": "A small domesticated bird often raised for its meat and eggs.",
     "TexturePosition": {"X": 0, "Y": 130},
     "TextureImage": "..\\Assets\\textures\\Cozy Farm Asset Pack by shubibubi\\free.png",
-    "TextureSize": {"W": 32, "H": 32},
+    "TextureSize": {"W": 16, "H": 16},
 	"MovementSpeed": 600,
 	"WalkInterval": 5000,
     "EntityDrops": 	[

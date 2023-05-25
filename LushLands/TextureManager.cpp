@@ -1,20 +1,18 @@
 #include "TextureManager.h"
 
-ALLEGRO_BITMAP *TextureManager::loadTexture(const TextureLocalization &tl) {
+ALLEGRO_BITMAP *TextureManager::loadTexture(const TextureLocalization *tl) {
     auto rawBitmap = getRawBitmap(tl);
-    return al_create_sub_bitmap(rawBitmap, tl.x, tl.y, tl.w, tl.h);
+    return al_create_sub_bitmap(rawBitmap, tl->x, tl->y, tl->w, tl->h);
 }
 
-ALLEGRO_BITMAP *TextureManager::getRawBitmap(const TextureLocalization &tl) {
-    if (!rawBitmaps[tl]) {
-        rawBitmaps[tl] = al_load_bitmap(tl.path);
+ALLEGRO_BITMAP *TextureManager::getRawBitmap(const TextureLocalization *tl) {
+    if (not rawBitmaps[tl->path]) {
+        rawBitmaps[tl->path] = al_load_bitmap(tl->path);
     }
-    return rawBitmaps[tl];
+    return rawBitmaps[tl->path];
 }
 
 TextureManager::TextureManager() {
-    textures = std::unordered_map<texturename, ALLEGRO_BITMAP *>();
-    rawBitmaps = std::unordered_map<TextureLocalization, ALLEGRO_BITMAP *>();
     al_init_image_addon();
     loadAllTextures();
 }
@@ -22,21 +20,21 @@ TextureManager::TextureManager() {
 void TextureManager::loadAllTextures() {
     // Entities
     for (entitytype entityType : CR::getAllEntityTypes())
-        textures[entityType] = loadTexture(*CR::selectTextureLocalization((char *)entityType));
+        textures[entityType] = loadTexture(CR::selectTextureLocalization((char *)entityType));
     // Items 
     /*    Resources    */
-    textures[i::WOOD] = loadTexture(i::WOOD_TEXTURE_LOCALIZATION); // TODO
-    textures[i::PLANK] = loadTexture(i::PLANK_TEXTURE_LOCALIZATION);
-    textures[i::BRANCH] = loadTexture(i::BRANCH_TEXTURE_LOCALIZATION);
+    textures[i::WOOD] = loadTexture(&i::WOOD_TEXTURE_LOCALIZATION); // TODO
+    textures[i::PLANK] = loadTexture(&i::PLANK_TEXTURE_LOCALIZATION);
+    textures[i::BRANCH] = loadTexture(&i::BRANCH_TEXTURE_LOCALIZATION);
     /*    Animal Loot    */
-    textures[i::MEAT] = loadTexture(i::MEAT_TEXTURE_LOCALIZATION);
-    textures[i::FEATHER] = loadTexture(i::FEATHER_TEXTURE_LOCALIZATION);
+    textures[i::MEAT] = loadTexture(&i::MEAT_TEXTURE_LOCALIZATION);
+    textures[i::FEATHER] = loadTexture(&i::FEATHER_TEXTURE_LOCALIZATION);
     /*    Tools    */
-    textures[i::SWORD] = loadTexture(i::SWORD_TEXTURE_LOCALIZATION);
-    textures[i::SHOVEL] = loadTexture(i::SHOVEL_TEXTURE_LOCALIZATION);
-    textures[i::PICKAXE] = loadTexture(i::PICKAXE_TEXTURE_LOCALIZATION);
-    textures[i::AXE] = loadTexture(i::AXE_TEXTURE_LOCALIZATION);
-    textures[i::SCYTHE] = loadTexture(i::SCYTHE_TEXTURE_LOCALIZATION);
+    textures[i::SWORD] = loadTexture(&i::SWORD_TEXTURE_LOCALIZATION);
+    textures[i::SHOVEL] = loadTexture(&i::SHOVEL_TEXTURE_LOCALIZATION);
+    textures[i::PICKAXE] = loadTexture(&i::PICKAXE_TEXTURE_LOCALIZATION);
+    textures[i::AXE] = loadTexture(&i::AXE_TEXTURE_LOCALIZATION);
+    textures[i::SCYTHE] = loadTexture(&i::SCYTHE_TEXTURE_LOCALIZATION);
 }
 
 ALLEGRO_BITMAP *TextureManager::getNamedTexture(const char *name) {
@@ -44,5 +42,5 @@ ALLEGRO_BITMAP *TextureManager::getNamedTexture(const char *name) {
 }
 
 ALLEGRO_BITMAP *TextureManager::getTexture(const TextureLocalization &tl) {
-    return getRawBitmap(tl);
+    return getRawBitmap(&tl);
 }

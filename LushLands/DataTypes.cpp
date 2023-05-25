@@ -9,10 +9,13 @@ std::size_t std::hash<char *>::operator()(const char *p) const {
 }
 
 std::size_t std::hash<TextureLocalization>::operator()(const TextureLocalization &p) const {
-    return
-        hash<int>()(p.x) ^
-        hash<int>()(p.y) ^
-        hash<char *>()(p.path);
+    size_t seed = 0;
+    boost::hash_combine(seed, p.x);
+    boost::hash_combine(seed, p.y);
+    boost::hash_combine(seed, p.w);
+    boost::hash_combine(seed, p.h);
+    boost::hash_combine(seed, std::string(p.path));
+    return seed;
 }
 
 bool operator==(const std::tuple<float, float, float> &lhs, const std::tuple<float, float, float> &rhs) {

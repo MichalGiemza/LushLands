@@ -2,6 +2,7 @@
 #include <functional>
 #include <filesystem>
 #include <tuple>
+#include <boost/functional/hash.hpp>
 #include "Constants.h"
 
 namespace fs = std::filesystem;

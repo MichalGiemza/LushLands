@@ -6,7 +6,7 @@
     "Description": "An intelligent bipedal creature with advanced cognitive abilities.",
     "TexturePosition": {"X": 0, "Y": 0},
     "TextureImage": "..\\Assets\\textures\\FREE Mana Seed Character Base Demo\\char_a_p1\\char_a_p1_0bas_humn_v01.png",
-	"TextureSize": {"W": 32, "H": 32},
+	"TextureSize": {"W": 64, "H": 64},
 	"MovementSpeed": 10000,
 	"InventorySlots": 12,
     "EntityDrops": [],
