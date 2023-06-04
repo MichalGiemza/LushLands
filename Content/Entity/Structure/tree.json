@@ -8,8 +8,8 @@
     "TextureImage": "..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\RPG Nature Tileset.png",
     "TextureSize": {"W": 32, "H": 64},
     "EntityDrops" : [
-        {"ItemType": "wood", "ChanceGuaranteed": 3, "ChanceLow": 3, "ChanceHigh": 5},
-        {"ItemType": "branch", "ChanceGuaranteed": 2, "ChanceLow": 2, "ChanceHigh": 3}
+        {"EntityType": "wood", "ChanceGuaranteed": 3, "ChanceLow": 3, "ChanceHigh": 5},
+        {"EntityType": "branch", "ChanceGuaranteed": 2, "ChanceLow": 2, "ChanceHigh": 3}
     ],
     "Health" : 300,
     "ToolType": "axe"

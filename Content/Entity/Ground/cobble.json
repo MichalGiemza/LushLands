@@ -7,7 +7,7 @@
     "TextureImage": "..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\IceTileset.png",
     "TextureSize": null,
     "EntityDrops": [
-        {"ItemType": "stone", "ChanceGuaranteed": 1, "ChanceLow": 1, "ChanceHigh": 1}
+        {"EntityType": "stone", "ChanceGuaranteed": 1, "ChanceLow": 1, "ChanceHigh": 1}
     ],
     "Health": 50,
     "ToolType": null

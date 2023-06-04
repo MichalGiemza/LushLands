@@ -1,9 +1,10 @@
 {
-    "ItemType": "SCYTHE",
-    "Color": null,
+    "EntityType": "scythe",
+    "Color": {"R": 200, "G": 200, "B": 200, "A": 255},
     "Description": "Is it harvest season yet?",
     "TexturePosition": {"X": 238, "Y": 63},
     "TextureImage": "..\\Assets\\textures\\All tools mini-pack by SnowHex\\AllTools - SnowHex.png",
     "TextureSize": null,
-    "Stack": "singleItemStack"
+    "Stack": "singleItemStack",
+	"ToolType": "scythe"
 }

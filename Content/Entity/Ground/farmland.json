@@ -7,7 +7,7 @@
     "TextureImage": "..\\Assets\\textures\\Edinnu Small Forest by rowdy41\\Ground tileset\\Earth-tileset.png",
     "TextureSize": null,
     "EntityDrops": [
-        {"ItemType": "soil", "ChanceGuaranteed": 1, "ChanceLow": 1, "ChanceHigh": 1}
+        {"EntityType": "soil", "ChanceGuaranteed": 1, "ChanceLow": 1, "ChanceHigh": 1}
     ],
     "Health": 0,
     "ToolType": "shovel"

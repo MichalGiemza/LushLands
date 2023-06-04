@@ -408,9 +408,6 @@
     <ClInclude Include="Item.h">
       <Filter>src\Simulation\World\Items</Filter>
     </ClInclude>
-    <ClInclude Include="ItemConstants.h">
-      <Filter>src\Simulation\World\Items</Filter>
-    </ClInclude>
     <ClInclude Include="ItemFactory.h">
       <Filter>src\Simulation\World\Items</Filter>
     </ClInclude>

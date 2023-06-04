@@ -7,7 +7,7 @@
     "TextureImage": "..\\Assets\\textures\\32x32 and 64x64 Pixel Art Textures by 711studios\\32x32 Tiles\\Metal_Floor.png",
     "TextureSize": null,
     "EntityDrops": [
-        {"ItemType": "gravel", "ChanceGuaranteed": 1, "ChanceLow": 1, "ChanceHigh": 1}
+        {"EntityType": "gravel", "ChanceGuaranteed": 1, "ChanceLow": 1, "ChanceHigh": 1}
     ],
     "Health": 50,
     "ToolType": "shovel"

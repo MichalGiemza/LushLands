@@ -10,8 +10,8 @@
 	"MovementSpeed": 600,
 	"WalkInterval": 5000,
     "EntityDrops": 	[
-		{ "ItemType": "meat", "ChanceGuaranteed": 1, "ChanceLow": 1, "ChanceHigh": 1},
-		{ "ItemType": "feather", "ChanceGuaranteed": 3, "ChanceLow": 3, "ChanceHigh": 5}
+		{ "EntityType": "meat", "ChanceGuaranteed": 1, "ChanceLow": 1, "ChanceHigh": 1},
+		{ "EntityType": "feather", "ChanceGuaranteed": 3, "ChanceLow": 3, "ChanceHigh": 5}
 	],
     "Health": 70,
     "ToolType": "weapon"

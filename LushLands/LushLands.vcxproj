@@ -238,7 +238,6 @@
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="InventoryDisplay.h" />
     <ClInclude Include="Item.h" />
-    <ClInclude Include="ItemConstants.h" />
     <ClInclude Include="ItemFactory.h" />
     <ClInclude Include="JsonHandler.h" />
     <ClInclude Include="NumTools.h" />

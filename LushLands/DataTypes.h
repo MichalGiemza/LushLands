@@ -17,7 +17,6 @@ typedef const char *actiontype;
 typedef const char *worldtype;
 typedef const char *entitytype;
 typedef const char *templateclass;
-typedef const char *itemtype;
 typedef const char *tooltype;
 typedef const char *texturename;
 typedef const char *scenename;
@@ -41,12 +40,12 @@ struct FieldPlan {
     entitytype ground = 0;
     entitytype structure = 0;
     entitytype animal = 0;
-    itemtype item = 0;
+    entitytype item = 0;
     stack itemAmount = 0;
 };
 
 struct ItemDropChance {
-    itemtype item;
+    entitytype item;
     int chanceGuaranteed;
     int chanceLow;
     int chanceHigh;

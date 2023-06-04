@@ -1,10 +1,16 @@
 #include "Item.h"
 
-Item::Item(itemtype itemType, std::string description, const stack maxStack, stack amount, tooltype toolType) :
-    itemType(itemType), description(description), maxStack(maxStack), amount(amount), toolType(toolType) { }
+Item::Item(ItemCtorParams &p) :
+    entityType(p.entityType), 
+    description(*p.description),
+    maxStack(p.maxStack),
+    amount(p.amount),
+    toolType(p.toolType),
+    position(*p.position)
+{ }
 
-itemtype Item::getType() {
-    return itemType;
+entitytype Item::getType() {
+    return entityType;
 }
 
 const stack Item::getMaxStack() {

@@ -158,8 +158,7 @@ void handleItemGenerate(ALLEGRO_EVENT *ae, void *obj) {
     Entity *entity = 0;
     EventFactory::unpackItemGenerate(ae, (void **)&itemDC, &direction, (void **)&entity);
     
-    Item *item = eh->itemFactory->buildItem(*itemDC);
-    item->getPosition()->updatePosition((*(Position *)entity->getPosition()));
+    Item *item = eh->itemFactory->buildItem(*itemDC, (Position *)entity->getPosition());
     item->getPosition()->push2D(direction, itemMagnetRadius * meter * 15 / 10);
     eh->world->placeItem(item);
 }

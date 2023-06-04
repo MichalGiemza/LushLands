@@ -1,37 +1,63 @@
 #include "ItemFactory.h"
 
-ItemFactory::ItemFactory() {
+void ItemFactory::loadItemCtorParams(const fs::path fp) {
+    auto data = JsonHandler::parseJson(fp);
+    const json::object &d = data->as_object();
+
+    auto et = a_s(d, "EntityType");
+    auto des = a_s(d, "Description");
+    auto &cl = d.at("Color").as_object();
+    auto ms = a_s(d, "Stack");
+    auto rt = a_s(d, "ToolType");
+
+    float cr = cl.at("R").as_int64();
+    float cg = cl.at("G").as_int64();
+    float cb = cl.at("B").as_int64();
+
+    entitytype entityType = CR::selectEntityType(et, true);
+
+    ItemCtorParams *params = new ItemCtorParams {
+        inputEvents,
+        entityType,
+        new std::string(des.c_str()),
+        nullptr,
+        CR::selectColor(cr, cg, cb),
+        (stack)0,
+        CR::selectMaxStack(ms),
+        CR::selectToolType(rt, true),
+        CR::selectTextureLocalization(d)
+    };
+
+    itemParams[entityType] = params;
+    itemToTemplateMap[entityType] = tc::ITEM_SIMPLE;
 }
 
-Item *ItemFactory::buildItem(itemtype itemType, stack amount) {
-	if (itemType == 0) 
+ItemFactory::ItemFactory(InputEvents *inputEvents) : inputEvents(inputEvents) {
+    // All Items
+    auto filesI = Directories::listDir(ctorParamsItem);
+    for (auto &fp : filesI)
+        loadItemCtorParams(fp);
+}
+
+Item *ItemFactory::buildItem(entitytype entityType, stack amount, Position *position) {
+	Item *newItem = 0;
+	if (entityType == 0) 
 		return 0;
-	/*    Resources    */
-	if (itemType == i::WOOD)
-		return new Item(i::WOOD, i::WOOD_DESCRIPTION, i::WOOD_STACK, amount);
-	if (itemType == i::PLANK)
-		return new Item(i::PLANK, i::PLANK_DESCRIPTION, i::PLANK_STACK, amount);
-	if (itemType == i::BRANCH)
-		return new Item(i::BRANCH, i::BRANCH_DESCRIPTION, i::BRANCH_STACK, amount);
-	/*    Animal Loot    */
-	if (itemType == i::MEAT)
-		return new Item(i::MEAT, i::MEAT_DESCRIPTION, i::MEAT_STACK, amount);
-	if (itemType == i::FEATHER)
-		return new Item(i::FEATHER, i::FEATHER_DESCRIPTION, i::FEATHER_STACK, amount);
-	/*    Tools    */
-	if (itemType == i::SWORD)
-		return new Item(i::SWORD, i::SWORD_DESCRIPTION, i::SWORD_STACK, amount, tlt::weapon); //TODO: Przerobic constanty na baze/plik config
-	if (itemType == i::SHOVEL)
-		return new Item(i::SHOVEL, i::SHOVEL_DESCRIPTION, i::SHOVEL_STACK, amount, tlt::shovel);
-	if (itemType == i::PICKAXE)
-		return new Item(i::PICKAXE, i::PICKAXE_DESCRIPTION, i::PICKAXE_STACK, amount, tlt::pickaxe);
-	if (itemType == i::AXE)
-		return new Item(i::AXE, i::AXE_DESCRIPTION, i::AXE_STACK, amount, tlt::axe);
-	if (itemType == i::SCYTHE)
-		return new Item(i::SCYTHE, i::SCYTHE_DESCRIPTION, i::SCYTHE_STACK, amount, tlt::harvesting);
+    entityType = CR::selectEntityType(entityType);
+    auto it = itemToTemplateMap.find(entityType);
+    if (it != itemToTemplateMap.end()) {
+        if (it->second == tc::ITEM_SIMPLE) {
+            itemParams[entityType]->position = position;
+            itemParams[entityType]->amount = amount;
+            newItem = new Item(*itemParams[entityType]);
+        }
+    } else {
+        Logger::log(lg::ERROR_, "Could not create entity '%s'. Unknown entity type!", entityType);
+    }
+    return newItem;
 }
 
-Item *ItemFactory::buildItem(ItemDropChance &idc) {
+Item *ItemFactory::buildItem(ItemDropChance &idc, Position *position) {
 	stack amount = std::min(idc.chanceGuaranteed, Random_::random(idc.chanceLow, idc.chanceHigh));
-	return buildItem(idc.item, amount);
+	return buildItem(idc.item, amount, position);
 }

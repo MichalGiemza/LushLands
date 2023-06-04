@@ -1,17 +1,33 @@
 #include "ConstantRepository.h"
 
 std::unordered_map<size_t, TextureLocalization *> CR::textureLocalizationMap;
-std::unordered_map<char *, TextureLocalization *> CR::textureLocalizationEntityMap;
-
+std::unordered_map<entitytype, TextureLocalization *> CR::textureLocalizationEntityMap;
 std::unordered_map<json::string, entitytype> CR::entityTypeMap;
 std::unordered_map<std::tuple<float, float, float>, Size *> CR::sizeMap;
 std::unordered_map<std::tuple<uint8_t, uint8_t, uint8_t>, Color *> CR::colorMap;
-std::unordered_map<json::string, gendertype> CR::genderTypeMap;
-std::unordered_map<json::string, tooltype> CR::toolTypeMap;
+std::unordered_map<json::string, gendertype> CR::genderTypeMap = {
+	{ json::string(gdr::male), gdr::male },
+	{ json::string(gdr::female), gdr::female },
+	{ json::string(gdr::none), gdr::none },
+	{ json::string(gdr::other), gdr::other },
+};
+std::unordered_map<json::string, tooltype> CR::toolTypeMap = {
+	{ json::string(tlt::axe), tlt::axe},
+	{ json::string(tlt::pickaxe), tlt::pickaxe },
+	{ json::string(tlt::shovel), tlt::shovel },
+	{ json::string(tlt::weapon), tlt::weapon },
+	{ json::string(tlt::bucket), tlt::bucket },
+	{ json::string(tlt::harvesting), tlt::harvesting }
+};
 std::unordered_map<size_t, EntityDrops *> CR::entityDropsMap;
 std::unordered_map<json::string, updatetype> CR::updateTypeMap;
-
-std::unordered_map<json::string, itemtype> CR::itemTypeMap;
+std::unordered_map<json::string, entitytype> CR::entitytypeMap;
+std::unordered_map<json::string, stack> CR::maxStackMap = {
+	{ json::string("maxStack"), mst::maxStack },
+	{ json::string("mediumStact"), mst::mediumStact },
+	{ json::string("smallStack"), mst::smallStack },
+	{ json::string("singleItemStack"), mst::singleItemStack }
+};
 
 
 EntityDrops *ConstantRepository::buildEntityDrops(const json::array &entityDropsData) {
@@ -19,8 +35,8 @@ EntityDrops *ConstantRepository::buildEntityDrops(const json::array &entityDrops
 	ItemDropChance *idc = (ItemDropChance *)malloc(sizeof(ItemDropChance) * n);
 	for (int i = 0; i < n; i++) {
 		auto &add = entityDropsData.at(i).as_object();
-		auto &im = add.at("ItemType").as_string();
-		idc[i].item = selectItemType(im);
+ 		auto &im = add.at("EntityType").as_string(); 
+		idc[i].item = CR::selectEntityType(im);
 		idc[i].chanceGuaranteed = add.at("ChanceGuaranteed").as_int64();
 		idc[i].chanceLow = add.at("ChanceLow").as_int64();
 		idc[i].chanceHigh = add.at("ChanceHigh").as_int64();
@@ -34,12 +50,7 @@ const TextureLocalization *ConstantRepository::selectTextureLocalization(const j
 	if (d.contains("EntityType")) {
 		json::string et = d.at("EntityType").as_string();
 		identifier = (char *)CR::selectEntityType(et);
-	}
-	if (d.contains("ItemType")) {
-		json::string it = d.at("ItemType").as_string();
-		identifier = (char *)CR::selectItemType(it);
-	}
-	if (not identifier) {
+	} else {
 		Logger::log(lg::ERROR_, "TextureLocalization requires either EntityType or ItemType.");
 		return 0;
 	}
@@ -80,11 +91,11 @@ const TextureLocalization *ConstantRepository::selectTextureLocalization(const j
 	}
 }
 
-const TextureLocalization *ConstantRepository::selectTextureLocalization(char *entityType) {
+const TextureLocalization *ConstantRepository::selectTextureLocalization(entitytype entityType) {
 	return textureLocalizationEntityMap[entityType];
 }
 
-const entitytype ConstantRepository::selectEntityType(json::string &entityType, bool create) {
+const entitytype ConstantRepository::selectEntityType(const json::string &entityType, bool create) {
     auto it = entityTypeMap.find(entityType);
 	if (it != entityTypeMap.end()) {
 		return it->second;
@@ -99,7 +110,7 @@ const entitytype ConstantRepository::selectEntityType(json::string &entityType, 
 	}
 }
 
-const entitytype ConstantRepository::selectEntityType(char *entityType) {
+const entitytype ConstantRepository::selectEntityType(entitytype entityType) {
 	auto str = json::string(entityType);
 	return selectEntityType(str, false);
 }
@@ -180,12 +191,12 @@ const updatetype ConstantRepository::selectUpdateType(json::string &updateType) 
 	}
 }
 
-const itemtype ConstantRepository::selectItemType(const json::string &itemType) {
-	auto it = itemTypeMap.find(itemType);
-	if (it != itemTypeMap.end()) {
+const stack ConstantRepository::selectMaxStack(const json::string &stackLabel) {
+	auto it = maxStackMap.find(stackLabel);
+	if (it != maxStackMap.end()) {
 		return it->second;
 	} else {
-		Logger::log(lg::ERROR_, "ItemType '%s' not found!", itemType.c_str());
+		Logger::log(lg::ERROR_, "StackLabel '%s' not found!", stackLabel.c_str());
 		return 0;
 	}
 }
@@ -193,14 +204,6 @@ const itemtype ConstantRepository::selectItemType(const json::string &itemType) 
 const std::vector<entitytype> ConstantRepository::getAllEntityTypes() {
 	std::vector<entitytype> values;
 	for (const auto &pair : entityTypeMap) {
-		values.push_back(pair.second);
-	}
-	return values;
-}
-
-const std::vector<itemtype> ConstantRepository::getAllItemTypes() {
-	std::vector<itemtype> values;
-	for (const auto &pair : itemTypeMap) {
 		values.push_back(pair.second);
 	}
 	return values;

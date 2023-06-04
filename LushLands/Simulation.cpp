@@ -3,8 +3,8 @@
 Simulation::Simulation(Controller *controller) :
     focus(controller->getFocus()) {
     // Systems
+    itemFactory = new ItemFactory(controller->getInputEvents());
     entityFactory = new EntityFactory(controller->getInputEvents());
-    itemFactory = new ItemFactory();
     // World
     world = new World(FLATLAND, 42, entityFactory, itemFactory, controller->getInputEvents());
     loadPosition = new Position(0, world->getSeaLevel(), 0);
@@ -38,10 +38,10 @@ void Simulation::addPlayer(InputEvents *ie) {
     focus->setFocusedObject((GameElement *)human->getGameElement());
     // Tools
     Inventory *inv = (Inventory *)human->getInventory();
-    inv->putItemAuto(itemFactory->buildItem(i::PICKAXE, 1));
-    inv->putItemAuto(itemFactory->buildItem(i::SHOVEL, 1));
-    inv->putItemAuto(itemFactory->buildItem(i::AXE, 1));
-    inv->putItem(11, itemFactory->buildItem(i::SWORD, 1));
+    inv->putItemAuto(itemFactory->buildItem("pickaxe", 1, &p));
+    inv->putItemAuto(itemFactory->buildItem("shovel", 1, &p));
+    inv->putItemAuto(itemFactory->buildItem("axe", 1, &p));
+    inv->putItem(11, itemFactory->buildItem("sword", 1, &p));
 }
 
 Player *Simulation::getPlayer() {

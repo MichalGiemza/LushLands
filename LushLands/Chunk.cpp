@@ -96,11 +96,11 @@ void Chunk::generateItems(ChunkPlan &chunkPlan) {
                 pos.setPX(referencePosition.getPX() + i * meter + meter / 2);
                 pos.setPZ(referencePosition.getPZ() + j * meter + meter / 2);
                 pos.setPY(referencePosition.getPY() + k * meter);
-                auto plannedItemType = chunkPlan.fieldPlans[i][j][k].item;
+                auto plannedEntityType = chunkPlan.fieldPlans[i][j][k].item;
                 auto plannedItemAmount = chunkPlan.fieldPlans[i][j][k].itemAmount;
-                if (not plannedItemType)
+                if (not plannedEntityType)
                     continue;
-                Item *item = itemFactory->buildItem(plannedItemType, plannedItemAmount);
+                Item *item = itemFactory->buildItem(plannedEntityType, plannedItemAmount, &pos);
                 item->getPosition()->updatePosition(pos);
                 ce.items.insert(item);
             }

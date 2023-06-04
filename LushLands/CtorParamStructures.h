@@ -69,3 +69,16 @@ struct GroundCtorParams {
     const updatetype updateType = no_update;
     const TextureLocalization *textureLocalization;
 };
+
+
+struct ItemCtorParams {
+    InputEvents *inputEvents;
+    const entitytype entityType;
+    const std::string *description;
+    Position *position;
+    const Color *color;
+    stack amount;
+    stack maxStack;
+    const tooltype toolType;
+    const TextureLocalization *textureLocalization;
+};

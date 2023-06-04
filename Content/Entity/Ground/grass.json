@@ -7,7 +7,7 @@
     "TextureImage": "..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\RPG Nature Tileset.png",
     "TextureSize": null,
     "EntityDrops" : [
-        {"ItemType": "soil", "ChanceGuaranteed": 1, "ChanceLow": 1, "ChanceHigh": 1}
+        {"EntityType": "soil", "ChanceGuaranteed": 1, "ChanceLow": 1, "ChanceHigh": 1}
     ],
     "Health" : 50,
     "ToolType": "shovel"

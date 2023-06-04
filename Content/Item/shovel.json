@@ -1,9 +1,10 @@
 {
-    "ItemType": "SHOVEL",
-    "Color": null,
+    "EntityType": "shovel",
+    "Color": {"R": 200, "G": 200, "B": 200, "A": 255},
     "Description": "Tool used for digging in soil.",
     "TexturePosition": {"X": 121, "Y": 63},
     "TextureImage": "..\\Assets\\textures\\All tools mini-pack by SnowHex\\AllTools - SnowHex.png",
     "TextureSize": null,
-    "Stack": "singleItemStack"
+    "Stack": "singleItemStack",
+	"ToolType": "shovel"
 }

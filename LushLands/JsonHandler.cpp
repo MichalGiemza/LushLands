@@ -62,7 +62,7 @@ std::size_t JsonHandler::hash_array(const boost::json::array &arr) {
 }
 
 json::string a_s(const json::object &d, const char *key) {
-    if (d.at(key).is_null())
+    if (not d.contains(key) or d.at(key).is_null())
         return json::string();
     return d.at(key).as_string();
 }

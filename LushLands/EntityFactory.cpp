@@ -193,7 +193,7 @@ Entity *EntityFactory::buildEntity(entitytype entityType, Position &position) {
     Entity *newEntity = 0;
     if (entityType == 0)
         return 0;
-    entityType = CR::selectEntityType((char *)entityType);
+    entityType = CR::selectEntityType(entityType);
     auto it = entityToTemplateMap.find(entityType);
     if (it != entityToTemplateMap.end()) {
         if (it->second == tc::GROUND) {
@@ -215,7 +215,6 @@ Entity *EntityFactory::buildEntity(entitytype entityType, Position &position) {
     } else {
         Logger::log(lg::ERROR_, "Could not create entity '%s'. Unknown entity type!", entityType);
     }
-
     return newEntity;
 }
 

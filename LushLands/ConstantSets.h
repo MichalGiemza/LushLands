@@ -90,6 +90,14 @@ namespace tool_types {
 }
 namespace tlt = tool_types;
 
+namespace max_stack {
+    const stack maxStack = 255;
+    const stack mediumStact = 128;
+    const stack smallStack = 32;
+    const stack singleItemStack = 1;
+}
+namespace mst = max_stack;
+
 // Controls
 const mousebcode MOUSE_LMB = 1;
 const mousebcode MOUSE_RMB = 2;

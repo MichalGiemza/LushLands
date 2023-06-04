@@ -1,9 +1,9 @@
 {
-    "ItemType": "branch",
+    "EntityType": "branch",
     "Color": {"R": 110, "G": 60, "B": 30, "A": 255},
     "Description": "Branch from a tree.",
     "TexturePosition": {"X": 48, "Y": 0},
     "TextureImage": "..\\Assets\\textures\\Crafting Materials by Beast Pixels\\resources_basic.png",
-    "TextureSize": {"Width": 24, "Height": 24},
+    "TextureSize": {"W": 24, "H": 24},
     "Stack": "maxStack"
 }

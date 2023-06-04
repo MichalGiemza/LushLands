@@ -20,21 +20,7 @@ TextureManager::TextureManager() {
 void TextureManager::loadAllTextures() {
     // Entities
     for (entitytype entityType : CR::getAllEntityTypes())
-        textures[entityType] = loadTexture(CR::selectTextureLocalization((char *)entityType));
-    // Items 
-    /*    Resources    */
-    textures[i::WOOD] = loadTexture(&i::WOOD_TEXTURE_LOCALIZATION); // TODO
-    textures[i::PLANK] = loadTexture(&i::PLANK_TEXTURE_LOCALIZATION);
-    textures[i::BRANCH] = loadTexture(&i::BRANCH_TEXTURE_LOCALIZATION);
-    /*    Animal Loot    */
-    textures[i::MEAT] = loadTexture(&i::MEAT_TEXTURE_LOCALIZATION);
-    textures[i::FEATHER] = loadTexture(&i::FEATHER_TEXTURE_LOCALIZATION);
-    /*    Tools    */
-    textures[i::SWORD] = loadTexture(&i::SWORD_TEXTURE_LOCALIZATION);
-    textures[i::SHOVEL] = loadTexture(&i::SHOVEL_TEXTURE_LOCALIZATION);
-    textures[i::PICKAXE] = loadTexture(&i::PICKAXE_TEXTURE_LOCALIZATION);
-    textures[i::AXE] = loadTexture(&i::AXE_TEXTURE_LOCALIZATION);
-    textures[i::SCYTHE] = loadTexture(&i::SCYTHE_TEXTURE_LOCALIZATION);
+        textures[entityType] = loadTexture(CR::selectTextureLocalization(entityType));
 }
 
 ALLEGRO_BITMAP *TextureManager::getNamedTexture(const char *name) {
