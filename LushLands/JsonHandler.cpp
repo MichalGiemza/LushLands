@@ -50,12 +50,16 @@ json::value *JsonHandler::parseJson(std::ifstream &jsonFile) {
     return jsonValue;
 }
 
-std::size_t JsonHandler::hash_array(const boost::json::array &arr) {
+std::size_t JsonHandler::hashEntityDrops(const boost::json::array &arr) {
     std::size_t seed = 0;
 
     // Iterate over each element and add its hash to the seed
     for (const auto &element : arr) {
-        boost::hash_combine(seed, JSONValueHasher()(element));
+        auto &o = element.as_object();
+        boost::hash_combine(seed, JSONValueHasher()(o.at("EntityType")));
+        boost::hash_combine(seed, JSONValueHasher()(o.at("ChanceGuaranteed")));
+        boost::hash_combine(seed, JSONValueHasher()(o.at("ChanceLow")));
+        boost::hash_combine(seed, JSONValueHasher()(o.at("ChanceHigh")));
     }
 
     return seed;

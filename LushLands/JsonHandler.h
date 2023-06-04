@@ -21,7 +21,7 @@ public:
     static json::value *parseJson(const std::filesystem::path &path);
     static json::value *parseJson(std::ifstream &ifstr);
 
-    static std::size_t hash_array(const boost::json::array &arr);
+    static std::size_t hashEntityDrops(const boost::json::array &arr);
 };
 
 json::string a_s(const json::object &d, const char *key);

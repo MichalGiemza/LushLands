@@ -171,7 +171,7 @@ const tooltype ConstantRepository::selectToolType(json::string &toolType, bool c
 }
 
 const EntityDrops *ConstantRepository::selectEntityDrops(const json::array &entityDropsData) {
-	size_t key = JsonHandler::hash_array(entityDropsData);
+	size_t key = JsonHandler::hashEntityDrops(entityDropsData);
 	auto it = entityDropsMap.find(key);
 	if (it != entityDropsMap.end()) {
 		return it->second;
