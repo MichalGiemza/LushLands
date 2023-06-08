@@ -216,7 +216,7 @@ void handlePlayerContextUse(ALLEGRO_EVENT *ae, void *obj) {
     EventHandler *eh = (EventHandler *)obj;
     // Get tool
     Item *ei = eh->player->getEquippedItem();
-    tooltype tt = 0;
+    tag tt = 0;
     if (ei)
         tt = ei->getToolType();
     if (tt == 0)

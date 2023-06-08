@@ -33,6 +33,6 @@ std::string Item::getDescription() {
     return description;
 }
 
-tooltype Item::getToolType() {
+tag Item::getToolType() {
     return toolType;
 }

@@ -19,7 +19,7 @@ struct HumanoidCtorParams {
     gendertype gender;
     const int invSize;
     int maxHealth;
-    const tooltype requiredTool;
+    const tag requiredTool;
     const EntityDrops *drops;
     const TextureLocalization *textureLocalization;
 };
@@ -33,7 +33,7 @@ struct StructureCtorParams {
     const Size *size;
     const Color *color;
     int maxHealth;
-    const tooltype requiredTool;
+    const tag requiredTool;
     const EntityDrops *drops;
     const updatetype updateType = no_update;
     const TextureLocalization *textureLocalization;
@@ -50,7 +50,7 @@ struct AnimalCtorParams {
     const int movementSpeed;
     const miliseconds walkInterval;
     int maxHealth;
-    const tooltype requiredTool;
+    const tag requiredTool;
     const EntityDrops *drops;
     const TextureLocalization *textureLocalization;
 };
@@ -64,7 +64,7 @@ struct GroundCtorParams {
     const Size *size;
     const Color *color;
     int maxHealth;
-    const tooltype requiredTool;
+    const tag requiredTool;
     const EntityDrops *drops;
     const updatetype updateType = no_update;
     const TextureLocalization *textureLocalization;
@@ -79,6 +79,6 @@ struct ItemCtorParams {
     const Color *color;
     stack amount;
     stack maxStack;
-    const tooltype toolType;
+    const tag toolType;
     const TextureLocalization *textureLocalization;
 };

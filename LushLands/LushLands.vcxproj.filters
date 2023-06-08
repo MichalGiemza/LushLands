@@ -17,7 +17,7 @@
       <Filter>src\Simulation\World\ChunkSystem</Filter>
     </ClCompile>
     <ClCompile Include="ControlManager.cpp">
-      <Filter>src\Simulation\Managers</Filter>
+      <Filter>src\Simulation\Control</Filter>
     </ClCompile>
     <ClCompile Include="Logger.cpp">
       <Filter>src\Logger</Filter>
@@ -214,6 +214,15 @@
     <ClCompile Include="DataTypes.cpp">
       <Filter>src\Core</Filter>
     </ClCompile>
+    <ClCompile Include="CraftingDisplay.cpp">
+      <Filter>src\GraphicsManager\UI\Concrete</Filter>
+    </ClCompile>
+    <ClCompile Include="CraftingManager.cpp">
+      <Filter>src\Simulation\World\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="TechnologyManager.cpp">
+      <Filter>src\Simulation\World\Systems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -232,7 +241,7 @@
       <Filter>src\Simulation\World\ChunkSystem</Filter>
     </ClInclude>
     <ClInclude Include="ControlManager.h">
-      <Filter>src\Simulation\Managers</Filter>
+      <Filter>src\Simulation\Control</Filter>
     </ClInclude>
     <ClInclude Include="DataTypes.h">
       <Filter>src\Core</Filter>
@@ -453,6 +462,15 @@
     <ClInclude Include="ChunkUpdater.h">
       <Filter>src\Simulation\World\ChunkSystem</Filter>
     </ClInclude>
+    <ClInclude Include="CraftingDisplay.h">
+      <Filter>src\GraphicsManager\UI\Concrete</Filter>
+    </ClInclude>
+    <ClInclude Include="CraftingManager.h">
+      <Filter>src\Simulation\World\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="TechnologyManager.h">
+      <Filter>src\Simulation\World\Systems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -475,9 +493,6 @@
     </Filter>
     <Filter Include="src\Logger">
       <UniqueIdentifier>{ebe50536-304e-4479-b266-9b7bfe8343e4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Simulation\Managers">
-      <UniqueIdentifier>{a22cecab-8a5c-4316-b241-c15850566dcc}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Controller">
       <UniqueIdentifier>{cd480540-6ac4-46a2-9e20-e050582a6263}</UniqueIdentifier>
@@ -526,6 +541,12 @@
     </Filter>
     <Filter Include="src\Simulation\World\Entities\Characters">
       <UniqueIdentifier>{d00b01f4-0d3b-4a31-92c7-704348bc83fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Simulation\World\Systems">
+      <UniqueIdentifier>{322a1402-eba4-4ac8-8508-83cacce91fe6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Simulation\Control">
+      <UniqueIdentifier>{a22cecab-8a5c-4316-b241-c15850566dcc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

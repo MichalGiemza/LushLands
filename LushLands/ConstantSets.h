@@ -80,15 +80,57 @@ namespace genders {
 }
 namespace gdr = genders;
 
-namespace tool_types {
-    const tooltype axe = "axe";
-    const tooltype pickaxe = "pickaxe";
-    const tooltype shovel = "shovel";
-    const tooltype weapon = "weapon";
-    const tooltype bucket = "bucket";
-    const tooltype harvesting = "harvesting";
+namespace tags {
+    // Tool Types
+    const tag axe = "axe";
+    const tag pickaxe = "pickaxe";
+    const tag shovel = "shovel";
+    const tag weapon = "weapon";
+    const tag bucket = "bucket";
+    const tag harvesting_tool = "harvesting_tool";
+    const tag writing_instrument = "writing_instrument";
+    // Raw Materials
+    const tag wood = "wood";
+    const tag stick = "stick";
+    const tag stone = "stone";
+    const tag metal = "metal";
+    const tag soft_metal = "soft_metal";
+    const tag hard_metal = "hard_metal";
+    const tag raw_meat = "raw_meat";
+    const tag feather = "feather";
+    // Form
+    const tag log = "log";
+    const tag block = "block";
+    const tag item = "tool";
+    const tag raw_material = "raw_material";
+    const tag intermediate_product = "intermediate_product";
+    // Temperature
+    const tag cold = "cold";
+    const tag hot = "hot";
+    // Soil tags
+    const tag loose_soil = "loose_soil";
+    const tag firm_soil = "firm_soil";
+    const tag hard_ground = "hard_ground";
+    // Fuel
+    const tag combustible_fuel = "combustible_fuel";
+    // Intermediate Products
+    const tag tool_handle = "tool_handle";
+    const tag plank = "plank";
 }
-namespace tlt = tool_types;
+namespace tg = tags;
+
+namespace recipe_category {
+    const name personal = "personal";
+    const name workbench = "workbench";
+    const name smelting = "smelting";
+}
+namespace rc = recipe_category;
+
+namespace ingredient_type {
+    const name general = "general";
+    const name specific = "specific";
+}
+namespace igt = ingredient_type;
 
 namespace max_stack {
     const stack maxStack = 255;
@@ -150,6 +192,9 @@ const rawpath ctorParamsHumanoid = "..\\Content\\Entity\\Humanoid";
 const rawpath ctorParamsGround = "..\\Content\\Entity\\Ground";
 const rawpath ctorParamsStructure = "..\\Content\\Entity\\Structure";
 const rawpath ctorParamsItem = "..\\Content\\Item";
+
+// Recipes Json Files
+const rawpath personalRecipes = "..\\Content\\Recipes\\Personal";
 
 // Entity Update Type
 const updatetype no_update = "no_update";

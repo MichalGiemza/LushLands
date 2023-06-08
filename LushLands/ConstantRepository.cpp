@@ -11,13 +11,13 @@ std::unordered_map<json::string, gendertype> CR::genderTypeMap = {
 	{ json::string(gdr::none), gdr::none },
 	{ json::string(gdr::other), gdr::other },
 };
-std::unordered_map<json::string, tooltype> CR::toolTypeMap = {
-	{ json::string(tlt::axe), tlt::axe},
-	{ json::string(tlt::pickaxe), tlt::pickaxe },
-	{ json::string(tlt::shovel), tlt::shovel },
-	{ json::string(tlt::weapon), tlt::weapon },
-	{ json::string(tlt::bucket), tlt::bucket },
-	{ json::string(tlt::harvesting), tlt::harvesting }
+std::unordered_map<json::string, tag> CR::toolTypeMap = {
+	{ json::string(tg::axe), tg::axe},
+	{ json::string(tg::pickaxe), tg::pickaxe },
+	{ json::string(tg::shovel), tg::shovel },
+	{ json::string(tg::weapon), tg::weapon },
+	{ json::string(tg::bucket), tg::bucket },
+	{ json::string(tg::harvesting_tool), tg::harvesting_tool }
 };
 std::unordered_map<size_t, EntityDrops *> CR::entityDropsMap;
 std::unordered_map<json::string, updatetype> CR::updateTypeMap;
@@ -115,6 +115,26 @@ const entitytype ConstantRepository::selectEntityType(entitytype entityType) {
 	return selectEntityType(str, false);
 }
 
+const tag ConstantRepository::selectTag(const json::string &tag_, bool create) {
+	auto it = tagMap.find(tag_);
+	if (it != tagMap.end()) {
+		return it->second;
+	} else {
+		if (create) {
+			tagMap[tag_] = a_c(tag_);
+			return tagMap[tag_];
+		} else {
+			Logger::log(lg::ERROR_, "Tag '%s' not found!", tag_.c_str());
+			return 0;
+		}
+	}
+}
+
+const tag ConstantRepository::selectTag(tag tag_) {
+	auto str = json::string(tag_);
+	return selectTag(str, false);
+}
+
 const Size *ConstantRepository::selectSize(float w, float h, float l) {
 	auto key = std::tuple(w, h, l);
 	auto it = sizeMap.find(key);
@@ -152,7 +172,7 @@ const gendertype ConstantRepository::selectGenderType(json::string &genderType, 
 	}
 }
 
-const tooltype ConstantRepository::selectToolType(json::string &toolType, bool create) {
+const tag ConstantRepository::selectToolType(json::string &toolType, bool create) {
 	if (toolType.empty()) {
 		return 0;
 	}

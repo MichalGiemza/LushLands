@@ -13,7 +13,7 @@ class Item {
     const stack maxStack;
     stack amount;
     Position position;
-    tooltype toolType;
+    tag toolType;
 public:
     Item(ItemCtorParams &params);
     entitytype getType();
@@ -22,6 +22,6 @@ public:
     Position *getPosition();
     void setAmount(stack amount);
     std::string getDescription();
-    tooltype getToolType();
+    tag getToolType();
 };
 

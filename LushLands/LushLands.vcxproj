@@ -157,6 +157,8 @@
     <ClCompile Include="ActionMap.cpp" />
     <ClCompile Include="ChunkUpdater.cpp" />
     <ClCompile Include="ConstantRepository.cpp" />
+    <ClCompile Include="CraftingDisplay.cpp" />
+    <ClCompile Include="CraftingManager.cpp" />
     <ClCompile Include="DataTypes.cpp" />
     <ClCompile Include="Destroyability.cpp" />
     <ClCompile Include="Directories.cpp" />
@@ -209,6 +211,7 @@
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="RandomWalk.cpp" />
     <ClCompile Include="Random_.cpp" />
+    <ClCompile Include="TechnologyManager.cpp" />
     <ClCompile Include="WindowManager.cpp" />
     <ClCompile Include="WorldRectangle.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -231,6 +234,8 @@
     <ClInclude Include="ChunkElements.h" />
     <ClInclude Include="ChunkUpdater.h" />
     <ClInclude Include="ConstantRepository.h" />
+    <ClInclude Include="CraftingDisplay.h" />
+    <ClInclude Include="CraftingManager.h" />
     <ClInclude Include="CtorParamStructures.h" />
     <ClInclude Include="Destroyability.h" />
     <ClInclude Include="Directories.h" />
@@ -288,6 +293,7 @@
     <ClInclude Include="PositionStructures.h" />
     <ClInclude Include="RandomWalk.h" />
     <ClInclude Include="Random_.h" />
+    <ClInclude Include="TechnologyManager.h" />
     <ClInclude Include="WindowManager.h" />
     <ClInclude Include="WorldRectangle.h" />
     <ClInclude Include="Scene.h" />

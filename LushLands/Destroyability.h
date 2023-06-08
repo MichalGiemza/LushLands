@@ -11,19 +11,19 @@ class Destroyability {
     */
     int health;
     int maxHealth;
-    tooltype tool;
+    tag tool;
     const EntityDrops *drops;
     void *entity;
     InputEvents *inputEvents;
 public:
     // Constructors and main methods
-    Destroyability(void *entity, InputEvents *inputEvents, int maxHealth, tooltype requiredTool, const EntityDrops &drops);
+    Destroyability(void *entity, InputEvents *inputEvents, int maxHealth, tag requiredTool, const EntityDrops &drops);
     // Methods
     void takeDamage(int damage);
     // Getters, Setters
     int getHealth();
     int getMaxHealth();
     const EntityDrops *getDropChances();
-    tooltype getToolAffecting();
+    tag getToolAffecting();
 };
 

@@ -1,0 +1,10 @@
+{
+    "Ingredients": [
+	{ "General": "log", "Amount": 1 }
+	],
+    "Product": {
+		"EntityType": "plank",
+		"Amount": 3
+	}
+}
+    

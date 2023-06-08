@@ -17,7 +17,7 @@ typedef const char *actiontype;
 typedef const char *worldtype;
 typedef const char *entitytype;
 typedef const char *templateclass;
-typedef const char *tooltype;
+typedef const char *tag;
 typedef const char *texturename;
 typedef const char *scenename;
 typedef const char *rawpath;

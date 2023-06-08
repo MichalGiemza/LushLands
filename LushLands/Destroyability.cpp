@@ -1,6 +1,6 @@
 #include "Destroyability.h"
 
-Destroyability::Destroyability(void *entity, InputEvents *inputEvents, int maxHealth, tooltype requiredTool, const EntityDrops &drops) :
+Destroyability::Destroyability(void *entity, InputEvents *inputEvents, int maxHealth, tag requiredTool, const EntityDrops &drops) :
     maxHealth(maxHealth), health(maxHealth), tool(requiredTool), drops(&drops), entity(entity), inputEvents(inputEvents) {}
 
 int Destroyability::getHealth() {
@@ -33,6 +33,6 @@ const EntityDrops *Destroyability::getDropChances() {
     return drops;
 }
 
-tooltype Destroyability::getToolAffecting() {
+tag Destroyability::getToolAffecting() {
     return tool;
 }
