@@ -6,14 +6,16 @@
 #include "InputEvents.h"
 #include "Controller.h"
 #include "Player.h"
+#include "CraftingManager.h"
 #include <cmath>
 
 
 class Simulation {
     World *world;
     Position *loadPosition; // TODO: Move to camera (?) Maybe leave as free-camera?
-    EntityFactory *entityFactory;
     ItemFactory *itemFactory;
+    EntityFactory *entityFactory;
+    CraftingManager *craftingManager;
     miliseconds lastUpdated = 0;
     Player *player;
     Focus *focus;
@@ -25,5 +27,6 @@ public:
     void addPlayer(InputEvents *inputEvents);
     Player *getPlayer();
     ItemFactory *getItemFactory();
+    CraftingManager *getCraftingManager();
 };
 

@@ -32,17 +32,33 @@ void CraftingManager::loadRecipes(const fs::path fp, const name category) {
     }
 
     auto *cpd = new CraftingProduct();
-    cpd->product = CR::selectEntityType(a_s(pd, "EntityType"));
+    cpd->productType = CR::selectEntityType(a_s(pd, "EntityType"));
     cpd->amount = pd.at("Amount").as_int64();
+
+    miliseconds tm = d.at("Time").as_int64();
     
     Recipe *recipe = new Recipe {
         cis,
-        *cpd
+        (int)ig.size(),
+        *cpd,
+        tm
     };
 
+    // Add Recipe
     recipes[category].push_back(*recipe);
+    // Add category
+    if (not categories.contains(category))
+        categories.insert(category);
+}
+
+CraftingManager::CraftingManager() {
+    loadRecipes();
 }
 
 std::vector<Recipe> *CraftingManager::getRecipes(const name category) {
     return &recipes[category];
+}
+
+std::set<name> *CraftingManager::getCategories() {
+    return &categories;
 }

@@ -23,6 +23,7 @@ class EventHandler {
     Player *player;
     FieldCursor *fieldCursor;
     InventoryDisplay *invDispl;
+    CraftingDisplay *craftDispl;
     Hotbar *hotbar;
     ItemFactory *itemFactory;
 

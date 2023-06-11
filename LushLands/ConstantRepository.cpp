@@ -3,6 +3,7 @@
 std::unordered_map<size_t, TextureLocalization *> CR::textureLocalizationMap;
 std::unordered_map<entitytype, TextureLocalization *> CR::textureLocalizationEntityMap;
 std::unordered_map<json::string, entitytype> CR::entityTypeMap;
+std::unordered_map<json::string, tag> CR::tagMap;
 std::unordered_map<std::tuple<float, float, float>, Size *> CR::sizeMap;
 std::unordered_map<std::tuple<uint8_t, uint8_t, uint8_t>, Color *> CR::colorMap;
 std::unordered_map<json::string, gendertype> CR::genderTypeMap = {

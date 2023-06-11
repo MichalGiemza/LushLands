@@ -1,0 +1,9 @@
+{
+    "EntityType": "stick",
+    "Color": {"R": 210, "G": 180, "B": 80, "A": 255},
+    "Description": "Wooden stick, can be used to make tools.",
+    "TexturePosition": null,
+    "TextureImage": "..\\Assets\\textures\\Pixel Art Icons - Crafting Materials -  Clockwork Raven\\32x32\\tile060.png",
+    "TextureSize": null,
+    "Stack": "maxStack"
+}

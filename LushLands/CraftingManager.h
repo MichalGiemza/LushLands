@@ -5,6 +5,7 @@
 #include "ConstantRepository.h"
 #include <map>
 #include <vector>
+#include <set>
 
 struct CraftingIngredient {
     int amount;
@@ -13,13 +14,15 @@ struct CraftingIngredient {
 };
 
 struct CraftingProduct {
-    entitytype product;
+    entitytype productType;
     int amount;
 };
 
 struct Recipe {
     CraftingIngredient *ingredients;
+    int nIng;
     CraftingProduct product;
+    miliseconds time;
 };
 
 class CraftingManager {
@@ -32,10 +35,13 @@ class CraftingManager {
     *  - Recipe category (ex. personal crafting, workbench, smelting, ...)
     */
     std::map<name, std::vector<Recipe>> recipes;
+    std::set<name> categories;
 private:
     void loadRecipes();
     void loadRecipes(const fs::path fp, const name category);
 public:
+    CraftingManager();
     std::vector<Recipe> *getRecipes(const name category);
+    std::set<name> *getCategories();
 };
 

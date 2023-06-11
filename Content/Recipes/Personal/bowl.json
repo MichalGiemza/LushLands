@@ -1,0 +1,11 @@
+{
+    "Ingredients": [
+	{ "Specific": "log", "Amount": 1 }
+	],
+    "Product": {
+		"EntityType": "bowl",
+		"Amount": 3
+	},
+	"Time": 1000
+}
+    

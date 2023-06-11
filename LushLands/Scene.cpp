@@ -1,13 +1,15 @@
 #include "Scene.h"
 
-Scene::Scene(scenename sceneName, World *world, Display *display, Position *followedPosition, InputEvents *inputEvents, TextureManager *textureManager, Focus *focus, Console *console, Player *player)
-    : camera(followedPosition, focus, inputEvents), chunkRepresentationManager(world, display, &camera, textureManager), player(player), world(world), textureManager(textureManager), display(display), inputEvents(inputEvents), console(console), name(sceneName) {
+Scene::Scene(scenename sceneName, Controller *controller, Simulation *simulation, Display *display, TextureManager *textureManager, Console *console)
+    : camera(simulation->getWorldLoadingPosition(), controller->getFocus(), controller->getInputEvents()), chunkRepresentationManager(simulation->getWorld(), display, &camera, textureManager), player(simulation->getPlayer()), world(simulation->getWorld()), textureManager(textureManager), display(display), inputEvents(controller->getInputEvents()), console(console), name(sceneName) {
     // Pure UI
     this->fieldCursor = new FieldCursor(&camera, inputEvents);
     windowManager = new WindowManager(inputEvents);
     // Player related elements
     invDispl = new InventoryDisplay(display, textureManager, player->getInventory(), 50, 50); //TODO magic numbers
     windowManager->addWindow(invDispl);
+    craftingDisplay = new CraftingDisplay(display, textureManager, simulation->getCraftingManager(), displayWidth / 2, 50);
+    windowManager->addWindow(craftingDisplay);
     hotbar = new Hotbar(display, textureManager, player->getInventory(), player, inputEvents);
     windowManager->addWindow(hotbar);
     camera.setFollowedPosition((Position *)((Humanoid *)player->getEntity())->getPosition(), (Size *)((Humanoid *)player->getEntity())->getSize());
@@ -33,6 +35,10 @@ Hotbar *Scene::getHotbar() {
 
 InventoryDisplay *Scene::getInventoryDisplay() {
     return invDispl;
+}
+
+CraftingDisplay *Scene::getCraftingDisplay() {
+    return craftingDisplay;
 }
 
 void Scene::drawChunkGround(ChunkRepresentation &chunkRepresentation, int level) {
@@ -63,7 +69,12 @@ void handleAction(ALLEGRO_EVENT *ae, void *scene) {
     case user_open_inventory:
     {
         s->invOpen ^= true;
+        // Inventory
         s->invDispl->setHidden(!s->invOpen);
+        // Crafting
+        s->craftingDisplay->setHidden(!s->invOpen);
+        // Equipment
+        // TODO
         break;
     }
     case user_open_map:

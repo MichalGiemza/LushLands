@@ -1,0 +1,11 @@
+{
+    "Ingredients": [
+	{ "Specific": "plank", "Amount": 1 }
+	],
+    "Product": {
+		"EntityType": "stick",
+		"Amount": 3
+	},
+	"Time": 1000
+}
+    

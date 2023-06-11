@@ -1,0 +1,9 @@
+{
+    "EntityType": "bowl",
+    "Color": {"R": 110, "G": 60, "B": 30, "A": 255},
+    "Description": "Empty bowl. Is it time to eat yet?",
+    "TexturePosition": null,
+    "TextureImage": "..\\Assets\\textures\\Ghostpixxells_pixelfood\\04_bowl.png",
+    "TextureSize": null,
+    "Stack": "maxStack"
+}

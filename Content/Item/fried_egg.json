@@ -1,0 +1,9 @@
+{
+    "EntityType": "fried_egg",
+    "Color": {"R": 110, "G": 60, "B": 30, "A": 255},
+    "Description": "Fresh, fried egg, yummy.",
+    "TexturePosition": null,
+    "TextureImage": "..\\Assets\\textures\\Ghostpixxells_pixelfood\\39_friedegg_dish.png",
+    "TextureSize": null,
+    "Stack": "maxStack"
+}

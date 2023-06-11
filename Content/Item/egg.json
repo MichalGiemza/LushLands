@@ -1,0 +1,9 @@
+{
+    "EntityType": "egg",
+    "Color": {"R": 180, "G": 160, "B": 170, "A": 255},
+    "Description": "Chicken's egg.",
+    "TexturePosition": {"X": 168, "Y": 144},
+    "TextureImage": "..\\Assets\\textures\\Crafting Materials by Beast Pixels\\resources_basic.png",
+    "TextureSize": {"W": 24, "H": 24},
+    "Stack": "maxStack"
+}

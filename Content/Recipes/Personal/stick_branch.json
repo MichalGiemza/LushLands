@@ -1,0 +1,11 @@
+{
+    "Ingredients": [
+	{ "Specific": "branch", "Amount": 1 }
+	],
+    "Product": {
+		"EntityType": "stick",
+		"Amount": 1
+	},
+	"Time": 100
+}
+    

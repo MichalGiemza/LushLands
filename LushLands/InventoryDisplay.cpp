@@ -13,6 +13,7 @@ InventoryDisplay::InventoryDisplay(Display *display, TextureManager *textureMana
     textureManager(textureManager), inventory(inv),
     invHeight(determineHeight(inv->getSize())),
     invWidth(determineWidth()) {
+    // Ctor
     setHidden(true);
     font = al_load_ttf_font(fontNormaleste, 10, 0);
 }

@@ -16,7 +16,7 @@ Chunk *EventHandler::getChunk(Position &position) {
 EventHandler::EventHandler(Controller *c, Simulation *s, GraphicsManager *g) :
     c(c), s(s), g(g), inputEvents(c->getInputEvents()), world(s->getWorld()), player(s->getPlayer()), fieldCursor(g->getCurrentGameplayScene()->getFieldCursor()),
     invDispl(g->getCurrentGameplayScene()->getInventoryDisplay()), hotbar(g->getCurrentGameplayScene()->getHotbar()), focus(c->getFocus()), actionMap(c->getActionMap()),
-    aes(inputEvents->getEventSource()), itemFactory(s->getItemFactory()) {
+    aes(inputEvents->getEventSource()), itemFactory(s->getItemFactory()), craftDispl(g->getCurrentGameplayScene()->getCraftingDisplay()) {
     // Input to Action translation
     inputEvents->subscribeKeyBeingPressed(handleKeyboardKey, this);
     inputEvents->subscribeKeyTyped(handleKeyboardLetter, this);

@@ -1,0 +1,9 @@
+{
+    "EntityType": "plate",
+    "Color": {"R": 110, "G": 60, "B": 30, "A": 255},
+    "Description": "Empty plate. What are we going to eat today?",
+    "TexturePosition": null,
+    "TextureImage": "..\\Assets\\textures\\Ghostpixxells_pixelfood\\01_dish.png",
+    "TextureSize": null,
+    "Stack": "maxStack"
+}

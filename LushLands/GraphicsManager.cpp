@@ -6,8 +6,8 @@ GraphicsManager::GraphicsManager(Controller *controller, Simulation *simulation)
     textureManager = new TextureManager();
     console = new Console(display, textureManager);
     // Scenes
-    gameplayScene = new Scene(GAMEPLAY_SCENE, simulation->getWorld(), display, simulation->getWorldLoadingPosition(), controller->getInputEvents(), textureManager, controller->getFocus(), console, simulation->getPlayer());
-    mainmenuScene = new Scene(MAINMENU_SCENE, simulation->getWorld(), display, simulation->getWorldLoadingPosition(), controller->getInputEvents(), textureManager, controller->getFocus(), console, simulation->getPlayer());
+    gameplayScene = new Scene(GAMEPLAY_SCENE, controller, simulation, display, textureManager, console);
+    mainmenuScene = new Scene(MAINMENU_SCENE, controller, simulation, display, textureManager, console);
     currentScene = gameplayScene; // TODO: PóŸniej ma byæ tu main menu
 }
 

@@ -1,0 +1,12 @@
+{
+    "Ingredients": [
+	{ "Specific": "plate", "Amount": 1 },
+	{ "Specific": "egg", "Amount": 1 }
+	],
+    "Product": {
+		"EntityType": "fried_egg",
+		"Amount": 1
+	},
+	"Time": 1000
+}
+    

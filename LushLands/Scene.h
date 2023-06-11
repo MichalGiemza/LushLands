@@ -9,6 +9,8 @@
 #include "InventoryDisplay.h"
 #include "WindowManager.h"
 #include "Hotbar.h"
+#include "CraftingDisplay.h"
+#include "Simulation.h"
 
 
 class Scene {
@@ -26,6 +28,7 @@ class Scene {
     Console *console;
     FieldCursor *fieldCursor;
     InventoryDisplay *invDispl;
+    CraftingDisplay *craftingDisplay;
     Hotbar *hotbar;
     WindowManager *windowManager;
     
@@ -39,11 +42,12 @@ class Scene {
 
     void drawChunkGround(ChunkRepresentation &chunkRepresentation, int level);
 public:
-    Scene(scenename sceneName, World *world, Display *display, Position *followedPosition, InputEvents *inputEvents, TextureManager *textureManager, Focus *focus, Console *console, Player *player);
+    Scene(scenename sceneName, Controller *controller, Simulation *simulation, Display *display, TextureManager *textureManager, Console *console);
 
     FieldCursor *getFieldCursor();
     Hotbar *getHotbar();
     InventoryDisplay *getInventoryDisplay();
+    CraftingDisplay *getCraftingDisplay();
 
     friend void draw(ALLEGRO_EVENT *ae, void *scene);
     friend void handleAction(ALLEGRO_EVENT *ae, void *scene);

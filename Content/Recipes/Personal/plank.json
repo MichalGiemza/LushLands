@@ -1,10 +1,11 @@
 {
     "Ingredients": [
-	{ "General": "log", "Amount": 1 }
+	{ "Specific": "wood", "Amount": 1 }
 	],
     "Product": {
 		"EntityType": "plank",
 		"Amount": 3
-	}
+	},
+	"Time": 1000
 }
     
