@@ -90,6 +90,8 @@
     <Allegro_AddonColor>true</Allegro_AddonColor>
     <Allegro_AddonVideo>true</Allegro_AddonVideo>
     <EnableManagedIncrementalBuild>true</EnableManagedIncrementalBuild>
+    <IncludePath>C:\Libraries\boost_1_83_0;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Libraries\boost_1_83_0\stage\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -134,7 +136,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Libraries\boost_1_82_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Libraries\boost_1_83_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -317,11 +319,16 @@
     <None Include="ProjectDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AGUI\AGUI.vcxproj">
+      <Project>{eef02f00-d797-4347-915e-b54dfbf57a2f}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\AllegroDeps.1.13.0\build\native\AllegroDeps.targets" Condition="Exists('..\packages\AllegroDeps.1.13.0\build\native\AllegroDeps.targets')" />
     <Import Project="..\packages\Allegro.5.2.8\build\native\Allegro.targets" Condition="Exists('..\packages\Allegro.5.2.8\build\native\Allegro.targets')" />
-    <Import Project="..\packages\boost.1.82.0\build\boost.targets" Condition="Exists('..\packages\boost.1.82.0\build\boost.targets')" />
+    <Import Project="..\packages\boost.1.83.0\build\boost.targets" Condition="Exists('..\packages\boost.1.83.0\build\boost.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -329,6 +336,6 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\AllegroDeps.1.13.0\build\native\AllegroDeps.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AllegroDeps.1.13.0\build\native\AllegroDeps.targets'))" />
     <Error Condition="!Exists('..\packages\Allegro.5.2.8\build\native\Allegro.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Allegro.5.2.8\build\native\Allegro.targets'))" />
-    <Error Condition="!Exists('..\packages\boost.1.82.0\build\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\boost.1.82.0\build\boost.targets'))" />
+    <Error Condition="!Exists('..\packages\boost.1.83.0\build\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\boost.1.83.0\build\boost.targets'))" />
   </Target>
 </Project>

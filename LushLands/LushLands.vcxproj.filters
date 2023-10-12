@@ -44,25 +44,25 @@
       <Filter>src\Simulation\World\Entities\EntityFactory</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
-      <Filter>src\GraphicsManager\Scene</Filter>
+      <Filter>src\View\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>src\GraphicsManager</Filter>
+      <Filter>src\View</Filter>
     </ClCompile>
     <ClCompile Include="Display.cpp">
-      <Filter>src\GraphicsManager</Filter>
+      <Filter>src\View</Filter>
     </ClCompile>
     <ClCompile Include="TextureManager.cpp">
-      <Filter>src\GraphicsManager</Filter>
+      <Filter>src\View</Filter>
     </ClCompile>
     <ClCompile Include="GraphicsManager.cpp">
-      <Filter>src\GraphicsManager</Filter>
+      <Filter>src\View</Filter>
     </ClCompile>
     <ClCompile Include="ChunkRepresentation.cpp">
-      <Filter>src\GraphicsManager\Scene</Filter>
+      <Filter>src\View\Scene</Filter>
     </ClCompile>
     <ClCompile Include="ChunkRepresentationManager.cpp">
-      <Filter>src\GraphicsManager</Filter>
+      <Filter>src\View</Filter>
     </ClCompile>
     <ClCompile Include="EventHandler.cpp">
       <Filter>src\Controller\Events</Filter>
@@ -113,16 +113,16 @@
       <Filter>src\Simulation\World\Entities\Modules</Filter>
     </ClCompile>
     <ClCompile Include="UIElement.cpp">
-      <Filter>src\GraphicsManager\UI\Base</Filter>
+      <Filter>src\View\UI\Base</Filter>
     </ClCompile>
     <ClCompile Include="WorldUIElement.cpp">
-      <Filter>src\GraphicsManager\UI\Base</Filter>
+      <Filter>src\View\UI\Base</Filter>
     </ClCompile>
     <ClCompile Include="StaticUIElement.cpp">
-      <Filter>src\GraphicsManager\UI\Base</Filter>
+      <Filter>src\View\UI\Base</Filter>
     </ClCompile>
     <ClCompile Include="Console.cpp">
-      <Filter>src\GraphicsManager\UI\Concrete</Filter>
+      <Filter>src\View\UI\Concrete</Filter>
     </ClCompile>
     <ClCompile Include="Animal.cpp">
       <Filter>src\Simulation\World\Entities\Concrete</Filter>
@@ -161,10 +161,10 @@
       <Filter>src\Controller\InputDevices</Filter>
     </ClCompile>
     <ClCompile Include="FieldCursor.cpp">
-      <Filter>src\GraphicsManager\UI\Concrete</Filter>
+      <Filter>src\View\UI\Concrete</Filter>
     </ClCompile>
     <ClCompile Include="UICursor.cpp">
-      <Filter>src\GraphicsManager\UI\Concrete</Filter>
+      <Filter>src\View\UI\Concrete</Filter>
     </ClCompile>
     <ClCompile Include="Destroyability.cpp">
       <Filter>src\Simulation\World\Entities\Modules</Filter>
@@ -185,16 +185,16 @@
       <Filter>src\Simulation\World\Entities\Characters</Filter>
     </ClCompile>
     <ClCompile Include="StaticBaseWindow.cpp">
-      <Filter>src\GraphicsManager\UI\Base</Filter>
+      <Filter>src\View\UI\Base</Filter>
     </ClCompile>
     <ClCompile Include="InventoryDisplay.cpp">
-      <Filter>src\GraphicsManager\UI\Concrete</Filter>
+      <Filter>src\View\UI\Concrete</Filter>
     </ClCompile>
     <ClCompile Include="WindowManager.cpp">
-      <Filter>src\GraphicsManager\UI</Filter>
+      <Filter>src\View\UI</Filter>
     </ClCompile>
     <ClCompile Include="Hotbar.cpp">
-      <Filter>src\GraphicsManager\UI\Concrete</Filter>
+      <Filter>src\View\UI\Concrete</Filter>
     </ClCompile>
     <ClCompile Include="EventFactory.cpp">
       <Filter>src\Controller\Events</Filter>
@@ -215,7 +215,7 @@
       <Filter>src\Core</Filter>
     </ClCompile>
     <ClCompile Include="CraftingDisplay.cpp">
-      <Filter>src\GraphicsManager\UI\Concrete</Filter>
+      <Filter>src\View\UI\Concrete</Filter>
     </ClCompile>
     <ClCompile Include="CraftingManager.cpp">
       <Filter>src\Simulation\Crafting</Filter>
@@ -277,25 +277,25 @@
       <Filter>src\Simulation\World\Entities\EntityFactory</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
-      <Filter>src\GraphicsManager\Scene</Filter>
+      <Filter>src\View\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Display.h">
-      <Filter>src\GraphicsManager</Filter>
+      <Filter>src\View</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>src\GraphicsManager</Filter>
+      <Filter>src\View</Filter>
     </ClInclude>
     <ClInclude Include="TextureManager.h">
-      <Filter>src\GraphicsManager</Filter>
+      <Filter>src\View</Filter>
     </ClInclude>
     <ClInclude Include="GraphicsManager.h">
-      <Filter>src\GraphicsManager</Filter>
+      <Filter>src\View</Filter>
     </ClInclude>
     <ClInclude Include="ChunkRepresentation.h">
-      <Filter>src\GraphicsManager\Scene</Filter>
+      <Filter>src\View\Scene</Filter>
     </ClInclude>
     <ClInclude Include="ChunkRepresentationManager.h">
-      <Filter>src\GraphicsManager</Filter>
+      <Filter>src\View</Filter>
     </ClInclude>
     <ClInclude Include="EventHandler.h">
       <Filter>src\Controller\Events</Filter>
@@ -349,16 +349,16 @@
       <Filter>src\Simulation\World\Entities\Modules</Filter>
     </ClInclude>
     <ClInclude Include="UIElement.h">
-      <Filter>src\GraphicsManager\UI\Base</Filter>
+      <Filter>src\View\UI\Base</Filter>
     </ClInclude>
     <ClInclude Include="WorldUIElement.h">
-      <Filter>src\GraphicsManager\UI\Base</Filter>
+      <Filter>src\View\UI\Base</Filter>
     </ClInclude>
     <ClInclude Include="StaticUIElement.h">
-      <Filter>src\GraphicsManager\UI\Base</Filter>
+      <Filter>src\View\UI\Base</Filter>
     </ClInclude>
     <ClInclude Include="Console.h">
-      <Filter>src\GraphicsManager\UI\Concrete</Filter>
+      <Filter>src\View\UI\Concrete</Filter>
     </ClInclude>
     <ClInclude Include="Animal.h">
       <Filter>src\Simulation\World\Entities\Concrete</Filter>
@@ -406,10 +406,10 @@
       <Filter>src\Core</Filter>
     </ClInclude>
     <ClInclude Include="FieldCursor.h">
-      <Filter>src\GraphicsManager\UI\Concrete</Filter>
+      <Filter>src\View\UI\Concrete</Filter>
     </ClInclude>
     <ClInclude Include="UICursor.h">
-      <Filter>src\GraphicsManager\UI\Concrete</Filter>
+      <Filter>src\View\UI\Concrete</Filter>
     </ClInclude>
     <ClInclude Include="Destroyability.h">
       <Filter>src\Simulation\World\Entities\Modules</Filter>
@@ -430,16 +430,16 @@
       <Filter>src\Simulation\World\Entities\Characters</Filter>
     </ClInclude>
     <ClInclude Include="StaticBaseWindow.h">
-      <Filter>src\GraphicsManager\UI\Base</Filter>
+      <Filter>src\View\UI\Base</Filter>
     </ClInclude>
     <ClInclude Include="InventoryDisplay.h">
-      <Filter>src\GraphicsManager\UI\Concrete</Filter>
+      <Filter>src\View\UI\Concrete</Filter>
     </ClInclude>
     <ClInclude Include="WindowManager.h">
-      <Filter>src\GraphicsManager\UI</Filter>
+      <Filter>src\View\UI</Filter>
     </ClInclude>
     <ClInclude Include="Hotbar.h">
-      <Filter>src\GraphicsManager\UI\Concrete</Filter>
+      <Filter>src\View\UI\Concrete</Filter>
     </ClInclude>
     <ClInclude Include="ChunkElements.h">
       <Filter>src\Core</Filter>
@@ -463,7 +463,7 @@
       <Filter>src\Simulation\World\ChunkSystem</Filter>
     </ClInclude>
     <ClInclude Include="CraftingDisplay.h">
-      <Filter>src\GraphicsManager\UI\Concrete</Filter>
+      <Filter>src\View\UI\Concrete</Filter>
     </ClInclude>
     <ClInclude Include="CraftingManager.h">
       <Filter>src\Simulation\Crafting</Filter>
@@ -497,12 +497,6 @@
     <Filter Include="src\Controller">
       <UniqueIdentifier>{cd480540-6ac4-46a2-9e20-e050582a6263}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\GraphicsManager">
-      <UniqueIdentifier>{c0f3f092-898a-4e8b-8b10-092756b4ae28}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\GraphicsManager\Scene">
-      <UniqueIdentifier>{26e002c8-5261-4957-8966-ffe5f19495c3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Simulation\World\Entities">
       <UniqueIdentifier>{97844601-3bcd-4941-b8ae-04b726634e19}</UniqueIdentifier>
     </Filter>
@@ -520,15 +514,6 @@
     </Filter>
     <Filter Include="src\Controller\Events">
       <UniqueIdentifier>{14efbf44-c5e7-4ff7-9fca-d80190b9bc12}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\GraphicsManager\UI">
-      <UniqueIdentifier>{46dc56e0-5fc5-4cbc-a1b1-82263e257ab7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\GraphicsManager\UI\Base">
-      <UniqueIdentifier>{f24bfa5f-57f0-40bf-90b0-03692636f432}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\GraphicsManager\UI\Concrete">
-      <UniqueIdentifier>{89e0646a-f87a-4915-8276-4e5c180eb7d3}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Core\Tools">
       <UniqueIdentifier>{0d40a4d4-bb5e-4282-9eb7-d7f61a311bf1}</UniqueIdentifier>
@@ -550,6 +535,21 @@
     </Filter>
     <Filter Include="src\Simulation\Technology">
       <UniqueIdentifier>{ebf1bece-0232-43aa-9a90-9a5b226fd0c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\View">
+      <UniqueIdentifier>{c0f3f092-898a-4e8b-8b10-092756b4ae28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\View\Scene">
+      <UniqueIdentifier>{26e002c8-5261-4957-8966-ffe5f19495c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\View\UI">
+      <UniqueIdentifier>{46dc56e0-5fc5-4cbc-a1b1-82263e257ab7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\View\UI\Base">
+      <UniqueIdentifier>{f24bfa5f-57f0-40bf-90b0-03692636f432}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\View\UI\Concrete">
+      <UniqueIdentifier>{89e0646a-f87a-4915-8276-4e5c180eb7d3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

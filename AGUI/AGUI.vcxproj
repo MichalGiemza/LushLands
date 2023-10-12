@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Agui\ActionEvent.hpp" />
+    <ClInclude Include="Agui\ActionListener.hpp" />
+    <ClInclude Include="Agui\Agui.hpp" />
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5.hpp" />
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5CursorProvider.hpp" />
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5Font.hpp" />
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5FontLoader.hpp" />
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5Graphics.hpp" />
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5Image.hpp" />
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5ImageLoader.hpp" />
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5Input.hpp" />
+    <ClInclude Include="Agui\BaseTypes.hpp" />
+    <ClInclude Include="Agui\BlinkingEvent.hpp" />
+    <ClInclude Include="Agui\BorderLayout.hpp" />
+    <ClInclude Include="Agui\Clipboard\Clipboard.hpp" />
+    <ClInclude Include="Agui\Clipboard\OSXClipboard.hpp" />
+    <ClInclude Include="Agui\Clipboard\WinClipboard.hpp" />
+    <ClInclude Include="Agui\Color.hpp" />
+    <ClInclude Include="Agui\CursorProvider.hpp" />
+    <ClInclude Include="Agui\Dimension.hpp" />
+    <ClInclude Include="Agui\EmptyWidget.hpp" />
+    <ClInclude Include="Agui\Enumerations.hpp" />
+    <ClInclude Include="Agui\EventArgs.hpp" />
+    <ClInclude Include="Agui\FlowLayout.hpp" />
+    <ClInclude Include="Agui\FocusListener.hpp" />
+    <ClInclude Include="Agui\FocusManager.hpp" />
+    <ClInclude Include="Agui\Font.hpp" />
+    <ClInclude Include="Agui\FontLoader.hpp" />
+    <ClInclude Include="Agui\Graphics.hpp" />
+    <ClInclude Include="Agui\GridLayout.hpp" />
+    <ClInclude Include="Agui\Gui.hpp" />
+    <ClInclude Include="Agui\Image.hpp" />
+    <ClInclude Include="Agui\ImageLoader.hpp" />
+    <ClInclude Include="Agui\Input.hpp" />
+    <ClInclude Include="Agui\KeyboardListener.hpp" />
+    <ClInclude Include="Agui\Layout.hpp" />
+    <ClInclude Include="Agui\MouseListener.hpp" />
+    <ClInclude Include="Agui\Platform.hpp" />
+    <ClInclude Include="Agui\Point.hpp" />
+    <ClInclude Include="Agui\Rectangle.hpp" />
+    <ClInclude Include="Agui\ResizableBorderLayout.hpp" />
+    <ClInclude Include="Agui\ResizableText.hpp" />
+    <ClInclude Include="Agui\SelectionListener.hpp" />
+    <ClInclude Include="Agui\TableLayout.hpp" />
+    <ClInclude Include="Agui\TapListener.hpp" />
+    <ClInclude Include="Agui\TopContainer.hpp" />
+    <ClInclude Include="Agui\Transform.hpp" />
+    <ClInclude Include="Agui\UTF8.hpp" />
+    <ClInclude Include="Agui\Widget.hpp" />
+    <ClInclude Include="Agui\WidgetListener.hpp" />
+    <ClInclude Include="Agui\Widgets\Button\Button.hpp" />
+    <ClInclude Include="Agui\Widgets\Button\ButtonGroup.hpp" />
+    <ClInclude Include="Agui\Widgets\Button\ButtonListener.hpp" />
+    <ClInclude Include="Agui\Widgets\CheckBox\CheckBox.hpp" />
+    <ClInclude Include="Agui\Widgets\CheckBox\CheckBoxListener.hpp" />
+    <ClInclude Include="Agui\Widgets\DropDown\DropDown.hpp" />
+    <ClInclude Include="Agui\Widgets\DropDown\DropDownListener.hpp" />
+    <ClInclude Include="Agui\Widgets\Frame\Frame.hpp" />
+    <ClInclude Include="Agui\Widgets\Frame\FrameListener.hpp" />
+    <ClInclude Include="Agui\Widgets\ImageWidget\ImageWidget.hpp" />
+    <ClInclude Include="Agui\Widgets\Label\Label.hpp" />
+    <ClInclude Include="Agui\Widgets\Label\LabelListener.hpp" />
+    <ClInclude Include="Agui\Widgets\ListBox\ListBox.hpp" />
+    <ClInclude Include="Agui\Widgets\ListBox\ListBoxListener.hpp" />
+    <ClInclude Include="Agui\Widgets\PopUp\PopUpMenu.hpp" />
+    <ClInclude Include="Agui\Widgets\PopUp\PopUpMenuItem.hpp" />
+    <ClInclude Include="Agui\Widgets\RadioButton\RadioButton.hpp" />
+    <ClInclude Include="Agui\Widgets\RadioButton\RadioButtonGroup.hpp" />
+    <ClInclude Include="Agui\Widgets\RadioButton\RadioButtonListener.hpp" />
+    <ClInclude Include="Agui\Widgets\ScrollBar\HScrollBar.hpp" />
+    <ClInclude Include="Agui\Widgets\ScrollBar\HScrollBarListener.hpp" />
+    <ClInclude Include="Agui\Widgets\ScrollBar\VScrollBar.hpp" />
+    <ClInclude Include="Agui\Widgets\ScrollBar\VScrollBarListener.hpp" />
+    <ClInclude Include="Agui\Widgets\ScrollPane\ScrollPane.hpp" />
+    <ClInclude Include="Agui\Widgets\Slider\Slider.hpp" />
+    <ClInclude Include="Agui\Widgets\Slider\SliderListener.hpp" />
+    <ClInclude Include="Agui\Widgets\Tab\Tab.hpp" />
+    <ClInclude Include="Agui\Widgets\Tab\TabbedPane.hpp" />
+    <ClInclude Include="Agui\Widgets\Tab\TabbedPaneListener.hpp" />
+    <ClInclude Include="Agui\Widgets\TextBox\ExtendedTextBox.hpp" />
+    <ClInclude Include="Agui\Widgets\TextBox\TextBox.hpp" />
+    <ClInclude Include="Agui\Widgets\TextBox\TextBoxListener.hpp" />
+    <ClInclude Include="Agui\Widgets\TextField\TextField.hpp" />
+    <ClInclude Include="Agui\Widgets\TextField\TextFieldListener.hpp" />
+    <ClInclude Include="Agui\Widgets\ToolTip\ToolTip.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Agui\ActionEvent.cpp" />
+    <ClCompile Include="Agui\ActionListener.cpp" />
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5CursorProvider.cpp" />
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5Font.cpp" />
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5FontLoader.cpp" />
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5Graphics.cpp" />
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5Image.cpp" />
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5ImageLoader.cpp" />
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5Input.cpp" />
+    <ClCompile Include="Agui\BaseTypes.cpp" />
+    <ClCompile Include="Agui\BlinkingEvent.cpp" />
+    <ClCompile Include="Agui\BorderLayout.cpp" />
+    <ClCompile Include="Agui\Clipboard\Clipboard.cpp" />
+    <ClCompile Include="Agui\Clipboard\WinClipboard.cpp" />
+    <ClCompile Include="Agui\Color.cpp" />
+    <ClCompile Include="Agui\CursorProvider.cpp" />
+    <ClCompile Include="Agui\Dimension.cpp" />
+    <ClCompile Include="Agui\EmptyWidget.cpp" />
+    <ClCompile Include="Agui\EventArgs.cpp" />
+    <ClCompile Include="Agui\FlowLayout.cpp" />
+    <ClCompile Include="Agui\FocusListener.cpp" />
+    <ClCompile Include="Agui\FocusManager.cpp" />
+    <ClCompile Include="Agui\Font.cpp" />
+    <ClCompile Include="Agui\Graphics.cpp" />
+    <ClCompile Include="Agui\GridLayout.cpp" />
+    <ClCompile Include="Agui\Gui.cpp" />
+    <ClCompile Include="Agui\Image.cpp" />
+    <ClCompile Include="Agui\Input.cpp" />
+    <ClCompile Include="Agui\KeyboardListener.cpp" />
+    <ClCompile Include="Agui\Layout.cpp" />
+    <ClCompile Include="Agui\MouseListener.cpp" />
+    <ClCompile Include="Agui\Point.cpp" />
+    <ClCompile Include="Agui\Rectangle.cpp" />
+    <ClCompile Include="Agui\ResizableBorderLayout.cpp" />
+    <ClCompile Include="Agui\ResizableText.cpp" />
+    <ClCompile Include="Agui\SelectionListener.cpp" />
+    <ClCompile Include="Agui\TableLayout.cpp" />
+    <ClCompile Include="Agui\TapListener.cpp" />
+    <ClCompile Include="Agui\TopContainer.cpp" />
+    <ClCompile Include="Agui\Transform.cpp" />
+    <ClCompile Include="Agui\Widget.cpp" />
+    <ClCompile Include="Agui\WidgetListener.cpp" />
+    <ClCompile Include="Agui\Widgets\Button\Button.cpp" />
+    <ClCompile Include="Agui\Widgets\Button\ButtonGroup.cpp" />
+    <ClCompile Include="Agui\Widgets\Button\ButtonListener.cpp" />
+    <ClCompile Include="Agui\Widgets\CheckBox\CheckBox.cpp" />
+    <ClCompile Include="Agui\Widgets\CheckBox\CheckBoxListener.cpp" />
+    <ClCompile Include="Agui\Widgets\DropDown\DropDown.cpp" />
+    <ClCompile Include="Agui\Widgets\DropDown\DropDownListener.cpp" />
+    <ClCompile Include="Agui\Widgets\Frame\Frame.cpp" />
+    <ClCompile Include="Agui\Widgets\Frame\FrameListener.cpp" />
+    <ClCompile Include="Agui\Widgets\ImageWidget\ImageWidget.cpp" />
+    <ClCompile Include="Agui\Widgets\Label\Label.cpp" />
+    <ClCompile Include="Agui\Widgets\Label\LabelListener.cpp" />
+    <ClCompile Include="Agui\Widgets\ListBox\ListBox.cpp" />
+    <ClCompile Include="Agui\Widgets\ListBox\ListBoxListener.cpp" />
+    <ClCompile Include="Agui\Widgets\PopUp\PopUpMenu.cpp" />
+    <ClCompile Include="Agui\Widgets\PopUp\PopUpMenuItem.cpp" />
+    <ClCompile Include="Agui\Widgets\RadioButton\RadioButton.cpp" />
+    <ClCompile Include="Agui\Widgets\RadioButton\RadioButtonGroup.cpp" />
+    <ClCompile Include="Agui\Widgets\RadioButton\RadioButtonListener.cpp" />
+    <ClCompile Include="Agui\Widgets\ScrollBar\HScrollBar.cpp" />
+    <ClCompile Include="Agui\Widgets\ScrollBar\HScrollBarListener.cpp" />
+    <ClCompile Include="Agui\Widgets\ScrollBar\VScrollBar.cpp" />
+    <ClCompile Include="Agui\Widgets\ScrollBar\VScrollBarListener.cpp" />
+    <ClCompile Include="Agui\Widgets\ScrollPane\ScrollPane.cpp" />
+    <ClCompile Include="Agui\Widgets\Slider\Slider.cpp" />
+    <ClCompile Include="Agui\Widgets\Slider\SliderListener.cpp" />
+    <ClCompile Include="Agui\Widgets\Tab\Tab.cpp" />
+    <ClCompile Include="Agui\Widgets\Tab\TabbedPane.cpp" />
+    <ClCompile Include="Agui\Widgets\Tab\TabbedPaneListener.cpp" />
+    <ClCompile Include="Agui\Widgets\TextBox\ExtendedTextBox.cpp" />
+    <ClCompile Include="Agui\Widgets\TextBox\TextBox.cpp" />
+    <ClCompile Include="Agui\Widgets\TextBox\TextBoxListener.cpp" />
+    <ClCompile Include="Agui\Widgets\TextField\TextField.cpp" />
+    <ClCompile Include="Agui\Widgets\TextField\TextFieldListener.cpp" />
+    <ClCompile Include="Agui\Widgets\ToolTip\ToolTip.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{eef02f00-d797-4347-915e-b54dfbf57a2f}</ProjectGuid>
+    <RootNamespace>AGUI</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <Allegro_AddonImage>true</Allegro_AddonImage>
+    <Allegro_AddonTTF>true</Allegro_AddonTTF>
+    <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
+    <Allegro_AddonAudio>true</Allegro_AddonAudio>
+    <Allegro_AddonAcodec>true</Allegro_AddonAcodec>
+    <Allegro_AddonPhysfs>true</Allegro_AddonPhysfs>
+    <Allegro_AddonDialog>true</Allegro_AddonDialog>
+    <Allegro_AddonMemfile>true</Allegro_AddonMemfile>
+    <Allegro_AddonFont>true</Allegro_AddonFont>
+    <Allegro_AddonColor>true</Allegro_AddonColor>
+    <Allegro_AddonVideo>true</Allegro_AddonVideo>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <Allegro_AddonImage>true</Allegro_AddonImage>
+    <Allegro_AddonTTF>true</Allegro_AddonTTF>
+    <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
+    <Allegro_AddonAudio>true</Allegro_AddonAudio>
+    <Allegro_AddonAcodec>true</Allegro_AddonAcodec>
+    <Allegro_AddonPhysfs>true</Allegro_AddonPhysfs>
+    <Allegro_AddonDialog>true</Allegro_AddonDialog>
+    <Allegro_AddonMemfile>true</Allegro_AddonMemfile>
+    <Allegro_AddonFont>true</Allegro_AddonFont>
+    <Allegro_AddonColor>true</Allegro_AddonColor>
+    <Allegro_AddonVideo>true</Allegro_AddonVideo>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>C:\Projekty\LushLandsGithub\AGUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\AllegroDeps.1.13.0\build\native\AllegroDeps.targets" Condition="Exists('..\packages\AllegroDeps.1.13.0\build\native\AllegroDeps.targets')" />
+    <Import Project="..\packages\Allegro.5.2.8\build\native\Allegro.targets" Condition="Exists('..\packages\Allegro.5.2.8\build\native\Allegro.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\AllegroDeps.1.13.0\build\native\AllegroDeps.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AllegroDeps.1.13.0\build\native\AllegroDeps.targets'))" />
+    <Error Condition="!Exists('..\packages\Allegro.5.2.8\build\native\Allegro.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Allegro.5.2.8\build\native\Allegro.targets'))" />
+  </Target>
+</Project>
