@@ -1,20 +1,24 @@
-﻿#include "LushLands.h"
+#include "stdafx.h"﻿
+#include "LushLands.h"
 
 bool initialized = false;
 bool running = false;
 
+Core *core;
 GraphicsManager *graphicsManager;
 Simulation *simulation;
 Controller *controller;
 EventHandler *eventHandler;
 
 void init() {
+    // Core
+    core = new Core();
     // Controller
-    controller = new Controller();
+    controller = new Controller(core);
     // Model
     simulation = new Simulation(controller);
     // View
-    graphicsManager = new GraphicsManager(controller, simulation);
+    graphicsManager = new GraphicsManager(core, controller, simulation);
     // Event Handling
     eventHandler = new EventHandler(controller, simulation, graphicsManager);
     // Done
@@ -46,3 +50,4 @@ int main(int argc, char **argv) {
     //}
     return 0;
 }
+ 

@@ -1,6 +1,6 @@
 #pragma once
+#include "stdafx.h"
 #include "UIElement.h"
-#include "DataTypes.h"
 
 
 class WorldUIElement : public UIElement {

@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "InputEvents.h"
 
 
@@ -26,20 +27,12 @@ void InputEvents::finishPressingKey(keycode kc) {
     keyStates[kc] = false;
 }
 
-InputEvents::InputEvents() {
-    // Queue
-    eventQueue = al_create_event_queue();
-    if (!eventQueue)
-        throw std::logic_error(could_not_create_event_queue);
-    // User Events
-    userEventSource = new ALLEGRO_EVENT_SOURCE();
-    al_init_user_event_source(userEventSource);
-    al_register_event_source(eventQueue, userEventSource);
-    // Timers
-    timerTPS = al_create_timer(1.0 / TicksPerSecond);
-    timerFPS = al_create_timer(1.0 / FramesPerSecond);
-    al_register_event_source(eventQueue, al_get_timer_event_source(timerTPS));
-    al_register_event_source(eventQueue, al_get_timer_event_source(timerFPS));
+InputEvents::InputEvents(Core *core) {  
+    // TODO: Czy da³oby siê nie wyci¹gaæ elementów allegro, tylko pozwalaæ zajmowaæ siê tymi rzeczami Core'owi?
+    eventQueue = core->getQueue();
+    timerTPS = core->getTPSTimer();
+    timerFPS = core->getFPSTimer();
+    userEventSource = core->getUserEventSource();
 }
 
 void InputEvents::mainLoop(bool *isRunning) { // TODO: Odwróciæ zale¿noœæ i przenieœæ MainLoop -> void mainLoop(inputEvents);

@@ -1,13 +1,9 @@
 #pragma once
-#include <vector>
-#include "Position.h"
+#include "stdafx.h"
 #include "ChunkSystem.h"
 #include "BaseWorldPlanner.h"
-#include "DataTypes.h"
-#include "ConstantSets.h"
 #include "FlatlandWorldPlanner.h"
 #include "ChickenBoxWorldPlanner.h"
-#include "Logger.h"
 #include "Player.h"
 #include "ItemFactory.h"
 
@@ -44,3 +40,4 @@ public:
 };
 
 void updateTime(ALLEGRO_EVENT *allegroEvent, void *obj);
+

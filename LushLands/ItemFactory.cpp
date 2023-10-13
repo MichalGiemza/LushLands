@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "ItemFactory.h"
 
 void ItemFactory::loadItemCtorParams(const fs::path fp) {

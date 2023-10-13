@@ -1,8 +1,8 @@
 #pragma once
+#include "stdafx.h"
 #include "Entity.h"
 #include "Body.h"
 #include "Appearance.h"
-#include "GameElement.h"
 #include "Destroyability.h"
 #include "CtorParamStructures.h"
 

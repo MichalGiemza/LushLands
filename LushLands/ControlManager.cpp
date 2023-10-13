@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "ControlManager.h"
 
 Entity *ControlManager::controlledEntity = 0;

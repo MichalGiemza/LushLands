@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "NumTools.h"
 
 radian NumTools::directionToRadian(bool north, bool south, bool east, bool west) {

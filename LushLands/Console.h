@@ -1,12 +1,8 @@
 #pragma once
+#include "stdafx.h"
 #include "StaticUIElement.h"
-#include "Logger.h"
 #include "Display.h"
 #include "TextureManager.h"
-#include "ConstantSets.h"
-#include "Colors.h"
-#include <vector>
-#include <string>
 
 struct ConsoleLine {
     std::shared_ptr<char[]> text;

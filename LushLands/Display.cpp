@@ -1,11 +1,12 @@
+#include "stdafx.h"
 #include "Display.h"
 
 ALLEGRO_DISPLAY *Display::getDisplay() {
     return display;
 }
 
-Display::Display(InputEvents *inputEvents) {
-    display = al_create_display(displayWidth, displayHeight);
+Display::Display(InputEvents *inputEvents, Core *core) {
+    display = core->getDisplay();
     al_clear_to_color(al_map_rgb_f(0, 0, 0)); 
     al_flip_display(); 
     if (!display)

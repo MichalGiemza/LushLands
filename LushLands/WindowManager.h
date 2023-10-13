@@ -1,8 +1,7 @@
 #pragma once
-#include <set>
+#include "stdafx.h"
 #include "StaticBaseWindow.h"
 #include "InputEvents.h"
-#include "Events.h"
 #include "EventFactory.h"
 
 

@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "World.h"
 
 World::World(worldtype worldType, int seed_, EntityFactory *entityFactory, ItemFactory *itemFactory, InputEvents *inputEvents) :

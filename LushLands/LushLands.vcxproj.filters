@@ -19,9 +19,6 @@
     <ClCompile Include="ControlManager.cpp">
       <Filter>src\Simulation\Control</Filter>
     </ClCompile>
-    <ClCompile Include="Logger.cpp">
-      <Filter>src\Logger</Filter>
-    </ClCompile>
     <ClCompile Include="InputEvents.cpp">
       <Filter>src\Controller\Events</Filter>
     </ClCompile>
@@ -73,9 +70,6 @@
     <ClCompile Include="Focus.cpp">
       <Filter>src\Controller</Filter>
     </ClCompile>
-    <ClCompile Include="GameElement.cpp">
-      <Filter>src\Core</Filter>
-    </ClCompile>
     <ClCompile Include="ActionMap.cpp">
       <Filter>src\Controller\Events</Filter>
     </ClCompile>
@@ -85,20 +79,8 @@
     <ClCompile Include="Controller.cpp">
       <Filter>src\Controller</Filter>
     </ClCompile>
-    <ClCompile Include="Color.cpp">
-      <Filter>src\Core</Filter>
-    </ClCompile>
     <ClCompile Include="Appearance.cpp">
       <Filter>src\Simulation\World\Entities\Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="Position.cpp">
-      <Filter>src\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Size.cpp">
-      <Filter>src\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="WorldRectangle.cpp">
-      <Filter>src\Core</Filter>
     </ClCompile>
     <ClCompile Include="Collider.cpp">
       <Filter>src\Simulation\World\Entities\Modules</Filter>
@@ -127,12 +109,6 @@
     <ClCompile Include="Animal.cpp">
       <Filter>src\Simulation\World\Entities\Concrete</Filter>
     </ClCompile>
-    <ClCompile Include="EventTypes.h">
-      <Filter>src\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Time.cpp">
-      <Filter>src\Core</Filter>
-    </ClCompile>
     <ClCompile Include="EntityUpdater.cpp">
       <Filter>src\Simulation\World\Entities\Modules</Filter>
     </ClCompile>
@@ -141,18 +117,6 @@
     </ClCompile>
     <ClCompile Include="ChickenBoxWorldPlanner.cpp">
       <Filter>src\Simulation\World\WorldPlanners</Filter>
-    </ClCompile>
-    <ClCompile Include="NameGenerator.cpp">
-      <Filter>src\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="FileToArray.cpp">
-      <Filter>src\Core\Tools</Filter>
-    </ClCompile>
-    <ClCompile Include="Random_.cpp">
-      <Filter>src\Core\Tools</Filter>
-    </ClCompile>
-    <ClCompile Include="NumTools.cpp">
-      <Filter>src\Core\Tools</Filter>
     </ClCompile>
     <ClCompile Include="Keyboard.cpp">
       <Filter>src\Controller\InputDevices</Filter>
@@ -199,20 +163,8 @@
     <ClCompile Include="EventFactory.cpp">
       <Filter>src\Controller\Events</Filter>
     </ClCompile>
-    <ClCompile Include="JsonHandler.cpp">
-      <Filter>src\Core\Tools</Filter>
-    </ClCompile>
-    <ClCompile Include="Directories.cpp">
-      <Filter>src\Core\Tools</Filter>
-    </ClCompile>
-    <ClCompile Include="ConstantRepository.cpp">
-      <Filter>src\Core\Tools</Filter>
-    </ClCompile>
     <ClCompile Include="ChunkUpdater.cpp">
       <Filter>src\Simulation\World\ChunkSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="DataTypes.cpp">
-      <Filter>src\Core</Filter>
     </ClCompile>
     <ClCompile Include="CraftingDisplay.cpp">
       <Filter>src\View\UI\Concrete</Filter>
@@ -243,23 +195,11 @@
     <ClInclude Include="ControlManager.h">
       <Filter>src\Simulation\Control</Filter>
     </ClInclude>
-    <ClInclude Include="DataTypes.h">
-      <Filter>src\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Constants.h">
-      <Filter>src\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Logger.h">
-      <Filter>src\Logger</Filter>
-    </ClInclude>
     <ClInclude Include="InputEvents.h">
       <Filter>src\Controller\Events</Filter>
     </ClInclude>
     <ClInclude Include="Simulation.h">
       <Filter>src\Simulation</Filter>
-    </ClInclude>
-    <ClInclude Include="ConstantSets.h">
-      <Filter>src\Core</Filter>
     </ClInclude>
     <ClInclude Include="ChunkLoadManager.h">
       <Filter>src\Simulation\World\ChunkSystem</Filter>
@@ -306,9 +246,6 @@
     <ClInclude Include="Focus.h">
       <Filter>src\Controller</Filter>
     </ClInclude>
-    <ClInclude Include="GameElement.h">
-      <Filter>src\Core</Filter>
-    </ClInclude>
     <ClInclude Include="ActionMap.h">
       <Filter>src\Controller\Events</Filter>
     </ClInclude>
@@ -318,23 +255,8 @@
     <ClInclude Include="Controller.h">
       <Filter>src\Controller</Filter>
     </ClInclude>
-    <ClInclude Include="Color.h">
-      <Filter>src\Core</Filter>
-    </ClInclude>
     <ClInclude Include="Appearance.h">
       <Filter>src\Simulation\World\Entities\Modules</Filter>
-    </ClInclude>
-    <ClInclude Include="Position.h">
-      <Filter>src\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="PositionStructures.h">
-      <Filter>src\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Size.h">
-      <Filter>src\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="WorldRectangle.h">
-      <Filter>src\Core</Filter>
     </ClInclude>
     <ClInclude Include="Collider.h">
       <Filter>src\Simulation\World\Entities\Modules</Filter>
@@ -363,18 +285,6 @@
     <ClInclude Include="Animal.h">
       <Filter>src\Simulation\World\Entities\Concrete</Filter>
     </ClInclude>
-    <ClInclude Include="Colors.h">
-      <Filter>src\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Time.h">
-      <Filter>src\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Events.h">
-      <Filter>src\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="TimeConstants.h">
-      <Filter>src\Core</Filter>
-    </ClInclude>
     <ClInclude Include="EntityUpdater.h">
       <Filter>src\Simulation\World\Entities\Modules</Filter>
     </ClInclude>
@@ -384,26 +294,11 @@
     <ClInclude Include="ChickenBoxWorldPlanner.h">
       <Filter>src\Simulation\World\WorldPlanners</Filter>
     </ClInclude>
-    <ClInclude Include="NameGenerator.h">
-      <Filter>src\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="FileToArray.h">
-      <Filter>src\Core\Tools</Filter>
-    </ClInclude>
-    <ClInclude Include="Random_.h">
-      <Filter>src\Core\Tools</Filter>
-    </ClInclude>
-    <ClInclude Include="NumTools.h">
-      <Filter>src\Core\Tools</Filter>
-    </ClInclude>
     <ClInclude Include="Keyboard.h">
       <Filter>src\Controller\InputDevices</Filter>
     </ClInclude>
     <ClInclude Include="Mouse.h">
       <Filter>src\Controller\InputDevices</Filter>
-    </ClInclude>
-    <ClInclude Include="SystemConstants.h">
-      <Filter>src\Core</Filter>
     </ClInclude>
     <ClInclude Include="FieldCursor.h">
       <Filter>src\View\UI\Concrete</Filter>
@@ -441,23 +336,11 @@
     <ClInclude Include="Hotbar.h">
       <Filter>src\View\UI\Concrete</Filter>
     </ClInclude>
-    <ClInclude Include="ChunkElements.h">
-      <Filter>src\Core</Filter>
-    </ClInclude>
     <ClInclude Include="EventFactory.h">
       <Filter>src\Controller\Events</Filter>
     </ClInclude>
-    <ClInclude Include="JsonHandler.h">
-      <Filter>src\Core\Tools</Filter>
-    </ClInclude>
     <ClInclude Include="CtorParamStructures.h">
       <Filter>src\Simulation\World</Filter>
-    </ClInclude>
-    <ClInclude Include="Directories.h">
-      <Filter>src\Core\Tools</Filter>
-    </ClInclude>
-    <ClInclude Include="ConstantRepository.h">
-      <Filter>src\Core\Tools</Filter>
     </ClInclude>
     <ClInclude Include="ChunkUpdater.h">
       <Filter>src\Simulation\World\ChunkSystem</Filter>
@@ -470,6 +353,9 @@
     </ClInclude>
     <ClInclude Include="TechnologyManager.h">
       <Filter>src\Simulation\Technology</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -487,12 +373,6 @@
     </Filter>
     <Filter Include="src\Simulation\World\WorldPlanners">
       <UniqueIdentifier>{56756d01-6f74-4ae7-93e6-286584bc9f92}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Core">
-      <UniqueIdentifier>{507e623a-c6d4-46ab-9f50-d87ee3342a7b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Logger">
-      <UniqueIdentifier>{ebe50536-304e-4479-b266-9b7bfe8343e4}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Controller">
       <UniqueIdentifier>{cd480540-6ac4-46a2-9e20-e050582a6263}</UniqueIdentifier>
@@ -514,9 +394,6 @@
     </Filter>
     <Filter Include="src\Controller\Events">
       <UniqueIdentifier>{14efbf44-c5e7-4ff7-9fca-d80190b9bc12}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Core\Tools">
-      <UniqueIdentifier>{0d40a4d4-bb5e-4282-9eb7-d7f61a311bf1}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Controller\InputDevices">
       <UniqueIdentifier>{49536009-d9bf-40e4-8df3-e89b4b1596dd}</UniqueIdentifier>

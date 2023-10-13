@@ -1,6 +1,5 @@
 #pragma once
-#include <unordered_set>
-#include "DataTypes.h"
+#include "stdafx.h"
 #include "Camera.h"
 #include "ChunkRepresentationManager.h"
 #include "ChunkRepresentation.h"

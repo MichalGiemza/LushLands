@@ -44,3 +44,4 @@ public:
 
 void handleMovementAttempt(ALLEGRO_EVENT *ae, void *obj);
 void handleMovement(ALLEGRO_EVENT *ae, void *obj);
+

@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "ChunkSystem.h"
 
 ChunkSystem::ChunkSystem(BaseWorldPlanner *worldPlanner, EntityFactory *entityFactory, ItemFactory *itemFactory, InputEvents *inputEvents) :

@@ -1,9 +1,8 @@
 #pragma once
+#include "stdafx.h"
 #include "InputEvents.h"
 #include "ActionMap.h"
-#include "Logger.h"
 #include "Display.h"
-#include "SystemConstants.h"
 
 class Mouse {
     /** 

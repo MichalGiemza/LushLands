@@ -1,6 +1,5 @@
 #pragma once
-#include "Position.h"
-#include "DataTypes.h"
+#include "stdafx.h"
 
 
 class BaseWorldPlanner {

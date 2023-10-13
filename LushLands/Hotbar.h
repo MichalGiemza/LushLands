@@ -1,4 +1,5 @@
 #pragma once
+#include "stdafx.h"
 #include "InventoryDisplay.h"
 #include "EventFactory.h"
 #include "Player.h"

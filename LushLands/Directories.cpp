@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Directories.h"
 
 std::filesystem::directory_iterator Directories::listDir(rawpath path) {

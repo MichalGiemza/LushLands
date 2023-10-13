@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "EventHandler.h"
 
 std::vector<Chunk *> EventHandler::getChunks() {

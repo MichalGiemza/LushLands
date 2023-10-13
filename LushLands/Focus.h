@@ -1,5 +1,5 @@
 #pragma once
-#include "GameElement.h"
+#include "stdafx.h"
 
 class Focus {
     /**

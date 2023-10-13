@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "UIElement.h"
 
 UIElement::UIElement(objecttype objectType, priority clickPriority, objectgroup objectGroup) 

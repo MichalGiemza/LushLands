@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "WorldRectangle.h"
 
 WorldRectangle::WorldRectangle(int x, int z, int w, int l, bool accurate, bool asCenter) {

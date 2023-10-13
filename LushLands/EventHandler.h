@@ -1,5 +1,5 @@
 #pragma once
-#include <vector>
+#include "stdafx.h"
 #include "Controller.h"
 #include "Simulation.h"
 #include "GraphicsManager.h"

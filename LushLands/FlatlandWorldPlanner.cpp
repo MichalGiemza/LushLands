@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "FlatlandWorldPlanner.h"
 
 FlatlandWorldPlanner::FlatlandWorldPlanner(int seed) {

@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "StaticBaseWindow.h"
 
 StaticBaseWindow::StaticBaseWindow(pxint x, pxint y, pxint w, pxint h, const Color *bgColor, const Color *fgColor, bool movable, bool resizeable) :

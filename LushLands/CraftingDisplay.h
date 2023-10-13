@@ -1,4 +1,5 @@
 #pragma once
+#include "stdafx.h"
 #include "CraftingManager.h"
 #include "Display.h"
 #include "TextureManager.h"

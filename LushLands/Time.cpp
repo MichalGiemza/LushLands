@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Time.h"
 
 Time::Time(int h, int min, int d, int m, int y) {

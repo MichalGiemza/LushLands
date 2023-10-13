@@ -1,9 +1,6 @@
 #pragma once
-#include <map>
-#include "Position.h"
+#include "stdafx.h"
 #include "Entity.h"
-#include "DataTypes.h"
-#include "Logger.h"
 #include "Ground.h"
 #include "EntityFactory.h"
 #include "ItemFactory.h"

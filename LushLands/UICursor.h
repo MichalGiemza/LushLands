@@ -1,7 +1,6 @@
 #pragma once
-#include <allegro5/allegro.h>
+#include "stdafx.h"
 #include "StaticUIElement.h"
-#include "ConstantSets.h"
 
 class UICursor : public StaticUIElement {
     /**

@@ -1,4 +1,5 @@
 #pragma once
+#include "stdafx.h"
 #include "UIElement.h"
 
 class StaticUIElement : public UIElement {

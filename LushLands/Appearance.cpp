@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Appearance.h"
 
 Appearance::Appearance(const Color &color, const TextureLocalization *textureLocalization) : 

@@ -131,7 +131,9 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Libraries\boost_1_82_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Libraries\boost_1_82_0;C:\Projekty\LushLandsGithub\AGUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -158,19 +160,14 @@
   <ItemGroup>
     <ClCompile Include="ActionMap.cpp" />
     <ClCompile Include="ChunkUpdater.cpp" />
-    <ClCompile Include="ConstantRepository.cpp" />
     <ClCompile Include="CraftingDisplay.cpp" />
     <ClCompile Include="CraftingManager.cpp" />
-    <ClCompile Include="DataTypes.cpp" />
     <ClCompile Include="Destroyability.cpp" />
-    <ClCompile Include="Directories.cpp" />
     <ClCompile Include="Hotbar.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="InventoryDisplay.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemFactory.cpp" />
-    <ClCompile Include="JsonHandler.cpp" />
-    <ClCompile Include="NumTools.cpp" />
     <ClCompile Include="Animal.cpp" />
     <ClCompile Include="Appearance.cpp" />
     <ClCompile Include="Body.cpp" />
@@ -184,11 +181,8 @@
     <ClCompile Include="ChunkSystem.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
-    <ClCompile Include="Color.cpp" />
     <ClCompile Include="DynamicCollider.cpp" />
     <ClCompile Include="EventFactory.cpp" />
-    <ClCompile Include="EventTypes.h" />
-    <ClCompile Include="FileToArray.cpp" />
     <ClCompile Include="Humanoid.cpp" />
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Console.cpp" />
@@ -199,31 +193,23 @@
     <ClCompile Include="EntityFactory.cpp" />
     <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="Focus.cpp" />
-    <ClCompile Include="GameElement.cpp" />
     <ClCompile Include="InputEvents.cpp" />
     <ClCompile Include="FlatlandWorldPlanner.cpp" />
     <ClCompile Include="GraphicsManager.cpp" />
     <ClCompile Include="Ground.cpp" />
-    <ClCompile Include="Logger.cpp" />
     <ClCompile Include="LushLands.cpp" />
     <ClCompile Include="Mobility.cpp" />
     <ClCompile Include="Mouse.cpp" />
-    <ClCompile Include="NameGenerator.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Position.cpp" />
     <ClCompile Include="RandomWalk.cpp" />
-    <ClCompile Include="Random_.cpp" />
     <ClCompile Include="TechnologyManager.cpp" />
     <ClCompile Include="WindowManager.cpp" />
-    <ClCompile Include="WorldRectangle.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Simulation.cpp" />
-    <ClCompile Include="Size.cpp" />
     <ClCompile Include="StaticBaseWindow.cpp" />
     <ClCompile Include="StaticUIElement.cpp" />
     <ClCompile Include="Structure.cpp" />
     <ClCompile Include="TextureManager.cpp" />
-    <ClCompile Include="Time.cpp" />
     <ClCompile Include="FieldCursor.cpp" />
     <ClCompile Include="UICursor.cpp" />
     <ClCompile Include="UIElement.cpp" />
@@ -233,21 +219,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionMap.h" />
-    <ClInclude Include="ChunkElements.h" />
     <ClInclude Include="ChunkUpdater.h" />
-    <ClInclude Include="ConstantRepository.h" />
     <ClInclude Include="CraftingDisplay.h" />
     <ClInclude Include="CraftingManager.h" />
     <ClInclude Include="CtorParamStructures.h" />
     <ClInclude Include="Destroyability.h" />
-    <ClInclude Include="Directories.h" />
     <ClInclude Include="Hotbar.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="InventoryDisplay.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemFactory.h" />
-    <ClInclude Include="JsonHandler.h" />
-    <ClInclude Include="NumTools.h" />
     <ClInclude Include="Animal.h" />
     <ClInclude Include="Appearance.h" />
     <ClInclude Include="Body.h" />
@@ -261,53 +242,36 @@
     <ClInclude Include="ChunkSystem.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CollisionManager.h" />
-    <ClInclude Include="Color.h" />
-    <ClInclude Include="Colors.h" />
     <ClInclude Include="Console.h" />
-    <ClInclude Include="Constants.h" />
     <ClInclude Include="DynamicCollider.h" />
     <ClInclude Include="EventFactory.h" />
-    <ClInclude Include="Events.h" />
-    <ClInclude Include="FileToArray.h" />
     <ClInclude Include="Humanoid.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="ControlManager.h" />
-    <ClInclude Include="DataTypes.h" />
     <ClInclude Include="Display.h" />
     <ClInclude Include="Entity.h" />
-    <ClInclude Include="ConstantSets.h" />
     <ClInclude Include="EntityFactory.h" />
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="Focus.h" />
-    <ClInclude Include="GameElement.h" />
     <ClInclude Include="InputEvents.h" />
     <ClInclude Include="FlatlandWorldPlanner.h" />
     <ClInclude Include="GraphicsManager.h" />
     <ClInclude Include="Ground.h" />
-    <ClInclude Include="Logger.h" />
     <ClInclude Include="LushLands.h" />
     <ClInclude Include="Mobility.h" />
     <ClInclude Include="Mouse.h" />
-    <ClInclude Include="NameGenerator.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="Position.h" />
-    <ClInclude Include="PositionStructures.h" />
     <ClInclude Include="RandomWalk.h" />
-    <ClInclude Include="Random_.h" />
+    <ClInclude Include="stdafx.h" />
     <ClInclude Include="TechnologyManager.h" />
     <ClInclude Include="WindowManager.h" />
-    <ClInclude Include="WorldRectangle.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Simulation.h" />
-    <ClInclude Include="Size.h" />
     <ClInclude Include="StaticBaseWindow.h" />
     <ClInclude Include="StaticUIElement.h" />
     <ClInclude Include="Structure.h" />
-    <ClInclude Include="SystemConstants.h" />
     <ClInclude Include="TextureManager.h" />
-    <ClInclude Include="Time.h" />
-    <ClInclude Include="TimeConstants.h" />
     <ClInclude Include="FieldCursor.h" />
     <ClInclude Include="UICursor.h" />
     <ClInclude Include="UIElement.h" />
@@ -322,6 +286,9 @@
   <ItemGroup>
     <ProjectReference Include="..\AGUI\AGUI.vcxproj">
       <Project>{eef02f00-d797-4347-915e-b54dfbf57a2f}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.vcxproj">
+      <Project>{de668f8b-bd40-48f8-bd45-1d8a468aa30d}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

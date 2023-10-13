@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "ChunkRepresentationManager.h"
 
 void ChunkRepresentationManager::updateVisibleChunkRepresentations() {

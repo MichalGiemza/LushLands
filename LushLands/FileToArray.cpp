@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "FileToArray.h"
 
 char **FileToArray::readFile(rawpath path) {
@@ -15,8 +16,10 @@ char **FileToArray::readFile(rawpath path) {
     if (file.is_open()) {
         for (int i = 0; i < n; i++) {
             file.getline(line, maxLineLength);
-            char *lineToSave = new char[strlen(line) + 1]; // allocate memory for the line
-            strcpy_s(line, lineToSave);
+            int l = strlen(line) + 1;
+            char *lineToSave = new char[l];
+            lineToSave[0] = 0;
+            strcpy_s(lineToSave, l, line);
             arr[i] = lineToSave;
         }
         file.close();

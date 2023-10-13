@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Chunk.h"
 
 void Chunk::generateTiles(ChunkPlan &chunkPlan) {

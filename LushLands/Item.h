@@ -1,6 +1,5 @@
 #pragma once
-#include "DataTypes.h"
-#include "Position.h"
+#include "stdafx.h"
 #include "CtorParamStructures.h"
 
 

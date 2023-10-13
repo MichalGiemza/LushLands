@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "TextureManager.h"
 
 ALLEGRO_BITMAP *TextureManager::loadTexture(const TextureLocalization *tl) {

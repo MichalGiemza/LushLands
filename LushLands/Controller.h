@@ -14,7 +14,7 @@ class Controller {
     Focus *focus;
     ActionMap *actionMap;
 public:
-    Controller();
+    Controller(Core *core);
     void postInit(ALLEGRO_BITMAP *cursorBitmap);
     InputEvents *getInputEvents();
     Focus *getFocus();

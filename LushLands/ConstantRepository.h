@@ -12,9 +12,6 @@
 #include <cstring>
 
 
-using namespace boost;
-
-
 class ConstantRepository {
     /** 
     * Allows to select specified constant (const char*) by reading provided text content.

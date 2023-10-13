@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Size.h"
 
 Size::Size(int width, int height, int length, bool accurate) {

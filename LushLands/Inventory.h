@@ -1,7 +1,6 @@
 #pragma once
+#include "stdafx.h"
 #include "Item.h"
-#include "DataTypes.h"
-#include "Position.h"
 
 
 class Inventory {

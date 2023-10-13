@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Scene.h"
 
 Scene::Scene(scenename sceneName, Controller *controller, Simulation *simulation, Display *display, TextureManager *textureManager, Console *console)

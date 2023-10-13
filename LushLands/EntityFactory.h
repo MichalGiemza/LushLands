@@ -1,17 +1,11 @@
 #pragma once
+#include "stdafx.h"
 #include "Entity.h"
-#include "DataTypes.h"
-#include "ConstantSets.h"
 #include "Ground.h"
 #include "Structure.h"
 #include "Animal.h"
 #include "Humanoid.h"
-#include "NameGenerator.h"
-#include "JsonHandler.h"
 #include "CtorParamStructures.h"
-#include <unordered_map>
-#include "Directories.h"
-#include "ConstantRepository.h"
 
 
 class EntityFactory {

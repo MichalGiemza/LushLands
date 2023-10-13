@@ -1,8 +1,6 @@
 #pragma once
+#include "stdafx.h"
 #include "StaticUIElement.h"
-#include "WorldRectangle.h"
-#include "Color.h"
-#include "Colors.h"
 
 
 class StaticBaseWindow : public StaticUIElement {

@@ -1,4 +1,5 @@
 #pragma once
+#include "stdafx.h"
 #include "EntityUpdater.h"
 #include "Entity.h"
 

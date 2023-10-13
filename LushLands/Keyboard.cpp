@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Keyboard.h"
 
 Keyboard::Keyboard(InputEvents *inputEvents) {

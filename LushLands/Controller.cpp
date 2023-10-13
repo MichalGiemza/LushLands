@@ -1,13 +1,14 @@
+#include "stdafx.h"
 #include "Controller.h"
 
-Controller::Controller() {
+Controller::Controller(Core *core) {
     if (!al_init())
         throw std::logic_error(could_not_init_allegro);
 
     Logger::init();
     
     actionMap = new ActionMap();
-    inputEvents = new InputEvents();
+    inputEvents = new InputEvents(core);
     
     keyboard = new Keyboard(inputEvents);
     mouse = new Mouse(inputEvents);

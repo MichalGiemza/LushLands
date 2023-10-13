@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "ChunkRepresentation.h"
 
 size_t ChunkRepresentation::hashChunkGroundLevel(int level) {

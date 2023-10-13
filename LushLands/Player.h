@@ -1,10 +1,8 @@
 #pragma once
+#include "stdafx.h"
 #include "Humanoid.h"
 #include "Entity.h"
-#include "Color.h"
 #include "Appearance.h"
-#include "Size.h"
-#include "NumTools.h"
 #include "InputEvents.h"
 
 

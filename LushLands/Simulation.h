@@ -1,13 +1,12 @@
 #pragma once
+#include "stdafx.h"
 #include "World.h"
-#include "ConstantSets.h"
 #include "EntityFactory.h"
 #include "ItemFactory.h"
 #include "InputEvents.h"
 #include "Controller.h"
 #include "Player.h"
 #include "CraftingManager.h"
-#include <cmath>
 
 
 class Simulation {

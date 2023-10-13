@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "ChickenBoxWorldPlanner.h"
 
 ChickenBoxWorldPlanner::ChickenBoxWorldPlanner(int seed) {

@@ -1,11 +1,6 @@
 #pragma once
-#include "DataTypes.h"
-#include "Directories.h"
-#include "JsonHandler.h"
+#include "stdafx.h"
 #include "ConstantRepository.h"
-#include <map>
-#include <vector>
-#include <set>
 
 struct CraftingIngredient {
     int amount;

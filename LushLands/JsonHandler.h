@@ -5,8 +5,6 @@
 #include <boost/container_hash/hash.hpp>
 #include "Logger.h"
 
-using namespace boost;
-
 
 struct JSONValueHasher {
     std::size_t operator()(const boost::json::value &value) const;

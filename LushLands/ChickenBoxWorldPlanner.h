@@ -1,8 +1,6 @@
 #pragma once
-#include <string>
+#include "stdafx.h"
 #include "BaseWorldPlanner.h"
-#include "DataTypes.h"
-#include "ConstantSets.h"
 
 
 class ChickenBoxWorldPlanner : public BaseWorldPlanner {

@@ -1,8 +1,5 @@
 #pragma once
-#include "DataTypes.h"
-#include "Position.h"
-#include "Size.h"
-#include "Color.h"
+#include "stdafx.h"
 #include "InputEvents.h"
 
 

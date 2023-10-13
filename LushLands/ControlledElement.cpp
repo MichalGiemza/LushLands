@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "ControlledElement.h"
 
 void ControlledElement::setFocusedObject(GameElement *focusedObject) {

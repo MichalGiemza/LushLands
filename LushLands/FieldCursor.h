@@ -1,13 +1,7 @@
 #pragma once
-#include <allegro5/allegro.h>
-#include <allegro5/allegro_primitives.h>
-#include <allegro5/color.h>
+#include "stdafx.h"
 #include "WorldUIElement.h"
-#include "DataTypes.h"
-#include "Position.h"
 #include "Camera.h"
-#include "Colors.h"
-#include "NumTools.h"
 
 
 class FieldCursor : public WorldUIElement {

@@ -1,8 +1,8 @@
 #pragma once
+#include "stdafx.h"
 #include "Inventory.h"
 #include "StaticBaseWindow.h"
 #include "TextureManager.h"
-#include "ConstantSets.h"
 #include "Display.h"
 
 

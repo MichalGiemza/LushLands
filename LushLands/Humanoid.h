@@ -1,10 +1,8 @@
 #pragma once
+#include "stdafx.h"
 #include "DynamicCollider.h"
-#include "DataTypes.h"
 #include "Entity.h"
-#include "Color.h"
 #include "Appearance.h"
-#include "GameElement.h"
 #include "Mobility.h"
 #include "Inventory.h"
 #include "Destroyability.h"

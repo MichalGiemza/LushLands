@@ -1,13 +1,6 @@
 #pragma once
-#define ALLEGRO_UNSTABLE
-#include <allegro5/allegro.h>
-#include <allegro5/events.h>
-#include <vector>
-#include <unordered_map>
-#include "DataTypes.h"
-#include "ConstantSets.h"
-#include "EventTypes.h"
-#include "Logger.h"
+#include "stdafx.h"
+#include "Core.h"
 
 
 class InputEvents {
@@ -34,7 +27,7 @@ private:
     void beginPressingKey(keycode kc);
     void finishPressingKey(keycode kc);
 public:
-    InputEvents();
+    InputEvents(Core *core);
     void mainLoop(bool *isRunning);
     void registerEventSource(ALLEGRO_EVENT_SOURCE *event_source);
 

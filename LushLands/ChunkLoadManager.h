@@ -1,7 +1,5 @@
 #pragma once
-#include <vector>
-#include <unordered_map>
-#include "Position.h"
+#include "stdafx.h"
 #include "Chunk.h"
 #include "BaseWorldPlanner.h"
 

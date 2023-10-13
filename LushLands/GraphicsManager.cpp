@@ -1,8 +1,10 @@
+#include "stdafx.h"
 #include "GraphicsManager.h"
 
-GraphicsManager::GraphicsManager(Controller *controller, Simulation *simulation) {
+
+GraphicsManager::GraphicsManager(Core *core, Controller *controller, Simulation *simulation) {
     this->simulation = simulation;
-    display = new Display(controller->getInputEvents());
+    display = new Display(controller->getInputEvents(), core);
     textureManager = new TextureManager();
     console = new Console(display, textureManager);
     // Scenes

@@ -21,7 +21,7 @@ private:
     friend void updateTrackingTPS(ALLEGRO_EVENT *allegroEvent, void *caller);
 public:
     ALLEGRO_DISPLAY *getDisplay();
-    Display(InputEvents *inputEvents);
+    Display(InputEvents *inputEvents, Core *core);
     void clearDisplay();
     void setCursor(ALLEGRO_MOUSE_CURSOR *cursor);
     double getCurrentFPS();

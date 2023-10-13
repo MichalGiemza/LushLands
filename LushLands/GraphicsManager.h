@@ -5,6 +5,7 @@
 #include "Simulation.h"
 #include "Console.h"
 
+
 class GraphicsManager {
     /**
     * G³ówna klasa zarz¹dzaj¹ca grafik¹.
@@ -17,8 +18,9 @@ class GraphicsManager {
     Scene *currentScene;
     Scene *gameplayScene;
     Scene *mainmenuScene;
+
 public:
-    GraphicsManager(Controller *controller, Simulation *simulation);
+    GraphicsManager(Core *core, Controller *controller, Simulation *simulation);
     Scene *getCurrentGameplayScene();
     TextureManager *getTextureManager();
     Display *getDisplay();

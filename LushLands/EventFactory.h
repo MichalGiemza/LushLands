@@ -1,7 +1,5 @@
 #pragma once
-#include <allegro5/allegro.h>
-#include <allegro5/events.h>
-#include "Events.h"
+#include "stdafx.h"
 
 
 class EventFactory {

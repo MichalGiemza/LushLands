@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "ChunkLoadManager.h"
 
 ChunkLoadManager::ChunkLoadManager(std::unordered_map<ChunkPosition, Chunk *> *chunks, BaseWorldPlanner *worldPlanner, EntityFactory *entityFactory, ItemFactory *itemFactory, InputEvents *inputEvents) :

@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "ConstantRepository.h"
 
 std::unordered_map<size_t, TextureLocalization *> CR::textureLocalizationMap;

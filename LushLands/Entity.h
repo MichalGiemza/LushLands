@@ -1,13 +1,5 @@
 #pragma once
-#include <map>
-#include <string>
-#include <vector>
-#include <unordered_set>
-#include <boost/uuid/uuid.hpp>
-#include <boost/uuid/uuid_generators.hpp>
-#include <boost/uuid/uuid_io.hpp>
-#include "DataTypes.h"
-#include "Logger.h"
+#include "stdafx.h"
 #include "EntityUpdater.h"
 #include "InputEvents.h"
 
@@ -30,7 +22,7 @@ private:
 public:
     // Constructors and main methods
     Entity(entitytype entityType, std::string description, updatetype updateType, InputEvents *inputEvents);
-    virtual Entity *clone() = 0;
+    virtual Entity *clone() = 0; 
 
     // Getters, Setters
     entitytype getType();

@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "DataTypes.h"
 
 std::size_t std::hash<char *>::operator()(const char *p) const {

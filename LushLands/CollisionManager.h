@@ -1,6 +1,7 @@
 #pragma once
+#include "stdafx.h"
 #include "DynamicCollider.h"
-#include <unordered_set>
+
 
 class CollisionManager {
     /**

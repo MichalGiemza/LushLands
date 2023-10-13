@@ -1,5 +1,5 @@
 #pragma once
-#include "WorldRectangle.h"
+#include "stdafx.h"
 #include "Entity.h"
 #include "Display.h"
 #include "Ground.h"

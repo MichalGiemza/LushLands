@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Hotbar.h"
 
 int Hotbar::keycodeToIdx(keycode kc) {

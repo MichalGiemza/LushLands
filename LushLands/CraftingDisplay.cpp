@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "CraftingDisplay.h"
 
 CraftingDisplay::CraftingDisplay(Display *display, TextureManager *textureManager, CraftingManager *craftingManager, pxint x_, pxint y_) :

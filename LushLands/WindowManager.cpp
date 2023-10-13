@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "WindowManager.h"
 
 WindowManager::WindowManager(InputEvents *ie) :

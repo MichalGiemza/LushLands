@@ -1,10 +1,5 @@
 #pragma once
-#include <unordered_map>
-#include <allegro5/keycodes.h>
-#include <functional>
-#include "DataTypes.h"
-#include "ConstantSets.h"
-#include "Events.h"
+#include "stdafx.h"
 
 
 class ActionMap {
