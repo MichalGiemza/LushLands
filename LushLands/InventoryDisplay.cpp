@@ -9,14 +9,20 @@ pxint InventoryDisplay::determineHeight(int n) {
     return determineRows(n) * (tileSizePx + margin) + margin;
 }
 
-InventoryDisplay::InventoryDisplay(Display *display, TextureManager *textureManager, Inventory *inv, pxint x, pxint y) :
+InventoryDisplay::InventoryDisplay(Core *core, Display *display, TextureManager *textureManager, Inventory *inv, pxint x, pxint y) :
     StaticBaseWindow(x, y, determineWidth(), determineHeight(inv->getSize())), dsp(display),
-    textureManager(textureManager), inventory(inv),
+    textureManager(textureManager), inventory(inv), core(core),
     invHeight(determineHeight(inv->getSize())),
     invWidth(determineWidth()) {
     // Ctor
     setHidden(true);
     font = al_load_ttf_font(fontNormaleste, 10, 0);
+    // Crafting menu // FIXME: Przenieœæ do craftingu, przerobiæ wsio na agui
+    core->getGUI()->add(&flow);
+    flow.add(&button);
+    button.setSize(80, 40);
+    button.setText("Push Me");
+    button.addActionListener(&simpleAL);
 }
 
 void InventoryDisplay::interact(pxint x, pxint y) {

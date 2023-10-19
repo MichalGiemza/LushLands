@@ -17,8 +17,8 @@ void Hotbar::setSelectionIdx(int idx) {
     player->setEquippedItem(inventory->getItem(idx)); // TODO: player - hotbar.onIdxSelect(setEquippedItem);
 }
 
-Hotbar::Hotbar(Display *display, TextureManager *textureManager, Inventory *inv, Player *player, InputEvents *inputEvents) :
-    InventoryDisplay(display, textureManager, inv, determineX(), determineY()),
+Hotbar::Hotbar(Display *display, Core *core, TextureManager *textureManager, Inventory *inv, Player *player, InputEvents *inputEvents) :
+    InventoryDisplay(core, display, textureManager, inv, determineX(), determineY()),
     player(player), inputEvents(inputEvents) {
     setHidden(false);
     inputEvents->subscribeSystemEvent(player_hotbar, handleHotbarKey, this);

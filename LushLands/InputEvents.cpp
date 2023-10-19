@@ -33,6 +33,7 @@ InputEvents::InputEvents(Core *core) {
     timerTPS = core->getTPSTimer();
     timerFPS = core->getFPSTimer();
     userEventSource = core->getUserEventSource();
+    this->core = core;
 }
 
 void InputEvents::mainLoop(bool *isRunning) { // TODO: Odwróciæ zale¿noœæ i przenieœæ MainLoop -> void mainLoop(inputEvents);
@@ -44,7 +45,10 @@ void InputEvents::mainLoop(bool *isRunning) { // TODO: Odwróciæ zale¿noœæ i prze
     // Start loop
     while (*isRunning) {
         al_wait_for_event(eventQueue, currentEvent);
-
+        // GUI Event handling
+        core->processEvent(*currentEvent);
+        core->getGUI()->logic();
+        // Event Passing
         switch (currentEvent->type) {
             /*          KEYBOARD          */
         case ALLEGRO_EVENT_KEY_DOWN: {

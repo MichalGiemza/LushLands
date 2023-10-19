@@ -8,6 +8,7 @@ class InputEvents {
     ALLEGRO_EVENT_QUEUE *eventQueue;
     ALLEGRO_TIMER *timerTPS;
     ALLEGRO_TIMER *timerFPS;
+    Core *core;
     std::unordered_map<keycode, bool> keyStates;
     // Subscribing to events
     std::vector<KeySubscribtion> subscribersKeyDown;

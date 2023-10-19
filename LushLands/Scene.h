@@ -17,6 +17,7 @@ class Scene {
     * Pozwala na dodawanie elementów œwiata i UI na scenê w celu rysowania i przedstawiania ich u¿ytkownikowi.
     */
     scenename name;
+    Core *core;
     Camera camera;
     ChunkRepresentationManager chunkRepresentationManager;
     World *world;
@@ -41,7 +42,7 @@ class Scene {
 
     void drawChunkGround(ChunkRepresentation &chunkRepresentation, int level);
 public:
-    Scene(scenename sceneName, Controller *controller, Simulation *simulation, Display *display, TextureManager *textureManager, Console *console);
+    Scene(scenename sceneName, Core *core, Controller *controller, Simulation *simulation, Display *display, TextureManager *textureManager, Console *console);
 
     FieldCursor *getFieldCursor();
     Hotbar *getHotbar();

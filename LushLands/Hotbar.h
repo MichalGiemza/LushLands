@@ -16,7 +16,7 @@ private:
     int keycodeToIdx(keycode kc);
     void setSelectionIdx(int idx);
 public:
-    Hotbar(Display *display, TextureManager *textureManager, Inventory *inv, Player *player, InputEvents *inputEvents);
+    Hotbar(Display *display, Core *core, TextureManager *textureManager, Inventory *inv, Player *player, InputEvents *inputEvents);
     pxint determineX();
     pxint determineY();
     int getSelectedIdx();

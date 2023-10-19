@@ -8,8 +8,8 @@ GraphicsManager::GraphicsManager(Core *core, Controller *controller, Simulation 
     textureManager = new TextureManager();
     console = new Console(display, textureManager);
     // Scenes
-    gameplayScene = new Scene(GAMEPLAY_SCENE, controller, simulation, display, textureManager, console);
-    mainmenuScene = new Scene(MAINMENU_SCENE, controller, simulation, display, textureManager, console);
+    gameplayScene = new Scene(GAMEPLAY_SCENE, core, controller, simulation, display, textureManager, console);
+    mainmenuScene = new Scene(MAINMENU_SCENE, core, controller, simulation, display, textureManager, console);
     currentScene = gameplayScene; // TODO: PóŸniej ma byæ tu main menu
 }
 
