@@ -4,7 +4,7 @@
 Structure::Structure(StructureCtorParams &p) :
     Entity(p.entityType, *p.description, p.updateType, p.inputEvents),
     entityUpdater(),
-    appearance(*p.color, p.textureLocalization),
+    appearance(*p.color),
     body(*p.position, *p.size),
     collider(&body),
     gameElement(ft::STRUCTURE, fp::STRUCTURE, fg::SIMULATION),

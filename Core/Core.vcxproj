@@ -36,6 +36,7 @@
     <ClCompile Include="..\LushLands\Position.cpp" />
     <ClCompile Include="..\LushLands\Random_.cpp" />
     <ClCompile Include="..\LushLands\Size.cpp" />
+    <ClCompile Include="..\LushLands\TextureManager.cpp" />
     <ClCompile Include="..\LushLands\Time.cpp" />
     <ClCompile Include="..\LushLands\WorldRectangle.cpp" />
   </ItemGroup>
@@ -64,14 +65,10 @@
     <ClInclude Include="..\LushLands\Random_.h" />
     <ClInclude Include="..\LushLands\Size.h" />
     <ClInclude Include="..\LushLands\SystemConstants.h" />
+    <ClInclude Include="..\LushLands\TextureManager.h" />
     <ClInclude Include="..\LushLands\Time.h" />
     <ClInclude Include="..\LushLands\TimeConstants.h" />
     <ClInclude Include="..\LushLands\WorldRectangle.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AGUI\AGUI.vcxproj">
-      <Project>{eef02f00-d797-4347-915e-b54dfbf57a2f}</Project>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

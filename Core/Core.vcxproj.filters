@@ -66,6 +66,9 @@
     <ClCompile Include="..\LushLands\Logger.cpp">
       <Filter>Core\Logger</Filter>
     </ClCompile>
+    <ClCompile Include="..\LushLands\TextureManager.cpp">
+      <Filter>Core\Tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\LushLands\ChunkElements.h">
@@ -139,6 +142,9 @@
     </ClInclude>
     <ClInclude Include="..\LushLands\Logger.h">
       <Filter>Core\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\LushLands\TextureManager.h">
+      <Filter>Core\Tools</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

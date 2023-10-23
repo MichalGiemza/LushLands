@@ -1,13 +1,9 @@
 #include "stdafx.h"
 #include "Appearance.h"
 
-Appearance::Appearance(const Color &color, const TextureLocalization *textureLocalization) : 
-    color(&color), textureLocalization(textureLocalization) {}
+Appearance::Appearance(const Color &color) : 
+    color(&color) {}
 
 const Color *Appearance::getColor() const {
     return color;
-}
-
-const TextureLocalization *Appearance::getTextureLocalization() const {
-    return textureLocalization;
 }

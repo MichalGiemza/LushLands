@@ -3,9 +3,6 @@
 	"TemplateClass": "ground",
     "Color": {"R": 150, "G": 150, "B": 150, "A": 255},
     "Description": "Rough cobblestone pavement.",
-    "TexturePosition": {"X": 64, "Y": 64},
-    "TextureImage": "..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\IceTileset.png",
-    "TextureSize": null,
     "EntityDrops": [
         {"EntityType": "stone", "ChanceGuaranteed": 1, "ChanceLow": 1, "ChanceHigh": 1}
     ],

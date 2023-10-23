@@ -46,55 +46,15 @@ EntityDrops *ConstantRepository::buildEntityDrops(const json::array &entityDrops
 	return new EntityDrops { n, idc };
 }
 
-const TextureLocalization *ConstantRepository::selectTextureLocalization(const json::object &d) {
-	// Identifier
-	char *identifier = 0;
-	if (d.contains("EntityType")) {
-		json::string et = d.at("EntityType").as_string();
-		identifier = (char *)CR::selectEntityType(et);
-	} else {
-		Logger::log(lg::ERROR_, "TextureLocalization requires either EntityType or ItemType.");
-		return 0;
-	}
-	// Control structure
-	TextureLocalization tl = TextureLocalization();
-	//   Position
-	auto &tp = d.at("TexturePosition");
-	if (not tp.is_null()) {
-		tl.x = tp.as_object().at("X").as_int64();
-		tl.y = tp.as_object().at("Y").as_int64();
-	} else {
-		tl.x = 0;
-		tl.y = 0;
-	}
-	//   Size
-	auto &ts = d.at("TextureSize");
-	if (not ts.is_null()) {
-		tl.w = ts.as_object().at("W").as_int64();
-		tl.h = ts.as_object().at("H").as_int64();
-	} else {
-		tl.w = tileSizePx;
-		tl.h = tileSizePx;
-	}
-	//   ImagePath
-	auto &ti = d.at("TextureImage");
-	tl.path = a_c(ti.as_string());
-
-	// Actual checking
-	size_t key = std::hash<TextureLocalization> {}(tl);
-	auto it = textureLocalizationMap.find(key);
-	if (it != textureLocalizationMap.end()) {
-		textureLocalizationEntityMap[identifier] = textureLocalizationMap[key];
-		return it->second;
-	} else {
-		textureLocalizationMap[key] = new TextureLocalization(tl);
-		textureLocalizationEntityMap[identifier] = textureLocalizationMap[key];
-		return textureLocalizationMap[key];
-	}
-}
-
-const TextureLocalization *ConstantRepository::selectTextureLocalization(entitytype entityType) {
-	return textureLocalizationEntityMap[entityType];
+void ConstantRepository::init() {
+	//try {
+	//	for (const auto &entry : fs::directory_iterator(path)) {
+	//		std::cout << entry.path().string() << std::endl;
+	//	}
+	//}
+	//catch (const std::exception &e) {
+	//	std::cerr << "Error: " << e.what() << std::endl;
+	//}
 }
 
 const entitytype ConstantRepository::selectEntityType(const json::string &entityType, bool create) {
@@ -112,9 +72,14 @@ const entitytype ConstantRepository::selectEntityType(const json::string &entity
 	}
 }
 
-const entitytype ConstantRepository::selectEntityType(entitytype entityType) {
+const entitytype ConstantRepository::selectEntityType(entitytype entityType, bool create) {
 	auto str = json::string(entityType);
-	return selectEntityType(str, false);
+	return selectEntityType(str, create);
+}
+
+const entitytype ConstantRepository::selectEntityType(std::string &entityType, bool create) {
+	auto str = json::string(entityType);
+	return selectEntityType(str, create);
 }
 
 const tag ConstantRepository::selectTag(const json::string &tag_, bool create) {

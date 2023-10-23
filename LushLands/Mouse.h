@@ -12,7 +12,6 @@ class Mouse {
     ALLEGRO_MOUSE_CURSOR *cursor = 0;
 public:
     Mouse(InputEvents *inputEvents);
-    void addCursor(ALLEGRO_BITMAP *cursorBmp);
     ALLEGRO_MOUSE_CURSOR *getCursor();
 };
 

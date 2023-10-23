@@ -209,7 +209,6 @@
     <ClCompile Include="StaticBaseWindow.cpp" />
     <ClCompile Include="StaticUIElement.cpp" />
     <ClCompile Include="Structure.cpp" />
-    <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="FieldCursor.cpp" />
     <ClCompile Include="UICursor.cpp" />
     <ClCompile Include="UIElement.cpp" />
@@ -271,7 +270,6 @@
     <ClInclude Include="StaticBaseWindow.h" />
     <ClInclude Include="StaticUIElement.h" />
     <ClInclude Include="Structure.h" />
-    <ClInclude Include="TextureManager.h" />
     <ClInclude Include="FieldCursor.h" />
     <ClInclude Include="UICursor.h" />
     <ClInclude Include="UIElement.h" />

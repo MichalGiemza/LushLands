@@ -4,7 +4,7 @@
 Ground::Ground(GroundCtorParams &p) :
     Entity(p.entityType, *p.description, p.updateType, p.inputEvents),
     entityUpdater(),
-    appearance(*p.color, p.textureLocalization),
+    appearance(*p.color),
     body(*p.position, *p.size),
     destroyability(this, p.inputEvents, p.maxHealth, p.requiredTool, *p.drops),
     gameElement(ft::GROUND, fp::GROUND, fg::SIMULATION) {

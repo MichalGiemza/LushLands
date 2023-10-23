@@ -91,6 +91,8 @@ namespace agui {
 
 		virtual void setTargetImage(const Image *target);
 		virtual void resetTargetImage();
+		virtual void drawRoundedRectangle(const Rectangle &rect, float radius, const Color &color, float thickness = 1.0f);
+		virtual void drawFilledRoundedRectangle(const Rectangle &rect, float radius, const Color &color);
 
 	};
 }

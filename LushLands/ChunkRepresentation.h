@@ -19,12 +19,11 @@ class ChunkRepresentation {
     size_t cachedLevelHash = 0;
     ALLEGRO_BITMAP *cachedLevelBitmap = 0;
     Display *display;
-    TextureManager *textureManager;
 
     size_t hashChunkGroundLevel(int level);
     void drawLevelTilesToBitmap(int level);
 public:
-    ChunkRepresentation(Display *display, ChunkPosition chunkPosition, ChunkElements *ce, TextureManager *textureManager);
+    ChunkRepresentation(Display *display, ChunkPosition chunkPosition, ChunkElements *ce);
     ALLEGRO_BITMAP *getBitmap(int level);
     ChunkPosition *getChunkPosition();
     ChunkElements *getChunkElements();

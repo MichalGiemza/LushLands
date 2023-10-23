@@ -193,6 +193,9 @@ const rawpath ctorParamsGround = "..\\Content\\Entity\\Ground";
 const rawpath ctorParamsStructure = "..\\Content\\Entity\\Structure";
 const rawpath ctorParamsItem = "..\\Content\\Item";
 
+// Testures
+const rawpath texturesDir = "..\\Assets\\textures";
+
 // Recipes Json Files
 const rawpath personalRecipes = "..\\Content\\Recipes\\Personal";
 

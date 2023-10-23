@@ -31,8 +31,9 @@ protected:
     Inventory *inventory;
 
     SimpleActionListener simpleAL;
-    agui::FlowLayout flow;
-    agui::Button button;
+    //agui::Frame frame;
+    agui::FlowLayout frame;
+    agui::Button *buttons;
 
     Display *dsp;
     TextureManager *textureManager;
@@ -42,9 +43,9 @@ protected:
     int determineRows(int n);
     pxint determineHeight(int elements);
     pxint determineWidth();
-
+    void prepareGUI();
 public:
-    InventoryDisplay(Core *core, Display *display, TextureManager *textureManager, Inventory *inv, pxint x, pxint y);
+    InventoryDisplay(Core *core, Display *display, Inventory *inv, pxint x, pxint y);
     virtual void interact(pxint x, pxint y) override;
     virtual void openContextMenu(pxint x, pxint y) override;
     virtual void draw() override;

@@ -21,13 +21,12 @@ class Console : StaticUIElement {
     ALLEGRO_BITMAP *bitmapCache = 0;
     bool bitmapToRedraw = true;
     Display *display;
-    TextureManager *textureManager;
     ALLEGRO_FONT *font;
 private:
     int determineChatH();
     int determineChatW();
 public:
-    Console(Display *display, TextureManager *textureManager);
+    Console(Display *display);
     friend void handleLogMessage(void *caller, char *str);
     void draw();
 };

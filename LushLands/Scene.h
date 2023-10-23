@@ -24,7 +24,6 @@ class Scene {
     Player *player;
     Display *display;
     InputEvents *inputEvents;
-    TextureManager *textureManager;
     Console *console;
     FieldCursor *fieldCursor;
     InventoryDisplay *invDispl;
@@ -42,7 +41,7 @@ class Scene {
 
     void drawChunkGround(ChunkRepresentation &chunkRepresentation, int level);
 public:
-    Scene(scenename sceneName, Core *core, Controller *controller, Simulation *simulation, Display *display, TextureManager *textureManager, Console *console);
+    Scene(scenename sceneName, Core *core, Controller *controller, Simulation *simulation, Display *display, Console *console);
 
     FieldCursor *getFieldCursor();
     Hotbar *getHotbar();

@@ -32,10 +32,10 @@ class ConstantRepository {
 private:
     static EntityDrops *buildEntityDrops(const json::array &entityDropsData);
 public:
-    static const TextureLocalization *selectTextureLocalization(const json::object &data);
-    static const TextureLocalization *selectTextureLocalization(entitytype entityType);
+    static void init();
     static const entitytype selectEntityType(const json::string &entityType, bool create = false);
-    static const entitytype selectEntityType(entitytype entityType);
+    static const entitytype selectEntityType(entitytype entityType, bool create = false);
+    static const entitytype selectEntityType(std::string &entityType, bool create = false);
     static const tag selectTag(const json::string &tag_, bool create = false);
     static const tag selectTag(tag tag_);
     static const Size *selectSize(float w, float h, float l);

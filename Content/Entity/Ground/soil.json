@@ -3,9 +3,6 @@
 	"TemplateClass": "ground",
     "Color": {"R": 100, "G": 60, "B": 20, "A": 255},
     "Description": "Fertile soil.",
-	"TexturePosition": {"X": 64, "Y": 64},
-    "TextureImage": "..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\RPG Nature Tileset.png",
-	"TextureSize": null,
 	"EntityDrops" : 
 	[
 		{ "EntityType": "soil", "ChanceGuaranteed": 1, "ChanceLow": 1, "ChanceHigh": 1}

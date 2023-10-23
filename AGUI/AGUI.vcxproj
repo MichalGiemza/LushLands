@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -107,6 +107,8 @@
     <ClInclude Include="Agui\Widgets\TextField\TextField.hpp" />
     <ClInclude Include="Agui\Widgets\TextField\TextFieldListener.hpp" />
     <ClInclude Include="Agui\Widgets\ToolTip\ToolTip.hpp" />
+    <ClInclude Include="Constants.h" />
+    <ClInclude Include="InventorySlot.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Agui\ActionEvent.cpp" />
@@ -186,6 +188,12 @@
     <ClCompile Include="Agui\Widgets\TextField\TextField.cpp" />
     <ClCompile Include="Agui\Widgets\TextField\TextFieldListener.cpp" />
     <ClCompile Include="Agui\Widgets\ToolTip\ToolTip.cpp" />
+    <ClCompile Include="InventorySlot.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.vcxproj">
+      <Project>{de668f8b-bd40-48f8-bd45-1d8a468aa30d}</Project>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -316,7 +324,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Projekty\LushLandsGithub\AGUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Projekty\LushLandsGithub\AGUI;C:\Projekty\LushLandsGithub\Core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>

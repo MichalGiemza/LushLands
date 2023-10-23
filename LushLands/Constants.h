@@ -1,5 +1,6 @@
 #pragma once
 #include <cmath>
+#include "Color.h"
 
 // Simulation
 const int TicksPerSecond = 24;
@@ -31,5 +32,6 @@ const float PI = 3.14159265F;
 // UI
 const short CHAT_LENGTH = 16;
 const int inventoryWidth = 12;
-const float roundingRadiusSmall = 4.0f;
-const float roundingRadiusBig = 8.0f;
+const Color UI_BG_COLOR = Color(50, 75, 80, 128);
+const Color UI_FG_COLOR = Color(160, 240, 250, 255);
+

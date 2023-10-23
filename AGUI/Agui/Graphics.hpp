@@ -270,6 +270,12 @@ namespace agui {
 		void setGlobalOpacity(float o);
 		float getGlobalOpacity() const;
 
+		virtual void drawRoundedRectangle(const Rectangle &rect, float radius, const Color &color, float thickness = 1.0f) = 0;
+		/**
+		 * Draws a filled rectangle.
+		 */
+		virtual void drawFilledRoundedRectangle(const Rectangle &rect, float radius, const Color &color) = 0;
+
 	};
 }
 

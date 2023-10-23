@@ -10,6 +10,7 @@
 #include "ConstantSets.h"
 #include "World.h"
 #include "Colors.h"
+#include "TextureManager.h"
 
 class ChunkRepresentationManager {
     /**
@@ -19,7 +20,6 @@ class ChunkRepresentationManager {
     World *world;
     Display *display;
     Camera *camera;
-    TextureManager *textureManager;
 private:
     void updateVisibleChunkRepresentations();
     void drawGround(ChunkRepresentation *cRep, int level);
@@ -35,6 +35,6 @@ private:
     pxint shiftTexturePositionX(pxint screenPositionX, pxint bitmapWidth, pxint bbWidth);
     pxint shiftTexturePositionZ(pxint screenPositionZ, pxint bitmapHeight, pxint bbHeight);
 public:
-    ChunkRepresentationManager(World *world, Display *display, Camera *camera, TextureManager *textureManager);
+    ChunkRepresentationManager(World *world, Display *display, Camera *camera);
     void draw(miliseconds time, bool showDebug);
 };

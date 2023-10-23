@@ -25,8 +25,7 @@ void ItemFactory::loadItemCtorParams(const fs::path fp) {
         CR::selectColor(cr, cg, cb),
         (stack)0,
         CR::selectMaxStack(ms),
-        CR::selectToolType(rt, true),
-        CR::selectTextureLocalization(d)
+        CR::selectToolType(rt, true)
     };
 
     itemParams[entityType] = params;

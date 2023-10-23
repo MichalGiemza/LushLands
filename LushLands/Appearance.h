@@ -7,10 +7,8 @@ class Appearance {
     * Represents appearance of an entity (as model, not view).
     */
     const Color *color;
-    const TextureLocalization *textureLocalization;
 public:
-    Appearance(const Color &color, const TextureLocalization *textureLocalization);
+    Appearance(const Color &color);
     const Color *getColor() const;
-    const TextureLocalization *getTextureLocalization() const;
 };
 

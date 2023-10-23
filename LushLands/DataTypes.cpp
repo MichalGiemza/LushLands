@@ -15,7 +15,7 @@ std::size_t std::hash<TextureLocalization>::operator()(const TextureLocalization
     boost::hash_combine(seed, p.y);
     boost::hash_combine(seed, p.w);
     boost::hash_combine(seed, p.h);
-    boost::hash_combine(seed, std::string(p.path));
+    boost::hash_combine(seed, p.path);
     return seed;
 }
 

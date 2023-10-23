@@ -156,6 +156,25 @@ namespace agui {
 			(al_get_current_display()));
 	}
 
+	void Allegro5Graphics::drawRoundedRectangle(const Rectangle &rect, float radius, const Color &color, float thickness) {
+		al_draw_rounded_rectangle(
+			float(rect.getLeft() + getOffset().getX()) + 0.5f,
+			float(rect.getTop() + getOffset().getY()) + 0.5f,
+			float(rect.getRight() + getOffset().getX() - 1) + 0.5f,
+			float(rect.getBottom() + getOffset().getY() - 1) + 0.5f,
+			radius, radius,
+			getColor(color), thickness);
+	}
+
+	void Allegro5Graphics::drawFilledRoundedRectangle(const Rectangle &rect, float radius, const Color &color) {
+		al_draw_filled_rounded_rectangle(rect.getLeft() + getOffset().getX(),
+			rect.getTop() + getOffset().getY(),
+			rect.getRight() + getOffset().getX(),
+			rect.getBottom() + getOffset().getY(),
+			radius, radius, 
+			getColor(color));
+	}
+
 	ALLEGRO_COLOR Allegro5Graphics::getColor( const Color &color )
 	{
 		return al_map_rgba_f(color.getR()  * getGlobalOpacity(),color.getG()  * getGlobalOpacity(),

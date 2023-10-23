@@ -4,9 +4,6 @@
     "Color": {"R": 110, "G": 80, "B": 50, "A": 255},
 	"Size": {"W": 1.0, "H": 0.6, "L": 0.6},
     "Description": "A large wooden log.",
-    "TexturePosition": {"X": 128, "Y": 0},
-    "TextureImage": "..\\Assets\\textures\\RPG Nature Tileset - Seasons by Stealthix\\RPG Nature Tileset.png",
-    "TextureSize": null,
     "EntityDrops" : [
         {"EntityType": "wood", "ChanceGuaranteed": 2, "ChanceLow": 2, "ChanceHigh": 3}
     ],

@@ -22,7 +22,6 @@ void init() {
     // Event Handling
     eventHandler = new EventHandler(controller, simulation, graphicsManager);
     // Done
-    controller->postInit(graphicsManager->getTextureManager()->getTexture(CURSOR_TEXTURE_LOCALIZATION)); // FIXME
     graphicsManager->getDisplay()->setCursor(controller->getMouse()->getCursor());
     initialized = true;
 }
@@ -50,4 +49,4 @@ int main(int argc, char **argv) {
     //}
     return 0;
 }
- 
+

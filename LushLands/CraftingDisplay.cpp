@@ -1,9 +1,8 @@
 #include "stdafx.h"
 #include "CraftingDisplay.h"
 
-CraftingDisplay::CraftingDisplay(Display *display, TextureManager *textureManager, CraftingManager *craftingManager, pxint x_, pxint y_) :
-    StaticBaseWindow(x_, y_, invWidth, invHeight), cm(craftingManager), dsp(display),
-    textureManager(textureManager) {
+CraftingDisplay::CraftingDisplay(Display *display, CraftingManager *craftingManager, pxint x_, pxint y_) :
+    StaticBaseWindow(x_, y_, invWidth, invHeight), cm(craftingManager), dsp(display) {
     // Ctor
     setHidden(true);
     font = al_load_ttf_font(fontNormaleste, 10, 0);
@@ -22,7 +21,7 @@ void CraftingDisplay::draw() {
         return;
     auto backbuffer = al_get_backbuffer(dsp->getDisplay());
     // Window bg
-    al_draw_filled_rounded_rectangle(x, y, x + invWidth, y + invHeight, roundingRadiusBig, roundingRadiusBig, bg->getAllegroColor());
+    //al_draw_filled_rounded_rectangle(x, y, x + invWidth, y + invHeight, roundingRadiusBig, roundingRadiusBig, bg->getAllegroColor());
     // Draw content
     const int buffSize = 16;
     char buffer[buffSize];
@@ -35,10 +34,10 @@ void CraftingDisplay::draw() {
             int x_el = x + margin;
             int y_el = y + margin + (tileSizePx + margin) * i;
             // Recipe bg
-            al_draw_rounded_rectangle(x_el - margin, y_el - margin,
-                x_el + (tileSizePx + margin) * 4, y_el + tileSizePx + margin,
-                roundingRadiusSmall, roundingRadiusSmall,
-                fg->getAllegroColor(), 2.0f);
+            //al_draw_rounded_rectangle(x_el - margin, y_el - margin,
+            //    x_el + (tileSizePx + margin) * 4, y_el + tileSizePx + margin,
+            //    roundingRadiusSmall, roundingRadiusSmall,
+            //    fg->getAllegroColor(), 2.0f);
             // Category icon
             // TODO
             sprintf_s(buffer, buffSize, "%15s", ci);
@@ -54,17 +53,17 @@ void CraftingDisplay::draw() {
             int x_el = x + margin;
             int y_el = y + margin + (tileSizePx + margin*3) * i;
             // Recipe bg
-            al_draw_rounded_rectangle(x_el - margin, y_el - margin,
-                x_el + (tileSizePx + margin) * 4, y_el + tileSizePx + margin,
-                roundingRadiusSmall, roundingRadiusSmall,
-                fg->getAllegroColor(), 2.0f);
+            //al_draw_rounded_rectangle(x_el - margin, y_el - margin,
+            //    x_el + (tileSizePx + margin) * 4, y_el + tileSizePx + margin,
+            //    roundingRadiusSmall, roundingRadiusSmall,
+            //    fg->getAllegroColor(), 2.0f);
             // Recipe icons
             for (int it_in = 0; it_in < recipe.nIng; it_in++) {
                 auto &ing = recipe.ingredients[it_in];
                 // Icon
                 if (ing.ingredient) {
                     // Specific
-                    ALLEGRO_BITMAP *itemTex = textureManager->getNamedTexture(ing.ingredient);
+                    ALLEGRO_BITMAP *itemTex = TextureManager::getTexture(ing.ingredient);
                     al_draw_bitmap(itemTex, x_el + (tileSizePx + margin) * it_in, y_el, 0);
                 } else {
                     // General
@@ -76,7 +75,7 @@ void CraftingDisplay::draw() {
             }
             // Product icon
             x_el = x + margin + (tileSizePx + margin) * 3;
-            ALLEGRO_BITMAP *itemTex = textureManager->getNamedTexture(recipe.product.productType);
+            ALLEGRO_BITMAP *itemTex = TextureManager::getTexture(recipe.product.productType);
             al_draw_bitmap(itemTex, x_el, y_el, 0);
             sprintf_s(buffer, buffSize, "%3d", recipe.product.amount);
             al_draw_text(font, fg->getAllegroColor(), x_el + tileSizePx - 2, y_el + tileSizePx * 3 / 5, ALLEGRO_ALIGN_RIGHT, buffer);

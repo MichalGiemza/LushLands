@@ -16,10 +16,6 @@ Controller::Controller(Core *core) {
     focus = new Focus();
 }
 
-void Controller::postInit(ALLEGRO_BITMAP *cursorBitmap) {
-    mouse->addCursor(cursorBitmap);
-}
-
 InputEvents *Controller::getInputEvents() {
     return inputEvents;
 }

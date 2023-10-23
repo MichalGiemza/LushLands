@@ -1,33 +1,97 @@
-#include "stdafx.h"
+#include "TextureManager.h"
 #include "TextureManager.h"
 
-ALLEGRO_BITMAP *TextureManager::loadTexture(const TextureLocalization *tl) {
-    auto rawBitmap = getRawBitmap(tl);
-    return al_create_sub_bitmap(rawBitmap, tl->x, tl->y, tl->w, tl->h);
+const std::string TM::pngExt = std::string(".png");
+const std::string TM::jsonExt = std::string(".json");
+entitytype TM::defaultTex = NULL;
+std::unordered_map<entitytype, std::vector<ALLEGRO_BITMAP *>> TM::textures;
+std::unordered_map<std::string, ALLEGRO_BITMAP *> TM::rawBitmaps;
+bool TextureManager::initialized = false;
+
+
+std::vector<ALLEGRO_BITMAP *> *TextureManager::loadTextures(std::vector<TextureLocalization> tls) {
+    std::vector<ALLEGRO_BITMAP *> *texSet = new std::vector<ALLEGRO_BITMAP *>();
+    int i = 0;
+    for (const auto &tl : tls) {
+        auto rawBitmap = getRawBitmap(&tl);
+        texSet->push_back(al_create_sub_bitmap(rawBitmap, tl.x, tl.y, tl.w, tl.h));
+        i += 1;
+    }
+    return texSet;
 }
 
 ALLEGRO_BITMAP *TextureManager::getRawBitmap(const TextureLocalization *tl) {
     if (not rawBitmaps[tl->path]) {
-        rawBitmaps[tl->path] = al_load_bitmap(tl->path);
+        rawBitmaps[tl->path] = al_load_bitmap(tl->path.c_str());
     }
     return rawBitmaps[tl->path];
 }
 
-TextureManager::TextureManager() {
-    al_init_image_addon();
-    loadAllTextures();
+void TextureManager::init() {
+    if (not initialized) {
+        defaultTex = CR::selectEntityType("default", true);
+        loadAllTextures();
+        initialized = true;
+    }
 }
 
 void TextureManager::loadAllTextures() {
-    // Entities
-    for (entitytype entityType : CR::getAllEntityTypes())
-        textures[entityType] = loadTexture(CR::selectTextureLocalization(entityType));
+    // All textures from textures directory
+    NameToTexLocs *tlm = prepareTextureLocalizations();
+    for (auto &tls : *tlm) {
+        std::string texName = tls.first;
+        textures[CR::selectEntityType(texName, true)] = *loadTextures(tls.second);
+    }
 }
 
-ALLEGRO_BITMAP *TextureManager::getNamedTexture(const char *name) {
-    return textures[name];
+ALLEGRO_BITMAP *TextureManager::getTexture(const char *texName, int variation) {
+    entitytype texId = CR::selectEntityType(texName);
+    if (not textures.contains(texId) or variation >= textures[texId].size()) {
+        return textures[defaultTex][0];
+    }
+    return textures[texId][variation];
 }
 
-ALLEGRO_BITMAP *TextureManager::getTexture(const TextureLocalization &tl) {
-    return getRawBitmap(&tl);
+NameToTexLocs *TextureManager::prepareTextureLocalizations() {
+    NameToTexLocs *tlm = new NameToTexLocs();
+    // Json files
+    for (const auto &fn : fs::directory_iterator(texturesDir)) {
+        if (fs::is_regular_file(fn)) {
+            std::string texName = fn.path().stem().string();
+            if (fn.path().extension().string() == jsonExt) {
+                std::vector<TextureLocalization> *tls = &(*tlm)[texName];
+                auto texJson = JsonHandler::parseJson(fn.path());
+                int variationCounter = 0;
+                for (auto &je : texJson->as_array()) {
+                    TextureLocalization *tl = new TextureLocalization();
+                    tl->x = je.at("Position").at("X").as_int64();
+                    tl->y = je.at("Position").at("Y").as_int64();
+                    tl->w = je.at("Size").at("W").as_int64();
+                    tl->h = je.at("Size").at("H").as_int64();
+                    tl->variation = variationCounter;
+                    tls->push_back(*tl);
+                    variationCounter += 1;
+                }
+            }
+        }
+    }
+    // Image paths
+    for (const auto &fn : fs::directory_iterator(texturesDir)) {
+        if (fs::is_regular_file(fn)) {
+            std::string texName = fn.path().stem().string();
+            if (fn.path().extension().string() == pngExt) {
+                auto &tls = (*tlm)[texName];
+                if (tls.empty()) {
+                    TextureLocalization *tl = new TextureLocalization();
+                    tl->path = fn.path().string();
+                    tls.push_back(*tl);
+                } else {
+                    for (auto &tl : tls) {
+                        tl.path = fn.path().string();
+                    }
+                }
+            }
+        }
+    }
+    return tlm;
 }

@@ -15,7 +15,6 @@ class Controller {
     ActionMap *actionMap;
 public:
     Controller(Core *core);
-    void postInit(ALLEGRO_BITMAP *cursorBitmap);
     InputEvents *getInputEvents();
     Focus *getFocus();
     ActionMap *getActionMap();

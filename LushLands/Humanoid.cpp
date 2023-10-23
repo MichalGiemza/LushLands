@@ -4,7 +4,7 @@
 Humanoid::Humanoid(HumanoidCtorParams &p) :
     Entity(p.entityType, *p.description, constant_update, p.inputEvents),
     entityUpdater(),
-    appearance(*p.color, p.textureLocalization),
+    appearance(*p.color),
     body(*p.position, *p.size),
     collider(&body),
     dynamicCollider(&collider),

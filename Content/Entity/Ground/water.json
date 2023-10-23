@@ -3,9 +3,6 @@
 	"TemplateClass": "ground",
     "Color": {"R": 15, "G": 50, "B": 100, "A": 255},
     "Description": "Drinkable freshwater.",
-    "TexturePosition": {"X": 0, "Y": 0},
-    "TextureImage": "..\\Assets\\textures\\32x32 and 64x64 Pixel Art Textures by 711studios\\32x32 Tiles\\Water.png",
-    "TextureSize": null,
     "EntityDrops" : [],
     "Health" : 50,
     "ToolType": null

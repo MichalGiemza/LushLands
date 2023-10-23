@@ -18,7 +18,6 @@ struct HumanoidCtorParams {
     int maxHealth;
     const tag requiredTool;
     const EntityDrops *drops;
-    const TextureLocalization *textureLocalization;
 };
 
 
@@ -33,7 +32,6 @@ struct StructureCtorParams {
     const tag requiredTool;
     const EntityDrops *drops;
     const updatetype updateType = no_update;
-    const TextureLocalization *textureLocalization;
 };
 
 
@@ -49,7 +47,6 @@ struct AnimalCtorParams {
     int maxHealth;
     const tag requiredTool;
     const EntityDrops *drops;
-    const TextureLocalization *textureLocalization;
 };
 
 
@@ -64,7 +61,6 @@ struct GroundCtorParams {
     const tag requiredTool;
     const EntityDrops *drops;
     const updatetype updateType = no_update;
-    const TextureLocalization *textureLocalization;
 };
 
 
@@ -77,5 +73,4 @@ struct ItemCtorParams {
     stack amount;
     stack maxStack;
     const tag toolType;
-    const TextureLocalization *textureLocalization;
 };

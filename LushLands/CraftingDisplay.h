@@ -17,10 +17,9 @@ protected:
     name selectedCategory = rc::personal; // DEBUG, set to "0"!
     CraftingManager *cm;
     Display *dsp;
-    TextureManager *textureManager;
     ALLEGRO_FONT *font;
 public:
-    CraftingDisplay(Display *display, TextureManager *textureManager, CraftingManager *craftingManager, pxint x, pxint y);
+    CraftingDisplay(Display *display, CraftingManager *craftingManager, pxint x, pxint y);
     virtual void interact(pxint x, pxint y) override;
     virtual void openContextMenu(pxint x, pxint y) override;
     virtual void draw() override;

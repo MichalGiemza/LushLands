@@ -1,3 +1,4 @@
+#include "Core.h"
 #include "stdafx.h"
 #include "Core.h"
 
@@ -59,9 +60,13 @@ void Core::initAgui() {
 }
 
 Core::Core() {
+	// Allegro
 	if (not initAllegro())
 		throw std::logic_error(could_not_init_allegro);
+	// Agui
 	initAgui();
+	// TextureManager
+	TextureManager::init();
 }
 
 void Core::processEvent(const ALLEGRO_EVENT &ev) {
@@ -91,3 +96,4 @@ ALLEGRO_EVENT_SOURCE *Core::getUserEventSource() {
 ALLEGRO_DISPLAY *Core::getDisplay() {
 	return display;
 }
+

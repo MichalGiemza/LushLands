@@ -13,13 +13,13 @@ void ChunkRepresentationManager::updateVisibleChunkRepresentations() {
                 Logger::log(lg::DEBUG_CHUNK, "Chunk [%i, %i] was not loaded yet!", cPos.x, cPos.z);
                 continue;
             }
-            chunkRepresentations[cPos] = new ChunkRepresentation(display, cPos, chunk->getChunkElements(), textureManager);
+            chunkRepresentations[cPos] = new ChunkRepresentation(display, cPos, chunk->getChunkElements());
         }
     }
 }
 
-ChunkRepresentationManager::ChunkRepresentationManager(World *world, Display *display, Camera *camera, TextureManager *textureManager) :
-    textureManager(textureManager), camera(camera), world(world), display(display) {
+ChunkRepresentationManager::ChunkRepresentationManager(World *world, Display *display, Camera *camera) :
+    camera(camera), world(world), display(display) {
     chunkRepresentations = std::unordered_map<ChunkPosition, ChunkRepresentation *>();
 }
 
@@ -69,7 +69,7 @@ void ChunkRepresentationManager::drawItems(ChunkRepresentation *cRep, int level,
         if (p->getY() != level)
             continue;
         // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
-        auto sBitmap = textureManager->getNamedTexture(it->getType());
+        auto sBitmap = TextureManager::getTexture(it->getType());
 
         int randomDelay = ptr_hash(it) % 100000;
         float bumpingPosZ = std::sinf((t + randomDelay) / 15.0f) * meter / 10.0f;
@@ -94,7 +94,7 @@ void ChunkRepresentationManager::drawStructures(ChunkRepresentation *cRep, int l
         Position *ctr = ((Body *)str->getBody())->getCenter();
         Size *size = (Size *)str->getSize();
         // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
-        auto sBitmap = textureManager->getNamedTexture(sPair->second->getType());
+        auto sBitmap = TextureManager::getTexture(sPair->second->getType());
 
         pxint x1 = shiftTexturePositionX(camera->shiftToScreenPosX(ctr->getPX()), al_get_bitmap_width(sBitmap), size->getCameraW());
         pxint z1 = shiftTexturePositionZ(camera->shiftToScreenPosZ(ctr->getPZ()), al_get_bitmap_height(sBitmap), size->getCameraL());
@@ -112,7 +112,7 @@ void ChunkRepresentationManager::drawAnimals(ChunkRepresentation *cRep, int leve
         auto ctr = ((Body *)anm->getBody())->getCenter();
         Size *size = (Size *)anm->getSize();
         // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
-        auto sBitmap = textureManager->getNamedTexture(anm->getType());
+        auto sBitmap = TextureManager::getTexture(anm->getType());
 
         pxint x1 = shiftTexturePositionX(camera->shiftToScreenPosX(ctr->getPX()), al_get_bitmap_width(sBitmap), size->getCameraW());
         pxint z1 = shiftTexturePositionZ(camera->shiftToScreenPosZ(ctr->getPZ()), al_get_bitmap_height(sBitmap), size->getCameraL());
@@ -130,7 +130,7 @@ void ChunkRepresentationManager::drawHumanoids(ChunkRepresentation *cRep, int le
         auto ctr = ((Body *)hmn->getBody())->getCenter();
         Size *size = (Size *)hmn->getSize();
         // TODO: Dodaæ zoom przez dzielenie wielkoœci bitmapy + manipulacja pozycjami
-        auto sBitmap = textureManager->getNamedTexture(hmn->getType());
+        auto sBitmap = TextureManager::getTexture(hmn->getType());
 
         pxint x1 = shiftTexturePositionX(camera->shiftToScreenPosX(ctr->getPX()), al_get_bitmap_width(sBitmap), size->getCameraW());
         pxint z1 = shiftTexturePositionZ(camera->shiftToScreenPosZ(ctr->getPZ()), al_get_bitmap_height(sBitmap), size->getCameraL());

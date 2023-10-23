@@ -1,21 +1,20 @@
 #include "stdafx.h"
 #include "Scene.h"
 
-Scene::Scene(scenename sceneName, Core *core, Controller *controller, Simulation *simulation, Display *display, TextureManager *textureManager, Console *console)
+Scene::Scene(scenename sceneName, Core *core, Controller *controller, Simulation *simulation, Display *display, Console *console)
     : camera(simulation->getWorldLoadingPosition(), controller->getFocus(), 
-        controller->getInputEvents()), chunkRepresentationManager(simulation->getWorld(), 
-            display, &camera, textureManager), player(simulation->getPlayer()), 
-    world(simulation->getWorld()), textureManager(textureManager), display(display), 
+        controller->getInputEvents()), chunkRepresentationManager(simulation->getWorld(), display, &camera), 
+    player(simulation->getPlayer()), world(simulation->getWorld()), display(display), 
     inputEvents(controller->getInputEvents()), console(console), name(sceneName), core(core) {
     // Pure UI
     this->fieldCursor = new FieldCursor(&camera, inputEvents);
     windowManager = new WindowManager(inputEvents);
     // Player related elements
-    invDispl = new InventoryDisplay(core, display, textureManager, player->getInventory(), 50, 50); //TODO magic numbers
+    invDispl = new InventoryDisplay(core, display, player->getInventory(), 50, 50); //TODO magic numbers
     windowManager->addWindow(invDispl);
-    craftingDisplay = new CraftingDisplay(display, textureManager, simulation->getCraftingManager(), displayWidth / 2, 50);
+    craftingDisplay = new CraftingDisplay(display, simulation->getCraftingManager(), displayWidth / 2, 50);
     windowManager->addWindow(craftingDisplay);
-    hotbar = new Hotbar(display, core, textureManager, player->getInventory(), player, inputEvents);
+    hotbar = new Hotbar(display, core, player->getInventory(), player, inputEvents);
     windowManager->addWindow(hotbar);
     camera.setFollowedPosition((Position *)((Humanoid *)player->getEntity())->getPosition(), (Size *)((Humanoid *)player->getEntity())->getSize());
     // Event subscriptions

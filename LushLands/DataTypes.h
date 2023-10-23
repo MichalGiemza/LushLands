@@ -68,11 +68,12 @@ struct TextureLocalization {
     * x, h - tile size, default is defined in constants as tileSize
     * path - to source image
     */
-    int x, y; 
-    const char *path;
+    int x = 0, y = 0; 
+    std::string path = "..\\Assets\\textures\\default.png";
     int w = tileSizePx, h = tileSizePx;
+    int variation = 0;
     bool operator==(const TextureLocalization &other) const {
-        return x == other.x && y == other.y && strcmp(path, other.path) == 0;
+        return x == other.x && y == other.y && path == other.path;
     }
 };
 

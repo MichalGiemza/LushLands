@@ -17,8 +17,8 @@ void Hotbar::setSelectionIdx(int idx) {
     player->setEquippedItem(inventory->getItem(idx)); // TODO: player - hotbar.onIdxSelect(setEquippedItem);
 }
 
-Hotbar::Hotbar(Display *display, Core *core, TextureManager *textureManager, Inventory *inv, Player *player, InputEvents *inputEvents) :
-    InventoryDisplay(core, display, textureManager, inv, determineX(), determineY()),
+Hotbar::Hotbar(Display *display, Core *core, Inventory *inv, Player *player, InputEvents *inputEvents) :
+    InventoryDisplay(core, display, inv, determineX(), determineY()),
     player(player), inputEvents(inputEvents) {
     setHidden(false);
     inputEvents->subscribeSystemEvent(player_hotbar, handleHotbarKey, this);
@@ -42,10 +42,10 @@ void Hotbar::draw() {
     int x_el = x + margin + (tileSizePx + margin) * (selectedIdx % inventory->getSize());
     int y_el = y + margin + (tileSizePx + margin) * (selectedIdx / inventory->getSize());
     // Item bg
-    al_draw_filled_rounded_rectangle(x_el, y_el,
-        x_el + tileSizePx, y_el + tileSizePx,
-        roundingRadiusSmall, roundingRadiusSmall,
-        fg->getAllegroColor());
+    //al_draw_filled_rounded_rectangle(x_el, y_el,
+    //    x_el + tileSizePx, y_el + tileSizePx,
+    //    roundingRadiusSmall, roundingRadiusSmall,
+    //    fg->getAllegroColor());
     // Draw the rest
     InventoryDisplay::draw();
 }

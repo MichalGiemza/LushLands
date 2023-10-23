@@ -64,8 +64,7 @@ void EntityFactory::loadHumanoidCtorParams(const fs::path fp) {
         (int)is.as_int64(),
         (int)hl.as_int64(),
         CR::selectToolType(rt, true),
-        CR::selectEntityDrops(dp),
-        CR::selectTextureLocalization(d)
+        CR::selectEntityDrops(dp)
     };
 
     humanoidParams[entityType] = params;
@@ -107,8 +106,7 @@ void EntityFactory::loadAnimalCtorParams(const fs::path fp) {
         (miliseconds)wi.as_int64(),
         (int)hl.as_int64(),
         CR::selectToolType(rt, true),
-        CR::selectEntityDrops(dp),
-        CR::selectTextureLocalization(d)
+        CR::selectEntityDrops(dp)
     };
 
     animalParams[entityType] = params;
@@ -147,8 +145,7 @@ void EntityFactory::loadStructureCtorParams(const fs::path fp) {
         (int)hl.as_int64(),
         CR::selectToolType(rt, true),
         CR::selectEntityDrops(dp),
-        no_update, // TODO
-        CR::selectTextureLocalization(d)
+        no_update // TODO
     };
 
     structureParams[entityType] = params;
@@ -182,8 +179,7 @@ void EntityFactory::loadGroundCtorParams(const fs::path fp) {
         (int)hl.as_int64(),
         CR::selectToolType(rt, true),
         CR::selectEntityDrops(dp),
-        no_update, // TODO
-        CR::selectTextureLocalization(d)
+        no_update // TODO
     };
 
     groundParams[entityType] = params;
