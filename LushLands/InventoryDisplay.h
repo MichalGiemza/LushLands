@@ -33,7 +33,7 @@ protected:
     SimpleActionListener simpleAL;
     //agui::Frame frame;
     agui::FlowLayout frame;
-    agui::Button *buttons;
+    agui::InventorySlot *buttons;
 
     Display *dsp;
     TextureManager *textureManager;

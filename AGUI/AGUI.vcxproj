@@ -40,6 +40,7 @@
     <ClInclude Include="Agui\Clipboard\OSXClipboard.hpp" />
     <ClInclude Include="Agui\Clipboard\WinClipboard.hpp" />
     <ClInclude Include="Agui\Color.hpp" />
+    <ClInclude Include="Agui\Constants.h" />
     <ClInclude Include="Agui\CursorProvider.hpp" />
     <ClInclude Include="Agui\Dimension.hpp" />
     <ClInclude Include="Agui\EmptyWidget.hpp" />
@@ -56,6 +57,7 @@
     <ClInclude Include="Agui\Image.hpp" />
     <ClInclude Include="Agui\ImageLoader.hpp" />
     <ClInclude Include="Agui\Input.hpp" />
+    <ClInclude Include="Agui\InventorySlot.hpp" />
     <ClInclude Include="Agui\KeyboardListener.hpp" />
     <ClInclude Include="Agui\Layout.hpp" />
     <ClInclude Include="Agui\MouseListener.hpp" />
@@ -107,8 +109,6 @@
     <ClInclude Include="Agui\Widgets\TextField\TextField.hpp" />
     <ClInclude Include="Agui\Widgets\TextField\TextFieldListener.hpp" />
     <ClInclude Include="Agui\Widgets\ToolTip\ToolTip.hpp" />
-    <ClInclude Include="Constants.h" />
-    <ClInclude Include="InventorySlot.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Agui\ActionEvent.cpp" />
@@ -139,6 +139,7 @@
     <ClCompile Include="Agui\Gui.cpp" />
     <ClCompile Include="Agui\Image.cpp" />
     <ClCompile Include="Agui\Input.cpp" />
+    <ClCompile Include="Agui\InventorySlot.cpp" />
     <ClCompile Include="Agui\KeyboardListener.cpp" />
     <ClCompile Include="Agui\Layout.cpp" />
     <ClCompile Include="Agui\MouseListener.cpp" />
@@ -188,7 +189,6 @@
     <ClCompile Include="Agui\Widgets\TextField\TextField.cpp" />
     <ClCompile Include="Agui\Widgets\TextField\TextFieldListener.cpp" />
     <ClCompile Include="Agui\Widgets\ToolTip\ToolTip.cpp" />
-    <ClCompile Include="InventorySlot.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.vcxproj">

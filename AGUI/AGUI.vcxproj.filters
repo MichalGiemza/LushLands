@@ -273,10 +273,10 @@
     <ClInclude Include="Agui\EmptyWidget.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Constants.h">
+    <ClInclude Include="Agui\Constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="InventorySlot.hpp">
+    <ClInclude Include="Agui\InventorySlot.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -512,7 +512,7 @@
     <ClCompile Include="Agui\EmptyWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="InventorySlot.cpp">
+    <ClCompile Include="Agui\InventorySlot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

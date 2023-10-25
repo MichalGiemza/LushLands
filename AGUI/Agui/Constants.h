@@ -2,7 +2,8 @@
 
 
 namespace agui {
-    const int iconSizePx = 32;
+    const int iconSizePx = 36;
+    const int invSlotSizePx = iconSizePx + 2;
     const float roundingRadiusSmall = 4.0f;
     const float roundingRadiusBig = 8.0f;
 

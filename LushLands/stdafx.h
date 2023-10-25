@@ -22,6 +22,7 @@
 #include <Agui/Widgets/ListBox/ListBox.hpp>
 #include <Agui/Widgets/ScrollPane/ScrollPane.hpp>
 #include <Agui/FlowLayout.hpp>
+#include <Agui/InventorySlot.hpp>
 
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>

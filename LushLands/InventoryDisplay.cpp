@@ -27,12 +27,12 @@ void InventoryDisplay::openContextMenu(pxint x, pxint y) {
 }
 
 void InventoryDisplay::draw() {
-    //if (hidden)
-    //    return;
-    //auto backbuffer = al_get_backbuffer(dsp->getDisplay());
-    //// Window bg
-    //if (displayBg)
-    //    al_draw_filled_rounded_rectangle(x, y, x + invWidth, y + invHeight, roundingRadiusBig, roundingRadiusBig, bg->getAllegroColor());
+    if (hidden)
+        return;
+    auto backbuffer = al_get_backbuffer(dsp->getDisplay());
+    // Window bg
+    if (displayBg)
+        al_draw_filled_rounded_rectangle(x, y, x + invWidth, y + invHeight, 8.0f, 8.0f, bg->getAllegroColor());
     //// Inventory elements
     //int s = inventory->getSize();
     //const int buffSize = 4;
@@ -70,19 +70,22 @@ void InventoryDisplay::prepareGUI() {
     //frame.setTopMargin(4);
     //frame.setTitleFontMargin(0);
     frame.setLocation(x, y);
+    frame.setHorizontalSpacing(0);
+    frame.setVerticalSpacing(0);
+    frame.setMargins(3,3,3,3);
 //    frame.setMovable(false);
     // Grid
     int s = inventory->getSize();
-    buttons = new agui::Button[s];
+    buttons = new agui::InventorySlot[s];
     for (int i = 0; i < inventory->getSize(); i++) {
         int x_el = margin + (tileSizePx + margin) * (i % s);
         int y_el = margin + (tileSizePx + margin) * (i / s);
-        agui::Button *btn = &buttons[i];
+        agui::InventorySlot *btn = &buttons[i];
 
-        btn->setSize(tileSizePx, tileSizePx);
         btn->setLocation(x_el, y_el);
         btn->setText("Item");
         btn->addActionListener(&simpleAL);
+        
         frame.add(btn);
     }
 

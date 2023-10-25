@@ -158,16 +158,17 @@ namespace agui {
 
 	void Allegro5Graphics::drawRoundedRectangle(const Rectangle &rect, float radius, const Color &color, float thickness) {
 		al_draw_rounded_rectangle(
-			float(rect.getLeft() + getOffset().getX()) + 0.5f,
-			float(rect.getTop() + getOffset().getY()) + 0.5f,
-			float(rect.getRight() + getOffset().getX() - 1) + 0.5f,
-			float(rect.getBottom() + getOffset().getY() - 1) + 0.5f,
+			rect.getLeft() + getOffset().getX() + 1,
+			rect.getTop() + getOffset().getY() + 1,
+			rect.getRight() + getOffset().getX() - 1,
+			rect.getBottom() + getOffset().getY() - 1,
 			radius, radius,
 			getColor(color), thickness);
 	}
 
 	void Allegro5Graphics::drawFilledRoundedRectangle(const Rectangle &rect, float radius, const Color &color) {
-		al_draw_filled_rounded_rectangle(rect.getLeft() + getOffset().getX(),
+		al_draw_filled_rounded_rectangle(
+			rect.getLeft() + getOffset().getX(),
 			rect.getTop() + getOffset().getY(),
 			rect.getRight() + getOffset().getX(),
 			rect.getBottom() + getOffset().getY(),
