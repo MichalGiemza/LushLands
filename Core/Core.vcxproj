@@ -43,7 +43,6 @@
     <ClCompile Include="..\LushLands\EventTypes.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\LushLands\ChunkElements.h" />
     <ClInclude Include="..\LushLands\Color.h" />
     <ClInclude Include="..\LushLands\Colors.h" />
     <ClInclude Include="..\LushLands\ConstantRepository.h" />

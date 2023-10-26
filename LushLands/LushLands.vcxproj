@@ -219,6 +219,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionMap.h" />
+    <ClInclude Include="ChunkElements.h" />
     <ClInclude Include="ChunkUpdater.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="CraftingDisplay.h" />

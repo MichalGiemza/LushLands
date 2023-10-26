@@ -357,6 +357,9 @@
     <ClInclude Include="Core.h">
       <Filter>src\Core</Filter>
     </ClInclude>
+    <ClInclude Include="ChunkElements.h">
+      <Filter>src\Simulation\World\ChunkSystem</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
