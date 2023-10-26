@@ -1,5 +1,4 @@
 #include "Core.h"
-#include "stdafx.h"
 #include "Core.h"
 
 bool Core::initAllegro() {

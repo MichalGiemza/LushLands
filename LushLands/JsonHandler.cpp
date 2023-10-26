@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "JsonHandler.h"
 
 std::size_t JSONValueHasher::operator()(const boost::json::value &value) const {

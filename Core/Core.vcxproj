@@ -24,7 +24,6 @@
   <ItemGroup>
     <ClCompile Include="..\LushLands\Color.cpp" />
     <ClCompile Include="..\LushLands\ConstantRepository.cpp" />
-    <ClCompile Include="..\LushLands\Core.cpp" />
     <ClCompile Include="..\LushLands\DataTypes.cpp" />
     <ClCompile Include="..\LushLands\Directories.cpp" />
     <ClCompile Include="..\LushLands\FileToArray.cpp" />
@@ -50,7 +49,6 @@
     <ClInclude Include="..\LushLands\ConstantRepository.h" />
     <ClInclude Include="..\LushLands\Constants.h" />
     <ClInclude Include="..\LushLands\ConstantSets.h" />
-    <ClInclude Include="..\LushLands\Core.h" />
     <ClInclude Include="..\LushLands\DataTypes.h" />
     <ClInclude Include="..\LushLands\Directories.h" />
     <ClInclude Include="..\LushLands\Events.h" />
@@ -177,7 +175,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Libraries\boost_1_83_0;C:\Projekty\LushLandsGithub\AGUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Libraries\boost_1_83_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>

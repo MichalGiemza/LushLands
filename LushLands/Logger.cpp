@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Logger.h"
 
 ALLEGRO_FONT *Logger::font;

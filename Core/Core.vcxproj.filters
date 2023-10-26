@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\LushLands\Core.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="..\LushLands\DataTypes.cpp">
       <Filter>Core</Filter>
     </ClCompile>
@@ -72,9 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\LushLands\ChunkElements.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\LushLands\Core.h">
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="..\LushLands\Color.h">

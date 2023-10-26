@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "NameGenerator.h"
 
 NameGenerator::NameGenerator(rawpath cmPath, rawpath cfPath, rawpath cnPath) {

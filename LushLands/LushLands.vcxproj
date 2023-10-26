@@ -160,6 +160,7 @@
   <ItemGroup>
     <ClCompile Include="ActionMap.cpp" />
     <ClCompile Include="ChunkUpdater.cpp" />
+    <ClCompile Include="Core.cpp" />
     <ClCompile Include="CraftingDisplay.cpp" />
     <ClCompile Include="CraftingManager.cpp" />
     <ClCompile Include="Destroyability.cpp" />
@@ -219,6 +220,7 @@
   <ItemGroup>
     <ClInclude Include="ActionMap.h" />
     <ClInclude Include="ChunkUpdater.h" />
+    <ClInclude Include="Core.h" />
     <ClInclude Include="CraftingDisplay.h" />
     <ClInclude Include="CraftingManager.h" />
     <ClInclude Include="CtorParamStructures.h" />

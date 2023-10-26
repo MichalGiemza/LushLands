@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "GameElement.h"
 
 GameElement::GameElement(objecttype objectType, priority clickPriority, objectgroup objectGroup) {

@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "FileToArray.h"
 
 char **FileToArray::readFile(rawpath path) {
