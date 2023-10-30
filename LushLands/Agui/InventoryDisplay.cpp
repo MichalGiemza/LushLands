@@ -8,11 +8,11 @@ namespace agui {
     }
 
     int InventoryDisplay::determineHeight(int n) {
-        return determineRows(n) * (tileSizePx + getMargin(SIDE_BOTTOM)) + getMargin(SIDE_TOP);
+        return determineRows(n) * tileSizePx + getMargin(SIDE_TOP) + getMargin(SIDE_BOTTOM);
     }
 
     int InventoryDisplay::determineWidth() {
-        return inventoryWidth * (tileSizePx + getMargin(SIDE_RIGHT)) + getMargin(SIDE_LEFT);
+        return inventoryWidth * tileSizePx + getMargin(SIDE_LEFT) + getMargin(SIDE_RIGHT);
     }
 
     void InventoryDisplay::prepareGUI() {
@@ -37,7 +37,9 @@ namespace agui {
     }
 
     InventoryDisplay::InventoryDisplay(int slotCount) : s(slotCount) {
+        setLocation(invX, invY);
         setSize(determineWidth(), determineHeight(s));
         prepareGUI();
+        setVisibility(false);
     }
 }

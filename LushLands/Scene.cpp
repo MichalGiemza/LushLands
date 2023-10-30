@@ -7,14 +7,14 @@ Scene::Scene(scenename sceneName, Core *core, Controller *controller, Simulation
     inputEvents(controller->getInputEvents()), console(console), name(sceneName), core(core) {
     // Pure UI
     this->fieldCursor = new FieldCursor(&camera, inputEvents);
-    windowManager = new agui::WindowManager();
+    windowManager = new agui::WindowManager(core->getGUI());
     // Player related elements
     invDispl = new agui::InventoryDisplay(player->getInventory()->getSize());
     windowManager->addWindow(invDispl);
     /*craftingDisplay = new CraftingDisplay(display, simulation->getCraftingManager(), displayWidth / 2, 50);
-    windowManager->addWindow(craftingDisplay);
-    hotbar = new Hotbar(display, core, player->getInventory(), player, inputEvents);
-    windowManager->addWindow(hotbar);*/ // TODO
+    windowManager->addWindow(craftingDisplay);*/ // TODO
+    //hotbar = new agui::Hotbar(display, core, player->getInventory(), player, inputEvents);
+    //windowManager->addWindow(hotbar);
     camera.setFollowedPosition((Position *)((Humanoid *)player->getEntity())->getPosition(), (Size *)((Humanoid *)player->getEntity())->getSize());
     // Event subscriptions
     inputEvents->subscribeTimerFPS(1, draw, this);

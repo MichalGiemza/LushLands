@@ -9,6 +9,8 @@
 namespace agui {
     const int inventoryWidth = 12;
     const int tileSizePx = 36;
+    const int invX = 50;
+    const int invY = 50;
 
     class SimpleActionListener : public agui::ActionListener {
     public:
