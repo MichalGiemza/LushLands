@@ -7,6 +7,8 @@ namespace agui {
     const float roundingRadiusSmall = 4.0f;
     const float roundingRadiusBig = 8.0f;
 
-    const Color UI_BG_COLOR = Color(50, 75, 80, 128);
-    const Color UI_FG_COLOR = Color(160, 240, 250, 255);
+    const int consoleWidth = 350;
+    const int consoleHeight = 400;
+
+    const bool consoleLogDebug = true;
 }

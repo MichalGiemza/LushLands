@@ -1,7 +1,6 @@
 #pragma once
 #include "Scene.h"
 #include "Display.h"
-#include "TextureManager.h"
 #include "Simulation.h"
 #include "Console.h"
 

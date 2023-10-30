@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Scene.h"
 
 Scene::Scene(scenename sceneName, Core *core, Controller *controller, Simulation *simulation, Display *display, Console *console)
@@ -8,14 +7,14 @@ Scene::Scene(scenename sceneName, Core *core, Controller *controller, Simulation
     inputEvents(controller->getInputEvents()), console(console), name(sceneName), core(core) {
     // Pure UI
     this->fieldCursor = new FieldCursor(&camera, inputEvents);
-    windowManager = new WindowManager(inputEvents);
+    windowManager = new agui::WindowManager();
     // Player related elements
-    invDispl = new InventoryDisplay(core, display, player->getInventory(), 50, 50); //TODO magic numbers
+    invDispl = new agui::InventoryDisplay(player->getInventory()->getSize());
     windowManager->addWindow(invDispl);
-    craftingDisplay = new CraftingDisplay(display, simulation->getCraftingManager(), displayWidth / 2, 50);
+    /*craftingDisplay = new CraftingDisplay(display, simulation->getCraftingManager(), displayWidth / 2, 50);
     windowManager->addWindow(craftingDisplay);
     hotbar = new Hotbar(display, core, player->getInventory(), player, inputEvents);
-    windowManager->addWindow(hotbar);
+    windowManager->addWindow(hotbar);*/ // TODO
     camera.setFollowedPosition((Position *)((Humanoid *)player->getEntity())->getPosition(), (Size *)((Humanoid *)player->getEntity())->getSize());
     // Event subscriptions
     inputEvents->subscribeTimerFPS(1, draw, this);
@@ -33,11 +32,11 @@ FieldCursor *Scene::getFieldCursor() {
     return fieldCursor;
 }
 
-Hotbar *Scene::getHotbar() {
+agui::Hotbar *Scene::getHotbar() {
     return hotbar;
 }
 
-InventoryDisplay *Scene::getInventoryDisplay() {
+agui::InventoryDisplay *Scene::getInventoryDisplay() {
     return invDispl;
 }
 
@@ -54,13 +53,12 @@ void draw(ALLEGRO_EVENT *ae, void *scene) {
     // Prepare
     Scene *s = (Scene *)scene;
     miliseconds t = s->world->getWorldTime()->getAsMiliseconds();
-    al_clear_to_color(BLACK_COLOR.getAllegroColor());
+    al_clear_to_color(agui::BLACK_COLOR.getAllegroColor());
     // Draw world
     s->chunkRepresentationManager.draw(t, s->dbgOpen);
     // Draw world UI
     s->fieldCursor->draw();
     // Draw Static UI
-    s->windowManager->drawWindows(); // TODO: Do zast¹pienia
     s->core->getGUI()->render();
     s->console->draw();
     // Apply drawing
@@ -75,9 +73,9 @@ void handleAction(ALLEGRO_EVENT *ae, void *scene) {
     {
         s->invOpen ^= true;
         // Inventory
-        s->invDispl->setHidden(!s->invOpen);
+        s->invDispl->setVisibility(s->invOpen);
         // Crafting
-        s->craftingDisplay->setHidden(!s->invOpen);
+        //s->craftingDisplay->setHidden(!s->invOpen);
         // Equipment
         // TODO
         break;

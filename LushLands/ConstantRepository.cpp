@@ -5,7 +5,7 @@ std::unordered_map<entitytype, TextureLocalization *> CR::textureLocalizationEnt
 std::unordered_map<json::string, entitytype> CR::entityTypeMap;
 std::unordered_map<json::string, tag> CR::tagMap;
 std::unordered_map<std::tuple<float, float, float>, Size *> CR::sizeMap;
-std::unordered_map<std::tuple<uint8_t, uint8_t, uint8_t>, Color *> CR::colorMap;
+std::unordered_map<std::tuple<uint8_t, uint8_t, uint8_t>, agui::Color *> CR::colorMap;
 std::unordered_map<json::string, gendertype> CR::genderTypeMap = {
 	{ json::string(gdr::male), gdr::male },
 	{ json::string(gdr::female), gdr::female },
@@ -112,13 +112,13 @@ const Size *ConstantRepository::selectSize(float w, float h, float l) {
 	}
 }
 
-const Color *ConstantRepository::selectColor(uint8_t r, uint8_t g, uint8_t b) {
+const agui::Color *ConstantRepository::selectColor(uint8_t r, uint8_t g, uint8_t b) {
 	auto key = std::tuple(r, g, b);
 	auto it = colorMap.find(key);
 	if (it != colorMap.end()) {
 		return it->second;
 	} else {
-		colorMap[key] = new Color(r, g, b, 255);
+		colorMap[key] = new agui::Color(r, g, b, 255);
 		return colorMap[key];
 	}
 }

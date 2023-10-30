@@ -1,9 +1,7 @@
 #pragma once
-#include "stdafx.h"
 #include <windows.h>
 #include <iostream>
 #include <exception>
-#include <allegro5/system.h>
 #include "Controller.h"
 #include "Logger.h"
 #include "ActionMap.h"

@@ -1,6 +1,6 @@
-#include "Time.h"
+#include "WorldTime.h"
 
-Time::Time(int h, int min, int d, int m, int y) {
+WorldTime::WorldTime(int h, int min, int d, int m, int y) {
     setYear(y);
     setMonth(m);
     setDay(d);
@@ -8,59 +8,59 @@ Time::Time(int h, int min, int d, int m, int y) {
     setMinute(min);
 }
 
-Time::Time(int d, int m, int y) : Time(0, 0, d, m, y) {}
+WorldTime::WorldTime(int d, int m, int y) : WorldTime(0, 0, d, m, y) {}
 
-Time::Time() : value(0) {}
+WorldTime::WorldTime() : value(0) {}
 
-miliseconds Time::getAsMiliseconds() {
+miliseconds WorldTime::getAsMiliseconds() {
     return value;
 }
 
-void Time::setAsMiliseconds(miliseconds ms) {
+void WorldTime::setAsMiliseconds(miliseconds ms) {
     value = ms;
 }
 
-int Time::getYear() {
+int WorldTime::getYear() {
     return value / t::YEAR_AS_RAWMS + t::STARTING_YEAR;
 }
 
-int Time::getMonth() {
+int WorldTime::getMonth() {
     return (value % t::MONTH_AS_RAWMS) / t::MONTH_AS_RAWMS + 1;
 }
 
-int Time::getDay() {
+int WorldTime::getDay() {
     return (value % t::DAY_AS_RAWMS) / t::DAY_AS_RAWMS + 1;
 }
 
-int Time::getHour() {
+int WorldTime::getHour() {
     return (value % t::HOUR_AS_RAWMS) / t::HOUR_AS_RAWMS;
 }
 
-int Time::getMinute() {
+int WorldTime::getMinute() {
     return (value % t::MINUTE_AS_RAWMS) / t::MINUTE_AS_RAWMS;
 }
 
-void Time::setYear(int y) {
+void WorldTime::setYear(int y) {
     value += (y - getYear()) * t::YEAR_AS_RAWMS;
 }
 
-void Time::setMonth(int m) {
+void WorldTime::setMonth(int m) {
     value += (m - 1 - getMonth()) * t::MONTH_AS_RAWMS;
 }
 
-void Time::setDay(int d) {
+void WorldTime::setDay(int d) {
     value += (d - 1 - getDay()) * t::DAY_AS_RAWMS;
 }
 
-void Time::setHour(int h) {
+void WorldTime::setHour(int h) {
     value += (h - getHour()) * t::HOUR_AS_RAWMS;
 }
 
-void Time::setMinute(int min) {
+void WorldTime::setMinute(int min) {
     value += (min - getMinute()) * t::MINUTE_AS_RAWMS;
 }
 
-std::string Time::asString() {
+std::string WorldTime::asString() {
     std::ostringstream os;
     os << getHour() << ":" << getMinute() << " " << getDay() << "." << getMonth() << "." << getYear();
     return os.str();

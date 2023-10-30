@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Console.h"
 
 int Console::determineChatH() {
@@ -9,7 +8,7 @@ int Console::determineChatW() {
     return displayWidth / 3;
 }
 
-Console::Console(Display *display) : StaticUIElement(ft::CONSOLE, fp::CONSOLE) {
+Console::Console(Display *display) {
     this->display = display;
     if (DEBUG)
         logLevel = lg::DEBUG_ALL;
@@ -33,7 +32,7 @@ void Console::draw() {
     if (bitmapToRedraw) {
         auto backbuffer = al_get_backbuffer(display->getDisplay());
         al_set_target_bitmap(bitmapCache);
-        al_clear_to_color(TRANSPARENT_COLOR.getAllegroColor());
+        al_clear_to_color(agui::TRANSPARENT_COLOR.getAllegroColor());
         for (int i = 0; i < currentChat.size(); i++) {
             al_draw_text(font, currentChat[i].color, 10, 10 + 12 * i, 0, currentChat[i].text.get());
         }
@@ -45,7 +44,7 @@ void Console::draw() {
 
 void handleLogMessage(void *caller, char *str) {
     auto c = (Console *)caller;
-    ConsoleLine cl = { std::shared_ptr<char[]>(str), CHAT_GRAY_COLOR.getAllegroColor() };
+    ConsoleLine cl = { std::shared_ptr<char[]>(str), agui::CHAT_GRAY_COLOR.getAllegroColor() };
     
     c->currentChat.insert(c->currentChat.begin(), cl);
     if (c->currentChat.size() > c->chatLength) {

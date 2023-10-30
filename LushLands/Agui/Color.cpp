@@ -39,10 +39,11 @@
  */
 
 #include "Agui/Color.hpp"
+#include <allegro5/color.h>
 
 namespace agui
 {
-	Color::Color( float r, float g, float b, float a )
+	Color::Color( float r, float g, float b, float a ) : allegroColor(al_map_rgba_f(r, g, b, a))
 	{
 		if(premultiplyAlpha)
 		{
@@ -149,5 +150,9 @@ namespace agui
 	}
 
 	bool Color::premultiplyAlpha = false;
+
+	ALLEGRO_COLOR Color::getAllegroColor() const {
+		return allegroColor;
+	}
 
 }

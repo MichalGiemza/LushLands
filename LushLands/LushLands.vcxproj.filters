@@ -1,442 +1,1054 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="World.cpp">
-      <Filter>src\Simulation\World</Filter>
-    </ClCompile>
-    <ClCompile Include="ChunkSystem.cpp">
-      <Filter>src\Simulation\World\ChunkSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseWorldPlanner.cpp">
-      <Filter>src\Simulation\World\WorldPlanners</Filter>
-    </ClCompile>
-    <ClCompile Include="FlatlandWorldPlanner.cpp">
-      <Filter>src\Simulation\World\WorldPlanners</Filter>
-    </ClCompile>
-    <ClCompile Include="Chunk.cpp">
-      <Filter>src\Simulation\World\ChunkSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="ControlManager.cpp">
-      <Filter>src\Simulation\Control</Filter>
-    </ClCompile>
-    <ClCompile Include="InputEvents.cpp">
-      <Filter>src\Controller\Events</Filter>
-    </ClCompile>
-    <ClCompile Include="Simulation.cpp">
-      <Filter>src\Simulation</Filter>
-    </ClCompile>
-    <ClCompile Include="ChunkLoadManager.cpp">
-      <Filter>src\Simulation\World\ChunkSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="Ground.cpp">
-      <Filter>src\Simulation\World\Entities\Concrete</Filter>
-    </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>src\Simulation\World\Entities\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Body.cpp">
-      <Filter>src\Simulation\World\Entities\Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="EntityFactory.cpp">
-      <Filter>src\Simulation\World\Entities\EntityFactory</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>src\View\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>src\View</Filter>
-    </ClCompile>
-    <ClCompile Include="Display.cpp">
-      <Filter>src\View</Filter>
-    </ClCompile>
-    <ClCompile Include="GraphicsManager.cpp">
-      <Filter>src\View</Filter>
-    </ClCompile>
-    <ClCompile Include="ChunkRepresentation.cpp">
-      <Filter>src\View\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="ChunkRepresentationManager.cpp">
-      <Filter>src\View</Filter>
-    </ClCompile>
-    <ClCompile Include="EventHandler.cpp">
-      <Filter>src\Controller\Events</Filter>
-    </ClCompile>
-    <ClCompile Include="LushLands.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="Focus.cpp">
-      <Filter>src\Controller</Filter>
-    </ClCompile>
     <ClCompile Include="ActionMap.cpp">
-      <Filter>src\Controller\Events</Filter>
-    </ClCompile>
-    <ClCompile Include="Structure.cpp">
-      <Filter>src\Simulation\World\Entities\Concrete</Filter>
-    </ClCompile>
-    <ClCompile Include="Controller.cpp">
-      <Filter>src\Controller</Filter>
-    </ClCompile>
-    <ClCompile Include="Appearance.cpp">
-      <Filter>src\Simulation\World\Entities\Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="Collider.cpp">
-      <Filter>src\Simulation\World\Entities\Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="DynamicCollider.cpp">
-      <Filter>src\Simulation\World\Entities\Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="Mobility.cpp">
-      <Filter>src\Simulation\World\Entities\Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="RandomWalk.cpp">
-      <Filter>src\Simulation\World\Entities\Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="UIElement.cpp">
-      <Filter>src\View\UI\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="WorldUIElement.cpp">
-      <Filter>src\View\UI\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="StaticUIElement.cpp">
-      <Filter>src\View\UI\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Console.cpp">
-      <Filter>src\View\UI\Concrete</Filter>
-    </ClCompile>
-    <ClCompile Include="Animal.cpp">
-      <Filter>src\Simulation\World\Entities\Concrete</Filter>
-    </ClCompile>
-    <ClCompile Include="EntityUpdater.cpp">
-      <Filter>src\Simulation\World\Entities\Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="CollisionManager.cpp">
-      <Filter>src\Simulation\World\ChunkSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="ChickenBoxWorldPlanner.cpp">
-      <Filter>src\Simulation\World\WorldPlanners</Filter>
-    </ClCompile>
-    <ClCompile Include="Keyboard.cpp">
-      <Filter>src\Controller\InputDevices</Filter>
-    </ClCompile>
-    <ClCompile Include="Mouse.cpp">
-      <Filter>src\Controller\InputDevices</Filter>
-    </ClCompile>
-    <ClCompile Include="FieldCursor.cpp">
-      <Filter>src\View\UI\Concrete</Filter>
-    </ClCompile>
-    <ClCompile Include="UICursor.cpp">
-      <Filter>src\View\UI\Concrete</Filter>
-    </ClCompile>
-    <ClCompile Include="Destroyability.cpp">
-      <Filter>src\Simulation\World\Entities\Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="Item.cpp">
-      <Filter>src\Simulation\World\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="ItemFactory.cpp">
-      <Filter>src\Simulation\World\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>src\Simulation\World\Entities\Characters</Filter>
-    </ClCompile>
-    <ClCompile Include="Inventory.cpp">
-      <Filter>src\Simulation\World\Entities\Characters</Filter>
-    </ClCompile>
-    <ClCompile Include="Humanoid.cpp">
-      <Filter>src\Simulation\World\Entities\Characters</Filter>
-    </ClCompile>
-    <ClCompile Include="StaticBaseWindow.cpp">
-      <Filter>src\View\UI\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="InventoryDisplay.cpp">
-      <Filter>src\View\UI\Concrete</Filter>
-    </ClCompile>
-    <ClCompile Include="WindowManager.cpp">
-      <Filter>src\View\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="Hotbar.cpp">
-      <Filter>src\View\UI\Concrete</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EventFactory.cpp">
-      <Filter>src\Controller\Events</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ChunkUpdater.cpp">
-      <Filter>src\Simulation\World\ChunkSystem</Filter>
+    <ClCompile Include="EventHandler.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CraftingDisplay.cpp">
-      <Filter>src\View\UI\Concrete</Filter>
+    <ClCompile Include="InputEvents.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CraftingManager.cpp">
-      <Filter>src\Simulation\Crafting</Filter>
+    <ClCompile Include="Keyboard.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TechnologyManager.cpp">
-      <Filter>src\Simulation\Technology</Filter>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Focus.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Core.cpp">
-      <Filter>src\Core</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ControlManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CraftingManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TechnologyManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunk.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChunkLoadManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChunkSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChunkUpdater.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Humanoid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Structure.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Animal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Appearance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Body.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Destroyability.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityUpdater.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mobility.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomWalk.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FlatlandWorldPlanner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChickenBoxWorldPlanner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseWorldPlanner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Simulation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldUIElement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CraftingDisplay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FieldCursor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hotbar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Display.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LushLands.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstantRepository.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DataTypes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Directories.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileToArray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NameGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NumTools.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Position.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Random_.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Size.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldRectangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonHandler.cpp">
+      <Filter>Header Files\Core\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameElement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChunkRepresentationManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChunkRepresentation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Console.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\ActionEvent.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\ActionListener.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5CursorProvider.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5Font.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5FontLoader.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5Graphics.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5Image.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5ImageLoader.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5Input.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Base\BaseWindow.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Base\WindowManager.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\BaseTypes.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\BlinkingEvent.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\BorderLayout.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Clipboard\Clipboard.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Clipboard\WinClipboard.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Color.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\CursorProvider.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Dimension.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\EmptyWidget.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\EventArgs.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\FlowLayout.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\FocusListener.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\FocusManager.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Font.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Graphics.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\GridLayout.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Gui.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Image.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Input.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\InventoryDisplay.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\InventorySlot.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\KeyboardListener.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Layout.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\MouseListener.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Point.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Rectangle.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\ResizableBorderLayout.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\ResizableText.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\SelectionListener.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\TableLayout.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\TapListener.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\TextureManager.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\TopContainer.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Transform.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widget.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\WidgetListener.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\Button\Button.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\Button\ButtonGroup.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\Button\ButtonListener.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\CheckBox\CheckBox.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\CheckBox\CheckBoxListener.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\DropDown\DropDown.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\DropDown\DropDownListener.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\Frame\Frame.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\Frame\FrameListener.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\ImageWidget\ImageWidget.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\Label\Label.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\Label\LabelListener.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\ListBox\ListBox.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\ListBox\ListBoxListener.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\PopUp\PopUpMenu.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\PopUp\PopUpMenuItem.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\RadioButton\RadioButton.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\RadioButton\RadioButtonGroup.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\RadioButton\RadioButtonListener.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\ScrollBar\HScrollBar.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\ScrollBar\HScrollBarListener.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\ScrollBar\VScrollBar.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\ScrollBar\VScrollBarListener.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\ScrollPane\ScrollPane.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\Slider\Slider.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\Slider\SliderListener.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\Tab\Tab.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\Tab\TabbedPane.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\Tab\TabbedPaneListener.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\TextBox\ExtendedTextBox.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\TextBox\TextBox.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\TextBox\TextBoxListener.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\TextField\TextField.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\TextField\TextFieldListener.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\ToolTip\ToolTip.cpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClCompile>
+    <ClCompile Include="UIElement.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
-      <Filter>src\Simulation\World</Filter>
+      <Filter>Header Files\Simulation\World</Filter>
     </ClInclude>
     <ClInclude Include="ChunkSystem.h">
-      <Filter>src\Simulation\World\ChunkSystem</Filter>
+      <Filter>Header Files\Simulation\World\ChunkSystem</Filter>
     </ClInclude>
     <ClInclude Include="BaseWorldPlanner.h">
-      <Filter>src\Simulation\World\WorldPlanners</Filter>
+      <Filter>Header Files\Simulation\World\WorldPlanners</Filter>
     </ClInclude>
     <ClInclude Include="FlatlandWorldPlanner.h">
-      <Filter>src\Simulation\World\WorldPlanners</Filter>
+      <Filter>Header Files\Simulation\World\WorldPlanners</Filter>
     </ClInclude>
     <ClInclude Include="Chunk.h">
-      <Filter>src\Simulation\World\ChunkSystem</Filter>
+      <Filter>Header Files\Simulation\World\ChunkSystem</Filter>
     </ClInclude>
     <ClInclude Include="ControlManager.h">
-      <Filter>src\Simulation\Control</Filter>
+      <Filter>Header Files\Simulation\Control</Filter>
     </ClInclude>
     <ClInclude Include="InputEvents.h">
-      <Filter>src\Controller\Events</Filter>
+      <Filter>Header Files\Controller\Events</Filter>
     </ClInclude>
     <ClInclude Include="Simulation.h">
-      <Filter>src\Simulation</Filter>
+      <Filter>Header Files\Simulation</Filter>
     </ClInclude>
     <ClInclude Include="ChunkLoadManager.h">
-      <Filter>src\Simulation\World\ChunkSystem</Filter>
+      <Filter>Header Files\Simulation\World\ChunkSystem</Filter>
     </ClInclude>
     <ClInclude Include="Ground.h">
-      <Filter>src\Simulation\World\Entities\Concrete</Filter>
+      <Filter>Header Files\Simulation\World\Entities\Concrete</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
-      <Filter>src\Simulation\World\Entities\Base</Filter>
+      <Filter>Header Files\Simulation\World\Entities\Base</Filter>
     </ClInclude>
     <ClInclude Include="Body.h">
-      <Filter>src\Simulation\World\Entities\Modules</Filter>
+      <Filter>Header Files\Simulation\World\Entities\Modules</Filter>
     </ClInclude>
     <ClInclude Include="EntityFactory.h">
-      <Filter>src\Simulation\World\Entities\EntityFactory</Filter>
+      <Filter>Header Files\Simulation\World\Entities\EntityFactory</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
-      <Filter>src\View\Scene</Filter>
+      <Filter>Header Files\View\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Display.h">
-      <Filter>src\View</Filter>
+      <Filter>Header Files\View</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>src\View</Filter>
+      <Filter>Header Files\View</Filter>
     </ClInclude>
     <ClInclude Include="GraphicsManager.h">
-      <Filter>src\View</Filter>
-    </ClInclude>
-    <ClInclude Include="ChunkRepresentation.h">
-      <Filter>src\View\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="ChunkRepresentationManager.h">
-      <Filter>src\View</Filter>
+      <Filter>Header Files\View</Filter>
     </ClInclude>
     <ClInclude Include="EventHandler.h">
-      <Filter>src\Controller\Events</Filter>
+      <Filter>Header Files\Controller\Events</Filter>
     </ClInclude>
     <ClInclude Include="LushLands.h">
-      <Filter>src</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Focus.h">
-      <Filter>src\Controller</Filter>
+      <Filter>Header Files\Controller</Filter>
     </ClInclude>
     <ClInclude Include="ActionMap.h">
-      <Filter>src\Controller\Events</Filter>
+      <Filter>Header Files\Controller\Events</Filter>
     </ClInclude>
     <ClInclude Include="Structure.h">
-      <Filter>src\Simulation\World\Entities\Concrete</Filter>
+      <Filter>Header Files\Simulation\World\Entities\Concrete</Filter>
     </ClInclude>
     <ClInclude Include="Controller.h">
-      <Filter>src\Controller</Filter>
+      <Filter>Header Files\Controller</Filter>
     </ClInclude>
     <ClInclude Include="Appearance.h">
-      <Filter>src\Simulation\World\Entities\Modules</Filter>
+      <Filter>Header Files\Simulation\World\Entities\Modules</Filter>
     </ClInclude>
     <ClInclude Include="Collider.h">
-      <Filter>src\Simulation\World\Entities\Modules</Filter>
+      <Filter>Header Files\Simulation\World\Entities\Modules</Filter>
     </ClInclude>
     <ClInclude Include="DynamicCollider.h">
-      <Filter>src\Simulation\World\Entities\Modules</Filter>
+      <Filter>Header Files\Simulation\World\Entities\Modules</Filter>
     </ClInclude>
     <ClInclude Include="Mobility.h">
-      <Filter>src\Simulation\World\Entities\Modules</Filter>
+      <Filter>Header Files\Simulation\World\Entities\Modules</Filter>
     </ClInclude>
     <ClInclude Include="RandomWalk.h">
-      <Filter>src\Simulation\World\Entities\Modules</Filter>
-    </ClInclude>
-    <ClInclude Include="UIElement.h">
-      <Filter>src\View\UI\Base</Filter>
+      <Filter>Header Files\Simulation\World\Entities\Modules</Filter>
     </ClInclude>
     <ClInclude Include="WorldUIElement.h">
-      <Filter>src\View\UI\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="StaticUIElement.h">
-      <Filter>src\View\UI\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Console.h">
-      <Filter>src\View\UI\Concrete</Filter>
+      <Filter>Header Files\View\UI\Base</Filter>
     </ClInclude>
     <ClInclude Include="Animal.h">
-      <Filter>src\Simulation\World\Entities\Concrete</Filter>
+      <Filter>Header Files\Simulation\World\Entities\Concrete</Filter>
     </ClInclude>
     <ClInclude Include="EntityUpdater.h">
-      <Filter>src\Simulation\World\Entities\Modules</Filter>
+      <Filter>Header Files\Simulation\World\Entities\Modules</Filter>
     </ClInclude>
     <ClInclude Include="CollisionManager.h">
-      <Filter>src\Simulation\World\ChunkSystem</Filter>
+      <Filter>Header Files\Simulation\World\ChunkSystem</Filter>
     </ClInclude>
     <ClInclude Include="ChickenBoxWorldPlanner.h">
-      <Filter>src\Simulation\World\WorldPlanners</Filter>
+      <Filter>Header Files\Simulation\World\WorldPlanners</Filter>
     </ClInclude>
     <ClInclude Include="Keyboard.h">
-      <Filter>src\Controller\InputDevices</Filter>
+      <Filter>Header Files\Controller\InputDevices</Filter>
     </ClInclude>
     <ClInclude Include="Mouse.h">
-      <Filter>src\Controller\InputDevices</Filter>
+      <Filter>Header Files\Controller\InputDevices</Filter>
     </ClInclude>
     <ClInclude Include="FieldCursor.h">
-      <Filter>src\View\UI\Concrete</Filter>
-    </ClInclude>
-    <ClInclude Include="UICursor.h">
-      <Filter>src\View\UI\Concrete</Filter>
+      <Filter>Header Files\View\UI\Concrete</Filter>
     </ClInclude>
     <ClInclude Include="Destroyability.h">
-      <Filter>src\Simulation\World\Entities\Modules</Filter>
+      <Filter>Header Files\Simulation\World\Entities\Modules</Filter>
     </ClInclude>
     <ClInclude Include="Item.h">
-      <Filter>src\Simulation\World\Items</Filter>
+      <Filter>Header Files\Simulation\World\Items</Filter>
     </ClInclude>
     <ClInclude Include="ItemFactory.h">
-      <Filter>src\Simulation\World\Items</Filter>
+      <Filter>Header Files\Simulation\World\Items</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>src\Simulation\World\Entities\Characters</Filter>
+      <Filter>Header Files\Simulation\World\Entities\Characters</Filter>
     </ClInclude>
     <ClInclude Include="Inventory.h">
-      <Filter>src\Simulation\World\Entities\Characters</Filter>
+      <Filter>Header Files\Simulation\World\Entities\Characters</Filter>
     </ClInclude>
     <ClInclude Include="Humanoid.h">
-      <Filter>src\Simulation\World\Entities\Characters</Filter>
-    </ClInclude>
-    <ClInclude Include="StaticBaseWindow.h">
-      <Filter>src\View\UI\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="InventoryDisplay.h">
-      <Filter>src\View\UI\Concrete</Filter>
-    </ClInclude>
-    <ClInclude Include="WindowManager.h">
-      <Filter>src\View\UI</Filter>
+      <Filter>Header Files\Simulation\World\Entities\Characters</Filter>
     </ClInclude>
     <ClInclude Include="Hotbar.h">
-      <Filter>src\View\UI\Concrete</Filter>
+      <Filter>Header Files\View\UI\Concrete</Filter>
     </ClInclude>
     <ClInclude Include="EventFactory.h">
-      <Filter>src\Controller\Events</Filter>
+      <Filter>Header Files\Controller\Events</Filter>
     </ClInclude>
     <ClInclude Include="CtorParamStructures.h">
-      <Filter>src\Simulation\World</Filter>
+      <Filter>Header Files\Simulation\World</Filter>
     </ClInclude>
     <ClInclude Include="ChunkUpdater.h">
-      <Filter>src\Simulation\World\ChunkSystem</Filter>
+      <Filter>Header Files\Simulation\World\ChunkSystem</Filter>
     </ClInclude>
     <ClInclude Include="CraftingDisplay.h">
-      <Filter>src\View\UI\Concrete</Filter>
+      <Filter>Header Files\View\UI\Concrete</Filter>
     </ClInclude>
     <ClInclude Include="CraftingManager.h">
-      <Filter>src\Simulation\Crafting</Filter>
+      <Filter>Header Files\Simulation\Crafting</Filter>
     </ClInclude>
     <ClInclude Include="TechnologyManager.h">
-      <Filter>src\Simulation\Technology</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>src</Filter>
+      <Filter>Header Files\Simulation\Technology</Filter>
     </ClInclude>
     <ClInclude Include="Core.h">
-      <Filter>src\Core</Filter>
+      <Filter>Header Files\Core</Filter>
     </ClInclude>
     <ClInclude Include="ChunkElements.h">
-      <Filter>src\Simulation\World\ChunkSystem</Filter>
+      <Filter>Header Files\Simulation\World\ChunkSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonHandler.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>Header Files\Core\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="Constants.h">
+      <Filter>Header Files\Core\Constants</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstantSets.h">
+      <Filter>Header Files\Core\Constants</Filter>
+    </ClInclude>
+    <ClInclude Include="Events.h">
+      <Filter>Header Files\Core\Constants</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemConstants.h">
+      <Filter>Header Files\Core\Constants</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeConstants.h">
+      <Filter>Header Files\Core\Constants</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstantRepository.h">
+      <Filter>Header Files\Core\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Directories.h">
+      <Filter>Header Files\Core\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="FileToArray.h">
+      <Filter>Header Files\Core\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="NameGenerator.h">
+      <Filter>Header Files\Core\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="NumTools.h">
+      <Filter>Header Files\Core\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Random_.h">
+      <Filter>Header Files\Core\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldRectangle.h">
+      <Filter>Header Files\Core\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldTime.h">
+      <Filter>Header Files\Core\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="Size.h">
+      <Filter>Header Files\Core\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="PositionStructures.h">
+      <Filter>Header Files\Core\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="Position.h">
+      <Filter>Header Files\Core\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="EventTypes.h">
+      <Filter>Header Files\Core\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTypes.h">
+      <Filter>Header Files\Core\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="GameElement.h">
+      <Filter>Header Files\Core\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ChunkRepresentationManager.h">
+      <Filter>Header Files\View\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ChunkRepresentation.h">
+      <Filter>Header Files\View\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Console.h">
+      <Filter>Header Files\View\UI\Concrete</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\ActionEvent.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\ActionListener.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Agui.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5CursorProvider.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5Font.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5FontLoader.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5Graphics.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5Image.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5ImageLoader.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5Input.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Base\BaseWindow.h">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Base\Colors.h">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Base\WindowManager.h">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\BaseTypes.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\BlinkingEvent.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\BorderLayout.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Clipboard\Clipboard.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Clipboard\OSXClipboard.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Clipboard\WinClipboard.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Color.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Constants.h">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\CursorProvider.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Dimension.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\EmptyWidget.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Enumerations.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\EventArgs.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\FlowLayout.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\FocusListener.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\FocusManager.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Font.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\FontLoader.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Graphics.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\GridLayout.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Gui.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Image.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\ImageLoader.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Input.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\InventoryDisplay.h">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\InventorySlot.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\KeyboardListener.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Layout.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\MouseListener.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Platform.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Point.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Rectangle.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\ResizableBorderLayout.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\ResizableText.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\SelectionListener.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\TableLayout.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\TapListener.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\TextureManager.h">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\TopContainer.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Transform.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\UTF8.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widget.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\WidgetListener.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\Button\Button.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\Button\ButtonGroup.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\Button\ButtonListener.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\CheckBox\CheckBox.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\CheckBox\CheckBoxListener.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\DropDown\DropDown.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\DropDown\DropDownListener.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\Frame\Frame.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\Frame\FrameListener.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\ImageWidget\ImageWidget.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\Label\Label.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\Label\LabelListener.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\ListBox\ListBox.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\ListBox\ListBoxListener.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\PopUp\PopUpMenu.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\PopUp\PopUpMenuItem.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\RadioButton\RadioButton.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\RadioButton\RadioButtonGroup.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\RadioButton\RadioButtonListener.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\ScrollBar\HScrollBar.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\ScrollBar\HScrollBarListener.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\ScrollBar\VScrollBar.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\ScrollBar\VScrollBarListener.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\ScrollPane\ScrollPane.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\Slider\Slider.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\Slider\SliderListener.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\Tab\Tab.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\Tab\TabbedPane.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\Tab\TabbedPaneListener.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\TextBox\ExtendedTextBox.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\TextBox\TextBox.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\TextBox\TextBoxListener.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\TextField\TextField.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\TextField\TextFieldListener.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\ToolTip\ToolTip.hpp">
+      <Filter>Header Files\View\Agui</Filter>
+    </ClInclude>
+    <ClInclude Include="UIElement.h">
+      <Filter>Header Files\View\UI\Base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="src">
+    <Filter Include="Header Files">
       <UniqueIdentifier>{6c5626ad-7a06-437c-80e6-f4edc691e7d7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Simulation">
+    <Filter Include="Header Files\Simulation">
       <UniqueIdentifier>{25ce27c8-47e3-4934-81ff-7f449ce94ee2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Simulation\World">
+    <Filter Include="Header Files\Simulation\World">
       <UniqueIdentifier>{7a0343a9-eb76-4c80-825b-66050111b714}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Simulation\World\ChunkSystem">
+    <Filter Include="Header Files\Simulation\World\ChunkSystem">
       <UniqueIdentifier>{8e84cd75-537c-406a-9246-8a761b049640}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Simulation\World\WorldPlanners">
+    <Filter Include="Header Files\Simulation\World\WorldPlanners">
       <UniqueIdentifier>{56756d01-6f74-4ae7-93e6-286584bc9f92}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Controller">
-      <UniqueIdentifier>{cd480540-6ac4-46a2-9e20-e050582a6263}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Simulation\World\Entities">
+    <Filter Include="Header Files\Simulation\World\Entities">
       <UniqueIdentifier>{97844601-3bcd-4941-b8ae-04b726634e19}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Simulation\World\Entities\Base">
+    <Filter Include="Header Files\Simulation\World\Entities\Base">
       <UniqueIdentifier>{4a538312-e3a6-4a81-ad7f-169647ff38dc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Simulation\World\Entities\Modules">
+    <Filter Include="Header Files\Simulation\World\Entities\Modules">
       <UniqueIdentifier>{7d7c5b0d-24e3-46cc-bcb0-b51e68c66b0e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Simulation\World\Entities\Concrete">
+    <Filter Include="Header Files\Simulation\World\Entities\Concrete">
       <UniqueIdentifier>{c04fcc1d-6828-4a6e-8bc2-7ad9b1907cdf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Simulation\World\Entities\EntityFactory">
+    <Filter Include="Header Files\Simulation\World\Entities\EntityFactory">
       <UniqueIdentifier>{087ade55-06bc-46fe-b215-3d9877431bdf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Controller\Events">
-      <UniqueIdentifier>{14efbf44-c5e7-4ff7-9fca-d80190b9bc12}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Controller\InputDevices">
-      <UniqueIdentifier>{49536009-d9bf-40e4-8df3-e89b4b1596dd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Simulation\World\Items">
-      <UniqueIdentifier>{6ecfda54-1951-4544-b993-b6313e062b36}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Simulation\World\Entities\Characters">
+    <Filter Include="Header Files\Simulation\World\Entities\Characters">
       <UniqueIdentifier>{d00b01f4-0d3b-4a31-92c7-704348bc83fd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Simulation\Control">
+    <Filter Include="Header Files\Simulation\World\Items">
+      <UniqueIdentifier>{6ecfda54-1951-4544-b993-b6313e062b36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Simulation\Control">
       <UniqueIdentifier>{a22cecab-8a5c-4316-b241-c15850566dcc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Simulation\Crafting">
+    <Filter Include="Header Files\Simulation\Crafting">
       <UniqueIdentifier>{e9812a2a-a944-4541-9e1e-510b3573176f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Simulation\Technology">
+    <Filter Include="Header Files\Simulation\Technology">
       <UniqueIdentifier>{ebf1bece-0232-43aa-9a90-9a5b226fd0c5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\View">
+    <Filter Include="Header Files\Controller">
+      <UniqueIdentifier>{cd480540-6ac4-46a2-9e20-e050582a6263}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Controller\Events">
+      <UniqueIdentifier>{14efbf44-c5e7-4ff7-9fca-d80190b9bc12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Controller\InputDevices">
+      <UniqueIdentifier>{49536009-d9bf-40e4-8df3-e89b4b1596dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View">
       <UniqueIdentifier>{c0f3f092-898a-4e8b-8b10-092756b4ae28}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\View\Scene">
+    <Filter Include="Header Files\View\Scene">
       <UniqueIdentifier>{26e002c8-5261-4957-8966-ffe5f19495c3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\View\UI">
+    <Filter Include="Header Files\View\UI">
       <UniqueIdentifier>{46dc56e0-5fc5-4cbc-a1b1-82263e257ab7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\View\UI\Base">
+    <Filter Include="Header Files\View\UI\Base">
       <UniqueIdentifier>{f24bfa5f-57f0-40bf-90b0-03692636f432}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\View\UI\Concrete">
+    <Filter Include="Header Files\View\UI\Concrete">
       <UniqueIdentifier>{89e0646a-f87a-4915-8276-4e5c180eb7d3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Core">
+    <Filter Include="Header Files\Core">
       <UniqueIdentifier>{e7296414-f01a-4389-9fea-0c0d12f812cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{29631fb8-9b8b-4d30-a09e-fc18b5a8fbd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core\Tools">
+      <UniqueIdentifier>{e2c44be6-863b-43bc-a771-73204b9d88ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core\Logger">
+      <UniqueIdentifier>{2adfd2a1-ba4e-4d2f-af3c-45d1e49bbe82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core\DataTypes">
+      <UniqueIdentifier>{0e9b0012-2654-4ce5-a5b3-9ba525b16fa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core\Constants">
+      <UniqueIdentifier>{5e1c1297-0ca9-4b7e-8e50-52235460dd0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View\Agui">
+      <UniqueIdentifier>{47abe7d1-9dda-4eb7-87f5-c3749efa5389}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="ProjectDiagram.cd" />
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

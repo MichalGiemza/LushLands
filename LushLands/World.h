@@ -1,5 +1,4 @@
 #pragma once
-#include "stdafx.h"
 #include "ChunkSystem.h"
 #include "BaseWorldPlanner.h"
 #include "FlatlandWorldPlanner.h"
@@ -23,7 +22,7 @@ class World  {
     worldtype worldType;
     EntityFactory *entityFactory;
     ItemFactory *itemFactory;
-    Time *time;
+    WorldTime *time;
     miliseconds sessionActiveSince;
     miliseconds lastTimeUpdated;
     InputEvents *inputEvents;
@@ -31,7 +30,7 @@ public:
     World(worldtype worldType, int seed_, EntityFactory *entityFactory, ItemFactory *itemFactory, InputEvents *inputEvents);
     int getSeed();
     int getSeaLevel();
-    Time *getWorldTime();
+    WorldTime *getWorldTime();
     ChunkLoadManager *getChunkLoadManager();
     std::vector<Entity *> getByPosition(Position *position); // TODO: Dla klikania myszk¹
     void placePlayer(Player *player);

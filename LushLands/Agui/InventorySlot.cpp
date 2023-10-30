@@ -4,7 +4,6 @@ agui::InventorySlot::InventorySlot() {
     setFontColor(UI_FG_COLOR);
     setBackColor(UI_BG_COLOR);
 	setSize(36, 36);
-	//int m = invSlotSizePx - iconSizePx;
 	int m = 1;
 	setMargins(m, m, m, m);
 }

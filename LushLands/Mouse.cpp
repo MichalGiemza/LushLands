@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Mouse.h"
 
 Mouse::Mouse(InputEvents *inputEvents) {

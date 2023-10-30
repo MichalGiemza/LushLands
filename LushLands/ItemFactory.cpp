@@ -1,9 +1,8 @@
-#include "stdafx.h"
 #include "ItemFactory.h"
 
 void ItemFactory::loadItemCtorParams(const fs::path fp) {
     auto data = JsonHandler::parseJson(fp);
-    const json::object &d = data->as_object();
+    auto &d = data->as_object();
 
     auto et = a_s(d, "EntityType");
     auto des = a_s(d, "Description");

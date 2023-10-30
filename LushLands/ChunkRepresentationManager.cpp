@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "ChunkRepresentationManager.h"
 
 void ChunkRepresentationManager::updateVisibleChunkRepresentations() {
@@ -76,7 +75,7 @@ void ChunkRepresentationManager::drawItems(ChunkRepresentation *cRep, int level,
 
         pxint x1 = shiftTexturePositionX(camera->shiftToScreenPosX(p->getPX() + meter * 2 / 5), al_get_bitmap_width(sBitmap), 0);
         pxint z1 = shiftTexturePositionZ(camera->shiftToScreenPosZ(p->getPZ() + meter * 9 / 10), al_get_bitmap_height(sBitmap), 0);
-        al_draw_filled_ellipse(x1, z1, 10.0f, 4.0f, ITEM_SHADOW_COLOR.getAllegroColor());
+        al_draw_filled_ellipse(x1, z1, 10.0f, 4.0f, agui::ITEM_SHADOW_COLOR.getAllegroColor());
 
         x1 = shiftTexturePositionX(camera->shiftToScreenPosX(p->getPX()), al_get_bitmap_width(sBitmap), 0);
         z1 = shiftTexturePositionZ(camera->shiftToScreenPosZ(p->getPZ() - bumpingPosZ), al_get_bitmap_height(sBitmap), 0);
@@ -145,7 +144,7 @@ void ChunkRepresentationManager::drawChunkDebug(ChunkRepresentation *cRep) {
     pxint z1 = camera->shiftToScreenPosZ(cRep->getPosition()->getPZ());
     pxint x2 = camera->shiftToScreenPosX(cRep->getPosition()->getPX()) + chunkSizeByTiles * chunkSizeByTiles;
     pxint z2 = camera->shiftToScreenPosZ(cRep->getPosition()->getPZ()) + chunkSizeByTiles * chunkSizeByTiles;
-    al_draw_rectangle(x1, z1, x2, z2, DEBUG_CHUNK_BORDER_COLOR.getAllegroColor(), 1.0f);
+    al_draw_rectangle(x1, z1, x2, z2, agui::DEBUG_CHUNK_BORDER_COLOR.getAllegroColor(), 1.0f);
 }
 
 void ChunkRepresentationManager::drawStructureDebug(ChunkRepresentation *cRep, int level) {
@@ -161,7 +160,7 @@ void ChunkRepresentationManager::drawStructureDebug(ChunkRepresentation *cRep, i
         pxint z1 = camera->shiftToScreenPosZ(ctr->getPZ()) - size->getCameraL() / 2;
         pxint x2 = camera->shiftToScreenPosX(ctr->getPX()) + size->getCameraW() / 2;
         pxint z2 = camera->shiftToScreenPosZ(ctr->getPZ()) + size->getCameraL() / 2;
-        al_draw_rectangle(x1, z1, x2, z2, DEBUG_STRUCTURE_BORDER_COLOR.getAllegroColor(), 1.0f);
+        al_draw_rectangle(x1, z1, x2, z2, agui::DEBUG_STRUCTURE_BORDER_COLOR.getAllegroColor(), 1.0f);
     }
 }
 
@@ -175,7 +174,7 @@ void ChunkRepresentationManager::drawItemsDebug(ChunkRepresentation *cRep, int l
         // Draw magnet radius
         pxint x1 = camera->shiftToScreenPosX(ctr->getPX());
         pxint z1 = camera->shiftToScreenPosZ(ctr->getPZ());
-        al_draw_circle(x1, z1, itemMagnetRadius * tileSizePx, DEBUG_ITEM_BORDER_COLOR.getAllegroColor(), 1.0f);
+        al_draw_circle(x1, z1, itemMagnetRadius * tileSizePx, agui::DEBUG_ITEM_BORDER_COLOR.getAllegroColor(), 1.0f);
     }
 }
 
@@ -192,17 +191,17 @@ void ChunkRepresentationManager::drawAnimalDebug(ChunkRepresentation *cRep, int 
         pxint z1 = camera->shiftToScreenPosZ(ctr->getPZ()) - size->getCameraL() / 2;
         pxint x2 = camera->shiftToScreenPosX(ctr->getPX()) + size->getCameraW() / 2;
         pxint z2 = camera->shiftToScreenPosZ(ctr->getPZ()) + size->getCameraL() / 2;
-        al_draw_rectangle(x1, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 1.0f);
+        al_draw_rectangle(x1, z1, x2, z2, agui::DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 1.0f);
         // Draw collision indicators
         Collider *col = (Collider *)anm->getCollider();
         if (col->isInCollisionLeft())
-            al_draw_line(x1, z1, x1, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
+            al_draw_line(x1, z1, x1, z2, agui::DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
         if (col->isInCollisionRight())
-            al_draw_line(x2, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
+            al_draw_line(x2, z1, x2, z2, agui::DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
         if (col->isInCollisionTop())
-            al_draw_line(x1, z1, x2, z1, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
+            al_draw_line(x1, z1, x2, z1, agui::DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
         if (col->isInCollisionBottom())
-            al_draw_line(x1, z2, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
+            al_draw_line(x1, z2, x2, z2, agui::DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
         // Draw direction vector
         Mobility *mob = (Mobility *)anm->getMobility();
         if (not std::isnan(mob->getDirection())) {
@@ -210,7 +209,7 @@ void ChunkRepresentationManager::drawAnimalDebug(ChunkRepresentation *cRep, int 
             z1 = camera->shiftToScreenPosZ(ctr->getPZ());
             x2 = camera->shiftToScreenPosX(ctr->getPX() - std::sin(mob->getDirection()) * sqrt(mob->getMovementSpeed() * meter) * 3);
             z2 = camera->shiftToScreenPosZ(ctr->getPZ() + std::cos(mob->getDirection()) * sqrt(mob->getMovementSpeed() * meter) * 3);
-            al_draw_line(x1, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 1.0f);
+            al_draw_line(x1, z1, x2, z2, agui::DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 1.0f);
         }
     }
 }
@@ -228,17 +227,17 @@ void ChunkRepresentationManager::drawHumanoidDebug(ChunkRepresentation *cRep, in
         pxint z1 = camera->shiftToScreenPosZ(ctr->getPZ()) - size->getCameraL() / 2;
         pxint x2 = camera->shiftToScreenPosX(ctr->getPX()) + size->getCameraW() / 2;
         pxint z2 = camera->shiftToScreenPosZ(ctr->getPZ()) + size->getCameraL() / 2;
-        al_draw_rectangle(x1, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 1.0f);
+        al_draw_rectangle(x1, z1, x2, z2, agui::DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 1.0f);
         // Draw collision indicators
         Collider *col = (Collider *)hmn->getCollider();
         if (col->isInCollisionLeft())
-            al_draw_line(x1, z1, x1, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
+            al_draw_line(x1, z1, x1, z2, agui::DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
         if (col->isInCollisionRight())
-            al_draw_line(x2, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
+            al_draw_line(x2, z1, x2, z2, agui::DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
         if (col->isInCollisionTop())
-            al_draw_line(x1, z1, x2, z1, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
+            al_draw_line(x1, z1, x2, z1, agui::DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
         if (col->isInCollisionBottom())
-            al_draw_line(x1, z2, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
+            al_draw_line(x1, z2, x2, z2, agui::DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 3.0f);
         // Draw direction vector
         x1 = camera->shiftToScreenPosX(ctr->getPX());
         z1 = camera->shiftToScreenPosZ(ctr->getPZ());
@@ -246,11 +245,11 @@ void ChunkRepresentationManager::drawHumanoidDebug(ChunkRepresentation *cRep, in
         if (not std::isnan(mob->getDirection())) {
             x2 = camera->shiftToScreenPosX(ctr->getPX() - std::sin(mob->getDirection()) * sqrt(mob->getMovementSpeed() * meter) * 3);
             z2 = camera->shiftToScreenPosZ(ctr->getPZ() + std::cos(mob->getDirection()) * sqrt(mob->getMovementSpeed() * meter) * 3);
-            al_draw_line(x1, z1, x2, z2, DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 1.0f);
+            al_draw_line(x1, z1, x2, z2, agui::DEBUG_ANIMAL_BORDER_COLOR.getAllegroColor(), 1.0f);
         }
         // Draw interaction range
-        al_draw_circle(x1, z1, interactionRadiusS * tileSizePx , COLOR_DARK_RED.getAllegroColor(), 1.0f);
-        al_draw_circle(x1, z1, interactionRadiusL * tileSizePx, COLOR_DARK_RED.getAllegroColor(), 1.0f);
+        al_draw_circle(x1, z1, interactionRadiusS * tileSizePx , agui::COLOR_DARK_RED.getAllegroColor(), 1.0f);
+        al_draw_circle(x1, z1, interactionRadiusL * tileSizePx, agui::COLOR_DARK_RED.getAllegroColor(), 1.0f);
     }
 }
 

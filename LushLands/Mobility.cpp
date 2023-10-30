@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Mobility.h"
 
 Mobility::Mobility(DynamicCollider *dynamicCollider, EntityUpdater *entityUpdater, int movementSpeed) :

@@ -41,6 +41,7 @@
 #ifndef AGUI_COLOR_HPP
 #define AGUI_COLOR_HPP
 #include "Agui/Platform.hpp"
+#include <allegro5/color.h>
 namespace agui
 {
 	/**
@@ -56,6 +57,7 @@ namespace agui
 		float b;
 		float a;
 		static bool premultiplyAlpha;
+        ALLEGRO_COLOR allegroColor;
 	/**
      * Ensures that colors are in the correct range.
      * @since 0.1.0
@@ -129,6 +131,8 @@ namespace agui
      * @since 0.1.0
      */
 		bool operator!=(const Color &refCol);
+
+        ALLEGRO_COLOR getAllegroColor() const;
 	};
 }
 #endif

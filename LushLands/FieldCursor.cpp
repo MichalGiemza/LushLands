@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "FieldCursor.h"
 
 
@@ -13,7 +12,7 @@ void FieldCursor::draw() {
     pxint x2 = camera->shiftToScreenPosX((cursorInWorld.getX() + 1) * representationComaValue);
     pxint z2 = camera->shiftToScreenPosZ((cursorInWorld.getZ() + 1) * representationComaValue);
     
-    al_draw_rectangle(x1, z1, x2, z2, WORLD_CURSOR_COLOR.getAllegroColor(), 3.0f);
+    al_draw_rectangle(x1, z1, x2, z2, agui::UI_FG_COLOR.getAllegroColor(), 3.0f);
 }
 
 Position *FieldCursor::getPrecisePosition() {

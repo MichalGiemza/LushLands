@@ -1,10 +1,10 @@
 #pragma once
-#include "stdafx.h"
 #include "Entity.h"
 #include "Body.h"
 #include "Appearance.h"
 #include "Destroyability.h"
 #include "CtorParamStructures.h"
+#include "GameElement.h"
 
 
 class Ground : public Entity {

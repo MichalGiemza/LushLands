@@ -1,8 +1,9 @@
 #pragma once
-#include "stdafx.h"
 #include "Controller.h"
 #include "Simulation.h"
 #include "GraphicsManager.h"
+#include "Agui/InventoryDisplay.h"
+#include "Hotbar.h"
 
 
 class EventHandler {
@@ -22,9 +23,9 @@ class EventHandler {
     World *world;
     Player *player;
     FieldCursor *fieldCursor;
-    InventoryDisplay *invDispl;
+    agui::InventoryDisplay *invDispl;
     CraftingDisplay *craftDispl;
-    Hotbar *hotbar;
+    agui::Hotbar *hotbar;
     ItemFactory *itemFactory;
 
     bool pN = false, pS = false, pE = false, pW = false;

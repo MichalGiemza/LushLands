@@ -1,10 +1,13 @@
 #pragma once
-#include <iostream>
-#include <fstream>
 #include <boost/json.hpp>
 #include <boost/container_hash/hash.hpp>
+#include "DataTypes.h"
+#include <iostream>
+#include <fstream>
 #include "Logger.h"
 
+
+namespace json = boost::json;
 
 struct JSONValueHasher {
     std::size_t operator()(const boost::json::value &value) const;

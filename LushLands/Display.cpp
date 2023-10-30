@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Display.h"
 
 ALLEGRO_DISPLAY *Display::getDisplay() {

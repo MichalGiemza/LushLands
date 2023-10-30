@@ -1,5 +1,7 @@
 #pragma once
-#include "stdafx.h"
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/random_generator.hpp>
+#include "DataTypes.h"
 #include "EntityUpdater.h"
 #include "InputEvents.h"
 

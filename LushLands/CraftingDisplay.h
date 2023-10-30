@@ -1,12 +1,11 @@
 #pragma once
-#include "stdafx.h"
 #include "CraftingManager.h"
 #include "Display.h"
-#include "TextureManager.h"
-#include "StaticBaseWindow.h"
+#include "Agui/TextureManager.h"
+#include "Agui/Base/BaseWindow.h"
 
 
-class CraftingDisplay : public StaticBaseWindow {
+class CraftingDisplay : public agui::BaseWindow {
     /** 
     * Represents crafting interface.
     */
@@ -20,8 +19,5 @@ protected:
     ALLEGRO_FONT *font;
 public:
     CraftingDisplay(Display *display, CraftingManager *craftingManager, pxint x, pxint y);
-    virtual void interact(pxint x, pxint y) override;
-    virtual void openContextMenu(pxint x, pxint y) override;
-    virtual void draw() override;
 };
 

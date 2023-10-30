@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "EntityFactory.h"
 
 
@@ -73,7 +72,7 @@ void EntityFactory::loadHumanoidCtorParams(const fs::path fp) {
 
 void EntityFactory::loadAnimalCtorParams(const fs::path fp) {
     auto data = JsonHandler::parseJson(fp);
-    const json::object &d = data->as_object();
+    auto &d = data->as_object();
 
     auto et = a_s(d, "EntityType");
     auto des = a_s(d, "Description");
@@ -115,7 +114,7 @@ void EntityFactory::loadAnimalCtorParams(const fs::path fp) {
 
 void EntityFactory::loadStructureCtorParams(const fs::path fp) {
     auto data = JsonHandler::parseJson(fp);
-    const json::object &d = data->as_object();
+    auto &d = data->as_object();
 
     auto et = a_s(d, "EntityType");
     auto des = a_s(d, "Description");

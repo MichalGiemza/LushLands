@@ -1,14 +1,14 @@
 #pragma once
-#include "Color.h"
+#include "Agui/Color.hpp"
 #include "DataTypes.h"
 
 class Appearance {
     /**
     * Represents appearance of an entity (as model, not view).
     */
-    const Color *color;
+    const agui::Color *color;
 public:
-    Appearance(const Color &color);
-    const Color *getColor() const;
+    Appearance(const agui::Color &color);
+    const agui::Color *getColor() const;
 };
 

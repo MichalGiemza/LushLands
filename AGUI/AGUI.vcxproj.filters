@@ -13,9 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <Filter Include="Header Files\Backends">
+      <UniqueIdentifier>{cd054040-e08e-4b6d-9b95-dd0d975f69d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Base">
+      <UniqueIdentifier>{c3a82fa8-01e2-4129-ae3e-57be63a6fb8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Widgets">
+      <UniqueIdentifier>{bdae9d60-81d9-4a19-8378-680aec45bfb7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agui\Dimension.hpp">
@@ -48,21 +54,6 @@
     <ClInclude Include="Agui\Widgets\ToolTip\ToolTip.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Agui\Widgets\TextField\TextFieldListener.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\TextField\TextField.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\TextBox\TextBoxListener.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\TextBox\TextBox.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\TextBox\ExtendedTextBox.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Agui\Widgets\Tab\TabbedPaneListener.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -72,52 +63,7 @@
     <ClInclude Include="Agui\Widgets\Tab\Tab.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Agui\Widgets\Slider\SliderListener.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\Slider\Slider.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Agui\Widgets\ScrollPane\ScrollPane.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\ScrollBar\VScrollBarListener.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\ScrollBar\VScrollBar.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\ScrollBar\HScrollBarListener.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\ScrollBar\HScrollBar.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\RadioButton\RadioButtonListener.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\RadioButton\RadioButtonGroup.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\RadioButton\RadioButton.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\PopUp\PopUpMenuItem.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\PopUp\PopUpMenu.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\ListBox\ListBoxListener.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\ListBox\ListBox.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\Label\LabelListener.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\Label\Label.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Agui\Widgets\ImageWidget\ImageWidget.hpp">
@@ -129,27 +75,6 @@
     <ClInclude Include="Agui\Widgets\Frame\Frame.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Agui\Widgets\DropDown\DropDownListener.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\DropDown\DropDown.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\CheckBox\CheckBoxListener.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\CheckBox\CheckBox.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\Button\ButtonListener.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\Button\ButtonGroup.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widgets\Button\Button.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Agui\Clipboard\WinClipboard.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -157,36 +82,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Agui\Clipboard\Clipboard.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Backends\Allegro5\Allegro5Input.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Backends\Allegro5\Allegro5ImageLoader.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Backends\Allegro5\Allegro5Image.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Backends\Allegro5\Allegro5Graphics.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Backends\Allegro5\Allegro5FontLoader.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Backends\Allegro5\Allegro5Font.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Backends\Allegro5\Allegro5CursorProvider.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Backends\Allegro5\Allegro5.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\WidgetListener.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agui\Widget.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Agui\UTF8.hpp">
@@ -270,14 +165,140 @@
     <ClInclude Include="Agui\Enumerations.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Agui\EmptyWidget.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Agui\Constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Agui\InventorySlot.hpp">
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5CursorProvider.hpp">
+      <Filter>Header Files\Backends</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5Font.hpp">
+      <Filter>Header Files\Backends</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5FontLoader.hpp">
+      <Filter>Header Files\Backends</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5Graphics.hpp">
+      <Filter>Header Files\Backends</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5Image.hpp">
+      <Filter>Header Files\Backends</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5ImageLoader.hpp">
+      <Filter>Header Files\Backends</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5Input.hpp">
+      <Filter>Header Files\Backends</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5.hpp">
+      <Filter>Header Files\Backends</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\TextureManager.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Base\WindowManager.h">
+      <Filter>Header Files\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\InventoryDisplay.h">
+      <Filter>Header Files\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Base\Colors.h">
+      <Filter>Header Files\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Base\BaseWindow.h">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\Button\Button.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\Button\ButtonGroup.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\Button\ButtonListener.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\CheckBox\CheckBox.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\CheckBox\CheckBoxListener.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\DropDown\DropDown.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\DropDown\DropDownListener.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\EmptyWidget.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\TextBox\ExtendedTextBox.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\ScrollBar\HScrollBar.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\ScrollBar\HScrollBarListener.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\InventorySlot.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\Label\Label.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\Label\LabelListener.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\ListBox\ListBox.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\ListBox\ListBoxListener.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\RadioButton\RadioButton.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\RadioButton\RadioButtonGroup.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\RadioButton\RadioButtonListener.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\PopUp\PopUpMenuItem.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\PopUp\PopUpMenu.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\Slider\SliderListener.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\Slider\Slider.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\TextBox\TextBox.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\TextBox\TextBoxListener.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\TextField\TextField.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\TextField\TextFieldListener.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\ScrollBar\VScrollBar.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widgets\ScrollBar\VScrollBarListener.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\Widget.hpp">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Agui\WidgetListener.hpp">
+      <Filter>Header Files\Widgets</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -285,9 +306,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\CursorProvider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Color.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\BorderLayout.cpp">
@@ -303,9 +321,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\ActionEvent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Backends\Allegro5\Allegro5CursorProvider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\Widgets\ToolTip\ToolTip.cpp">
@@ -419,24 +434,6 @@
     <ClCompile Include="Agui\Clipboard\Clipboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Agui\Backends\Allegro5\Allegro5Input.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Backends\Allegro5\Allegro5ImageLoader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Backends\Allegro5\Allegro5Image.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Backends\Allegro5\Allegro5Graphics.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Backends\Allegro5\Allegro5FontLoader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Backends\Allegro5\Allegro5Font.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Agui\WidgetListener.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -515,5 +512,44 @@
     <ClCompile Include="Agui\InventorySlot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5FontLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5Graphics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5Image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5ImageLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5Input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5CursorProvider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5Font.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\TextureManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Base\BaseWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Base\WindowManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Color.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\InventoryDisplay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

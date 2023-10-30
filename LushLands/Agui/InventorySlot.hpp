@@ -1,11 +1,7 @@
 #pragma once
-
 #include "Agui/Widgets/Button/Button.hpp"
-#define ALLEGRO_UNSTABLE
-#include <allegro5/allegro.h>
-#include <allegro5/allegro_primitives.h>
-#include <allegro5/color.h>
 #include "Agui/Constants.h"
+#include "Agui/Base/Colors.h"
 
 
 namespace agui {

@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "World.h"
 
 World::World(worldtype worldType, int seed_, EntityFactory *entityFactory, ItemFactory *itemFactory, InputEvents *inputEvents) :
@@ -12,7 +11,7 @@ World::World(worldtype worldType, int seed_, EntityFactory *entityFactory, ItemF
     if (this->worldPlanner == 0)
         throw new std::logic_error(not_implemented);
     
-    this->time = new Time();
+    this->time = new WorldTime();
     this->sessionActiveSince = time->getAsMiliseconds();
     this->lastTimeUpdated = time->getAsMiliseconds();
     this->chunkSystem = new ChunkSystem(worldPlanner, entityFactory, itemFactory, inputEvents);
@@ -56,7 +55,7 @@ void World::placeItem(Item *item) {
     c->placeItem(item);
 }
 
-Time *World::getWorldTime() {
+WorldTime *World::getWorldTime() {
     return time;
 }
 

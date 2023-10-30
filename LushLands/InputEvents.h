@@ -1,6 +1,14 @@
 #pragma once
-#include "stdafx.h"
+#define ALLEGRO_UNSTABLE
+#include <allegro5/allegro5.h>
+#include <allegro5/events.h>
+#include "DataTypes.h"
+#include "ConstantSets.h"
+#include "EventTypes.h"
+#include "Logger.h"
 #include "Core.h"
+#include <vector>
+#include <unordered_map>
 
 
 class InputEvents {
@@ -31,7 +39,7 @@ public:
     InputEvents(Core *core);
     void mainLoop(bool *isRunning);
     void registerEventSource(ALLEGRO_EVENT_SOURCE *event_source);
-
+    // System Events
     void subscribeKeyDown(eventfn fun, void *caller);
     void subscribeKeyUp(eventfn fun, void *caller);
     void subscribeKeyBeingPressed(eventfn fun, void *caller);
@@ -43,7 +51,8 @@ public:
     void subscribeTimerTPS(tickperiod tp, eventfn fun, void *caller);
     void subscribeTimerFPS(tickperiod tp, eventfn fun, void *caller);
     void subscribeSystemEvent(systemevent se, eventfn fun, void *caller);
-
+    // World Events
+    
     ALLEGRO_EVENT_SOURCE *getEventSource();
 };
 

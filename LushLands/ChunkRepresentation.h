@@ -1,11 +1,11 @@
 #pragma once
-#include "stdafx.h"
+#include "ConstantSets.h"
 #include "Entity.h"
 #include "Display.h"
 #include "Ground.h"
-#include "TextureManager.h"
 #include "Item.h"
 #include "ChunkElements.h"
+#include "Agui/TextureManager.h"
 
 
 class ChunkRepresentation {

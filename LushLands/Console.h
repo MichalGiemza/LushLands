@@ -1,15 +1,15 @@
 #pragma once
-#include "stdafx.h"
-#include "StaticUIElement.h"
 #include "Display.h"
-#include "TextureManager.h"
+#include "Agui/TextureManager.h"
+#include "Agui/EmptyWidget.hpp"
+#include "Agui/Base/Colors.h"
 
 struct ConsoleLine {
     std::shared_ptr<char[]> text;
     ALLEGRO_COLOR color;
 };
 
-class Console : StaticUIElement {
+class Console : agui::EmptyWidget {
     /**
     * Console represented as static User Interface element.
     * Allows users to chat and server staff members to control gameplay.

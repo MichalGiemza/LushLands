@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "ChunkRepresentation.h"
 
 size_t ChunkRepresentation::hashChunkGroundLevel(int level) {
@@ -31,7 +30,8 @@ void ChunkRepresentation::drawLevelTilesToBitmap(int level) {
             tp.z = referencePosition.z + j;
             if (ce->groundTiles.find(tp) != ce->groundTiles.end()) {
                 Ground *g = (Ground *)ce->groundTiles[tp];
-                al_draw_bitmap(TextureManager::getTexture(g->getType()), i * tileSizePx, j * tileSizePx, 0);
+                ALLEGRO_BITMAP *bmp = TextureManager::getTexture(g->getType());
+                al_draw_bitmap(bmp, i * tileSizePx, j * tileSizePx, 0);
             }
         }
     }

@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Simulation.h"
 
 Simulation::Simulation(Controller *controller) :

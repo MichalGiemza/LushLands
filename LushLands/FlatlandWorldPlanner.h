@@ -1,6 +1,6 @@
 #pragma once
-#include "stdafx.h"
 #include "BaseWorldPlanner.h"
+#include <ConstantSets.h>
 
 
 class FlatlandWorldPlanner : public BaseWorldPlanner {

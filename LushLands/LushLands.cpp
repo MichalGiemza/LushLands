@@ -1,4 +1,3 @@
-#include "stdafx.h"﻿
 #include "LushLands.h"
 
 bool initialized = false;

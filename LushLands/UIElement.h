@@ -1,5 +1,4 @@
 #pragma once
-#include "stdafx.h"
 #include "GameElement.h"
 
 class UIElement : GameElement {

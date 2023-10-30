@@ -1,5 +1,4 @@
 #pragma once
-#include <allegro5/events.h>
 #include <functional>
 #include "DataTypes.h"
 

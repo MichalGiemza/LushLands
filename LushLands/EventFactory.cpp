@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "EventFactory.h"
 
 ALLEGRO_EVENT *EventFactory::packMobilityAttemptGo(void *dynamicCollider, void *desiredPosition) {

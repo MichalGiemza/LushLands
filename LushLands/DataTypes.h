@@ -1,13 +1,13 @@
 #pragma once
+#include <allegro5/events.h>
+#include <boost/functional/hash.hpp>
+#include <boost/container_hash/hash.hpp>
 #include <functional>
 #include <filesystem>
 #include <tuple>
-#include <boost/functional/hash.hpp>
-#include <boost/json.hpp>
 #include "Constants.h"
 
 namespace fs = std::filesystem;
-namespace json = boost::json;
 
 typedef const int cstint;
 typedef unsigned char stack;

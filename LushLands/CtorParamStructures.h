@@ -1,7 +1,12 @@
 #pragma once
-#include "stdafx.h"
-#include "InputEvents.h"
+#include "DataTypes.h"
+#include "Position.h"
+#include "Size.h"
+#include <string>
+#include "Agui/Color.hpp"
+#include "ConstantSets.h"
 
+class InputEvents;  // Forward Declaration
 
 struct HumanoidCtorParams {
     InputEvents *inputEvents;
@@ -9,7 +14,7 @@ struct HumanoidCtorParams {
     const std::string *description;
     Position *position;
     const Size *size;
-    const Color *color;
+    const agui::Color *color;
     const int movementSpeed;
     name firstName;
     name lastName;
@@ -27,7 +32,7 @@ struct StructureCtorParams {
     const std::string *description;
     Position *position;
     const Size *size;
-    const Color *color;
+    const agui::Color *color;
     int maxHealth;
     const tag requiredTool;
     const EntityDrops *drops;
@@ -41,7 +46,7 @@ struct AnimalCtorParams {
     const std::string *description;
     Position *position;
     const Size *size;
-    const Color *color;
+    const agui::Color *color;
     const int movementSpeed;
     const miliseconds walkInterval;
     int maxHealth;
@@ -56,7 +61,7 @@ struct GroundCtorParams {
     const std::string *description;
     Position *position;
     const Size *size;
-    const Color *color;
+    const agui::Color *color;
     int maxHealth;
     const tag requiredTool;
     const EntityDrops *drops;
@@ -69,7 +74,7 @@ struct ItemCtorParams {
     const entitytype entityType;
     const std::string *description;
     Position *position;
-    const Color *color;
+    const agui::Color *color;
     stack amount;
     stack maxStack;
     const tag toolType;

@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Collider.h"
 
 int Collider::dist2D(Position &p) {

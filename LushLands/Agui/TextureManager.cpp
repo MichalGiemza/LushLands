@@ -1,10 +1,11 @@
-#include "TextureManager.h"
-#include "TextureManager.h"
+#include "Agui/TextureManager.h"
+
 
 const std::string TM::pngExt = std::string(".png");
 const std::string TM::jsonExt = std::string(".json");
 entitytype TM::defaultTex = NULL;
-std::unordered_map<entitytype, std::vector<ALLEGRO_BITMAP *>> TM::textures;
+std::unordered_map<entitytype , std::vector<ALLEGRO_BITMAP *>> TM::textures;
+std::unordered_map<entitytype , std::vector<agui::Allegro5Image *>> TM::images;
 std::unordered_map<std::string, ALLEGRO_BITMAP *> TM::rawBitmaps;
 bool TextureManager::initialized = false;
 
@@ -18,6 +19,16 @@ std::vector<ALLEGRO_BITMAP *> *TextureManager::loadTextures(std::vector<TextureL
         i += 1;
     }
     return texSet;
+}
+
+std::vector<agui::Allegro5Image *> *TextureManager::prepareImages(std::vector<ALLEGRO_BITMAP *> *bmps) {
+    std::vector<agui::Allegro5Image *> *imgs = new std::vector<agui::Allegro5Image *>();
+    for (auto &bmp : *bmps) {
+        agui::Allegro5Image *img = new agui::Allegro5Image();
+        img->setBitmap(bmp);
+        imgs->push_back(img);
+    }
+    return imgs;
 }
 
 ALLEGRO_BITMAP *TextureManager::getRawBitmap(const TextureLocalization *tl) {
@@ -40,16 +51,26 @@ void TextureManager::loadAllTextures() {
     NameToTexLocs *tlm = prepareTextureLocalizations();
     for (auto &tls : *tlm) {
         std::string texName = tls.first;
-        textures[CR::selectEntityType(texName, true)] = *loadTextures(tls.second);
+        entitytype et = CR::selectEntityType(texName, true);
+        textures[et] = *loadTextures(tls.second);
+        images[et] = *prepareImages(&textures[et]);
     }
 }
 
-ALLEGRO_BITMAP *TextureManager::getTexture(const char *texName, int variation) {
+ALLEGRO_BITMAP *TextureManager::getTexture(entitytype texName, int variation) {
     entitytype texId = CR::selectEntityType(texName);
     if (not textures.contains(texId) or variation >= textures[texId].size()) {
         return textures[defaultTex][0];
     }
     return textures[texId][variation];
+}
+
+agui::Allegro5Image *TextureManager::getImage(entitytype texName, int variation) {
+    entitytype texId = CR::selectEntityType(texName);
+    if (not images.contains(texId) or variation >= images[texId].size()) {
+        return images[defaultTex][0];
+    }
+    return images[texId][variation];
 }
 
 NameToTexLocs *TextureManager::prepareTextureLocalizations() {

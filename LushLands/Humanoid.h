@@ -1,5 +1,4 @@
 #pragma once
-#include "stdafx.h"
 #include "DynamicCollider.h"
 #include "Entity.h"
 #include "Appearance.h"
@@ -7,6 +6,7 @@
 #include "Inventory.h"
 #include "Destroyability.h"
 #include "CtorParamStructures.h"
+#include "GameElement.h"
 
 
 class Humanoid : public Entity {

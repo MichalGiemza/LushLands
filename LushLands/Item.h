@@ -1,6 +1,6 @@
 #pragma once
-#include "stdafx.h"
 #include "CtorParamStructures.h"
+#include "Position.h"
 
 
 class Item {

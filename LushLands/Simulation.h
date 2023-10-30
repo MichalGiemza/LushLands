@@ -1,5 +1,4 @@
 #pragma once
-#include "stdafx.h"
 #include "World.h"
 #include "EntityFactory.h"
 #include "ItemFactory.h"

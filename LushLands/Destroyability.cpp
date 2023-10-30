@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Destroyability.h"
 
 Destroyability::Destroyability(void *entity, InputEvents *inputEvents, int maxHealth, tag requiredTool, const EntityDrops &drops) :

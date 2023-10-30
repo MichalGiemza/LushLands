@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "EntityUpdater.h"
 
 EntityUpdater::EntityUpdater() {

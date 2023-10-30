@@ -1,5 +1,4 @@
 #include "Core.h"
-#include "Core.h"
 
 bool Core::initAllegro() {
 	// Allegro5 init

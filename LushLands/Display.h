@@ -1,8 +1,5 @@
 #pragma once
-#define ALLEGRO_UNSTABLE
 #include <allegro5/display.h>
-#include <allegro5/allegro.h>
-#include <allegro5/allegro_primitives.h>
 #include <stdio.h>
 #include "InputEvents.h"
 #include "Logger.h"

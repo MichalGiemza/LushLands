@@ -1,7 +1,7 @@
 #pragma once
-#include <allegro5/allegro.h>
-#include <allegro5/allegro_ttf.h>
+#include <allegro5/allegro5.h>
 #include <allegro5/allegro_font.h>
+#include <allegro5/allegro_ttf.h>
 #include <allegro5/allegro_native_dialog.h>
 #include <stdio.h>
 #include <stdarg.h>

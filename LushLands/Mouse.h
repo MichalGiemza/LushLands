@@ -1,5 +1,4 @@
 #pragma once
-#include "stdafx.h"
 #include "InputEvents.h"
 #include "ActionMap.h"
 #include "Display.h"

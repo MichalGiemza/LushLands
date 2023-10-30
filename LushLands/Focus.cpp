@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Focus.h"
 
 void Focus::setFocusedObject(GameElement *focusedObject) {

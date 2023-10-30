@@ -1,6 +1,9 @@
 #pragma once
-#include "stdafx.h"
+#include "JsonHandler.h"
+#include "DataTypes.h"
 #include "Entity.h"
+#include "NameGenerator.h"
+#include "Directories.h"
 #include "Ground.h"
 #include "Structure.h"
 #include "Animal.h"

@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Inventory.h"
 
 Inventory::Inventory(int size, Position *position) :

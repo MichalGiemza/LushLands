@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "CraftingManager.h"
 
 void CraftingManager::loadRecipes() {
@@ -10,7 +9,7 @@ void CraftingManager::loadRecipes() {
 
 void CraftingManager::loadRecipes(const fs::path fp, const name category) {
     auto data = JsonHandler::parseJson(fp);
-    const json::object &d = data->as_object();
+    auto &d = data->as_object();
 
     auto &ig = d.at("Ingredients").as_array();
     auto &pd = d.at("Product").as_object();

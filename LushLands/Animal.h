@@ -1,10 +1,10 @@
 #pragma once
-#include "stdafx.h"
 #include "Entity.h"
 #include "RandomWalk.h"
 #include "Appearance.h"
 #include "Destroyability.h"
 #include "CtorParamStructures.h"
+#include "GameElement.h"
 
 
 class Animal : public Entity {
@@ -12,7 +12,6 @@ class Animal : public Entity {
     * Representation of animal.
     *
     */
-    GameElement gameElement;
     EntityUpdater entityUpdater;
     Appearance appearance;
     Body body;
@@ -21,6 +20,7 @@ class Animal : public Entity {
     DynamicCollider dynamicCollider;
     RandomWalk randomWalk;
     Destroyability destroyability;
+    GameElement gameElement;
 public:
     // Constructors and main methods
     Animal(AnimalCtorParams &params);

@@ -39,7 +39,8 @@
  */
 
 #include <Agui/Agui.hpp>
-#include <Agui/Backends/Allegro5/Allegro5.hpp>
+#include "Backends/Allegro5/Allegro5.hpp"
+#include "Backends/Allegro5/AllegroBulkImport.hpp"
 
 #include <Agui/Widgets/Button/Button.hpp>
 #include <Agui/Widgets/CheckBox/CheckBox.hpp>
@@ -55,12 +56,10 @@
 #include <Agui/Widgets/ScrollPane/ScrollPane.hpp>
 #include <Agui/FlowLayout.hpp>
 
-#include <allegro5/allegro_native_dialog.h>
 #include <stdlib.h>
 #include <vector> 
 #include <ctime>
 #include <iostream>
-
 
 #define FRAME_RATE 60
 

@@ -1,15 +1,16 @@
 #pragma once
-#include "stdafx.h"
 #include "Camera.h"
-#include "ChunkRepresentationManager.h"
-#include "ChunkRepresentation.h"
-#include "Console.h"
 #include "FieldCursor.h"
-#include "InventoryDisplay.h"
-#include "WindowManager.h"
 #include "Hotbar.h"
 #include "CraftingDisplay.h"
 #include "Simulation.h"
+#include "Agui/InventoryDisplay.h"
+#include "Agui/Base/WindowManager.h"
+#include "ChunkRepresentationManager.h"
+#include "ChunkRepresentation.h"
+#include "Agui/InventoryDisplay.h"
+#include "Agui/Base/Colors.h"
+#include "Console.h"
 
 
 class Scene {
@@ -26,10 +27,10 @@ class Scene {
     InputEvents *inputEvents;
     Console *console;
     FieldCursor *fieldCursor;
-    InventoryDisplay *invDispl;
+    agui::InventoryDisplay *invDispl;
     CraftingDisplay *craftingDisplay;
-    Hotbar *hotbar;
-    WindowManager *windowManager;
+    agui::Hotbar *hotbar;
+    agui::WindowManager *windowManager;
     
     bool invOpen = false;
     bool mapOpen = false;
@@ -44,8 +45,8 @@ public:
     Scene(scenename sceneName, Core *core, Controller *controller, Simulation *simulation, Display *display, Console *console);
 
     FieldCursor *getFieldCursor();
-    Hotbar *getHotbar();
-    InventoryDisplay *getInventoryDisplay();
+    agui::Hotbar *getHotbar();
+    agui::InventoryDisplay *getInventoryDisplay();
     CraftingDisplay *getCraftingDisplay();
 
     friend void draw(ALLEGRO_EVENT *ae, void *scene);

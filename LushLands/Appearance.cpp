@@ -1,9 +1,8 @@
-#include "stdafx.h"
 #include "Appearance.h"
 
-Appearance::Appearance(const Color &color) : 
+Appearance::Appearance(const agui::Color &color) :
     color(&color) {}
 
-const Color *Appearance::getColor() const {
+const agui::Color *Appearance::getColor() const {
     return color;
 }

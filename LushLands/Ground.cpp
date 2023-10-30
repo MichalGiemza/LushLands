@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Ground.h"
 
 Ground::Ground(GroundCtorParams &p) :

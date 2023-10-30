@@ -1,15 +1,14 @@
 #pragma once
-#include "DataTypes.h"
-#include "Size.h"
-#include "Color.h"
 #include <unordered_map>
 #include <string>
 #include <exception>
-#include "Logger.h"
 #include <tuple>
-#include <boost/json.hpp>
-#include "JsonHandler.h"
 #include <cstring>
+#include "DataTypes.h"
+#include "Size.h"
+#include "Agui/Color.hpp"
+#include "Logger.h"
+#include "JsonHandler.h"
 
 
 class ConstantRepository {
@@ -22,7 +21,7 @@ class ConstantRepository {
     static std::unordered_map<json::string, entitytype> entityTypeMap;
     static std::unordered_map<json::string, tag> tagMap;
     static std::unordered_map<std::tuple<float, float, float>, Size *> sizeMap;
-    static std::unordered_map<std::tuple<uint8_t, uint8_t, uint8_t>, Color *> colorMap;
+    static std::unordered_map<std::tuple<uint8_t, uint8_t, uint8_t>, agui::Color *> colorMap;
     static std::unordered_map<json::string, gendertype> genderTypeMap;
     static std::unordered_map<json::string, tag> toolTypeMap;
     static std::unordered_map<size_t, EntityDrops *> entityDropsMap;
@@ -39,7 +38,7 @@ public:
     static const tag selectTag(const json::string &tag_, bool create = false);
     static const tag selectTag(tag tag_);
     static const Size *selectSize(float w, float h, float l);
-    static const Color *selectColor(uint8_t r, uint8_t g, uint8_t b);
+    static const agui::Color *selectColor(uint8_t r, uint8_t g, uint8_t b);
     static const gendertype selectGenderType(json::string &genderType, bool create = false);
     static const tag selectToolType(json::string &toolType, bool create = false);
     static const EntityDrops *selectEntityDrops(const json::array &entityDropsData);

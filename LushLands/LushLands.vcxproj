@@ -92,6 +92,7 @@
     <EnableManagedIncrementalBuild>true</EnableManagedIncrementalBuild>
     <IncludePath>C:\Libraries\boost_1_83_0;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Libraries\boost_1_83_0\stage\lib;$(LibraryPath)</LibraryPath>
+    <Allegro_LibraryType>DynamicDebug</Allegro_LibraryType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -131,9 +132,10 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Libraries\boost_1_82_0;C:\Projekty\LushLandsGithub\AGUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Projekty\LushLandsGithub\LushLands;C:\Libraries\boost_1_82_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <CompileAsWinRT>false</CompileAsWinRT>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -159,14 +161,103 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ActionMap.cpp" />
+    <ClCompile Include="Agui\ActionEvent.cpp" />
+    <ClCompile Include="Agui\ActionListener.cpp" />
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5CursorProvider.cpp" />
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5Font.cpp" />
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5FontLoader.cpp" />
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5Graphics.cpp" />
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5Image.cpp" />
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5ImageLoader.cpp" />
+    <ClCompile Include="Agui\Backends\Allegro5\Allegro5Input.cpp" />
+    <ClCompile Include="Agui\BaseTypes.cpp" />
+    <ClCompile Include="Agui\Base\BaseWindow.cpp" />
+    <ClCompile Include="Agui\Base\WindowManager.cpp" />
+    <ClCompile Include="Agui\BlinkingEvent.cpp" />
+    <ClCompile Include="Agui\BorderLayout.cpp" />
+    <ClCompile Include="Agui\Clipboard\Clipboard.cpp" />
+    <ClCompile Include="Agui\Clipboard\WinClipboard.cpp" />
+    <ClCompile Include="Agui\Color.cpp" />
+    <ClCompile Include="Agui\CursorProvider.cpp" />
+    <ClCompile Include="Agui\Dimension.cpp" />
+    <ClCompile Include="Agui\EmptyWidget.cpp" />
+    <ClCompile Include="Agui\EventArgs.cpp" />
+    <ClCompile Include="Agui\FlowLayout.cpp" />
+    <ClCompile Include="Agui\FocusListener.cpp" />
+    <ClCompile Include="Agui\FocusManager.cpp" />
+    <ClCompile Include="Agui\Font.cpp" />
+    <ClCompile Include="Agui\Graphics.cpp" />
+    <ClCompile Include="Agui\GridLayout.cpp" />
+    <ClCompile Include="Agui\Gui.cpp" />
+    <ClCompile Include="Agui\Image.cpp" />
+    <ClCompile Include="Agui\Input.cpp" />
+    <ClCompile Include="Agui\InventoryDisplay.cpp" />
+    <ClCompile Include="Agui\InventorySlot.cpp" />
+    <ClCompile Include="Agui\KeyboardListener.cpp" />
+    <ClCompile Include="Agui\Layout.cpp" />
+    <ClCompile Include="Agui\MouseListener.cpp" />
+    <ClCompile Include="Agui\Point.cpp" />
+    <ClCompile Include="Agui\Rectangle.cpp" />
+    <ClCompile Include="Agui\ResizableBorderLayout.cpp" />
+    <ClCompile Include="Agui\ResizableText.cpp" />
+    <ClCompile Include="Agui\SelectionListener.cpp" />
+    <ClCompile Include="Agui\TableLayout.cpp" />
+    <ClCompile Include="Agui\TapListener.cpp" />
+    <ClCompile Include="Agui\TextureManager.cpp" />
+    <ClCompile Include="Agui\TopContainer.cpp" />
+    <ClCompile Include="Agui\Transform.cpp" />
+    <ClCompile Include="Agui\Widget.cpp" />
+    <ClCompile Include="Agui\WidgetListener.cpp" />
+    <ClCompile Include="Agui\Widgets\Button\Button.cpp" />
+    <ClCompile Include="Agui\Widgets\Button\ButtonGroup.cpp" />
+    <ClCompile Include="Agui\Widgets\Button\ButtonListener.cpp" />
+    <ClCompile Include="Agui\Widgets\CheckBox\CheckBox.cpp" />
+    <ClCompile Include="Agui\Widgets\CheckBox\CheckBoxListener.cpp" />
+    <ClCompile Include="Agui\Widgets\DropDown\DropDown.cpp" />
+    <ClCompile Include="Agui\Widgets\DropDown\DropDownListener.cpp" />
+    <ClCompile Include="Agui\Widgets\Frame\Frame.cpp" />
+    <ClCompile Include="Agui\Widgets\Frame\FrameListener.cpp" />
+    <ClCompile Include="Agui\Widgets\ImageWidget\ImageWidget.cpp" />
+    <ClCompile Include="Agui\Widgets\Label\Label.cpp" />
+    <ClCompile Include="Agui\Widgets\Label\LabelListener.cpp" />
+    <ClCompile Include="Agui\Widgets\ListBox\ListBox.cpp" />
+    <ClCompile Include="Agui\Widgets\ListBox\ListBoxListener.cpp" />
+    <ClCompile Include="Agui\Widgets\PopUp\PopUpMenu.cpp" />
+    <ClCompile Include="Agui\Widgets\PopUp\PopUpMenuItem.cpp" />
+    <ClCompile Include="Agui\Widgets\RadioButton\RadioButton.cpp" />
+    <ClCompile Include="Agui\Widgets\RadioButton\RadioButtonGroup.cpp" />
+    <ClCompile Include="Agui\Widgets\RadioButton\RadioButtonListener.cpp" />
+    <ClCompile Include="Agui\Widgets\ScrollBar\HScrollBar.cpp" />
+    <ClCompile Include="Agui\Widgets\ScrollBar\HScrollBarListener.cpp" />
+    <ClCompile Include="Agui\Widgets\ScrollBar\VScrollBar.cpp" />
+    <ClCompile Include="Agui\Widgets\ScrollBar\VScrollBarListener.cpp" />
+    <ClCompile Include="Agui\Widgets\ScrollPane\ScrollPane.cpp" />
+    <ClCompile Include="Agui\Widgets\Slider\Slider.cpp" />
+    <ClCompile Include="Agui\Widgets\Slider\SliderListener.cpp" />
+    <ClCompile Include="Agui\Widgets\Tab\Tab.cpp" />
+    <ClCompile Include="Agui\Widgets\Tab\TabbedPane.cpp" />
+    <ClCompile Include="Agui\Widgets\Tab\TabbedPaneListener.cpp" />
+    <ClCompile Include="Agui\Widgets\TextBox\ExtendedTextBox.cpp" />
+    <ClCompile Include="Agui\Widgets\TextBox\TextBox.cpp" />
+    <ClCompile Include="Agui\Widgets\TextBox\TextBoxListener.cpp" />
+    <ClCompile Include="Agui\Widgets\TextField\TextField.cpp" />
+    <ClCompile Include="Agui\Widgets\TextField\TextFieldListener.cpp" />
+    <ClCompile Include="Agui\Widgets\ToolTip\ToolTip.cpp" />
+    <ClCompile Include="ChunkRepresentation.cpp" />
+    <ClCompile Include="ChunkRepresentationManager.cpp" />
     <ClCompile Include="ChunkUpdater.cpp" />
+    <ClCompile Include="Console.cpp" />
+    <ClCompile Include="ConstantRepository.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="CraftingDisplay.cpp" />
     <ClCompile Include="CraftingManager.cpp" />
+    <ClCompile Include="DataTypes.cpp" />
     <ClCompile Include="Destroyability.cpp" />
+    <ClCompile Include="Directories.cpp" />
+    <ClCompile Include="FileToArray.cpp" />
+    <ClCompile Include="GameElement.cpp" />
     <ClCompile Include="Hotbar.cpp" />
     <ClCompile Include="Inventory.cpp" />
-    <ClCompile Include="InventoryDisplay.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemFactory.cpp" />
     <ClCompile Include="Animal.cpp" />
@@ -177,16 +268,14 @@
     <ClCompile Include="Chunk.cpp" />
     <ClCompile Include="EntityUpdater.cpp" />
     <ClCompile Include="ChunkLoadManager.cpp" />
-    <ClCompile Include="ChunkRepresentation.cpp" />
-    <ClCompile Include="ChunkRepresentationManager.cpp" />
     <ClCompile Include="ChunkSystem.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="DynamicCollider.cpp" />
     <ClCompile Include="EventFactory.cpp" />
     <ClCompile Include="Humanoid.cpp" />
+    <ClCompile Include="JsonHandler.cpp" />
     <ClCompile Include="Keyboard.cpp" />
-    <ClCompile Include="Console.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="ControlManager.cpp" />
     <ClCompile Include="Display.cpp" />
@@ -198,37 +287,144 @@
     <ClCompile Include="FlatlandWorldPlanner.cpp" />
     <ClCompile Include="GraphicsManager.cpp" />
     <ClCompile Include="Ground.cpp" />
+    <ClCompile Include="Logger.cpp" />
     <ClCompile Include="LushLands.cpp" />
     <ClCompile Include="Mobility.cpp" />
     <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="NameGenerator.cpp" />
+    <ClCompile Include="NumTools.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Position.cpp" />
     <ClCompile Include="RandomWalk.cpp" />
+    <ClCompile Include="Random_.cpp" />
+    <ClCompile Include="Size.cpp" />
     <ClCompile Include="TechnologyManager.cpp" />
-    <ClCompile Include="WindowManager.cpp" />
+    <ClCompile Include="UIElement.cpp" />
+    <ClCompile Include="WorldTime.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Simulation.cpp" />
-    <ClCompile Include="StaticBaseWindow.cpp" />
-    <ClCompile Include="StaticUIElement.cpp" />
     <ClCompile Include="Structure.cpp" />
     <ClCompile Include="FieldCursor.cpp" />
-    <ClCompile Include="UICursor.cpp" />
-    <ClCompile Include="UIElement.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="BaseWorldPlanner.cpp" />
+    <ClCompile Include="WorldRectangle.cpp" />
     <ClCompile Include="WorldUIElement.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionMap.h" />
+    <ClInclude Include="Agui\ActionEvent.hpp" />
+    <ClInclude Include="Agui\ActionListener.hpp" />
+    <ClInclude Include="Agui\Agui.hpp" />
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5.hpp" />
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5CursorProvider.hpp" />
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5Font.hpp" />
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5FontLoader.hpp" />
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5Graphics.hpp" />
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5Image.hpp" />
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5ImageLoader.hpp" />
+    <ClInclude Include="Agui\Backends\Allegro5\Allegro5Input.hpp" />
+    <ClInclude Include="Agui\BaseTypes.hpp" />
+    <ClInclude Include="Agui\Base\BaseWindow.h" />
+    <ClInclude Include="Agui\Base\Colors.h" />
+    <ClInclude Include="Agui\Base\WindowManager.h" />
+    <ClInclude Include="Agui\BlinkingEvent.hpp" />
+    <ClInclude Include="Agui\BorderLayout.hpp" />
+    <ClInclude Include="Agui\Clipboard\Clipboard.hpp" />
+    <ClInclude Include="Agui\Clipboard\OSXClipboard.hpp" />
+    <ClInclude Include="Agui\Clipboard\WinClipboard.hpp" />
+    <ClInclude Include="Agui\Color.hpp" />
+    <ClInclude Include="Agui\Constants.h" />
+    <ClInclude Include="Agui\CursorProvider.hpp" />
+    <ClInclude Include="Agui\Dimension.hpp" />
+    <ClInclude Include="Agui\EmptyWidget.hpp" />
+    <ClInclude Include="Agui\Enumerations.hpp" />
+    <ClInclude Include="Agui\EventArgs.hpp" />
+    <ClInclude Include="Agui\FlowLayout.hpp" />
+    <ClInclude Include="Agui\FocusListener.hpp" />
+    <ClInclude Include="Agui\FocusManager.hpp" />
+    <ClInclude Include="Agui\Font.hpp" />
+    <ClInclude Include="Agui\FontLoader.hpp" />
+    <ClInclude Include="Agui\Graphics.hpp" />
+    <ClInclude Include="Agui\GridLayout.hpp" />
+    <ClInclude Include="Agui\Gui.hpp" />
+    <ClInclude Include="Agui\Image.hpp" />
+    <ClInclude Include="Agui\ImageLoader.hpp" />
+    <ClInclude Include="Agui\Input.hpp" />
+    <ClInclude Include="Agui\InventoryDisplay.h" />
+    <ClInclude Include="Agui\InventorySlot.hpp" />
+    <ClInclude Include="Agui\KeyboardListener.hpp" />
+    <ClInclude Include="Agui\Layout.hpp" />
+    <ClInclude Include="Agui\MouseListener.hpp" />
+    <ClInclude Include="Agui\Platform.hpp" />
+    <ClInclude Include="Agui\Point.hpp" />
+    <ClInclude Include="Agui\Rectangle.hpp" />
+    <ClInclude Include="Agui\ResizableBorderLayout.hpp" />
+    <ClInclude Include="Agui\ResizableText.hpp" />
+    <ClInclude Include="Agui\SelectionListener.hpp" />
+    <ClInclude Include="Agui\TableLayout.hpp" />
+    <ClInclude Include="Agui\TapListener.hpp" />
+    <ClInclude Include="Agui\TextureManager.h" />
+    <ClInclude Include="Agui\TopContainer.hpp" />
+    <ClInclude Include="Agui\Transform.hpp" />
+    <ClInclude Include="Agui\UTF8.hpp" />
+    <ClInclude Include="Agui\Widget.hpp" />
+    <ClInclude Include="Agui\WidgetListener.hpp" />
+    <ClInclude Include="Agui\Widgets\Button\Button.hpp" />
+    <ClInclude Include="Agui\Widgets\Button\ButtonGroup.hpp" />
+    <ClInclude Include="Agui\Widgets\Button\ButtonListener.hpp" />
+    <ClInclude Include="Agui\Widgets\CheckBox\CheckBox.hpp" />
+    <ClInclude Include="Agui\Widgets\CheckBox\CheckBoxListener.hpp" />
+    <ClInclude Include="Agui\Widgets\DropDown\DropDown.hpp" />
+    <ClInclude Include="Agui\Widgets\DropDown\DropDownListener.hpp" />
+    <ClInclude Include="Agui\Widgets\Frame\Frame.hpp" />
+    <ClInclude Include="Agui\Widgets\Frame\FrameListener.hpp" />
+    <ClInclude Include="Agui\Widgets\ImageWidget\ImageWidget.hpp" />
+    <ClInclude Include="Agui\Widgets\Label\Label.hpp" />
+    <ClInclude Include="Agui\Widgets\Label\LabelListener.hpp" />
+    <ClInclude Include="Agui\Widgets\ListBox\ListBox.hpp" />
+    <ClInclude Include="Agui\Widgets\ListBox\ListBoxListener.hpp" />
+    <ClInclude Include="Agui\Widgets\PopUp\PopUpMenu.hpp" />
+    <ClInclude Include="Agui\Widgets\PopUp\PopUpMenuItem.hpp" />
+    <ClInclude Include="Agui\Widgets\RadioButton\RadioButton.hpp" />
+    <ClInclude Include="Agui\Widgets\RadioButton\RadioButtonGroup.hpp" />
+    <ClInclude Include="Agui\Widgets\RadioButton\RadioButtonListener.hpp" />
+    <ClInclude Include="Agui\Widgets\ScrollBar\HScrollBar.hpp" />
+    <ClInclude Include="Agui\Widgets\ScrollBar\HScrollBarListener.hpp" />
+    <ClInclude Include="Agui\Widgets\ScrollBar\VScrollBar.hpp" />
+    <ClInclude Include="Agui\Widgets\ScrollBar\VScrollBarListener.hpp" />
+    <ClInclude Include="Agui\Widgets\ScrollPane\ScrollPane.hpp" />
+    <ClInclude Include="Agui\Widgets\Slider\Slider.hpp" />
+    <ClInclude Include="Agui\Widgets\Slider\SliderListener.hpp" />
+    <ClInclude Include="Agui\Widgets\Tab\Tab.hpp" />
+    <ClInclude Include="Agui\Widgets\Tab\TabbedPane.hpp" />
+    <ClInclude Include="Agui\Widgets\Tab\TabbedPaneListener.hpp" />
+    <ClInclude Include="Agui\Widgets\TextBox\ExtendedTextBox.hpp" />
+    <ClInclude Include="Agui\Widgets\TextBox\TextBox.hpp" />
+    <ClInclude Include="Agui\Widgets\TextBox\TextBoxListener.hpp" />
+    <ClInclude Include="Agui\Widgets\TextField\TextField.hpp" />
+    <ClInclude Include="Agui\Widgets\TextField\TextFieldListener.hpp" />
+    <ClInclude Include="Agui\Widgets\ToolTip\ToolTip.hpp" />
     <ClInclude Include="ChunkElements.h" />
+    <ClInclude Include="ChunkRepresentation.h" />
+    <ClInclude Include="ChunkRepresentationManager.h" />
     <ClInclude Include="ChunkUpdater.h" />
+    <ClInclude Include="Console.h" />
+    <ClInclude Include="ConstantRepository.h" />
+    <ClInclude Include="Constants.h" />
+    <ClInclude Include="ConstantSets.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="CraftingDisplay.h" />
     <ClInclude Include="CraftingManager.h" />
     <ClInclude Include="CtorParamStructures.h" />
+    <ClInclude Include="DataTypes.h" />
     <ClInclude Include="Destroyability.h" />
+    <ClInclude Include="Directories.h" />
+    <ClInclude Include="Events.h" />
+    <ClInclude Include="EventTypes.h" />
+    <ClInclude Include="FileToArray.h" />
+    <ClInclude Include="GameElement.h" />
     <ClInclude Include="Hotbar.h" />
     <ClInclude Include="Inventory.h" />
-    <ClInclude Include="InventoryDisplay.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemFactory.h" />
     <ClInclude Include="Animal.h" />
@@ -239,15 +435,13 @@
     <ClInclude Include="Chunk.h" />
     <ClInclude Include="EntityUpdater.h" />
     <ClInclude Include="ChunkLoadManager.h" />
-    <ClInclude Include="ChunkRepresentation.h" />
-    <ClInclude Include="ChunkRepresentationManager.h" />
     <ClInclude Include="ChunkSystem.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CollisionManager.h" />
-    <ClInclude Include="Console.h" />
     <ClInclude Include="DynamicCollider.h" />
     <ClInclude Include="EventFactory.h" />
     <ClInclude Include="Humanoid.h" />
+    <ClInclude Include="JsonHandler.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="ControlManager.h" />
@@ -260,37 +454,35 @@
     <ClInclude Include="FlatlandWorldPlanner.h" />
     <ClInclude Include="GraphicsManager.h" />
     <ClInclude Include="Ground.h" />
+    <ClInclude Include="Logger.h" />
     <ClInclude Include="LushLands.h" />
     <ClInclude Include="Mobility.h" />
     <ClInclude Include="Mouse.h" />
+    <ClInclude Include="NameGenerator.h" />
+    <ClInclude Include="NumTools.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Position.h" />
+    <ClInclude Include="PositionStructures.h" />
     <ClInclude Include="RandomWalk.h" />
-    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Random_.h" />
+    <ClInclude Include="Size.h" />
+    <ClInclude Include="SystemConstants.h" />
     <ClInclude Include="TechnologyManager.h" />
-    <ClInclude Include="WindowManager.h" />
+    <ClInclude Include="UIElement.h" />
+    <ClInclude Include="WorldTime.h" />
+    <ClInclude Include="TimeConstants.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Simulation.h" />
-    <ClInclude Include="StaticBaseWindow.h" />
-    <ClInclude Include="StaticUIElement.h" />
     <ClInclude Include="Structure.h" />
     <ClInclude Include="FieldCursor.h" />
-    <ClInclude Include="UICursor.h" />
-    <ClInclude Include="UIElement.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="BaseWorldPlanner.h" />
+    <ClInclude Include="WorldRectangle.h" />
     <ClInclude Include="WorldUIElement.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ProjectDiagram.cd" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AGUI\AGUI.vcxproj">
-      <Project>{eef02f00-d797-4347-915e-b54dfbf57a2f}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\Core\Core.vcxproj">
-      <Project>{de668f8b-bd40-48f8-bd45-1d8a468aa30d}</Project>
-    </ProjectReference>
+    <None Include="ProjectDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
@@ -300,7 +492,7 @@
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
-      <ErrorText>Ten projekt zawiera odwołania do pakietów NuGet, których nie ma na tym komputerze. Użyj przywracania pakietów NuGet, aby je pobrać. Aby uzyskać więcej informacji, zobacz http://go.microsoft.com/fwlink/?LinkID=322105. Brakujący plik: {0}.</ErrorText>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\AllegroDeps.1.13.0\build\native\AllegroDeps.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AllegroDeps.1.13.0\build\native\AllegroDeps.targets'))" />
     <Error Condition="!Exists('..\packages\Allegro.5.2.8\build\native\Allegro.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Allegro.5.2.8\build\native\Allegro.targets'))" />

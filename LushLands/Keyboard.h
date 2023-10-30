@@ -1,7 +1,6 @@
 #pragma once
 #include "InputEvents.h"
 #include "ActionMap.h"
-#include "stdafx.h"
 
 class Keyboard {
     InputEvents *inputEvents;

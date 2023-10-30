@@ -1,9 +1,9 @@
 #pragma once
-#include "stdafx.h"
 #include "Humanoid.h"
 #include "Entity.h"
 #include "Appearance.h"
 #include "InputEvents.h"
+#include "NumTools.h"
 
 
 class Player {

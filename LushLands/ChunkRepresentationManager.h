@@ -1,16 +1,11 @@
 #pragma once
 #include "Camera.h"
-#include <unordered_set>
-#include <allegro5/bitmap.h>
-#include <allegro5/allegro.h>
-#include <allegro5/allegro_primitives.h>
-#include <allegro5/color.h>
 #include <cmath>
 #include "ChunkRepresentation.h"
 #include "ConstantSets.h"
 #include "World.h"
-#include "Colors.h"
-#include "TextureManager.h"
+#include "Agui/Base/Colors.h"
+#include "Agui/TextureManager.h"
 
 class ChunkRepresentationManager {
     /**

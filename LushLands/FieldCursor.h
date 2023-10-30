@@ -1,7 +1,8 @@
 #pragma once
-#include "stdafx.h"
 #include "WorldUIElement.h"
 #include "Camera.h"
+#include "ConstantSets.h"
+#include "Agui/Base/Colors.h"
 
 
 class FieldCursor : public WorldUIElement {

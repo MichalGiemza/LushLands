@@ -1,7 +1,12 @@
 #pragma once
-#include "stdafx.h"
+#include "JsonHandler.h"
+#include "ConstantRepository.h"
+#include "DataTypes.h"
+#include "Directories.h"
+#include "Position.h"
 #include "Item.h"
 #include "CtorParamStructures.h"
+#include "Random_.h"
 
 
 class ItemFactory {

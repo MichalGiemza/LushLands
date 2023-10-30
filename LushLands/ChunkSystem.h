@@ -1,5 +1,4 @@
 #pragma once
-#include "stdafx.h"
 #include "Chunk.h"
 #include "BaseWorldPlanner.h"
 #include "ChunkLoadManager.h"

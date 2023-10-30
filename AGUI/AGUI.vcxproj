@@ -19,9 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Agui\ActionEvent.hpp" />
     <ClInclude Include="Agui\ActionListener.hpp" />
     <ClInclude Include="Agui\Agui.hpp" />
@@ -34,6 +31,9 @@
     <ClInclude Include="Agui\Backends\Allegro5\Allegro5ImageLoader.hpp" />
     <ClInclude Include="Agui\Backends\Allegro5\Allegro5Input.hpp" />
     <ClInclude Include="Agui\BaseTypes.hpp" />
+    <ClInclude Include="Agui\Base\Colors.h" />
+    <ClInclude Include="Agui\Base\BaseWindow.h" />
+    <ClInclude Include="Agui\Base\WindowManager.h" />
     <ClInclude Include="Agui\BlinkingEvent.hpp" />
     <ClInclude Include="Agui\BorderLayout.hpp" />
     <ClInclude Include="Agui\Clipboard\Clipboard.hpp" />
@@ -57,6 +57,7 @@
     <ClInclude Include="Agui\Image.hpp" />
     <ClInclude Include="Agui\ImageLoader.hpp" />
     <ClInclude Include="Agui\Input.hpp" />
+    <ClInclude Include="Agui\InventoryDisplay.h" />
     <ClInclude Include="Agui\InventorySlot.hpp" />
     <ClInclude Include="Agui\KeyboardListener.hpp" />
     <ClInclude Include="Agui\Layout.hpp" />
@@ -69,6 +70,7 @@
     <ClInclude Include="Agui\SelectionListener.hpp" />
     <ClInclude Include="Agui\TableLayout.hpp" />
     <ClInclude Include="Agui\TapListener.hpp" />
+    <ClInclude Include="Agui\TextureManager.h" />
     <ClInclude Include="Agui\TopContainer.hpp" />
     <ClInclude Include="Agui\Transform.hpp" />
     <ClInclude Include="Agui\UTF8.hpp" />
@@ -121,6 +123,8 @@
     <ClCompile Include="Agui\Backends\Allegro5\Allegro5ImageLoader.cpp" />
     <ClCompile Include="Agui\Backends\Allegro5\Allegro5Input.cpp" />
     <ClCompile Include="Agui\BaseTypes.cpp" />
+    <ClCompile Include="Agui\Base\BaseWindow.cpp" />
+    <ClCompile Include="Agui\Base\WindowManager.cpp" />
     <ClCompile Include="Agui\BlinkingEvent.cpp" />
     <ClCompile Include="Agui\BorderLayout.cpp" />
     <ClCompile Include="Agui\Clipboard\Clipboard.cpp" />
@@ -139,6 +143,7 @@
     <ClCompile Include="Agui\Gui.cpp" />
     <ClCompile Include="Agui\Image.cpp" />
     <ClCompile Include="Agui\Input.cpp" />
+    <ClCompile Include="Agui\InventoryDisplay.cpp" />
     <ClCompile Include="Agui\InventorySlot.cpp" />
     <ClCompile Include="Agui\KeyboardListener.cpp" />
     <ClCompile Include="Agui\Layout.cpp" />
@@ -150,6 +155,7 @@
     <ClCompile Include="Agui\SelectionListener.cpp" />
     <ClCompile Include="Agui\TableLayout.cpp" />
     <ClCompile Include="Agui\TapListener.cpp" />
+    <ClCompile Include="Agui\TextureManager.cpp" />
     <ClCompile Include="Agui\TopContainer.cpp" />
     <ClCompile Include="Agui\Transform.cpp" />
     <ClCompile Include="Agui\Widget.cpp" />
@@ -191,9 +197,7 @@
     <ClCompile Include="Agui\Widgets\ToolTip\ToolTip.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.vcxproj">
-      <Project>{de668f8b-bd40-48f8-bd45-1d8a468aa30d}</Project>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -266,6 +270,7 @@
     <Allegro_AddonFont>true</Allegro_AddonFont>
     <Allegro_AddonColor>true</Allegro_AddonColor>
     <Allegro_AddonVideo>true</Allegro_AddonVideo>
+    <Allegro_LibraryType>DynamicDebug</Allegro_LibraryType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -324,7 +329,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Projekty\LushLandsGithub\AGUI;C:\Projekty\LushLandsGithub\Core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Projekty\LushLandsGithub\AGUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
