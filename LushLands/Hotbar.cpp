@@ -18,8 +18,7 @@ namespace agui {
     }
 
     Hotbar::Hotbar(Core *core, Inventory *inv, Player *player, InputEvents *inputEvents) :
-        InventoryDisplay(inv->getSize()),
-        player(player), inputEvents(inputEvents) {
+        InventoryDisplay(inv), player(player), inputEvents(inputEvents) {
         inputEvents->subscribeSystemEvent(player_hotbar, handleHotbarKey, this);
         inputEvents->subscribeMouseAxis(handleScroll, this);
     }

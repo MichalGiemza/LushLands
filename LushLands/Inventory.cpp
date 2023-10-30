@@ -72,6 +72,10 @@ Item *Inventory::takeItem(int i) {
     return item;
 }
 
+Item **Inventory::getSlot(int i) {
+    return &inventory[i];
+}
+
 int Inventory::getSize() {
     return size;
 }

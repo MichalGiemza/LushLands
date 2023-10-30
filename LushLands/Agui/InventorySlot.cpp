@@ -8,10 +8,15 @@ agui::InventorySlot::InventorySlot() {
 	setMargins(m, m, m, m);
 }
 
+void agui::InventorySlot::setItemSlot(Item **s) {
+	slot = s;
+}
+
 void agui::InventorySlot::paintComponent(const PaintEvent &paintEvent) {
-	// TODO: Tutaj - rysowanie ikonek itemów 
-	//ALLEGRO_BITMAP *itemTex = Texture ->getTexture(item->getType());
-    //paintEvent.graphics()->drawImage()
+	if (slot == 0 or *slot == 0)
+		return;
+	Image *img = TextureManager::getImage((**slot).getType());
+	paintEvent.graphics()->drawImage(img, Point(0, 0));
 }
 
 void agui::InventorySlot::paintBackground(const PaintEvent &paintEvent) {

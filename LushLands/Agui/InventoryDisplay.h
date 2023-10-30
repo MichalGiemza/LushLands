@@ -4,6 +4,7 @@
 #include "Agui/InventorySlot.hpp"
 #include "Agui/Widgets/Slider/Slider.hpp"
 #include "Agui/FlowLayout.hpp"
+#include "Inventory.h"
 
 
 namespace agui {
@@ -24,19 +25,17 @@ namespace agui {
         * Represents Static UI window with provided inventory.
         */
     protected:
-        //BaseInventory *inventory;
-        int s = 0;
-
         SimpleActionListener simpleAL;
         agui::FlowLayout frame;
         agui::InventorySlot *buttons;
+        Inventory *inv;
     protected:
         int determineRows(int n);
         int determineHeight(int elements);
         int determineWidth();
         void prepareGUI();
     public:
-        InventoryDisplay(int slotCount);
+        InventoryDisplay(Inventory *inventory);
 
     };
 }

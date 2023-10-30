@@ -9,7 +9,7 @@ Scene::Scene(scenename sceneName, Core *core, Controller *controller, Simulation
     this->fieldCursor = new FieldCursor(&camera, inputEvents);
     windowManager = new agui::WindowManager(core->getGUI());
     // Player related elements
-    invDispl = new agui::InventoryDisplay(player->getInventory()->getSize());
+    invDispl = new agui::InventoryDisplay(player->getInventory());
     windowManager->addWindow(invDispl);
     /*craftingDisplay = new CraftingDisplay(display, simulation->getCraftingManager(), displayWidth / 2, 50);
     windowManager->addWindow(craftingDisplay);*/ // TODO

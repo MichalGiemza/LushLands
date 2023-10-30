@@ -18,6 +18,7 @@ public:
     Item *putItem(int i, Item *item);
     Item *putItemAuto(Item *item);
     Item *takeItem(int i);
+    Item **getSlot(int i);
     int getSize();
 };
 

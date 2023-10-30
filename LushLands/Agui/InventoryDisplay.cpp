@@ -22,23 +22,21 @@ namespace agui {
         frame.setHorizontalSpacing(0);
         frame.setVerticalSpacing(0);
         // Grid
-        buttons = new agui::InventorySlot[s];
-        for (int i = 0; i < s; i++) {
-            int x_el = getMargin(SIDE_LEFT) + (tileSizePx + getMargin(SIDE_RIGHT)) * (i % s);
-            int y_el = getMargin(SIDE_TOP) + (tileSizePx + getMargin(SIDE_BOTTOM)) * (i / s);
+        buttons = new agui::InventorySlot[inv->getSize()];
+        for (int i = 0; i < inv->getSize(); i++) {
+            int x_el = getMargin(SIDE_LEFT) + (tileSizePx + getMargin(SIDE_RIGHT)) * (i % inv->getSize());
+            int y_el = getMargin(SIDE_TOP) + (tileSizePx + getMargin(SIDE_BOTTOM)) * (i / inv->getSize());
             agui::InventorySlot *btn = &buttons[i];
-
             btn->setLocation(x_el, y_el);
-            btn->setText("Item");
             btn->addActionListener(&simpleAL);
-
+            btn->setItemSlot(inv->getSlot(i));
             frame.add(btn);
         }
     }
 
-    InventoryDisplay::InventoryDisplay(int slotCount) : s(slotCount) {
+    InventoryDisplay::InventoryDisplay(Inventory *inv) : inv(inv) {
         setLocation(invX, invY);
-        setSize(determineWidth(), determineHeight(s));
+        setSize(determineWidth(), determineHeight(inv->getSize()));
         prepareGUI();
         setVisibility(false);
     }
