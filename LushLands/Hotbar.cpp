@@ -48,8 +48,6 @@ namespace agui {
         inputEvents->subscribeSystemEvent(player_hotbar, handleHotbarKey, this);
         inputEvents->subscribeMouseAxis(handleScroll, this);
         setLocation(hbarX, hbarY);
-        setSize(determineWidth(), determineHeight(inv->getSize()));
-        prepareGUI();
         setVisibility(true);
     }
 
