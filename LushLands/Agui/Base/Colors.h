@@ -4,6 +4,7 @@
 namespace agui {
 
     // Default agui::Color s
+    const Color COLOR_WHITE = Color(255, 255, 255, 255);
     const Color COLOR_RED = Color(255, 0, 20, 255);
     const Color COLOR_DARK_RED = Color(128, 0, 10, 255);
     const Color COLOR_FUXIA = Color(255, 0, 255, 255);
@@ -17,6 +18,7 @@ namespace agui {
 
     const Color UI_BG_COLOR = Color(50, 75, 80, 128);
     const Color UI_FG_COLOR = Color(160, 240, 250, 255);
+    const Color UI_HIGHLIGHT_COLOR = Color(140, 220, 230, 255);
 
     // Debug colors
     const Color DEBUG_CHUNK_BORDER_COLOR = COLOR_RED;

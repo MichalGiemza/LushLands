@@ -14,13 +14,45 @@ namespace agui {
 
     void Hotbar::setSelectionIdx(int idx) {
         selectedIdx = idx;
-        //player->setEquippedItem(inventory->getItem(idx)); // TODO: player - hotbar.onIdxSelect(setEquippedItem);
+        player->setEquippedItem(player->getInventory()->getItem(idx));
     }
+
+    void Hotbar::highlightIdx(int idx) {
+        for (int i = 0; i < inventoryWidth; i++) {
+            auto &btn = buttons[i];
+            if (i == idx)
+                btn.setBackColor(UI_HIGHLIGHT_COLOR);
+            else
+                btn.setBackColor(TRANSPARENT_COLOR);
+        }
+    }
+
+    //void Hotbar::prepareGUI() {
+    //    this->add(&frame);
+    //    frame.setSize(getWidth(), getHeight());
+    //    frame.setHorizontalSpacing(0);
+    //    frame.setVerticalSpacing(0);
+    //    // Grid
+    //    buttons = new agui::InventorySlot[inv->getSize()];
+    //    for (int i = 0; i < inv->getSize(); i++) {
+    //        int x_el = getMargin(SIDE_LEFT) + (tileSizePx + getMargin(SIDE_RIGHT)) * (i % inv->getSize());
+    //        int y_el = getMargin(SIDE_TOP) + (tileSizePx + getMargin(SIDE_BOTTOM)) * (i / inv->getSize());
+    //        agui::InventorySlot *btn = &buttons[i];
+    //        btn->setLocation(x_el, y_el);
+    //        btn->addActionListener(&simpleAL);
+    //        btn->setItemSlot(inv->getSlot(i));
+    //        frame.add(btn);
+    //    }
+    //}
 
     Hotbar::Hotbar(Core *core, Inventory *inv, Player *player, InputEvents *inputEvents) :
         InventoryDisplay(inv), player(player), inputEvents(inputEvents) {
         inputEvents->subscribeSystemEvent(player_hotbar, handleHotbarKey, this);
         inputEvents->subscribeMouseAxis(handleScroll, this);
+        setLocation(hbarX, hbarY);
+        setSize(determineWidth(), determineHeight(inv->getSize()));
+        prepareGUI();
+        setVisibility(true);
     }
 
     pxint Hotbar::determineX() {
@@ -35,28 +67,19 @@ namespace agui {
         return selectedIdx;
     }
 
-//    void Hotbar::draw() {
-        // Selection frame
-//        int x_el = x + margin + (tileSizePx + margin) * (selectedIdx % inventory->getSize());
-//        int y_el = y + margin + (tileSizePx + margin) * (selectedIdx / inventory->getSize());
-        // Item bg
-        //al_draw_filled_rounded_rectangle(x_el, y_el,
-        //    x_el + tileSizePx, y_el + tileSizePx,
-        //    roundingRadiusSmall, roundingRadiusSmall,
-        //    fg->getAllegroColor());
-        // Draw the rest
-//        InventoryDisplay::draw();
-//    }
-
     void handleHotbarKey(ALLEGRO_EVENT *allegroEvent, void *caller) {
         Hotbar *h = (Hotbar *)caller;
         keycode kc = 0;
         EventFactory::unpackKeyboardLetter(allegroEvent, &kc);
-        h->setSelectionIdx(h->keycodeToIdx(kc));
+        int idx = h->keycodeToIdx(kc);
+        h->setSelectionIdx(idx);
+        h->highlightIdx(idx);
     }
 
     void handleScroll(ALLEGRO_EVENT *allegroEvent, void *caller) {
         Hotbar *h = (Hotbar *)caller;
-        h->setSelectionIdx((((h->selectedIdx - allegroEvent->mouse.dz) % player_hotbar_keycount) + player_hotbar_keycount) % player_hotbar_keycount);
+        int idx = (((h->selectedIdx - allegroEvent->mouse.dz) % player_hotbar_keycount) + player_hotbar_keycount) % player_hotbar_keycount;
+        h->setSelectionIdx(idx);
+        h->highlightIdx(idx);
     }
 }

@@ -42,6 +42,7 @@ void Simulation::addPlayer(InputEvents *ie) {
     inv->putItemAuto(itemFactory->buildItem("pickaxe", 1, &p));
     inv->putItemAuto(itemFactory->buildItem("shovel", 1, &p));
     inv->putItemAuto(itemFactory->buildItem("axe", 1, &p));
+    inv->putItemAuto(itemFactory->buildItem("wood", 30, &p));
     inv->putItem(11, itemFactory->buildItem("sword", 1, &p));
 }
 

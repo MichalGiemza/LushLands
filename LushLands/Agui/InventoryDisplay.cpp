@@ -16,7 +16,6 @@ namespace agui {
     }
 
     void InventoryDisplay::prepareGUI() {
-        // Crafting menu // FIXME: Przenieœæ do craftingu, przerobiæ wsio na agui
         this->add(&frame);
         frame.setSize(getWidth(), getHeight());
         frame.setHorizontalSpacing(0);

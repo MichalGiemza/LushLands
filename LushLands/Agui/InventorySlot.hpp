@@ -8,7 +8,8 @@
 
 namespace agui {
     class AGUI_CORE_DECLSPEC InventrySlotListener;
-
+    const int amountX = 30;
+    const int amountY = 20;
 	/**
     * Class that represents a Inventory Slot that shows state of inventory slot.
     *

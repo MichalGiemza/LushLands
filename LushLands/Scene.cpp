@@ -13,8 +13,9 @@ Scene::Scene(scenename sceneName, Core *core, Controller *controller, Simulation
     windowManager->addWindow(invDispl);
     /*craftingDisplay = new CraftingDisplay(display, simulation->getCraftingManager(), displayWidth / 2, 50);
     windowManager->addWindow(craftingDisplay);*/ // TODO
-    //hotbar = new agui::Hotbar(display, core, player->getInventory(), player, inputEvents);
-    //windowManager->addWindow(hotbar);
+    hotbar = new agui::Hotbar(core, player->getInventory(), player, inputEvents);
+    windowManager->addWindow(hotbar);
+    // Player tracking
     camera.setFollowedPosition((Position *)((Humanoid *)player->getEntity())->getPosition(), (Size *)((Humanoid *)player->getEntity())->getSize());
     // Event subscriptions
     inputEvents->subscribeTimerFPS(1, draw, this);

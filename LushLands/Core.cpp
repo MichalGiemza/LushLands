@@ -53,7 +53,7 @@ void Core::initAgui() {
 	gui->setInput(inputHandler);
 	gui->setGraphics(graphicsHandler);
 	// Font
-	defaultFont = agui::Font::load(fontNormaleste, 16);
+	defaultFont = agui::Font::load(fontNormaleste, 10);
 	agui::Widget::setGlobalFont(defaultFont);
 }
 

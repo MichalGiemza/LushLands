@@ -181,9 +181,6 @@
     <ClCompile Include="WorldRectangle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="JsonHandler.cpp">
-      <Filter>Header Files\Core\Tools</Filter>
-    </ClCompile>
     <ClCompile Include="Logger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -199,253 +196,256 @@
     <ClCompile Include="Console.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UIElement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Agui\ActionEvent.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\ActionListener.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\Backends\Allegro5\Allegro5CursorProvider.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\Backends\Allegro5\Allegro5Font.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\Backends\Allegro5\Allegro5FontLoader.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\Backends\Allegro5\Allegro5Graphics.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\Backends\Allegro5\Allegro5Image.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\Backends\Allegro5\Allegro5ImageLoader.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\Backends\Allegro5\Allegro5Input.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Base\BaseWindow.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Base\WindowManager.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\BaseTypes.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Base\BaseWindow.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\BlinkingEvent.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\BorderLayout.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Clipboard\Clipboard.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Clipboard\WinClipboard.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Color.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\CursorProvider.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Dimension.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\EmptyWidget.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\EventArgs.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\FlowLayout.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\FocusListener.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\FocusManager.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Font.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Graphics.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\GridLayout.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Gui.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Image.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Input.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\InventoryDisplay.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\InventorySlot.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\KeyboardListener.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Layout.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\MouseListener.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Point.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Rectangle.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\ResizableBorderLayout.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\ResizableText.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\SelectionListener.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\TableLayout.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\TapListener.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\TextureManager.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\TopContainer.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Transform.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Widget.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\WidgetListener.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\Widgets\Button\Button.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\Widgets\Button\ButtonGroup.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\Widgets\Button\ButtonListener.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\Widgets\CheckBox\CheckBox.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\Widgets\CheckBox\CheckBoxListener.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Clipboard\Clipboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Color.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\CursorProvider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Dimension.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\Widgets\DropDown\DropDown.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\Widgets\DropDown\DropDownListener.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Agui\Widgets\Frame\Frame.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+    <ClCompile Include="Agui\EmptyWidget.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Agui\Widgets\Frame\FrameListener.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Widgets\ImageWidget\ImageWidget.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Widgets\Label\Label.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Widgets\Label\LabelListener.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Widgets\ListBox\ListBox.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Widgets\ListBox\ListBoxListener.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Widgets\PopUp\PopUpMenu.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Widgets\PopUp\PopUpMenuItem.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Widgets\RadioButton\RadioButton.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Widgets\RadioButton\RadioButtonGroup.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Widgets\RadioButton\RadioButtonListener.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Widgets\ScrollBar\HScrollBar.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Widgets\ScrollBar\HScrollBarListener.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Widgets\ScrollBar\VScrollBar.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Widgets\ScrollBar\VScrollBarListener.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Widgets\ScrollPane\ScrollPane.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Widgets\Slider\Slider.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Widgets\Slider\SliderListener.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Widgets\Tab\Tab.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Widgets\Tab\TabbedPane.cpp">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClCompile>
-    <ClCompile Include="Agui\Widgets\Tab\TabbedPaneListener.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+    <ClCompile Include="Agui\EventArgs.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\Widgets\TextBox\ExtendedTextBox.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\FlowLayout.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\FocusListener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\FocusManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Font.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\Frame\Frame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\Frame\FrameListener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Graphics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\GridLayout.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Gui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\ScrollBar\HScrollBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\ScrollBar\HScrollBarListener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\ImageWidget\ImageWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\InventoryDisplay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\InventorySlot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\KeyboardListener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\Label\Label.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\Label\LabelListener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Layout.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\ListBox\ListBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\ListBox\ListBoxListener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\MouseListener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Point.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\PopUp\PopUpMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\PopUp\PopUpMenuItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\RadioButton\RadioButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\RadioButton\RadioButtonGroup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\RadioButton\RadioButtonListener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Rectangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\ResizableBorderLayout.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\ResizableText.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\ScrollPane\ScrollPane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\SelectionListener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\Slider\Slider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\Slider\SliderListener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\Tab\Tab.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\Tab\TabbedPane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\Tab\TabbedPaneListener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\TableLayout.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\TapListener.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\Widgets\TextBox\TextBox.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\Widgets\TextBox\TextBoxListener.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\Widgets\TextField\TextField.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\Widgets\TextField\TextFieldListener.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\TextureManager.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agui\Widgets\ToolTip\ToolTip.cpp">
-      <Filter>Header Files\View\Agui</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UIElement.cpp">
+    <ClCompile Include="Agui\TopContainer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Transform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\ScrollBar\VScrollBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widgets\ScrollBar\VScrollBarListener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Widget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\WidgetListener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Clipboard\WinClipboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agui\Base\WindowManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
