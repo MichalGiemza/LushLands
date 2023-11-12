@@ -2,7 +2,7 @@
 
 agui::InventorySlot::InventorySlot() {
     setFontColor(UI_FG_COLOR);
-    setBackColor(TRANSPARENT_COLOR);
+    setBackColor(UI_HIGHLIGHT_COLOR);
 	setSize(36, 36);
 	int m = 1;
 	setMargins(m, m, m, m);
@@ -29,10 +29,13 @@ void agui::InventorySlot::paintComponent(const PaintEvent &paintEvent) {
 
 void agui::InventorySlot::paintBackground(const PaintEvent &paintEvent) {
 	// Background
-	if (getBackColor().getA() != TRANSPARENT_COLOR.getA())
-		paintEvent.graphics()->drawFilledRoundedRectangle(
-			getInnerRectangle(), roundingRadiusSmall, getBackColor());
+	if (highlighted)
+		paintEvent.graphics()->drawFilledRoundedRectangle(getInnerRectangle(), roundingRadiusSmall, getBackColor());
 	// Frame
 	paintEvent.graphics()->drawRoundedRectangle(
 		getInnerRectangle(), roundingRadiusSmall, getFontColor(), 2.0f);
+}
+
+void agui::InventorySlot::setHighlight(bool status) {
+	highlighted = status;
 }

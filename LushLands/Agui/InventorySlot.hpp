@@ -21,11 +21,13 @@ namespace agui {
     */
     class AGUI_CORE_DECLSPEC InventorySlot : public Button {
         Item **slot = 0;
+        bool highlighted = false;
     public:
         InventorySlot();
         void setItemSlot(Item **slot);
         virtual void paintComponent(const PaintEvent &paintEvent) override;
         virtual void paintBackground(const PaintEvent &paintEvent) override;
+        void setHighlight(bool status);
     };
 }
 

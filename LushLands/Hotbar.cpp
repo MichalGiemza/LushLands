@@ -20,10 +20,8 @@ namespace agui {
     void Hotbar::highlightIdx(int idx) {
         for (int i = 0; i < inventoryWidth; i++) {
             auto &btn = buttons[i];
-            if (i == idx)
-                btn.setBackColor(UI_HIGHLIGHT_COLOR);
-            else
-                btn.setBackColor(TRANSPARENT_COLOR);
+            bool toHighlight = i == idx;
+            btn.setHighlight(toHighlight);
         }
     }
 
