@@ -10,7 +10,7 @@ namespace agui {
     void BaseWindow::paintComponent(const PaintEvent &paintEvent) {}
 
     void BaseWindow::paintBackground(const PaintEvent &paintEvent) {
-        paintEvent.graphics()->drawFilledRoundedRectangle(getSizeRectangle(), 8.0f, getBackColor());
+        paintEvent.graphics()->drawFilledRoundedRectangle(getSizeRectangle(), roundingRadiusBig, getBackColor());
     }
 
     void BaseWindow::setSize(const Dimension &size) {

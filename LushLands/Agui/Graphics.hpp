@@ -255,7 +255,7 @@ namespace agui {
 	 * Draws a line.
      */
 		virtual void drawLine(const Point &start,
-			const Point &end, const Color &color) = 0;
+			const Point &end, const Color &color, const float thickness = 1.0f) = 0;
 	/**
 	 * Sets the image that the drawing operations will draw into.
 	 *

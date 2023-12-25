@@ -11,8 +11,8 @@ Scene::Scene(scenename sceneName, Core *core, Controller *controller, Simulation
     // Player related elements
     invDispl = new agui::InventoryDisplay(player->getInventory());
     windowManager->addWindow(invDispl);
-    /*craftingDisplay = new CraftingDisplay(display, simulation->getCraftingManager(), displayWidth / 2, 50);
-    windowManager->addWindow(craftingDisplay);*/ // TODO
+    craftingDisplay = new CraftingDisplay(core, simulation->getCraftingManager());
+    windowManager->addWindow(craftingDisplay);
     hotbar = new agui::Hotbar(core, player->getInventory(), player, inputEvents);
     windowManager->addWindow(hotbar);
     // Player tracking
@@ -76,7 +76,7 @@ void handleAction(ALLEGRO_EVENT *ae, void *scene) {
         // Inventory
         s->invDispl->setVisibility(s->invOpen);
         // Crafting
-        //s->craftingDisplay->setHidden(!s->invOpen);
+        s->craftingDisplay->setVisibility(s->invOpen);
         // Equipment
         // TODO
         break;

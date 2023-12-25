@@ -1,11 +1,6 @@
 #include "Controller.h"
 
 Controller::Controller(Core *core) {
-    if (!al_init())
-        throw std::logic_error(could_not_init_allegro);
-
-    Logger::init();
-    
     actionMap = new ActionMap();
     inputEvents = new InputEvents(core);
     

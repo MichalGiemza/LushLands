@@ -3,26 +3,10 @@
 #include "ConstantRepository.h"
 #include "Directories.h"
 #include "JsonHandler.h"
+#include "CraftingStructures.h"
 #include <map>
 #include <set>
 
-struct CraftingIngredient {
-    int amount;
-    name ingredient;
-    name ingredientType;
-};
-
-struct CraftingProduct {
-    entitytype productType;
-    int amount;
-};
-
-struct Recipe {
-    CraftingIngredient *ingredients;
-    int nIng;
-    CraftingProduct product;
-    miliseconds time;
-};
 
 class CraftingManager {
     /** 
@@ -33,14 +17,14 @@ class CraftingManager {
     *  - Available technologies
     *  - Recipe category (ex. personal crafting, workbench, smelting, ...)
     */
-    std::map<name, std::vector<Recipe>> recipes;
-    std::set<name> categories;
+    std::map<std::string, std::vector<Recipe>> recipes;
+    std::vector<std::string> categories;
 private:
     void loadRecipes();
-    void loadRecipes(const fs::path fp, const name category);
+    void loadRecipes(const fs::path fp, std::string category);
 public:
     CraftingManager();
-    std::vector<Recipe> *getRecipes(const name category);
-    std::set<name> *getCategories();
+    std::vector<Recipe> *getRecipes(const std::string category);
+    std::vector<std::string> *getCategories();
 };
 

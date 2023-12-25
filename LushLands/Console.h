@@ -1,5 +1,6 @@
 #pragma once
 #include "Display.h"
+#include "ConstantsUI.h"
 #include "Agui/TextureManager.h"
 #include "Agui/EmptyWidget.hpp"
 #include "Agui/Base/Colors.h"

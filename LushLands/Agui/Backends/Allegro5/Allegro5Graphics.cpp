@@ -178,8 +178,7 @@ namespace agui {
 
 	ALLEGRO_COLOR Allegro5Graphics::getColor( const Color &color )
 	{
-		return al_map_rgba_f(color.getR()  * getGlobalOpacity(),color.getG()  * getGlobalOpacity(),
-			color.getB()  * getGlobalOpacity(),color.getA()  * getGlobalOpacity());
+        return al_map_rgba_f(color.getR(), color.getG(), color.getB(), color.getA() * getGlobalOpacity());
 	}
 
 	Dimension Allegro5Graphics::getDisplaySize()
@@ -209,9 +208,7 @@ namespace agui {
 			radius,getColor(color));
 	}
 
-	void Allegro5Graphics::drawLine( const Point &start,
-											   const Point &end,
-											   const Color &color)
+	void Allegro5Graphics::drawLine( const Point &start, const Point &end, const Color &color, const float thickness)
 	{
 
 			al_draw_line(
@@ -219,7 +216,7 @@ namespace agui {
 				start.getY() + getOffset().getY() - 0.5f,
 				end.getX() + getOffset().getX(),
 				end.getY() + getOffset().getY() - 0.5f,
-				getColor(color),1.0f);
+				getColor(color), thickness);
 
 	}
 

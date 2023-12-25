@@ -23,7 +23,7 @@ void agui::InventorySlot::paintComponent(const PaintEvent &paintEvent) {
 	char buffer[buffSize];
 	if ((**slot).getAmount() > 1) {
 		sprintf_s(buffer, buffSize, "%3d", (**slot).getAmount());
-		paintEvent.graphics()->drawText(agui::Point(amountX, amountY), buffer, COLOR_WHITE, Widget::getGlobalFont(), agui::ALIGN_RIGHT);
+		paintEvent.graphics()->drawText(agui::Point(amountPosX, amountPosY), buffer, COLOR_WHITE, Widget::getGlobalFont(), agui::ALIGN_RIGHT);
 	}
 }
 
@@ -33,7 +33,7 @@ void agui::InventorySlot::paintBackground(const PaintEvent &paintEvent) {
 		paintEvent.graphics()->drawFilledRoundedRectangle(getInnerRectangle(), roundingRadiusSmall, getBackColor());
 	// Frame
 	paintEvent.graphics()->drawRoundedRectangle(
-		getInnerRectangle(), roundingRadiusSmall, getFontColor(), 2.0f);
+		getInnerRectangle(), roundingRadiusSmall, getFontColor(), thinLineThickness);
 }
 
 void agui::InventorySlot::setHighlight(bool status) {

@@ -2,12 +2,15 @@
 
 void CraftingManager::loadRecipes() {
     // Personal
-    auto filesP = Directories::listDir(personalRecipes);
-    for (auto &fp : filesP)
-        loadRecipes(fp.path(), rc::personal);
+    auto categoriesDirs = Directories::listDir(recipesDir);
+    for (auto &category : categoriesDirs) {
+        auto filesD = Directories::listDir(category.path());
+        for (auto &fp : filesD)
+            loadRecipes(fp.path(), category.path().filename().string().c_str()); // TODO
+    }
 }
 
-void CraftingManager::loadRecipes(const fs::path fp, const name category) {
+void CraftingManager::loadRecipes(const fs::path fp, std::string category) {
     auto data = JsonHandler::parseJson(fp);
     auto &d = data->as_object();
 
@@ -47,18 +50,19 @@ void CraftingManager::loadRecipes(const fs::path fp, const name category) {
     // Add Recipe
     recipes[category].push_back(*recipe);
     // Add category
-    if (not categories.contains(category))
-        categories.insert(category);
+    auto it = std::find(categories.begin(), categories.end(), category);
+    if (it == categories.end())
+        categories.push_back(category);
 }
 
 CraftingManager::CraftingManager() {
     loadRecipes();
 }
 
-std::vector<Recipe> *CraftingManager::getRecipes(const name category) {
+std::vector<Recipe> *CraftingManager::getRecipes(const std::string category) {
     return &recipes[category];
 }
 
-std::set<name> *CraftingManager::getCategories() {
+std::vector<std::string> *CraftingManager::getCategories() {
     return &categories;
 }

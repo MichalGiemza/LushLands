@@ -86,8 +86,7 @@ namespace agui {
 		virtual void drawPixel(const Point &point, const Color &color);
 		virtual void drawCircle(const Point &center,float radius, const Color &color);
 		virtual void drawFilledCircle(const Point &center,float radius,const Color &color);
-		virtual void drawLine(const Point &start, const Point &end,
-			const Color &color);
+		virtual void drawLine(const Point &start, const Point &end, const Color &color, const float thickness = 1.0f);
 
 		virtual void setTargetImage(const Image *target);
 		virtual void resetTargetImage();

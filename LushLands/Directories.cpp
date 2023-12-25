@@ -2,7 +2,10 @@
 
 std::filesystem::directory_iterator Directories::listDir(rawpath path) {
     std::filesystem::path directoryPath(path);
+    return listDir(directoryPath);
+}
 
+std::filesystem::directory_iterator Directories::listDir(std::filesystem::path directoryPath) {
     try {
         // Check if the path exists and is a directory
         if (std::filesystem::exists(directoryPath) && std::filesystem::is_directory(directoryPath)) {

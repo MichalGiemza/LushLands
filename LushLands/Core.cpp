@@ -26,6 +26,8 @@ bool Core::initAllegro() {
 	timerFPS = al_create_timer(1.0 / FramesPerSecond);
 	al_register_event_source(queue, al_get_timer_event_source(timerTPS));
 	al_register_event_source(queue, al_get_timer_event_source(timerFPS));
+	// Logger
+	Logger::init();
 	// Screen
 	al_set_new_display_flags(ALLEGRO_RESIZABLE);
 	display = al_create_display(displayWidth, displayHeight);

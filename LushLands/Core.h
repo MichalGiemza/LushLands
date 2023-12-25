@@ -3,6 +3,7 @@
 #include "Agui/Backends/Allegro5/Allegro5.hpp"
 #include "Agui/TextureManager.h"
 #include "ConstantSets.h"
+#include "Logger.h"
 
 
 class Core {

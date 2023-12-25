@@ -397,13 +397,11 @@ namespace agui {
     paintEvent.graphics()->drawFilledRectangle(Rectangle(0,tabContainer->getSize().getHeight(),
       getSize().getWidth(),szMinusH),
       getBackColor());
-
-
-    Color  Top = Color(133,133,133);
-    Color  Left = Color(133,133,133);
-    Color  Bottom = Color(133,133,133);
-    Color  Right = Color(133,133,133);
-
+    
+    Color Top = getFontColor();  // Color(133,133,133);
+    Color Left = getFontColor();  // Color(133,133,133);
+    Color Bottom = getFontColor();  // Color(133,133,133);
+    Color Right = getFontColor();  // Color(133,133,133);
 
     //top
     paintEvent.graphics()->drawLine(Point(0,tabContainer->getSize().getHeight() + 

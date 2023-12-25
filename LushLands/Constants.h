@@ -27,7 +27,3 @@ const int displayHeight = 720;
 const bool DEBUG = true;
 const float PI = 3.14159265F;
 
-// UI
-const short CHAT_LENGTH = 16;
-
-

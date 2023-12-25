@@ -119,12 +119,13 @@ namespace tags {
 }
 namespace tg = tags;
 
-namespace recipe_category {
-    const name personal = "personal";
-    const name workbench = "workbench";
-    const name smelting = "smelting";
-}
-namespace rc = recipe_category;
+//namespace recipe_category {
+//    const name personal = "personal";
+//    const name workbench = "workbench";
+//    const name smelting = "smelting";
+//    const int rc_count = 3;
+//}
+//namespace rc = recipe_category;
 
 namespace ingredient_type {
     const name general = "general";
@@ -196,8 +197,8 @@ const rawpath ctorParamsItem = "..\\Content\\Item";
 // Testures
 const rawpath texturesDir = "..\\Assets\\textures";
 
-// Recipes Json Files
-const rawpath personalRecipes = "..\\Content\\Recipes\\Personal";
+// Recipes Directories
+const rawpath recipesDir = "..\\Content\\Recipes";
 
 // Entity Update Type
 const updatetype no_update = "no_update";

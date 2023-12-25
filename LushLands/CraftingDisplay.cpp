@@ -1,7 +1,39 @@
 #include "CraftingDisplay.h"
 
-CraftingDisplay::CraftingDisplay(Display *display, CraftingManager *craftingManager, pxint x_, pxint y_) {
-    // Ctor
+CraftingDisplay::CraftingDisplay(Core *core, CraftingManager *craftingManager) : cm(craftingManager) {
+    nCategories = cm->getCategories()->size();
+    tab = new agui::Tab[nCategories];
+    flow = new agui::FlowLayout[nCategories];
+    // Tab pane
+    setLocation(craftMenuX, craftMenuY);
+    setSize(craftMenuW, craftMenuH);
+    setVisibility(false);
+    add(&tabPane);
+    tabPane.setSize(craftMenuW - 8, craftMenuH - 8);
+    tabPane.setLocation(2, 2);
+    tabPane.setResizeTabContent(true);
+    setMargins(4, 4, 4, 4);
+    tabPane.setMargins(2, 2, 2, 2);
+    tabPane.setFontColor(agui::UI_FG_COLOR);
+    tabPane.setBackColor(agui::UI_BG_COLOR);
+    // Tab choices
+    for (int i = 0; i < nCategories; i++) {
+        tab[i].setText(cm->getCategories()->at(i));
+        tabPane.addTab(&tab[i], &flow[i]);
+        flow[i].setHorizontallyCentered(true);
+        flow[i].setHorizontalSpacing(0);
+        flow[i].setVerticalSpacing(0);
+        flow[i].setMargins(2, 2, 2, 2);
+    }
+    // Build Tab Contents
+    // TODO: TMP 
+    for (int i = 0; i < nCategories; i++) {
+        std::string ctg = cm->getCategories()->at(i);
+        for (auto rcp = cm->getRecipes(ctg)->begin(); rcp < cm->getRecipes(ctg)->end(); ++rcp) {
+            CraftingButton *cb = new CraftingButton(&(*rcp));
+            flow[i].add(cb);
+        }
+    }
 }
 
 //void CraftingDisplay::draw() {
@@ -33,42 +65,7 @@ CraftingDisplay::CraftingDisplay(Display *display, CraftingManager *craftingMana
 //            i++;
 //        }
 //    } else {
-//        // List recipes
-//        s = cm->getRecipes(selectedCategory)->size();
-//        s = cm->getCategories()->size();
-//        int i = 0;
-//        for (auto &recipe : *cm->getRecipes(selectedCategory)) {
-//            int x_el = x + margin;
-//            int y_el = y + margin + (tileSizePx + margin*3) * i;
-//            // Recipe bg
-//            //al_draw_rounded_rectangle(x_el - margin, y_el - margin,
-//            //    x_el + (tileSizePx + margin) * 4, y_el + tileSizePx + margin,
-//            //    roundingRadiusSmall, roundingRadiusSmall,
-//            //    fg->getAllegroColor(), 2.0f);
-//            // Recipe icons
-//            for (int it_in = 0; it_in < recipe.nIng; it_in++) {
-//                auto &ing = recipe.ingredients[it_in];
-//                // Icon
-//                if (ing.ingredient) {
-//                    // Specific
-//                    ALLEGRO_BITMAP *itemTex = TextureManager::getTexture(ing.ingredient);
-//                    al_draw_bitmap(itemTex, x_el + (tileSizePx + margin) * it_in, y_el, 0);
-//                } else {
-//                    // General
-//                    // TODO
-//                }
-//                // Text
-//                sprintf_s(buffer, buffSize, "%3d", ing.amount);
-//                al_draw_text(font, fg->getAllegroColor(), x_el + (tileSizePx + margin) * it_in + tileSizePx - 2, y_el + tileSizePx * 3 / 5, ALLEGRO_ALIGN_RIGHT, buffer);
-//            }
-//            // Product icon
-//            x_el = x + margin + (tileSizePx + margin) * 3;
-//            ALLEGRO_BITMAP *itemTex = TextureManager::getTexture(recipe.product.productType);
-//            al_draw_bitmap(itemTex, x_el, y_el, 0);
-//            sprintf_s(buffer, buffSize, "%3d", recipe.product.amount);
-//            al_draw_text(font, fg->getAllegroColor(), x_el + tileSizePx - 2, y_el + tileSizePx * 3 / 5, ALLEGRO_ALIGN_RIGHT, buffer);
-//            i++;
-//        }
+//        
 //    }
 //}
 //

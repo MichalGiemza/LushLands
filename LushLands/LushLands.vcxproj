@@ -249,6 +249,7 @@
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="ConstantRepository.cpp" />
     <ClCompile Include="Core.cpp" />
+    <ClCompile Include="CraftingButton.cpp" />
     <ClCompile Include="CraftingDisplay.cpp" />
     <ClCompile Include="CraftingManager.cpp" />
     <ClCompile Include="DataTypes.cpp" />
@@ -333,7 +334,6 @@
     <ClInclude Include="Agui\Clipboard\OSXClipboard.hpp" />
     <ClInclude Include="Agui\Clipboard\WinClipboard.hpp" />
     <ClInclude Include="Agui\Color.hpp" />
-    <ClInclude Include="Agui\Constants.h" />
     <ClInclude Include="Agui\CursorProvider.hpp" />
     <ClInclude Include="Agui\Dimension.hpp" />
     <ClInclude Include="Agui\EmptyWidget.hpp" />
@@ -412,9 +412,12 @@
     <ClInclude Include="ConstantRepository.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="ConstantSets.h" />
+    <ClInclude Include="ConstantsUI.h" />
     <ClInclude Include="Core.h" />
+    <ClInclude Include="CraftingButton.h" />
     <ClInclude Include="CraftingDisplay.h" />
     <ClInclude Include="CraftingManager.h" />
+    <ClInclude Include="CraftingStructures.h" />
     <ClInclude Include="CtorParamStructures.h" />
     <ClInclude Include="DataTypes.h" />
     <ClInclude Include="Destroyability.h" />

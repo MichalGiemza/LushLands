@@ -1,6 +1,6 @@
 #pragma once
 #include "Agui/Widgets/Button/Button.hpp"
-#include "Agui/Constants.h"
+#include "ConstantsUI.h"
 #include "Agui/Base/Colors.h"
 #include "Agui/TextureManager.h"
 #include "Item.h"
@@ -8,8 +8,6 @@
 
 namespace agui {
     class AGUI_CORE_DECLSPEC InventrySlotListener;
-    const int amountX = 30;
-    const int amountY = 20;
 	/**
     * Class that represents a Inventory Slot that shows state of inventory slot.
     *

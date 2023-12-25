@@ -448,6 +448,9 @@
     <ClCompile Include="JsonHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CraftingButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -738,9 +741,6 @@
     <ClInclude Include="Agui\Color.hpp">
       <Filter>Header Files\View\Agui</Filter>
     </ClInclude>
-    <ClInclude Include="Agui\Constants.h">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClInclude>
     <ClInclude Include="Agui\CursorProvider.hpp">
       <Filter>Header Files\View\Agui</Filter>
     </ClInclude>
@@ -953,6 +953,15 @@
     </ClInclude>
     <ClInclude Include="UIElement.h">
       <Filter>Header Files\View\UI\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="CraftingButton.h">
+      <Filter>Header Files\View\UI\Concrete</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstantsUI.h">
+      <Filter>Header Files\Core\Constants</Filter>
+    </ClInclude>
+    <ClInclude Include="CraftingStructures.h">
+      <Filter>Header Files\Core\DataTypes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
