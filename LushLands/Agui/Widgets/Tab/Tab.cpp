@@ -174,37 +174,34 @@ namespace agui {
 		Color color = getBackColor();
 		if(isSelectedTab())
 		{
-			color = Color(255,255,255);
+			color = UI_HIGHLIGHT_COLOR;
 		}
 		else if(isMouseInside())
 		{
-			color = Color(
-				color.getR() * 1.1f,
-				color.getG() * 1.1f,
-				color.getB() * 1.1f);
+			color = COLOR_WHITE;
 		}
 
 		paintEvent.graphics()->drawFilledRectangle(getSizeRectangle(), color);
 
 
-		Color black = Color(110,110,110);
+		Color highlight = Color(110,110,110);
 
 		if(isFocused())
-			black = Color(0,0,0);
+			highlight = Color(0,0,0);
 
 
 
 		//top
 		paintEvent.graphics()->drawLine(Point(0,1),
-			Point(getSize().getWidth(),1),black);
+			Point(getSize().getWidth(),1),highlight);
 
 		//left
 		paintEvent.graphics()->drawLine(Point(1,0),
-			Point(1,getSize().getHeight() + 1),black);
+			Point(1,getSize().getHeight() + 1),highlight);
 
 		//right
 		paintEvent.graphics()->drawLine(Point(getSize().getWidth() ,0),
-			Point(getSize().getWidth() ,getSize().getHeight() + 1),black);
+			Point(getSize().getWidth() ,getSize().getHeight() + 1),highlight);
 
 
 
@@ -212,7 +209,7 @@ namespace agui {
 		{
 			//bottom
 			paintEvent.graphics()->drawLine(Point(0,getSize().getHeight()),
-				Point(getSize().getWidth(),getSize().getHeight()),black);
+				Point(getSize().getWidth(),getSize().getHeight()),highlight);
 		}
 	}
 }

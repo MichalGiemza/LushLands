@@ -12,19 +12,21 @@ CraftingDisplay::CraftingDisplay(Core *core, CraftingManager *craftingManager) :
     tabPane.setSize(craftMenuW - 8, craftMenuH - 8);
     tabPane.setLocation(2, 2);
     tabPane.setResizeTabContent(true);
-    setMargins(4, 4, 4, 4);
+    setMargins(2, 2, 2, 2);
     tabPane.setMargins(2, 2, 2, 2);
     tabPane.setFontColor(agui::UI_FG_COLOR);
     tabPane.setBackColor(agui::UI_BG_COLOR);
     // Tab choices
     for (int i = 0; i < nCategories; i++) {
         tab[i].setText(cm->getCategories()->at(i));
+        tab[i].setBackColor(agui::UI_BG_COLOR);
         tabPane.addTab(&tab[i], &flow[i]);
         flow[i].setHorizontallyCentered(true);
         flow[i].setHorizontalSpacing(0);
         flow[i].setVerticalSpacing(0);
         flow[i].setMargins(2, 2, 2, 2);
     }
+    tabPane.setSelectedTab(-1);
     // Build Tab Contents
     // TODO: TMP 
     for (int i = 0; i < nCategories; i++) {

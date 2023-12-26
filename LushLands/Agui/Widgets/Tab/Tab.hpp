@@ -42,6 +42,7 @@
 #define AGUI_TAB_HPP
 
 #include "Agui/Widget.hpp"
+#include <Agui/Base/Colors.h>
 namespace agui {
 	class AGUI_CORE_DECLSPEC TabbedPane;
 	/**
