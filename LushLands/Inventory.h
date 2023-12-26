@@ -1,5 +1,6 @@
 #pragma once
 #include "Item.h"
+#include "ConstantRepository.h"
 
 
 class Inventory {
@@ -9,9 +10,14 @@ class Inventory {
     Item **inventory;
     int size;
     Position *position;
+    std::vector<SimpleSubscription *> contChangeSubs;
+private:
+    void updateContentChange();
 public:
     Inventory(int size, Position *position);
-
+    // Actions
+    void onContentChangeSubscribe(SimpleSubscription *subscription);
+    void onContentChangeUnsubscribe(SimpleSubscription *subscription);
     // Getters, Setters
     int getSuitableSpace(Item *item);
     Item *getItem(int i);
@@ -19,6 +25,7 @@ public:
     Item *putItemAuto(Item *item);
     Item *takeItem(int i);
     Item **getSlot(int i);
+    int getItemCount(name itemType);
     int getSize();
 };
 

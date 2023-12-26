@@ -17,6 +17,7 @@ namespace agui {
     const Color WORLD_CURSOR_COLOR = Color(0, 100, 100, 100);
 
     const Color UI_BG_COLOR = Color(20, 30, 32, 30);
+    const Color UI_BG_DIM_COLOR = Color(20, 30, 32, 60);
     const Color UI_FG_COLOR = Color(160, 240, 250, 255);
     const Color UI_HIGHLIGHT_COLOR = Color(140, 220, 230, 255);
 

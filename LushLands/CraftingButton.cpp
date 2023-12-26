@@ -49,45 +49,15 @@ void CraftingButton::paintComponent(const agui::PaintEvent &pe) {
 
 void CraftingButton::paintBackground(const agui::PaintEvent &pe) {
     // Background
+    auto frm = getFontColor();
+    if (not isEnabled())
+        frm = agui::Color(frm.getR() * 0.5, frm.getG() * 0.5, frm.getB() * 0.5, frm.getA());
     if (getButtonState() == HOVERED)
         pe.graphics()->drawFilledRoundedRectangle(getInnerRectangle(), roundingRadiusSmall, getBackColor());
     // Frame
-    pe.graphics()->drawRoundedRectangle(getInnerRectangle(), roundingRadiusSmall, getFontColor(), thinLineThickness);
+    pe.graphics()->drawRoundedRectangle(getInnerRectangle(), roundingRadiusSmall, frm, thinLineThickness);
 }
 
-// List recipes
-//        s = cm->getRecipes(selectedCategory)->size();
-//        s = cm->getCategories()->size();
-//        int i = 0;
-//        for (auto &recipe : *cm->getRecipes(selectedCategory)) {
-//            int x_el = x + margin;
-//            int y_el = y + margin + (tileSizePx + margin*3) * i;
-//            // Recipe bg
-//            //al_draw_rounded_rectangle(x_el - margin, y_el - margin,
-//            //    x_el + (tileSizePx + margin) * 4, y_el + tileSizePx + margin,
-//            //    roundingRadiusSmall, roundingRadiusSmall,
-//            //    fg->getAllegroColor(), 2.0f);
-//            // Recipe icons
-//            for (int it_in = 0; it_in < recipe.nIng; it_in++) {
-//                auto &ing = recipe.ingredients[it_in];
-//                // Icon
-//                if (ing.ingredient) {
-//                    // Specific
-//                    ALLEGRO_BITMAP *itemTex = TextureManager::getTexture(ing.ingredient);
-//                    al_draw_bitmap(itemTex, x_el + (tileSizePx + margin) * it_in, y_el, 0);
-//                } else {
-//                    // General
-//                    // TODO
-//                }
-//                // Text
-//                sprintf_s(buffer, buffSize, "%3d", ing.amount);
-//                al_draw_text(font, fg->getAllegroColor(), x_el + (tileSizePx + margin) * it_in + tileSizePx - 2, y_el + tileSizePx * 3 / 5, ALLEGRO_ALIGN_RIGHT, buffer);
-//            }
-//            // Product icon
-//            x_el = x + margin + (tileSizePx + margin) * 3;
-//            ALLEGRO_BITMAP *itemTex = TextureManager::getTexture(recipe.product.productType);
-//            al_draw_bitmap(itemTex, x_el, y_el, 0);
-//            sprintf_s(buffer, buffSize, "%3d", recipe.product.amount);
-//            al_draw_text(font, fg->getAllegroColor(), x_el + tileSizePx - 2, y_el + tileSizePx * 3 / 5, ALLEGRO_ALIGN_RIGHT, buffer);
-//            i++;
-//        }
+Recipe *CraftingButton::getRecipe() {
+    return recipe;
+}

@@ -11,7 +11,7 @@ Scene::Scene(scenename sceneName, Core *core, Controller *controller, Simulation
     // Player related elements
     invDispl = new agui::InventoryDisplay(player->getInventory());
     windowManager->addWindow(invDispl);
-    craftingDisplay = new CraftingDisplay(core, simulation->getCraftingManager());
+    craftingDisplay = new CraftingDisplay(core, simulation->getCraftingManager(), player->getInventory());
     windowManager->addWindow(craftingDisplay);
     hotbar = new agui::Hotbar(core, player->getInventory(), player, inputEvents);
     windowManager->addWindow(hotbar);

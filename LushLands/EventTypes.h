@@ -6,15 +6,18 @@ typedef std::function<void(ALLEGRO_EVENT *allegroEvent, void *caller)> eventfn;
 typedef std::function<void(miliseconds timeNow, miliseconds dt, void *caller)> updatefn;
 typedef std::function<void(void *caller)> defaultfn;
 
-struct KeySubscribtion {
+struct SimpleSubscription {
+    defaultfn func;
+    void *caller;
+};
+
+struct EventSubscription {
     eventfn func;
     void *caller;
 };
 
-struct MouseAxisSubscribtion {
-    eventfn func;
-    void *caller;
-};
+typedef EventSubscription KeySubscribtion;
+typedef EventSubscription MouseAxisSubscribtion;
 
 struct TimerSubscription {
     tickperiod period;

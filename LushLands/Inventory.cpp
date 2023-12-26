@@ -1,11 +1,27 @@
 #include "Inventory.h"
 
+void Inventory::updateContentChange() {
+    for (auto *sub : contChangeSubs) {
+        sub->func(sub->caller);
+    }
+}
+
 Inventory::Inventory(int size, Position *position) :
     size(size), position(position) {
     // Items
     inventory = (Item **)malloc(sizeof(Item *) * size);
     for (int i = 0; i < size; i++)
         inventory[i] = 0;
+}
+
+void Inventory::onContentChangeSubscribe(SimpleSubscription *subscription) {
+    contChangeSubs.push_back(subscription);
+}
+
+void Inventory::onContentChangeUnsubscribe(SimpleSubscription *subscription) {
+    auto it = std::find(contChangeSubs.begin(), contChangeSubs.end(), subscription);
+    if (it != contChangeSubs.end())
+        contChangeSubs.erase(it);
 }
 
 int Inventory::getSuitableSpace(Item *item) {
@@ -45,6 +61,7 @@ Item *Inventory::putItem(int i, Item *item) {
             delete item;
             item = 0;
         }
+        updateContentChange();
         return item;
     }
     // Space occupied by other type -> swap items
@@ -52,14 +69,17 @@ Item *Inventory::putItem(int i, Item *item) {
     inventory[i] = item;
     if (invIt)
         invIt->getPosition()->updatePosition(*position);
+    updateContentChange();
     return invIt;
 }
 
 Item *Inventory::putItemAuto(Item *item) {
     while (item) {
         int space = getSuitableSpace(item);
-        if (space < 0)
+        if (space < 0) {
+            updateContentChange();
             return item;
+        }
         item = putItem(space, item);
     }
 }
@@ -69,11 +89,22 @@ Item *Inventory::takeItem(int i) {
     if (item)
         item->getPosition()->updatePosition(*position);
     inventory[i] = 0;
+    updateContentChange();
     return item;
 }
 
 Item **Inventory::getSlot(int i) {
     return &inventory[i];
+}
+
+int Inventory::getItemCount(name itemType) {
+    itemType = CR::selectEntityType(itemType);
+    int count = 0;
+    for (int i = 0; i < size; i++) {
+        if (inventory[i] and inventory[i]->getType() == itemType)
+            count += inventory[i]->getAmount();
+    }
+    return count;
 }
 
 int Inventory::getSize() {

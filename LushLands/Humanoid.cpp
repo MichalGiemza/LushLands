@@ -83,3 +83,4 @@ void *Humanoid::getLastName() {
 void *Humanoid::getInventory() {
     return &inventory;
 }
+

@@ -10,6 +10,7 @@
 #include "ConstantsUI.h"
 #include "Agui/Base/Colors.h"
 #include "ConstantsUI.h"
+#include <Inventory.h>
 
 
 class CraftingDisplay : public agui::BaseWindow {
@@ -26,9 +27,11 @@ protected:
     agui::TabbedPane tabPane;
     agui::Tab *tab;
     agui::FlowLayout *flow;
+    Inventory *inv;
 protected:
-
 public:
-    CraftingDisplay(Core *core, CraftingManager *craftingManager);
+    CraftingDisplay(Core *core, CraftingManager *craftingManager, Inventory *inventory);
+    friend void refreshAvailabilities(void *craftingDisplay);
 };
 
+void refreshAvailabilities(void *craftingDisplay);
