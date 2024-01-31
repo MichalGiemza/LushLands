@@ -62,3 +62,8 @@ void CraftingButton::paintBackground(const agui::PaintEvent &pe) {
 Recipe *CraftingButton::getRecipe() {
     return recipe;
 }
+
+void CraftingButton::setMaxCraft(int maxCraft) {
+    this->maxCraft = maxCraft;
+    setEnabled(maxCraft > 0);
+}

@@ -12,12 +12,12 @@
 class CraftingButton : public agui::Button {
     Recipe *recipe;
     InputEvents *inputEvents;
-public:
     int maxCraft = 0;
 public:
     CraftingButton(Recipe *recipe);
     virtual void paintComponent(const agui::PaintEvent &paintEvent) override;
     virtual void paintBackground(const agui::PaintEvent &paintEvent) override;
     Recipe *getRecipe();
+    void setMaxCraft(int maxCraft);
 };
 

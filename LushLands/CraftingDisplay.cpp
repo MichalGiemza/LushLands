@@ -57,9 +57,7 @@ void refreshAvailabilities(void *craftingDisplay) {
             auto b = (CraftingButton *)*btn;
             int maxCraft = CraftingManager::maxCraftableAmount(b->getRecipe(), cd->inv);
             // Handle crafting button
-            b->maxCraft = maxCraft; // TODO: Determine max stack and `% maxStack(itemType)`
-            if (maxCraft <= 0) 
-                b->setEnabled(false);
+            b->setMaxCraft(maxCraft); // TODO: Determine max stack and `% maxStack(itemType)`
         }
     }
 }
