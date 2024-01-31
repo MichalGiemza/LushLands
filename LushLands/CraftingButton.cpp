@@ -1,6 +1,7 @@
 #include "CraftingButton.h"
 
-CraftingButton::CraftingButton(Recipe *recipe) : recipe(recipe) {
+CraftingButton::CraftingButton(Recipe *recipe) : 
+    recipe(recipe) {
     setFontColor(agui::UI_FG_COLOR);
     setBackColor(agui::UI_HIGHLIGHT_COLOR);
     setSize(craftBtnW, craftBtnH + 2);

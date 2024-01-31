@@ -11,7 +11,17 @@
 #include "Agui/Base/Colors.h"
 #include "ConstantsUI.h"
 #include <Inventory.h>
+#include "CraftingManager.h"
+#include <EventFactory.h>
 
+
+class CraftingListener : public agui::ButtonListener {
+    InputEvents *ie;
+    Inventory *inv;
+public:
+    CraftingListener(InputEvents *ie, Inventory *inv);
+    virtual void buttonStateChanged(agui::Button *btn, agui::Button::ButtonStateEnum enm);
+};
 
 class CraftingDisplay : public agui::BaseWindow {
     /** 
@@ -28,9 +38,11 @@ protected:
     agui::Tab *tab;
     agui::FlowLayout *flow;
     Inventory *inv;
+    InputEvents *inpEv;
+    CraftingListener cl;
 protected:
 public:
-    CraftingDisplay(Core *core, CraftingManager *craftingManager, Inventory *inventory);
+    CraftingDisplay(Core *core, CraftingManager *craftingManager, Inventory *inventory, InputEvents *inputEvents);
     friend void refreshAvailabilities(void *craftingDisplay);
 };
 

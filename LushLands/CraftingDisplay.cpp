@@ -1,6 +1,8 @@
 #include "CraftingDisplay.h"
 
-CraftingDisplay::CraftingDisplay(Core *core, CraftingManager *craftingManager, Inventory *inventory) : cm(craftingManager), inv(inventory) {
+CraftingDisplay::CraftingDisplay(Core *core, CraftingManager *craftingManager, Inventory *inventory, InputEvents *inputEvents) :
+    cm(craftingManager), inv(inventory), inpEv(inputEvents), cl(inpEv, inv) {
+    // Inits
     nCategories = cm->getCategories()->size();
     tab = new agui::Tab[nCategories];
     flow = new agui::FlowLayout[nCategories];
@@ -32,6 +34,7 @@ CraftingDisplay::CraftingDisplay(Core *core, CraftingManager *craftingManager, I
         std::string ctg = cm->getCategories()->at(i);
         for (auto rcp = cm->getRecipes(ctg)->begin(); rcp < cm->getRecipes(ctg)->end(); ++rcp) {
             CraftingButton *cb = new CraftingButton(&(*rcp));
+            cb->addButtonListener(&cl);
             flow[i].add(cb);
         }
     }
@@ -52,18 +55,7 @@ void refreshAvailabilities(void *craftingDisplay) {
         for (auto btn = fl.getChildBegin(); btn != fl.getChildEnd(); btn++) {
             // Per crafting button
             auto b = (CraftingButton *)*btn;
-            auto r = b->getRecipe();
-            int maxCraft = INT32_MAX;
-            for (int i = 0; i < r->nIng; i++) {
-                // Per ingredient
-                auto ing = r->ingredients[i];
-                int maxCurr = 0;
-                if (ing.ingredientType == igt::specific)
-                    maxCurr = cd->inv->getItemCount(ing.ingredient) / ing.amount;
-                if (ing.ingredientType == igt::general)
-                    maxCurr = cd->inv->getItemCount(ing.ingredient) / ing.amount; // TODO: General types - not working yet
-                maxCraft = std::min(maxCraft, maxCurr);
-            }
+            int maxCraft = CraftingManager::maxCraftableAmount(b->getRecipe(), cd->inv);
             // Handle crafting button
             b->maxCraft = maxCraft; // TODO: Determine max stack and `% maxStack(itemType)`
             if (maxCraft <= 0) 
@@ -72,3 +64,12 @@ void refreshAvailabilities(void *craftingDisplay) {
     }
 }
 
+CraftingListener::CraftingListener(InputEvents *ie, Inventory *inv) : ie(ie), inv(inv) {}
+
+void CraftingListener::buttonStateChanged(agui::Button *btn, agui::Button::ButtonStateEnum enm) {
+    if (enm == agui::Button::ButtonStateEnum::CLICKED) {
+        CraftingButton *crb = dynamic_cast<CraftingButton *>(btn);
+        ALLEGRO_EVENT *ae = EventFactory::packItemCraft((void *)inv, (void *)crb->getRecipe());
+        al_emit_user_event(ie->getEventSource(), ae, 0);
+    }
+}

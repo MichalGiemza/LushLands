@@ -6,10 +6,12 @@
 #include "ConstantsUI.h"
 #include <Agui/TextureManager.h>
 #include "Inventory.h"
+#include "Agui/Widgets/Button/ButtonListener.hpp"
 
 
 class CraftingButton : public agui::Button {
     Recipe *recipe;
+    InputEvents *inputEvents;
 public:
     int maxCraft = 0;
 public:

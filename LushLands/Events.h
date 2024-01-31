@@ -10,7 +10,8 @@ const simulationevent mobility_attempt_go = CHAR_ID('E', 'A', 'G', 0);
 const simulationevent entity_destroy = CHAR_ID('E', 'A', 'D', 0);
 
 const simulationevent item_drop = CHAR_ID('I', 'D', 0, 0);
-const simulationevent item_generate = CHAR_ID('I', 'D', 0, 1);
+const simulationevent item_generate = CHAR_ID('I', 'G', 0, 0);
+const simulationevent item_craft = CHAR_ID('I', 'C', 0, 0);
 
 const simulationevent player_wills_go = CHAR_ID('P', 'A', 'G', 0);
 const simulationevent player_wills_use = CHAR_ID('P', 'A', 'U', 0);

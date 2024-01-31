@@ -5,7 +5,7 @@ Simulation::Simulation(Controller *controller) :
     // Systems
     itemFactory = new ItemFactory(controller->getInputEvents());
     entityFactory = new EntityFactory(controller->getInputEvents());
-    craftingManager = new CraftingManager();
+    craftingManager = new CraftingManager(itemFactory, controller->getInputEvents());
     // World
     world = new World(FLATLAND, 42, entityFactory, itemFactory, controller->getInputEvents());
     loadPosition = new Position(0, world->getSeaLevel(), 0);

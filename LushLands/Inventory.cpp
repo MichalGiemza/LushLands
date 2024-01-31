@@ -84,13 +84,36 @@ Item *Inventory::putItemAuto(Item *item) {
     }
 }
 
-Item *Inventory::takeItem(int i) {
+Item *Inventory::takeItem(int i, int amount) {
     auto item = getItem(i);
-    if (item)
-        item->getPosition()->updatePosition(*position);
-    inventory[i] = 0;
+    if (not item)
+        return 0;
+    amount = std::min(amount, (int)inventory[i]->getAmount());
+    if (item->getAmount() <= amount) {
+        inventory[i] = 0;
+    } else {
+        inventory[i]->setAmount(inventory[i]->getAmount() - amount);
+        item = new Item(*item);
+        item->setAmount(amount);
+    }
+    item->getPosition()->updatePosition(*position);
     updateContentChange();
     return item;
+}
+
+std::stack<Item *> *Inventory::takeItemAuto(entitytype itemType, int amount) {
+    itemType = CR::selectEntityType(itemType);
+    std::stack<Item *> *takenItems = new std::stack<Item *>();
+    for (int i = 0; i < size; i++) {
+        if (inventory[i] and inventory[i]->getType() == itemType) {
+            Item *takenItem = takeItem(i, amount);
+            takenItems->push(takenItem);
+            amount -= takenItem->getAmount();
+        }
+        if (amount <= 0)
+            break;
+    }
+    return takenItems;
 }
 
 Item **Inventory::getSlot(int i) {
@@ -109,4 +132,8 @@ int Inventory::getItemCount(name itemType) {
 
 int Inventory::getSize() {
     return size;
+}
+
+Position *Inventory::getPosition() {
+    return new Position(*position);
 }

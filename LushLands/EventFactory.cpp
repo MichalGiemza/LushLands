@@ -52,6 +52,19 @@ void EventFactory::unpackEntityDestroy(ALLEGRO_EVENT *aEvent, void **entity) {
     *entity = (void *)aEvent->user.data1;
 }
 
+ALLEGRO_EVENT *EventFactory::packItemCraft(void *inventory, void *recipe) {
+    ALLEGRO_EVENT *ae = new ALLEGRO_EVENT {};
+    ae->user.type = item_craft;
+    ae->user.data1 = (intptr_t)inventory;
+    ae->user.data2 = (intptr_t)recipe;
+    return ae;
+}
+
+void EventFactory::unpackItemCraft(ALLEGRO_EVENT *aEvent, void **inventory, void **recipe) {
+    *inventory = (void *)aEvent->user.data1;
+    *recipe = (void *)aEvent->user.data2;
+}
+
 ALLEGRO_EVENT *EventFactory::packMouseAction(const systemevent se, int x, int y) {
     ALLEGRO_EVENT *ae = new ALLEGRO_EVENT {};
     ae->user.type = se;

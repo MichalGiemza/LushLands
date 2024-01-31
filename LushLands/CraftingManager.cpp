@@ -55,8 +55,10 @@ void CraftingManager::loadRecipes(const fs::path fp, std::string category) {
         categories.push_back(category);
 }
 
-CraftingManager::CraftingManager() {
+CraftingManager::CraftingManager(ItemFactory *itemFactory, InputEvents *inputEvents) : 
+    itemFactory(itemFactory), inputEvents(inputEvents) {
     loadRecipes();
+    inputEvents->subscribeSystemEvent(item_craft, craft, this);
 }
 
 std::vector<Recipe> *CraftingManager::getRecipes(const std::string category) {
@@ -65,4 +67,40 @@ std::vector<Recipe> *CraftingManager::getRecipes(const std::string category) {
 
 std::vector<std::string> *CraftingManager::getCategories() {
     return &categories;
+}
+
+void CraftingManager::applyCrafting(Recipe *rcp, Inventory *inv, int n) {
+    n = std::min(n, maxCraftableAmount(rcp, inv));
+    // Take ingredients
+    for (int i = 0; i < rcp->nIng; i++) {
+        CraftingIngredient *ing = &rcp->ingredients[i];
+        inv->takeItemAuto(ing->ingredient, ing->amount * n);
+    }
+    // Put products
+    Item *prod = itemFactory->buildItem(rcp->product.productType, rcp->product.amount * n, inv->getPosition());
+    inv->putItemAuto(prod);
+}
+
+int CraftingManager::maxCraftableAmount(Recipe *r, Inventory *inv) {
+    int maxCraft = INT32_MAX;
+    for (int i = 0; i < r->nIng; i++) {
+        // Per ingredient
+        auto ing = r->ingredients[i];
+        int maxCurr = 0;
+        if (ing.ingredientType == igt::specific)
+            maxCurr = inv->getItemCount(ing.ingredient) / ing.amount;
+        if (ing.ingredientType == igt::general)
+            maxCurr = inv->getItemCount(ing.ingredient) / ing.amount; // TODO: General types - not working yet
+        maxCraft = std::min(maxCraft, maxCurr);
+    }
+    return maxCraft;
+}
+
+void craft(ALLEGRO_EVENT *ae, void *cm) {
+    CraftingManager *crm = (CraftingManager *)cm;
+    Inventory *inv = 0;
+    Recipe *rcp = 0;
+    int amount = 1; // TODO: Craft whole stack with [Shift]
+    EventFactory::unpackItemCraft(ae, (void **)&inv, (void **)&rcp);
+    crm->applyCrafting(rcp, inv, amount);
 }

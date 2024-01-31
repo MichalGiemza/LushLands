@@ -18,6 +18,8 @@ public:
     static void unpackItemGenerate(ALLEGRO_EVENT *aEvent, void **itemDropChance, radian *direction, void **entity);
     static ALLEGRO_EVENT *packEntityDestroy(void *entity);
     static void unpackEntityDestroy(ALLEGRO_EVENT *aEvent, void **entity);
+    static ALLEGRO_EVENT *packItemCraft(void *inventory, void *recipe);
+    static void unpackItemCraft(ALLEGRO_EVENT *aEvent, void **inventory, void **recipe);
     // System Events
     static ALLEGRO_EVENT *packMouseAction(const systemevent se, int x, int y);
     static void unpackMouseAction(ALLEGRO_EVENT *aEvent, int *x, int *y);
