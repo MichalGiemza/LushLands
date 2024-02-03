@@ -10,11 +10,11 @@ std::size_t std::hash<char *>::operator()(const char *p) const {
 
 std::size_t std::hash<TextureLocalization>::operator()(const TextureLocalization &p) const {
     size_t seed = 0;
-    boost::hash_combine(seed, p.x);
-    boost::hash_combine(seed, p.y);
-    boost::hash_combine(seed, p.w);
-    boost::hash_combine(seed, p.h);
-    boost::hash_combine(seed, p.path);
+    HashTool::hashCombine(seed, p.x);
+    HashTool::hashCombine(seed, p.y);
+    HashTool::hashCombine(seed, p.w);
+    HashTool::hashCombine(seed, p.h);
+    HashTool::hashCombine(seed, p.path);
     return seed;
 }
 

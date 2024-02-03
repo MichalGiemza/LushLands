@@ -451,6 +451,15 @@
     <ClCompile Include="CraftingButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SavingManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HashTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratorUUID.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -962,6 +971,15 @@
     </ClInclude>
     <ClInclude Include="CraftingStructures.h">
       <Filter>Header Files\Core\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="SavingManager.h">
+      <Filter>Header Files\Core\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="HashTool.h">
+      <Filter>Header Files\Core\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratorUUID.h">
+      <Filter>Header Files\Core\Tools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

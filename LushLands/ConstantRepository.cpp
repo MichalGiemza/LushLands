@@ -2,45 +2,45 @@
 
 std::unordered_map<size_t, TextureLocalization *> CR::textureLocalizationMap;
 std::unordered_map<entitytype, TextureLocalization *> CR::textureLocalizationEntityMap;
-std::unordered_map<json::string, entitytype> CR::entityTypeMap;
-std::unordered_map<json::string, tag> CR::tagMap;
+std::unordered_map<std::string, entitytype> CR::entityTypeMap;
+std::unordered_map<std::string, tag> CR::tagMap;
 std::unordered_map<std::tuple<float, float, float>, Size *> CR::sizeMap;
 std::unordered_map<std::tuple<uint8_t, uint8_t, uint8_t>, agui::Color *> CR::colorMap;
-std::unordered_map<json::string, gendertype> CR::genderTypeMap = {
-	{ json::string(gdr::male), gdr::male },
-	{ json::string(gdr::female), gdr::female },
-	{ json::string(gdr::none), gdr::none },
-	{ json::string(gdr::other), gdr::other },
+std::unordered_map<std::string, gendertype> CR::genderTypeMap = {
+	{ std::string(gdr::male), gdr::male },
+	{ std::string(gdr::female), gdr::female },
+	{ std::string(gdr::none), gdr::none },
+	{ std::string(gdr::other), gdr::other },
 };
-std::unordered_map<json::string, tag> CR::toolTypeMap = {
-	{ json::string(tg::axe), tg::axe},
-	{ json::string(tg::pickaxe), tg::pickaxe },
-	{ json::string(tg::shovel), tg::shovel },
-	{ json::string(tg::weapon), tg::weapon },
-	{ json::string(tg::bucket), tg::bucket },
-	{ json::string(tg::harvesting_tool), tg::harvesting_tool }
+std::unordered_map<std::string, tag> CR::toolTypeMap = {
+	{ std::string(tg::axe), tg::axe},
+	{ std::string(tg::pickaxe), tg::pickaxe },
+	{ std::string(tg::shovel), tg::shovel },
+	{ std::string(tg::weapon), tg::weapon },
+	{ std::string(tg::bucket), tg::bucket },
+	{ std::string(tg::harvesting_tool), tg::harvesting_tool }
 };
 std::unordered_map<size_t, EntityDrops *> CR::entityDropsMap;
-std::unordered_map<json::string, updatetype> CR::updateTypeMap;
-std::unordered_map<json::string, entitytype> CR::entitytypeMap;
-std::unordered_map<json::string, stack> CR::maxStackMap = {
-	{ json::string("maxStack"), mst::maxStack },
-	{ json::string("mediumStact"), mst::mediumStact },
-	{ json::string("smallStack"), mst::smallStack },
-	{ json::string("singleItemStack"), mst::singleItemStack }
+std::unordered_map<std::string, updatetype> CR::updateTypeMap;
+std::unordered_map<std::string, entitytype> CR::entitytypeMap;
+std::unordered_map<std::string, stack> CR::maxStackMap = {
+	{ std::string("maxStack"), mst::maxStack },
+	{ std::string("mediumStact"), mst::mediumStact },
+	{ std::string("smallStack"), mst::smallStack },
+	{ std::string("singleItemStack"), mst::singleItemStack }
 };
 
 
-EntityDrops *ConstantRepository::buildEntityDrops(const json::array &entityDropsData) {
+EntityDrops *ConstantRepository::buildEntityDrops(const json &entityDropsData) {
 	int n = entityDropsData.size();
 	ItemDropChance *idc = (ItemDropChance *)malloc(sizeof(ItemDropChance) * n);
 	for (int i = 0; i < n; i++) {
-		auto &add = entityDropsData.at(i).as_object();
- 		auto &im = add.at("EntityType").as_string(); 
+		auto &add = entityDropsData.at(i);
+ 		auto &im = add.at("EntityType"); 
 		idc[i].item = CR::selectEntityType(im);
-		idc[i].chanceGuaranteed = add.at("ChanceGuaranteed").as_int64();
-		idc[i].chanceLow = add.at("ChanceLow").as_int64();
-		idc[i].chanceHigh = add.at("ChanceHigh").as_int64();
+		idc[i].chanceGuaranteed = add.at("ChanceGuaranteed");
+		idc[i].chanceLow = add.at("ChanceLow");
+		idc[i].chanceHigh = add.at("ChanceHigh");
 	}
 	return new EntityDrops { n, idc };
 }
@@ -56,7 +56,7 @@ void ConstantRepository::init() {
 	//}
 }
 
-const entitytype ConstantRepository::selectEntityType(const json::string &entityType, bool create) {
+const entitytype ConstantRepository::selectEntityType(const std::string &entityType, bool create) {
     auto it = entityTypeMap.find(entityType);
 	if (it != entityTypeMap.end()) {
 		return it->second;
@@ -72,16 +72,11 @@ const entitytype ConstantRepository::selectEntityType(const json::string &entity
 }
 
 const entitytype ConstantRepository::selectEntityType(entitytype entityType, bool create) {
-	auto str = json::string(entityType);
+	auto str = std::string(entityType);
 	return selectEntityType(str, create);
 }
 
-const entitytype ConstantRepository::selectEntityType(std::string &entityType, bool create) {
-	auto str = json::string(entityType);
-	return selectEntityType(str, create);
-}
-
-const tag ConstantRepository::selectTag(const json::string &tag_, bool create) {
+const tag ConstantRepository::selectTag(const std::string &tag_, bool create) {
 	auto it = tagMap.find(tag_);
 	if (it != tagMap.end()) {
 		return it->second;
@@ -97,7 +92,7 @@ const tag ConstantRepository::selectTag(const json::string &tag_, bool create) {
 }
 
 const tag ConstantRepository::selectTag(tag tag_) {
-	auto str = json::string(tag_);
+	auto str = std::string(tag_);
 	return selectTag(str, false);
 }
 
@@ -123,7 +118,7 @@ const agui::Color *ConstantRepository::selectColor(uint8_t r, uint8_t g, uint8_t
 	}
 }
 
-const gendertype ConstantRepository::selectGenderType(json::string &genderType, bool create) {
+const gendertype ConstantRepository::selectGenderType(std::string &genderType, bool create) {
 	auto it = genderTypeMap.find(genderType);
 	if (it != genderTypeMap.end()) {
 		return it->second;
@@ -138,7 +133,7 @@ const gendertype ConstantRepository::selectGenderType(json::string &genderType, 
 	}
 }
 
-const tag ConstantRepository::selectToolType(json::string &toolType, bool create) {
+const tag ConstantRepository::selectToolType(std::string &toolType, bool create) {
 	if (toolType.empty()) {
 		return 0;
 	}
@@ -156,7 +151,7 @@ const tag ConstantRepository::selectToolType(json::string &toolType, bool create
 	}
 }
 
-const EntityDrops *ConstantRepository::selectEntityDrops(const json::array &entityDropsData) {
+const EntityDrops *ConstantRepository::selectEntityDrops(const json &entityDropsData) {
 	size_t key = JsonHandler::hashEntityDrops(entityDropsData);
 	auto it = entityDropsMap.find(key);
 	if (it != entityDropsMap.end()) {
@@ -167,7 +162,7 @@ const EntityDrops *ConstantRepository::selectEntityDrops(const json::array &enti
 	}
 }
 
-const updatetype ConstantRepository::selectUpdateType(json::string &updateType) {
+const updatetype ConstantRepository::selectUpdateType(std::string &updateType) {
 	auto it = updateTypeMap.find(updateType);
 	if (it != updateTypeMap.end()) {
 		return it->second;
@@ -177,7 +172,7 @@ const updatetype ConstantRepository::selectUpdateType(json::string &updateType) 
 	}
 }
 
-const stack ConstantRepository::selectMaxStack(const json::string &stackLabel) {
+const stack ConstantRepository::selectMaxStack(const std::string &stackLabel) {
 	auto it = maxStackMap.find(stackLabel);
 	if (it != maxStackMap.end()) {
 		return it->second;

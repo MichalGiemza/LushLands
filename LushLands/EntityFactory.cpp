@@ -26,26 +26,25 @@ void EntityFactory::loadCtorParams() {
 }
 
 void EntityFactory::loadHumanoidCtorParams(const fs::path fp) {
-    auto data = JsonHandler::parseJson(fp);
-    const json::object &d = data->as_object();
+    auto d = JsonHandler::parseJson(fp);
 
     auto et = a_s(d, "EntityType");
     auto des = a_s(d, "Description");
-    auto &sz = d.at("Size").as_object();
-    auto &cl = d.at("Color").as_object();
+    auto &sz = d.at("Size");
+    auto &cl = d.at("Color");
     auto &ms = d.at("MovementSpeed");
     auto &is = d.at("InventorySlots");
     auto &hl = d.at("Health");
     auto rt = a_s(d, "ToolType");
-    auto &dp = d.at("EntityDrops").as_array();
+    auto &dp = d.at("EntityDrops");
     
-    float sw = sz.at("W").as_double();
-    float sh = sz.at("H").as_double();
-    float sl = sz.at("L").as_double();
+    float sw = sz.at("W");
+    float sh = sz.at("H");
+    float sl = sz.at("L");
     
-    float cr = cl.at("R").as_int64();
-    float cg = cl.at("G").as_int64();
-    float cb = cl.at("B").as_int64();
+    float cr = cl.at("R");
+    float cg = cl.at("G");
+    float cb = cl.at("B");
 
     entitytype entityType = CR::selectEntityType(et, true);
 
@@ -56,12 +55,12 @@ void EntityFactory::loadHumanoidCtorParams(const fs::path fp) {
         nullptr,
         CR::selectSize(sw, sh, sl),
         CR::selectColor(cr, cg, cb),
-        (int)ms.as_int64(),
+        (int)ms,
         nullptr,
         nullptr,
         nullptr,
-        (int)is.as_int64(),
-        (int)hl.as_int64(),
+        (int)is,
+        (int)hl,
         CR::selectToolType(rt, true),
         CR::selectEntityDrops(dp)
     };
@@ -71,26 +70,25 @@ void EntityFactory::loadHumanoidCtorParams(const fs::path fp) {
 }
 
 void EntityFactory::loadAnimalCtorParams(const fs::path fp) {
-    auto data = JsonHandler::parseJson(fp);
-    auto &d = data->as_object();
+    auto d = JsonHandler::parseJson(fp);
 
     auto et = a_s(d, "EntityType");
     auto des = a_s(d, "Description");
-    auto &sz = d.at("Size").as_object();
-    auto &cl = d.at("Color").as_object();
+    auto &sz = d.at("Size");
+    auto &cl = d.at("Color");
     auto &ms = d.at("MovementSpeed");
     auto &wi = d.at("WalkInterval");
     auto &hl = d.at("Health");
     auto rt = a_s(d, "ToolType");
-    auto &dp = d.at("EntityDrops").as_array();
+    auto &dp = d.at("EntityDrops");
 
-    float sw = sz.at("W").as_double();
-    float sh = sz.at("H").as_double();
-    float sl = sz.at("L").as_double();
+    float sw = sz.at("W");
+    float sh = sz.at("H");
+    float sl = sz.at("L");
 
-    float cr = cl.at("R").as_int64();
-    float cg = cl.at("G").as_int64();
-    float cb = cl.at("B").as_int64();
+    float cr = cl.at("R");
+    float cg = cl.at("G");
+    float cb = cl.at("B");
 
     entitytype entityType = CR::selectEntityType(et, true);
 
@@ -101,9 +99,9 @@ void EntityFactory::loadAnimalCtorParams(const fs::path fp) {
         nullptr,
         CR::selectSize(sw, sh, sl),
         CR::selectColor(cr, cg, cb),
-        (int)ms.as_int64(),
-        (miliseconds)wi.as_int64(),
-        (int)hl.as_int64(),
+        (int)ms,
+        (miliseconds)wi,
+        (int)hl,
         CR::selectToolType(rt, true),
         CR::selectEntityDrops(dp)
     };
@@ -113,24 +111,23 @@ void EntityFactory::loadAnimalCtorParams(const fs::path fp) {
 }
 
 void EntityFactory::loadStructureCtorParams(const fs::path fp) {
-    auto data = JsonHandler::parseJson(fp);
-    auto &d = data->as_object();
+    auto d = JsonHandler::parseJson(fp);
 
     auto et = a_s(d, "EntityType");
     auto des = a_s(d, "Description");
-    auto &sz = d.at("Size").as_object();
-    auto &cl = d.at("Color").as_object();
+    auto &sz = d.at("Size");
+    auto &cl = d.at("Color");
     auto &hl = d.at("Health");
     auto rt = a_s(d, "ToolType");
-    auto &dp = d.at("EntityDrops").as_array();
+    auto &dp = d.at("EntityDrops");
 
-    float sw = sz.at("W").as_double();
-    float sh = sz.at("H").as_double();
-    float sl = sz.at("L").as_double();
+    float sw = sz.at("W");
+    float sh = sz.at("H");
+    float sl = sz.at("L");
 
-    float cr = cl.at("R").as_int64();
-    float cg = cl.at("G").as_int64();
-    float cb = cl.at("B").as_int64();
+    float cr = cl.at("R");
+    float cg = cl.at("G");
+    float cb = cl.at("B");
 
     entitytype entityType = CR::selectEntityType(et, true);
 
@@ -141,7 +138,7 @@ void EntityFactory::loadStructureCtorParams(const fs::path fp) {
         nullptr,
         CR::selectSize(sw, sh, sl),
         CR::selectColor(cr, cg, cb),
-        (int)hl.as_int64(),
+        (int)hl,
         CR::selectToolType(rt, true),
         CR::selectEntityDrops(dp),
         no_update // TODO
@@ -152,19 +149,18 @@ void EntityFactory::loadStructureCtorParams(const fs::path fp) {
 }
 
 void EntityFactory::loadGroundCtorParams(const fs::path fp) {
-    auto data = JsonHandler::parseJson(fp);
-    const json::object &d = data->as_object();
+    auto d = JsonHandler::parseJson(fp);
 
     auto et = a_s(d, "EntityType");
     auto des = a_s(d, "Description");
-    auto &cl = d.at("Color").as_object();
+    auto &cl = d.at("Color");
     auto &hl = d.at("Health");
     auto rt = a_s(d, "ToolType");
-    auto &dp = d.at("EntityDrops").as_array();
+    auto &dp = d.at("EntityDrops");
 
-    float cr = cl.at("R").as_int64();
-    float cg = cl.at("G").as_int64();
-    float cb = cl.at("B").as_int64();
+    float cr = cl.at("R");
+    float cg = cl.at("G");
+    float cb = cl.at("B");
 
     entitytype entityType = CR::selectEntityType(et, true);
 
@@ -175,7 +171,7 @@ void EntityFactory::loadGroundCtorParams(const fs::path fp) {
         nullptr,
         CR::selectSize(1.0f, 1.0f, 1.0f),
         CR::selectColor(cr, cg, cb),
-        (int)hl.as_int64(),
+        (int)hl,
         CR::selectToolType(rt, true),
         CR::selectEntityDrops(dp),
         no_update // TODO

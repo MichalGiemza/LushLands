@@ -82,13 +82,14 @@ NameToTexLocs *TextureManager::prepareTextureLocalizations() {
             if (fn.path().extension().string() == jsonExt) {
                 std::vector<TextureLocalization> *tls = &(*tlm)[texName];
                 auto texJson = JsonHandler::parseJson(fn.path());
+                auto x = texJson.dump();
                 int variationCounter = 0;
-                for (auto &je : texJson->as_array()) {
+                for (json::iterator je = texJson.begin(); je != texJson.end(); ++je) {
                     TextureLocalization *tl = new TextureLocalization();
-                    tl->x = je.at("Position").at("X").as_int64();
-                    tl->y = je.at("Position").at("Y").as_int64();
-                    tl->w = je.at("Size").at("W").as_int64();
-                    tl->h = je.at("Size").at("H").as_int64();
+                    tl->x = je->at("Position").at("X");
+                    tl->y = je->at("Position").at("Y");
+                    tl->w = je->at("Size").at("W");
+                    tl->h = je->at("Size").at("H");
                     tl->variation = variationCounter;
                     tls->push_back(*tl);
                     variationCounter += 1;

@@ -1,9 +1,7 @@
 #include "Entity.h"
 
-boost::uuids::random_generator uuidGenerator;
-
 Entity::Entity(entitytype entityType, std::string description, updatetype updateType, InputEvents *inputEvents) :
-    entityType(entityType), description(description), updateType(updateType), inputEvents(inputEvents), id(uuidGenerator()) { }
+    entityType(entityType), description(description), updateType(updateType), inputEvents(inputEvents), id(GeneratorUUID::generateUUID()) { }
 
 entitytype Entity::getType() {
     return entityType;

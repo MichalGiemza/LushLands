@@ -1,17 +1,15 @@
 #pragma once
-#include <boost/uuid/uuid.hpp>
-#include <boost/uuid/random_generator.hpp>
 #include "DataTypes.h"
 #include "EntityUpdater.h"
 #include "InputEvents.h"
+#include "GeneratorUUID.h"
 
-extern boost::uuids::random_generator uuidGenerator;
 
 class Entity {
     /**
     * Definicja najbardziej podstawowego elementu œwiata.
     */
-    boost::uuids::uuid id;
+    uuid id;
     entitytype entityType;
     std::string description;
     updatetype updateType;

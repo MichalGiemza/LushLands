@@ -11,34 +11,33 @@ void CraftingManager::loadRecipes() {
 }
 
 void CraftingManager::loadRecipes(const fs::path fp, std::string category) {
-    auto data = JsonHandler::parseJson(fp);
-    auto &d = data->as_object();
+    auto d = JsonHandler::parseJson(fp);
 
-    auto &ig = d.at("Ingredients").as_array();
-    auto &pd = d.at("Product").as_object();
+    auto &ig = d.at("Ingredients");
+    auto &pd = d.at("Product");
 
     CraftingIngredient *cis = new CraftingIngredient[ig.size()];
     for (int i = 0; i < ig.size(); i++) {
-        auto &in = ig[i].as_object();
+        auto &in = ig[i];
         // General Crafting Ingredient 
         if (in.contains("General")) {
             cis[i].ingredient = CR::selectTag(a_s(in, "General"));
-            cis[i].amount = in.at("Amount").as_int64();
+            cis[i].amount = in.at("Amount");
             cis[i].ingredientType = igt::general;
         }
         // Specific Crafting Ingredient 
         if (in.contains("Specific")) {
             cis[i].ingredient = CR::selectEntityType(a_s(in, "Specific"));
-            cis[i].amount = in.at("Amount").as_int64();
+            cis[i].amount = in.at("Amount");
             cis[i].ingredientType = igt::specific;
         }
     }
 
     auto *cpd = new CraftingProduct();
     cpd->productType = CR::selectEntityType(a_s(pd, "EntityType"));
-    cpd->amount = pd.at("Amount").as_int64();
+    cpd->amount = pd.at("Amount");
 
-    miliseconds tm = d.at("Time").as_int64();
+    miliseconds tm = d.at("Time");
     
     Recipe *recipe = new Recipe {
         cis,

@@ -1,18 +1,17 @@
 #include "ItemFactory.h"
 
 void ItemFactory::loadItemCtorParams(const fs::path fp) {
-    auto data = JsonHandler::parseJson(fp);
-    auto &d = data->as_object();
+    auto d = JsonHandler::parseJson(fp);
 
     auto et = a_s(d, "EntityType");
     auto des = a_s(d, "Description");
-    auto &cl = d.at("Color").as_object();
+    auto &cl = d.at("Color");
     auto ms = a_s(d, "Stack");
     auto rt = a_s(d, "ToolType");
 
-    float cr = cl.at("R").as_int64();
-    float cg = cl.at("G").as_int64();
-    float cb = cl.at("B").as_int64();
+    float cr = cl.at("R");
+    float cg = cl.at("G");
+    float cb = cl.at("B");
 
     entitytype entityType = CR::selectEntityType(et, true);
 
