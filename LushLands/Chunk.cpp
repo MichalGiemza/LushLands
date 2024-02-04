@@ -11,7 +11,7 @@ void Chunk::generateTiles(ChunkPlan &chunkPlan) {
                 pos.setZ(referencePosition.getZ() + j);
                 pos.setY(referencePosition.getY() + k);
                 auto plannedEntityType = chunkPlan.fieldPlans[i][j][k].ground;
-                Ground *ground = (Ground *)entityFactory->buildEntity(plannedEntityType, pos);
+                Ground *ground = (Ground *)entityFactory->buildEntity(plannedEntityType, pos, false);
                 if (ground == 0)
                     continue;
                 chunkUpdater.registerEntity(ground);
@@ -43,7 +43,7 @@ void Chunk::generateStructures(ChunkPlan &chunkPlan) {
 }
 
 Structure *Chunk::addStructure(entitytype entityType, Position &position) {
-    Structure *structure = (Structure *)entityFactory->buildEntity(entityType, position);
+    Structure *structure = (Structure *)entityFactory->buildEntity(entityType, position, false);
     if (structure == 0)
         return 0;
     collisionManager.addCollider((Collider *)structure->getCollider());
@@ -109,7 +109,7 @@ void Chunk::generateItems(ChunkPlan &chunkPlan) {
 }
 
 Animal *Chunk::addAnimal(entitytype entityType, Position &position) {
-    Animal *animal = (Animal *)entityFactory->buildEntity(entityType, position);
+    Animal *animal = (Animal *)entityFactory->buildEntity(entityType, position, false);
     if (animal == 0)
         return 0;
     collisionManager.addCollider((Collider *)animal->getCollider());

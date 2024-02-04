@@ -4,10 +4,13 @@
 #include <iomanip>
 #include <sstream>
 
-typedef std::string uuid;
+typedef uint64_t uuid;
 
 class GeneratorUUID {
+    static std::random_device rd;
+    static std::mt19937_64 gen;
+    static std::uniform_int_distribution<uint64_t> dis;
 public:
-    static std::string generateUUID();
+    static uuid generateUUID();
 };
 

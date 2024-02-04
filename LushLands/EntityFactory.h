@@ -19,6 +19,7 @@ class EntityFactory {
     NameGenerator *nameGenerator;
     InputEvents *inputEvents;
     std::unordered_map<entitytype, templateclass> entityToTemplateMap;
+    std::unordered_map<entitytype, Entity *> flyweightMap;
 
     std::unordered_map<entitytype, HumanoidCtorParams *> humanoidParams;
     std::unordered_map<entitytype, AnimalCtorParams *> animalParams;
@@ -32,6 +33,6 @@ private:
     void loadGroundCtorParams(const fs::path fp);
 public:
     EntityFactory(InputEvents *inputEvents);
-    Entity *buildEntity(entitytype entityType, Position &position);
+    Entity *buildEntity(entitytype entityType, Position &position, bool flyweight=false);
 };
 

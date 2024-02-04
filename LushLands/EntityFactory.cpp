@@ -181,11 +181,18 @@ void EntityFactory::loadGroundCtorParams(const fs::path fp) {
     entityToTemplateMap[entityType] = tc::GROUND;
 }
 
-Entity *EntityFactory::buildEntity(entitytype entityType, Position &position) {
+Entity *EntityFactory::buildEntity(entitytype entityType, Position &position, bool flyweight) {
     Entity *newEntity = 0;
     if (entityType == 0)
         return 0;
     entityType = CR::selectEntityType(entityType);
+    // Return flyweight if exists
+    auto fwFind = flyweightMap.find(entityType);
+    if (flyweight) {
+        if (fwFind != flyweightMap.end())
+            return fwFind->second;
+    }
+    // Find template
     auto it = entityToTemplateMap.find(entityType);
     if (it != entityToTemplateMap.end()) {
         if (it->second == tc::GROUND) {
@@ -207,6 +214,9 @@ Entity *EntityFactory::buildEntity(entitytype entityType, Position &position) {
     } else {
         Logger::log(lg::ERROR_, "Could not create entity '%s'. Unknown entity type!", entityType);
     }
+    // Save flyweight if new and return
+    if (fwFind == flyweightMap.end())
+        flyweightMap[entityType] = newEntity;
     return newEntity;
 }
 
