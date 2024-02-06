@@ -119,6 +119,17 @@ namespace tags {
 }
 namespace tg = tags;
 
+namespace json_name_tags {
+    const name GROUND_N = "Ground";
+    const name STRUCTURES_N = "Structures";
+    const name ANIMALS_N = "Animals";
+    const name HUMANOIDS_N = "Humanoids";
+    const name ITEMS_N = "Items";
+    const name CHUNK_ELEMENTS_N = "ChunkElements";
+    const name CHUNK_POSITION_N = "ChunkPosition";
+}
+namespace js = json_name_tags;
+
 //namespace recipe_category {
 //    const name personal = "personal";
 //    const name workbench = "workbench";

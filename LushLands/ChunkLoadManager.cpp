@@ -12,6 +12,7 @@ void ChunkLoadManager::generateChunksByPosition(Position &pos) {
     auto ncps = pos.getNeighbouringChunkPositions();
     for (int i = 0; i < ncps.n; i++) {
         ChunkPosition cpos = ncps.chunkPositions[i];
+        // TODO: if save contains chunk -> new ChunkGenerator(jsonData)
         if (!chunks->contains(cpos))
             (*chunks)[cpos] = generateChunk(cpos);
     }
@@ -24,8 +25,7 @@ void ChunkLoadManager::updateLoadedChunkList() {
 }
 
 Chunk *ChunkLoadManager::generateChunk(ChunkPosition &chunkPosition) {
-    ChunkPlan *cp = worldPlanner->getChunkPlan(chunkPosition);
-    return new Chunk(chunkPosition, *cp, entityFactory, itemFactory, inputEvents);
+    return new Chunk(chunkPosition, new ChunkGenerator(worldPlanner), entityFactory, itemFactory, inputEvents);
 }
 
 Chunk *ChunkLoadManager::getChunk(ChunkPosition &chunkPosition) {

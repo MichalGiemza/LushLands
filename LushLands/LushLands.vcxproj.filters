@@ -109,9 +109,6 @@
     <ClCompile Include="FlatlandWorldPlanner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ChickenBoxWorldPlanner.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="BaseWorldPlanner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -460,6 +457,8 @@
     <ClCompile Include="GeneratorUUID.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ChunkElements.cpp" />
+    <ClCompile Include="ChunkGeneator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -557,9 +556,6 @@
     </ClInclude>
     <ClInclude Include="CollisionManager.h">
       <Filter>Header Files\Simulation\World\ChunkSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="ChickenBoxWorldPlanner.h">
-      <Filter>Header Files\Simulation\World\WorldPlanners</Filter>
     </ClInclude>
     <ClInclude Include="Keyboard.h">
       <Filter>Header Files\Controller\InputDevices</Filter>
@@ -981,6 +977,12 @@
     <ClInclude Include="GeneratorUUID.h">
       <Filter>Header Files\Core\Tools</Filter>
     </ClInclude>
+    <ClInclude Include="Serializable.h">
+      <Filter>Header Files\Core\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="ChunkGeneator.h">
+      <Filter>Header Files\Simulation\World\WorldPlanners</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
@@ -1072,6 +1074,9 @@
     </Filter>
     <Filter Include="Header Files\View\Agui">
       <UniqueIdentifier>{47abe7d1-9dda-4eb7-87f5-c3749efa5389}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core\Base">
+      <UniqueIdentifier>{04ff86c4-1321-482d-b50e-d4cbf0e4a45b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

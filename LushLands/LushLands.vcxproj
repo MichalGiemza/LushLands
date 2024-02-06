@@ -243,6 +243,8 @@
     <ClCompile Include="Agui\Widgets\TextField\TextField.cpp" />
     <ClCompile Include="Agui\Widgets\TextField\TextFieldListener.cpp" />
     <ClCompile Include="Agui\Widgets\ToolTip\ToolTip.cpp" />
+    <ClCompile Include="ChunkElements.cpp" />
+    <ClCompile Include="ChunkGeneator.cpp" />
     <ClCompile Include="ChunkRepresentation.cpp" />
     <ClCompile Include="ChunkRepresentationManager.cpp" />
     <ClCompile Include="ChunkUpdater.cpp" />
@@ -267,7 +269,6 @@
     <ClCompile Include="Appearance.cpp" />
     <ClCompile Include="Body.cpp" />
     <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="ChickenBoxWorldPlanner.cpp" />
     <ClCompile Include="Chunk.cpp" />
     <ClCompile Include="EntityUpdater.cpp" />
     <ClCompile Include="ChunkLoadManager.cpp" />
@@ -408,6 +409,7 @@
     <ClInclude Include="Agui\Widgets\TextField\TextFieldListener.hpp" />
     <ClInclude Include="Agui\Widgets\ToolTip\ToolTip.hpp" />
     <ClInclude Include="ChunkElements.h" />
+    <ClInclude Include="ChunkGeneator.h" />
     <ClInclude Include="ChunkRepresentation.h" />
     <ClInclude Include="ChunkRepresentationManager.h" />
     <ClInclude Include="ChunkUpdater.h" />
@@ -439,7 +441,6 @@
     <ClInclude Include="Appearance.h" />
     <ClInclude Include="Body.h" />
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="ChickenBoxWorldPlanner.h" />
     <ClInclude Include="Chunk.h" />
     <ClInclude Include="EntityUpdater.h" />
     <ClInclude Include="ChunkLoadManager.h" />
@@ -474,6 +475,7 @@
     <ClInclude Include="RandomWalk.h" />
     <ClInclude Include="Random_.h" />
     <ClInclude Include="SavingManager.h" />
+    <ClInclude Include="Serializable.h" />
     <ClInclude Include="Size.h" />
     <ClInclude Include="SystemConstants.h" />
     <ClInclude Include="TechnologyManager.h" />

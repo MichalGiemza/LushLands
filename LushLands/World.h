@@ -2,7 +2,6 @@
 #include "ChunkSystem.h"
 #include "BaseWorldPlanner.h"
 #include "FlatlandWorldPlanner.h"
-#include "ChickenBoxWorldPlanner.h"
 #include "Player.h"
 #include "ItemFactory.h"
 

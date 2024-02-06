@@ -8,44 +8,42 @@ int FlatlandWorldPlanner::getSeaLevel() {
     return seaLevel;
 }
 
-FieldPlan FlatlandWorldPlanner::getFieldPlan(Position position) {
-    FieldPlan fp = FieldPlan();
+entitytype FlatlandWorldPlanner::getGround(TilePosition &p) {
     // Over ground
-    if (position.getY() > seaLevel) {
-        fp.ground = 0;
-        return fp;
-    }
+    if (p.y > seaLevel)
+        return 0;
     // Underground
-    if (position.getY() < seaLevel) {
-        fp.ground = "rock";
-        return fp;
-    }
+    if (p.y < seaLevel)
+        return "rock";
     // Exposed ground level
-    if (position.getX() == 0 or position.getZ() == 0 or position.getX() == -1 or position.getZ() == -1) {
-        fp.ground = "cobble";
-        return fp;
-    }
-    if ((position.getX() + position.getZ()) % 2 == 0) {
-        if (position.getX() % 4 == 0 and position.getZ() % 4 == 0) {
-            fp.ground = "grass";
-            fp.structure = "tree";
-            return fp;
-        }
-        if (position.getX() % 6 == 2 and position.getZ() % 6 == 2) {
-            fp.ground = "grass";
-            fp.animal = "chicken";
-            return fp;
-        }
-        if (position.getX() % 6 == 4 and position.getZ() % 6 == 4) {
-            fp.ground = "grass";
-            fp.itemAmount = 100;
-            return fp;
-        } else {
-            fp.ground = "grass";
-            return fp;
-        }
+    if (p.x == 0 or p.z == 0 or p.x == -1 or p.z == -1)
+        return "cobble";
+    if ((p.x + p.z) % 2 == 0) {
+        return "grass";
     } else {
-        fp.ground = "soil";
-        return fp;
+        return "soil";
     }
 }
+
+entitytype FlatlandWorldPlanner::getStructure(TilePosition &p) {
+    if (p.x == 0 or p.z == 0 or p.x == -1 or p.z == -1)
+        return 0;
+    if (p.y == seaLevel and p.x % 4 == 0 and p.z % 4 == 0) {
+        return "tree";
+    }
+    return 0;
+}
+
+entitytypeset FlatlandWorldPlanner::getAnimals(ChunkPosition &p) {
+    entitytypeset *s = new entitytypeset();
+    // I know, I know... but it's debug only.
+    for (int i = p.x * chunkSizeByTiles; i < (p.x + 1) * chunkSizeByTiles; i++) {
+        for (int j = p.z * chunkSizeByTiles; j < (p.z + 1) * chunkSizeByTiles; j++) {
+            if (i % 6 == 2 and j % 6 == 2) {
+                s->push_back({ "chicken", Position(i, seaLevel, j) });
+            }
+        }
+    }
+    return *s;
+}
+

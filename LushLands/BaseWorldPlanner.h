@@ -2,6 +2,8 @@
 #include "Position.h"
 
 
+typedef std::vector < std::pair<entitytype, Position> > entitytypeset;
+
 class BaseWorldPlanner {
     /** 
     * Obiekty tej klasy odpowiedzialne s¹ za planowanie generowania œwiata gry.
@@ -9,7 +11,8 @@ class BaseWorldPlanner {
     * Planowanie œwiata musi odbywaæ siê w sposób deterministyczny. 
     */
 public:
-    virtual FieldPlan getFieldPlan(Position position) = 0;
     virtual int getSeaLevel() = 0;
-    ChunkPlan *getChunkPlan(ChunkPosition &chunkPosition);
+    virtual entitytype getGround(TilePosition &p) = 0;
+    virtual entitytype getStructure(TilePosition &p) = 0;
+    virtual entitytypeset getAnimals(ChunkPosition &p) = 0;
 };

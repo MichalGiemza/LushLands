@@ -37,14 +37,6 @@ typedef const char *updatetype;
 typedef const char *name;
 typedef const char *gendertype;
 
-struct FieldPlan {
-    entitytype ground = 0;
-    entitytype structure = 0;
-    entitytype animal = 0;
-    entitytype item = 0;
-    stack itemAmount = 0;
-};
-
 struct ItemDropChance {
     entitytype item;
     int chanceGuaranteed;
@@ -55,10 +47,6 @@ struct ItemDropChance {
 struct EntityDrops {
     int n;
     ItemDropChance *dropChances;
-};
-
-struct ChunkPlan { // TODO: Zrobiæ z tego generator, takie jedno coœ mo¿e zajmowaæ chyba ok. 1.5MB miejsca.
-    FieldPlan fieldPlans[chunkSizeByTiles][chunkSizeByTiles][worldHeight]; // [X][Z][Y]
 };
 
 struct TextureLocalization {

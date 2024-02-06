@@ -10,5 +10,7 @@ class FlatlandWorldPlanner : public BaseWorldPlanner {
 public:
     FlatlandWorldPlanner(int seed);
     int getSeaLevel();
-    FieldPlan getFieldPlan(Position position);
+    virtual entitytype getGround(TilePosition &p) override;
+    virtual entitytype getStructure(TilePosition &p) override;
+    virtual entitytypeset getAnimals(ChunkPosition &p) override;
 };

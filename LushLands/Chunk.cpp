@@ -1,6 +1,6 @@
 #include "Chunk.h"
 
-void Chunk::generateTiles(ChunkPlan &chunkPlan) {
+void Chunk::generateTiles() {
     auto referencePosition = Position(chunkPosition);
     auto pos = Position(referencePosition);
 
@@ -10,8 +10,9 @@ void Chunk::generateTiles(ChunkPlan &chunkPlan) {
                 pos.setX(referencePosition.getX() + i);
                 pos.setZ(referencePosition.getZ() + j);
                 pos.setY(referencePosition.getY() + k);
-                auto plannedEntityType = chunkPlan.fieldPlans[i][j][k].ground;
-                Ground *ground = (Ground *)entityFactory->buildEntity(plannedEntityType, pos, false);
+                TilePosition tp = pos.getTilePosition();
+                entitytype plannedEntityType = chunkGen->getGround(tp);
+                Ground *ground = (Ground *)entityFactory->buildEntity(plannedEntityType, pos, true);
                 if (ground == 0)
                     continue;
                 chunkUpdater.registerEntity(ground);
@@ -21,7 +22,7 @@ void Chunk::generateTiles(ChunkPlan &chunkPlan) {
     }
 }
 
-void Chunk::generateStructures(ChunkPlan &chunkPlan) {
+void Chunk::generateStructures() {
     auto referencePosition = Position(chunkPosition);
     auto pos = Position(referencePosition);
 
@@ -31,7 +32,8 @@ void Chunk::generateStructures(ChunkPlan &chunkPlan) {
                 pos.setX(referencePosition.getX() + i);
                 pos.setZ(referencePosition.getZ() + j);
                 pos.setY(referencePosition.getY() + k);
-                auto plannedEntityType = chunkPlan.fieldPlans[i][j][k].structure;
+                TilePosition tp = pos.getTilePosition();
+                auto plannedEntityType = chunkGen->getStructure(tp);
                 auto structure = addStructure(plannedEntityType, pos);
                 if (structure == 0)
                     continue;
@@ -41,6 +43,40 @@ void Chunk::generateStructures(ChunkPlan &chunkPlan) {
         }
     }
 }
+
+void Chunk::generateAnimals() {
+    auto plannedAnimals = chunkGen->getAnimals(chunkPosition);
+    for (auto &pa : plannedAnimals) {
+        auto plannedEntityType = pa.first;
+        Animal *animal = addAnimal(plannedEntityType, pa.second);
+        if (animal == 0)
+            continue;
+        ce.animals.insert(animal);
+        chunkUpdater.registerEntity(animal);
+    }
+}
+
+//void Chunk::generateItems() {
+//    auto referencePosition = Position(chunkPosition);
+//    auto pos = Position(referencePosition);
+//
+//    for (int i = 0; i < chunkSizeByTiles; i++) {
+//        for (int j = 0; j < chunkSizeByTiles; j++) {
+//            for (int k = 0; k < worldHeight; k++) {
+//                pos.setPX(referencePosition.getPX() + i * meter + meter / 2);
+//                pos.setPZ(referencePosition.getPZ() + j * meter + meter / 2);
+//                pos.setPY(referencePosition.getPY() + k * meter);
+//                auto plannedEntityType = chunkPlan.fieldPlans[i][j][k].item;
+//                auto plannedItemAmount = chunkPlan.fieldPlans[i][j][k].itemAmount;
+//                if (not plannedEntityType)
+//                    continue;
+//                Item *item = itemFactory->buildItem(plannedEntityType, plannedItemAmount, &pos);
+//                item->getPosition()->updatePosition(pos);
+//                ce.items.insert(item);
+//            }
+//        }
+//    }
+//}
 
 Structure *Chunk::addStructure(entitytype entityType, Position &position) {
     Structure *structure = (Structure *)entityFactory->buildEntity(entityType, position, false);
@@ -63,49 +99,6 @@ Entity *Chunk::rmStructure(Entity *entity) {
         entity = 0;
     }
     return entity;
-}
-
-void Chunk::generateAnimals(ChunkPlan &chunkPlan) {
-    auto referencePosition = Position(chunkPosition);
-    auto pos = Position(referencePosition);
-
-    for (int i = 0; i < chunkSizeByTiles; i++) {
-        for (int j = 0; j < chunkSizeByTiles; j++) {
-            for (int k = 0; k < worldHeight; k++) {
-                pos.setX(referencePosition.getX() + i);
-                pos.setZ(referencePosition.getZ() + j);
-                pos.setY(referencePosition.getY() + k);
-                auto plannedEntityType = chunkPlan.fieldPlans[i][j][k].animal;
-                Animal *animal = addAnimal(plannedEntityType, pos);
-                if (animal == 0)
-                    continue;
-                ce.animals.insert(animal);
-                chunkUpdater.registerEntity(animal);
-            }
-        }
-    }
-}
-
-void Chunk::generateItems(ChunkPlan &chunkPlan) {
-    auto referencePosition = Position(chunkPosition);
-    auto pos = Position(referencePosition);
-
-    for (int i = 0; i < chunkSizeByTiles; i++) {
-        for (int j = 0; j < chunkSizeByTiles; j++) {
-            for (int k = 0; k < worldHeight; k++) {
-                pos.setPX(referencePosition.getPX() + i * meter + meter / 2);
-                pos.setPZ(referencePosition.getPZ() + j * meter + meter / 2);
-                pos.setPY(referencePosition.getPY() + k * meter);
-                auto plannedEntityType = chunkPlan.fieldPlans[i][j][k].item;
-                auto plannedItemAmount = chunkPlan.fieldPlans[i][j][k].itemAmount;
-                if (not plannedEntityType)
-                    continue;
-                Item *item = itemFactory->buildItem(plannedEntityType, plannedItemAmount, &pos);
-                item->getPosition()->updatePosition(pos);
-                ce.items.insert(item);
-            }
-        }
-    }
 }
 
 Animal *Chunk::addAnimal(entitytype entityType, Position &position) {
@@ -179,13 +172,14 @@ void Chunk::removeEntity(Entity *entity) {
     entity = rmGround(entity);
 }
 
-Chunk::Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory, ItemFactory *itemFactory, InputEvents *inputEvents) :
-    collisionManager(), itemFactory(itemFactory), entityFactory(entityFactory), chunkPosition(chunkPosition), inputEvents(inputEvents), chunkUpdater(inputEvents) {
+Chunk::Chunk(ChunkPosition chunkPosition, ChunkGenerator *chunkGen, EntityFactory *entityFactory, ItemFactory *itemFactory, InputEvents *inputEvents) :
+    collisionManager(), itemFactory(itemFactory), entityFactory(entityFactory), chunkPosition(chunkPosition), inputEvents(inputEvents), 
+    chunkUpdater(inputEvents), chunkGen(chunkGen) {
     // Entities and Items
-    generateTiles(chunkPlan);
-    generateStructures(chunkPlan);
-    generateAnimals(chunkPlan);
-    generateItems(chunkPlan);
+    generateTiles();
+    generateStructures();
+    generateAnimals();
+    //generateItems();
 
     Logger::log(lg::DEBUG_CHUNK, "Created Chunk [%i, %i]", chunkPosition.x, chunkPosition.z);
 }
@@ -270,3 +264,17 @@ void Chunk::handleItemCollection() {
         ce.items.insert(l);
 }
 
+json Chunk::serialize() {
+    json sd;
+    sd[js::CHUNK_POSITION_N] = {
+        { "X", chunkPosition.x },
+        { "Y", chunkPosition.z },
+    };
+    sd[js::CHUNK_ELEMENTS_N] = ce.serialize();
+    //TODO: Czy to ju¿ wszystko?
+    return sd;
+}
+
+void Chunk::deserialize(json data) {
+    // TODO
+}

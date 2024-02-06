@@ -6,8 +6,6 @@ World::World(worldtype worldType, int seed_, EntityFactory *entityFactory, ItemF
     
     if (worldType == FLATLAND) // TODO: Coœ lepszego ni¿ ify? Mo¿e jakaœ mapa w czymœ zewnêtrznym
         this->worldPlanner = new FlatlandWorldPlanner(seed_);
-    if (worldType == CHICKEN_BOX) // TODO: Coœ lepszego ni¿ ify? Mo¿e jakaœ mapa w czymœ zewnêtrznym
-        this->worldPlanner = new ChickenBoxWorldPlanner(seed_);
     if (this->worldPlanner == 0)
         throw new std::logic_error(not_implemented);
     

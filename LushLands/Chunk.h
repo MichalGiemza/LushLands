@@ -8,9 +8,11 @@
 #include "Animal.h"
 #include "ChunkElements.h"
 #include "ChunkUpdater.h"
+#include "Position.h"
+#include "ChunkGeneator.h"
 
 
-class Chunk {
+class Chunk : Serializable {
     /**
     * Klasa implementuj¹ca chunki. Obiekty tej klasy reprezentuj¹ równej wielkoœci obszary œwiata.
     * 
@@ -25,11 +27,12 @@ private:
     InputEvents *inputEvents;
     CollisionManager collisionManager;
     ChunkUpdater chunkUpdater;
+    ChunkGenerator *chunkGen;
 private:
-    void generateTiles(ChunkPlan &chunkPlan);
-    void generateStructures(ChunkPlan &chunkPlan);
-    void generateAnimals(ChunkPlan &chunkPlan);
-    void generateItems(ChunkPlan &chunkPlan);
+    void generateTiles();
+    void generateStructures();
+    void generateAnimals();
+    //void generateItems();
     Structure *addStructure(entitytype entityType, Position &position);
     Entity *rmStructure(Entity *entity);
     Animal *addAnimal(entitytype entityType, Position &position);
@@ -37,7 +40,7 @@ private:
     Entity *rmHumanoid(Entity *entity);
     Entity *rmGround(Entity *entity);
 public:
-    Chunk(ChunkPosition chunkPosition, ChunkPlan &chunkPlan, EntityFactory *entityFactory, ItemFactory *itemFactory, InputEvents *inputEvents);
+    Chunk(ChunkPosition chunkPosition, ChunkGenerator *chunkGen, EntityFactory *entityFactory, ItemFactory *itemFactory, InputEvents *inputEvents);
     void placeHumanoid(Humanoid *humanoid);
     void placeItem(Item *item);
     void removeEntity(Entity *entity);
@@ -49,5 +52,7 @@ public:
     ChunkPosition *getChunkPosition();
     int entitiesLoadedCount();
     void handleItemCollection();
+    json serialize() override;
+    void deserialize(json data) override;
 };
 

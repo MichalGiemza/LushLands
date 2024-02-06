@@ -1,6 +1,7 @@
 #pragma once
 #include "Chunk.h"
 #include "BaseWorldPlanner.h"
+#include "ChunkGeneator.h"
 
 
 class ChunkLoadManager {
