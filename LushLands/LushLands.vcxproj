@@ -293,10 +293,12 @@
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="LushLands.cpp" />
+    <ClCompile Include="MenuActionListeners.cpp" />
     <ClCompile Include="Mobility.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="NameGenerator.cpp" />
     <ClCompile Include="NumTools.cpp" />
+    <ClCompile Include="PauseMenu.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="RandomWalk.cpp" />
@@ -465,10 +467,12 @@
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="LushLands.h" />
+    <ClInclude Include="MenuActionListeners.h" />
     <ClInclude Include="Mobility.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="NameGenerator.h" />
     <ClInclude Include="NumTools.h" />
+    <ClInclude Include="PauseMenu.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="PositionStructures.h" />

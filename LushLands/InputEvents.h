@@ -51,8 +51,8 @@ public:
     void subscribeTimerTPS(tickperiod tp, eventfn fun, void *caller);
     void subscribeTimerFPS(tickperiod tp, eventfn fun, void *caller);
     void subscribeSystemEvent(systemevent se, eventfn fun, void *caller);
-    // World Events
-    
+    // Emiting Events
     ALLEGRO_EVENT_SOURCE *getEventSource();
+    void emitEvent(systemevent se, intptr_t data1 = 0, intptr_t data2 = 0, intptr_t data3 = 0, intptr_t data4 = 0);
 };
 

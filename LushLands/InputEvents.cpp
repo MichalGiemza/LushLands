@@ -184,3 +184,13 @@ ALLEGRO_EVENT_SOURCE *InputEvents::getEventSource() {
     return userEventSource;
 }
 
+void InputEvents::emitEvent(systemevent se, intptr_t data1, intptr_t data2, intptr_t data3, intptr_t data4) {
+    ALLEGRO_EVENT *ae = new ALLEGRO_EVENT {};
+    ae->user.type = se;
+    ae->user.data1 = data1;
+    ae->user.data1 = data2;
+    ae->user.data1 = data3;
+    ae->user.data1 = data4;
+    al_emit_user_event(getEventSource(), ae, 0);
+}
+

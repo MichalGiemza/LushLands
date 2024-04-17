@@ -11,6 +11,7 @@
 #include "Agui/InventoryDisplay.h"
 #include "Agui/Base/Colors.h"
 #include "Console.h"
+#include <PauseMenu.h>
 
 
 class Scene {
@@ -31,6 +32,7 @@ class Scene {
     CraftingDisplay *craftingDisplay;
     agui::Hotbar *hotbar;
     agui::WindowManager *windowManager;
+    PauseMenu *pauseMenu;
     
     bool invOpen = false;
     bool mapOpen = false;
@@ -39,6 +41,7 @@ class Scene {
     bool qstOpen = false;
     bool bldOpen = false;
     bool dbgOpen = true;
+    bool pmnOpen = false;
 
     void drawChunkGround(ChunkRepresentation &chunkRepresentation, int level);
 public:

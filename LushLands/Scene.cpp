@@ -15,6 +15,8 @@ Scene::Scene(scenename sceneName, Core *core, Controller *controller, Simulation
     windowManager->addWindow(craftingDisplay);
     hotbar = new agui::Hotbar(core, player->getInventory(), player, inputEvents);
     windowManager->addWindow(hotbar);
+    pauseMenu = new PauseMenu(core, inputEvents);
+    windowManager->addWindow(pauseMenu);
     // Player tracking
     camera.setFollowedPosition((Position *)((Humanoid *)player->getEntity())->getPosition(), (Size *)((Humanoid *)player->getEntity())->getSize());
     // Event subscriptions
@@ -27,6 +29,7 @@ Scene::Scene(scenename sceneName, Core *core, Controller *controller, Simulation
     inputEvents->subscribeSystemEvent(user_open_quests, handleAction, this);
     inputEvents->subscribeSystemEvent(user_open_build_menu, handleAction, this);
     inputEvents->subscribeSystemEvent(user_debug_view, handleAction, this);
+    inputEvents->subscribeSystemEvent(user_open_pause_menu, handleAction, this);
 }
 
 FieldCursor *Scene::getFieldCursor() {
@@ -123,6 +126,10 @@ void handleAction(ALLEGRO_EVENT *ae, void *scene) {
         // TODO
         break;
     }
+    case user_open_pause_menu:
+        s->pmnOpen ^= true;
+        // Pause Menu
+        s->pauseMenu->setVisibility(s->pmnOpen);
     default:
         break;
     }

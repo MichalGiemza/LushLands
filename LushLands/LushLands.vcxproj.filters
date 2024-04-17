@@ -457,8 +457,18 @@
     <ClCompile Include="GeneratorUUID.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ChunkElements.cpp" />
-    <ClCompile Include="ChunkGeneator.cpp" />
+    <ClCompile Include="ChunkGeneator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChunkElements.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuActionListeners.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -794,9 +804,6 @@
     <ClInclude Include="Agui\Input.hpp">
       <Filter>Header Files\View\Agui</Filter>
     </ClInclude>
-    <ClInclude Include="Agui\InventoryDisplay.h">
-      <Filter>Header Files\View\Agui</Filter>
-    </ClInclude>
     <ClInclude Include="Agui\InventorySlot.hpp">
       <Filter>Header Files\View\Agui</Filter>
     </ClInclude>
@@ -983,6 +990,15 @@
     <ClInclude Include="ChunkGeneator.h">
       <Filter>Header Files\Simulation\World\WorldPlanners</Filter>
     </ClInclude>
+    <ClInclude Include="Agui\InventoryDisplay.h">
+      <Filter>Header Files\View\UI\Concrete</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseMenu.h">
+      <Filter>Header Files\View\UI\Concrete\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuActionListeners.h">
+      <Filter>Header Files\View\UI\Concrete\Menu</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
@@ -1077,6 +1093,9 @@
     </Filter>
     <Filter Include="Header Files\Core\Base">
       <UniqueIdentifier>{04ff86c4-1321-482d-b50e-d4cbf0e4a45b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View\UI\Concrete\Menu">
+      <UniqueIdentifier>{10764645-65ff-4f5a-ab64-1d032558750c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
